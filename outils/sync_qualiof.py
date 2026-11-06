@@ -119,6 +119,8 @@ def main():
     except Invalide as e:
         etat = f'{SORTIE.relative_to(RACINE)} conservé' if SORTIE.exists() else f'pas de {SORTIE.relative_to(RACINE)}, le site garde son catalogue intégré'
         print(f'sync-qualiof : ÉCHEC, {e}. {etat}.', file=sys.stderr)
+        if os.environ.get('GITHUB_ACTIONS'):   # visible dans le résumé du run, qui reste vert
+            print(f'::warning title=sync-qualiof::{e}. {etat}.')
         return 0
     texte = json.dumps(donnees, ensure_ascii=False, indent=2, sort_keys=True) + '\n'
     SORTIE.parent.mkdir(exist_ok=True)

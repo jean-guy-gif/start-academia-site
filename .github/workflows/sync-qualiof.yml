@@ -1,0 +1,50 @@
+# Régénère le catalogue /formations/ et les chiffres de l'accueil depuis l'API publique de QualiOF.
+# Déclenché par QualiOF (repository_dispatch « qualiof-sync »), chaque nuit en filet, ou à la main.
+# Si rien n'a changé, aucun commit. Sinon, le commit sur main est déployé par Vercel.
+name: sync-qualiof
+
+on:
+  repository_dispatch:
+    types: [qualiof-sync]
+  schedule:
+    - cron: "40 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-qualiof
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Récupérer les données QualiOF
+        run: python3 outils/sync_qualiof.py
+
+      - name: Régénérer le site
+        run: python3 outils/build.py
+
+      - name: Commit et push si quelque chose a changé
+        env:
+          RAISON: ${{ github.event.client_payload.raison || github.event_name }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Aucun changement, rien à publier."
+            exit 0
+          fi
+          git status --short
+          git config user.name "qualiof-sync[bot]"
+          git config user.email "qualiof-sync[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "sync: catalogue et indicateurs QualiOF (raison: ${RAISON})"
+          git push || { git pull --rebase && git push; }
