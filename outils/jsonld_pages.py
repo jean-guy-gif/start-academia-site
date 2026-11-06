@@ -1,14 +1,12 @@
 """Données structurées des pages secondaires (catalogue, loi ALUR, coaching, mentions légales).
 À lancer après pages.py, formations.py et seo_pages.py."""
 import pathlib, json, re
+from formations import catalogue   # même liste que la page : QualiOF ou repli
 
 SITE = 'https://www.start-academia.fr'
 ORG = {"@id": f"{SITE}/#organisation"}
 RACINE = pathlib.Path(__file__).resolve().parents[1]
-src = (RACINE / 'outils' / 'formations.py').read_text()
-ns = {'__file__': str(RACINE / 'outils' / 'formations.py')}
-exec(src[:src.index('\ndef duree')], ns)
-F = ns['F']
+F, _ = catalogue()
 
 
 def base(chemin, nom, desc):
@@ -49,8 +47,8 @@ def desc_de(chemin):
 d = desc_de('formations/')
 liste = {"@type": "ItemList", "name": "Catalogue des formations Start Academia", "numberOfItems": len(F),
          "itemListElement": [
-             {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/formations/#{f[1]}",
-              "item": cours(f[2], (f[6][0] if f[6] else f[2]), f[3])} for i, f in enumerate(F)]}
+             {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/formations/#{f['id']}",
+              "item": cours(f['titre'], (f['obj'][0] if f['obj'] else f['titre']), f['heures'])} for i, f in enumerate(F)]}
 for el in liste["itemListElement"]:
     el["item"]["url"] = el.pop("url")
 injecter('formations/', base('formations/', 'Catalogue des formations', d) + [liste])

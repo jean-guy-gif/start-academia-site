@@ -429,6 +429,13 @@ p { text-wrap: pretty; }
 .fiche dl div { padding: 8px 0; border-top: 1px solid rgb(16 21 58 / .08); font-size: .9375rem; }
 .fiche dt { font: .8125rem var(--mono); color: var(--bleu); }
 .fiche dd { color: var(--gris); }
+/* Fiches issues de QualiOF : indicateurs sous le titre, programme détaillé */
+.fiche .indicateurs { display: block; margin-top: 6px; font: .8125rem/1.4 var(--mono); color: var(--gris); }
+.fiche .titre-programme { margin-top: 22px; }
+.fiche .programme { color: var(--gris); font-size: .9375rem; }
+.fiche .programme h5 { font: 500 .9375rem/1.4 var(--texte); color: var(--encre); margin: 16px 0 6px; }
+.fiche .programme p { margin-bottom: 10px; }
+.fiche .programme ol { padding-left: 18px; }
 @media (max-width: 1000px) {
   .catalogue, .fiche .detail { grid-template-columns: 1fr; }
   .famille-tete { grid-template-columns: 1fr; }
