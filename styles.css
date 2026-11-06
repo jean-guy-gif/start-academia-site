@@ -436,6 +436,8 @@ p { text-wrap: pretty; }
 .fiche .programme h5 { font: 500 .9375rem/1.4 var(--texte); color: var(--encre); margin: 16px 0 6px; }
 .fiche .programme p { margin-bottom: 10px; }
 .fiche .programme ol { padding-left: 18px; }
+/* Chiffres de l'accueil masqués par outils/chiffres.py quand QualiOF n'a pas de valeur */
+[data-qualiof][hidden], [data-qualiof-bloc][hidden] { display: none !important; }
 @media (max-width: 1000px) {
   .catalogue, .fiche .detail { grid-template-columns: 1fr; }
   .famille-tete { grid-template-columns: 1fr; }
