@@ -1,13 +1,12 @@
 """Données structurées des pages secondaires (catalogue, loi ALUR, coaching, mentions légales).
 À lancer après pages.py, formations.py et seo_pages.py."""
 import pathlib, json, re
+from formations import catalogue   # même liste que la page : QualiOF ou repli
 
 SITE = 'https://www.start-academia.fr'
 ORG = {"@id": f"{SITE}/#organisation"}
-src = pathlib.Path('/home/claude/outils/formations.py').read_text()
-ns = {}
-exec(src[:src.index('\ndef duree')], ns)
-F = ns['F']
+RACINE = pathlib.Path(__file__).resolve().parents[1]
+F, _ = catalogue()
 
 
 def base(chemin, nom, desc):
@@ -31,7 +30,7 @@ def cours(nom, desc, heures=None):
 
 
 def injecter(chemin, graph):
-    p = pathlib.Path(f'/home/claude/site3/{chemin}index.html')
+    p = RACINE / chemin / 'index.html'
     t = p.read_text()
     t = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', '', t, flags=re.S)
     bloc = '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + '</script>'
@@ -40,7 +39,7 @@ def injecter(chemin, graph):
 
 
 def desc_de(chemin):
-    t = pathlib.Path(f'/home/claude/site3/{chemin}index.html').read_text()
+    t = (RACINE / chemin / 'index.html').read_text()
     return re.search(r'<meta name="description" content="([^"]*)"', t).group(1)
 
 
@@ -48,8 +47,8 @@ def desc_de(chemin):
 d = desc_de('formations/')
 liste = {"@type": "ItemList", "name": "Catalogue des formations Start Academia", "numberOfItems": len(F),
          "itemListElement": [
-             {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/formations/#{f[1]}",
-              "item": cours(f[2], (f[6][0] if f[6] else f[2]), f[3])} for i, f in enumerate(F)]}
+             {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/formations/#{f['id']}",
+              "item": cours(f['titre'], (f['obj'][0] if f['obj'] else f['titre']), f['heures'])} for i, f in enumerate(F)]}
 for el in liste["itemListElement"]:
     el["item"]["url"] = el.pop("url")
 injecter('formations/', base('formations/', 'Catalogue des formations', d) + [liste])

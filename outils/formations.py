@@ -1,9 +1,18 @@
 """Génère /formations/ : le catalogue des formations réalisées (indicateur 1 Qualiopi).
-Source : start-academy.fr/nos-formations (extraction du 05/11/2026), nettoyée.
-AV = objectifs rédigés par Claude à partir du titre : à valider par le formateur."""
-import re, pathlib, html as h
-src = pathlib.Path('/home/claude/outils/pages.py').read_text()
-exec(src[:src.index("\npage('")])          # récupère page(), entete, pied, CAL...
+
+Source principale : data/qualiof.json (écrit par sync_qualiof.py). Seuls les programmes qui ont
+au moins un apprenant formé sont affichés (décision du 06/11/2026), avec leurs indicateurs.
+Catégories et ancres : qualiof_mapping.py.
+
+Repli, si data/qualiof.json est absent ou illisible : la liste F ci-dessous, rendue comme avant
+(start-academy.fr/nos-formations, extraction du 05/11/2026). Elle n'est jamais fusionnée avec QualiOF.
+AV = objectifs rédigés par Claude à partir du titre : à valider par le formateur (repli seulement)."""
+import re, sys, json, pathlib, unicodedata, html as h
+OUTILS = pathlib.Path(__file__).resolve().parent
+sys.path.insert(0, str(OUTILS))
+from qualiof_mapping import THEME_VERS_CATEGORIE, CODE_VERS_SLUG_SITE, CODE_VERS_CATEGORIE
+src = (OUTILS / 'pages.py').read_text()
+exec(src[:src.index("\npage('")])          # récupère racine, page(), entete, pied, CAL...
 
 AV = True
 # (catégorie, image, alt, phrase d'intro)
@@ -29,6 +38,9 @@ CATS = [
  ('mindset', 'Posture et performance', 'formation.webp',
   "Une salle de formation en agence pendant une session.",
   'Préparation mentale, objectifs et méthode pour tenir dans la durée.'),
+ ('autres', 'Autres formations', 'formation.webp',      # affichée seulement si elle contient une fiche
+  "Une salle de formation en agence pendant une session.",
+  'Réglementation, langues et autres formations dispensées à nos apprenants.'),
 ]
 C = 'Conseillers immobiliers et responsables d’agence'
 D = 'Directeurs et responsables d’agence'
@@ -116,12 +128,144 @@ F = [
   ['Organiser sa semaine de nouveau conseiller','Maîtriser les premiers gestes : prospection, estimation, mandat','Se fixer un plan d’action pour ses trois premiers mois'],AV),
 ]
 
+QUALIOF = racine / 'data' / 'qualiof.json'
+NOMS_CATS = {c[0] for c in CATS}
+
+
 def duree(hh):
+    if hh != int(hh):
+        return f'{hh:g}'.replace('.', ',') + ' h'
+    hh = int(hh)
     j = {7: ' (1 jour)', 14: ' (2 jours)'}.get(hh, '')
     return f'{hh} h{j}'
 
-nav = ''.join(f'<li><a href="#{c[0]}">{c[1]} <span>{sum(1 for f in F if f[0]==c[0])}</span></a></li>' for c in CATS)
-corps = f'''  <div class="catalogue">
+
+def cle(s):
+    s = unicodedata.normalize('NFKD', s or '').encode('ascii', 'ignore').decode()
+    return ' '.join(s.lower().split())
+
+
+THEMES = {cle(k): v for k, v in THEME_VERS_CATEGORIE.items()}
+CAT_DU_SLUG = {f[1]: f[0] for f in F}
+
+
+def categorie(p):
+    c = (CODE_VERS_CATEGORIE.get(p['code']) or THEMES.get(cle(p.get('theme')))
+         or CAT_DU_SLUG.get(CODE_VERS_SLUG_SITE.get(p['code'])) or 'autres')
+    if c not in NOMS_CATS:
+        print(f'formations : catégorie inconnue {c!r} pour {p["code"]}, classé dans autres', file=sys.stderr)
+        c = 'autres'
+    return c
+
+
+def en_ligne(md):
+    """**gras** et *italique* sur un texte déjà échappé."""
+    md = re.sub(r'\*\*(\S(?:.*?\S)?)\*\*', r'<strong>\1</strong>', md)
+    return re.sub(r'(?<![\w*])\*(\S(?:.*?\S)?)\*(?![\w*])', r'<em>\1</em>', md)
+
+
+def markdown(md):
+    """Markdown simple de QualiOF -> HTML : titres, listes à puces ou numérotées, paragraphes."""
+    out, para, liste = [], [], None
+
+    def fermer():
+        nonlocal liste
+        if para:
+            out.append('<p>' + '<br>'.join(para) + '</p>'); para.clear()
+        if liste:
+            out.append(f'</{liste}>'); liste = None
+
+    for brut in (md or '').replace('\r', '').split('\n'):
+        l = brut.strip()
+        m_t = re.match(r'#{1,6}\s+(.*)', l)
+        m_ul = re.match(r'[-*•]\s+(.*)', l)
+        m_ol = re.match(r'\d+[.)]\s+(.*)', l)
+        if not l:
+            fermer()
+        elif m_t:
+            fermer(); out.append(f'<h5>{en_ligne(h.escape(m_t.group(1).rstrip("# ")))}</h5>')
+        elif m_ul or m_ol:
+            if para:
+                out.append('<p>' + '<br>'.join(para) + '</p>'); para.clear()
+            balise = 'ul' if m_ul else 'ol'
+            if liste != balise:
+                if liste:
+                    out.append(f'</{liste}>')
+                out.append(f'<{balise}>'); liste = balise
+            out.append(f'<li>{en_ligne(h.escape((m_ul or m_ol).group(1)))}</li>')
+        else:
+            if liste:
+                out.append(f'</{liste}>'); liste = None
+            para.append(en_ligne(h.escape(l.lstrip('> '))))
+    fermer()
+    return ''.join(out)
+
+
+def texte(s):
+    return '<br>'.join(h.escape(l.strip()) for l in (s or '').strip().split('\n') if l.strip())
+
+
+def ligne_indicateurs(ind):
+    """« 38 apprenants formés · 4,8/5 · 96 % recommandent (24 réponses) »."""
+    n = ind.get('apprenantsFormes') or 0
+    if not n:
+        return ''
+    s = 's' if n > 1 else ''
+    parts = [f'{n} apprenant{s} formé{s}']
+    sat = ind.get('satisfaction') or {}
+    if sat.get('note5') is None:
+        parts.append('Nouvelle formation')
+    else:
+        parts.append(f'{sat["note5"]:.1f}/5'.replace('.', ','))
+        if sat.get('tauxRecommandation') is not None:
+            parts.append(f'{round(sat["tauxRecommandation"])}&nbsp;% recommandent')
+        k = sat.get('nbReponses') or 0
+        if k:
+            parts[-1] += f' ({k} réponse{"s" if k > 1 else ""})'
+    return ' · '.join(parts)
+
+
+def depuis_qualiof(d):
+    fiches, vus = [], set()
+    for p in d['programmes']:
+        ind = p.get('indicateurs') or {}
+        if (ind.get('apprenantsFormes') or 0) <= 0:
+            continue                      # jamais dispensé : n'apparaît pas sur le site
+        ancre = CODE_VERS_SLUG_SITE.get(p['code']) or p.get('slug') or cle(p['code']).replace(' ', '-')
+        if ancre in vus or ancre in NOMS_CATS:
+            ancre = f'{ancre}-{cle(p["code"]).replace(" ", "-")}'
+        vus.add(ancre)
+        fiches.append({'cat': categorie(p), 'id': ancre, 'titre': p['titre'], 'heures': p['dureeHeures'],
+                       'public': texte(p.get('public')), 'prereq': texte(p.get('prerequis')) or 'Aucun',
+                       'obj': [o for o in p['objectifs'] if str(o).strip()], 'av': False,
+                       'programme': markdown(p.get('programme')), 'indicateurs': ligne_indicateurs(ind)})
+    return fiches
+
+
+def depuis_repli():
+    return [{'cat': cat, 'id': slug, 'titre': titre, 'heures': hh, 'public': h.escape(public),
+             'prereq': h.escape(prereq or 'Aucun'), 'obj': obj, 'av': av, 'programme': '', 'indicateurs': ''}
+            for cat, slug, titre, hh, public, prereq, obj, av in F]
+
+
+def catalogue():
+    """(fiches, source). Repli sur F si data/qualiof.json est absent, illisible ou sans formation dispensée."""
+    if QUALIOF.exists():
+        try:
+            fiches = depuis_qualiof(json.loads(QUALIOF.read_text(encoding='utf-8')))
+            if fiches:
+                return fiches, 'QualiOF'
+            print('formations : aucun programme QualiOF avec apprenants formés, repli sur le catalogue intégré', file=sys.stderr)
+        except (ValueError, KeyError, TypeError) as e:
+            print(f'formations : {QUALIOF.name} illisible ({e!r}), repli sur le catalogue intégré', file=sys.stderr)
+    return depuis_repli(), 'repli'
+
+
+def generer():
+    fiches_toutes, source = catalogue()
+    cats = [c for c in CATS if any(f['cat'] == c[0] for f in fiches_toutes)]
+    nav = ''.join(f'<li><a href="#{c[0]}">{c[1]} <span>{sum(1 for f in fiches_toutes if f["cat"] == c[0])}</span></a></li>' for c in cats)
+    corps = f'''  <div class="catalogue">
     <nav class="sommaire" aria-label="Catégories de formations"><ol>{nav}</ol></nav>
     <aside class="communs" aria-labelledby="titre-communs">
       <h2 id="titre-communs">Valable pour toutes les formations</h2>
@@ -137,23 +281,25 @@ corps = f'''  <div class="catalogue">
     </aside>
   </div>
 '''
-for slug_c, nom, img, alt, intro in CATS:
-    fiches = ''
-    for cat, slug, titre, hh, public, prereq, obj, av in [f for f in F if f[0] == slug_c]:
-        lis = ''.join(f'<li>{h.escape(o)}</li>' for o in obj)
-        fiches += f'''
-      <details class="fiche" id="{slug}"{' data-a-valider' if av else ''}>
-        <summary><span class="nom">{h.escape(titre)}</span><span class="duree">{duree(hh)}</span></summary>
+    for slug_c, nom, img, alt, intro in cats:
+        fiches = ''
+        for f in [f for f in fiches_toutes if f['cat'] == slug_c]:
+            lis = ''.join(f'<li>{h.escape(o)}</li>' for o in f['obj'])
+            indic = f'<span class="indicateurs">{f["indicateurs"]}</span>' if f['indicateurs'] else ''
+            prog = f'<h4 class="titre-programme">Programme</h4><div class="programme">{f["programme"]}</div>' if f['programme'] else ''
+            fiches += f'''
+      <details class="fiche" id="{f['id']}"{' data-a-valider' if f['av'] else ''}>
+        <summary><span class="nom">{h.escape(f['titre'])}{indic}</span><span class="duree">{duree(f['heures'])}</span></summary>
         <div class="detail">
-          <div><h4>Objectifs</h4><ul>{lis}</ul></div>
+          <div><h4>Objectifs</h4><ul>{lis}</ul>{prog}</div>
           <dl>
-            <div><dt>Public</dt><dd>{h.escape(public)}</dd></div>
-            <div><dt>Prérequis</dt><dd>{h.escape(prereq or 'Aucun')}</dd></div>
-            <div><dt>Durée</dt><dd>{duree(hh)}</dd></div>
+            <div><dt>Public</dt><dd>{f['public']}</dd></div>
+            <div><dt>Prérequis</dt><dd>{f['prereq']}</dd></div>
+            <div><dt>Durée</dt><dd>{duree(f['heures'])}</dd></div>
           </dl>
         </div>
       </details>'''
-    corps += f'''  <section class="famille" id="{slug_c}" aria-labelledby="t-{slug_c}">
+        corps += f'''  <section class="famille" id="{slug_c}" aria-labelledby="t-{slug_c}">
     <div class="famille-tete">
       <img src="/img/{img}" width="2000" height="1117" loading="lazy" alt="{h.escape(alt)}">
       <div><h2 id="t-{slug_c}">{nom}</h2><p>{intro}</p></div>
@@ -163,17 +309,21 @@ for slug_c, nom, img, alt, intro in CATS:
   </section>
 '''
 
-page('formations/',
- 'Catalogue des formations immobilier et IA | Start Academia',
- 'Toutes nos formations pour agents et agences immobilières : prospection, mandat, acheteur, IA, marketing, management. Objectifs, durées et modalités.',
- 'Nos formations.',
- f'{len(F)} formations construites sur les étapes de votre métier. Chacune peut être adaptée à votre agence et combinée dans un parcours sur mesure.',
- corps)
+    page('formations/',
+     'Catalogue des formations immobilier et IA | Start Academia',
+     'Toutes nos formations pour agents et agences immobilières : prospection, mandat, acheteur, IA, marketing, management. Objectifs, durées et modalités.',
+     'Nos formations.',
+     f'{len(fiches_toutes)} formations construites sur les étapes de votre métier. Chacune peut être adaptée à votre agence et combinée dans un parcours sur mesure.',
+     corps)
 
-# le wrapper .corps ajouté par page() ne doit pas s'appliquer ici
-p = pathlib.Path('/home/claude/site3/formations/index.html')
-t = p.read_text()
-t = re.sub(r'<div class="corps">(.*?)</div>(\n  </div>)', r'\1\2', t, flags=re.S) if '<div class="corps">' in t else t
-t = t.replace('<section class="clair texte-page">', '<section class="clair texte-page page-catalogue">')
-p.write_text(t)
-print(len(F), 'formations,', sum(1 for f in F if f[7]), 'à valider')
+    # le wrapper .corps ajouté par page() ne doit pas s'appliquer ici
+    p = racine / 'formations' / 'index.html'
+    t = p.read_text()
+    t = re.sub(r'<div class="corps">(.*?)</div>(\n  </div>)', r'\1\2', t, flags=re.S) if '<div class="corps">' in t else t
+    t = t.replace('<section class="clair texte-page">', '<section class="clair texte-page page-catalogue">')
+    p.write_text(t)
+    print(len(fiches_toutes), 'formations (source :', source + '),', sum(1 for f in fiches_toutes if f['av']), 'à valider')
+
+
+if __name__ == '__main__':
+    generer()
