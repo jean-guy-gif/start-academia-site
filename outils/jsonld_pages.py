@@ -4,8 +4,9 @@ import pathlib, json, re
 
 SITE = 'https://www.start-academia.fr'
 ORG = {"@id": f"{SITE}/#organisation"}
-src = pathlib.Path('/home/claude/outils/formations.py').read_text()
-ns = {}
+RACINE = pathlib.Path(__file__).resolve().parents[1]
+src = (RACINE / 'outils' / 'formations.py').read_text()
+ns = {'__file__': str(RACINE / 'outils' / 'formations.py')}
 exec(src[:src.index('\ndef duree')], ns)
 F = ns['F']
 
@@ -31,7 +32,7 @@ def cours(nom, desc, heures=None):
 
 
 def injecter(chemin, graph):
-    p = pathlib.Path(f'/home/claude/site3/{chemin}index.html')
+    p = RACINE / chemin / 'index.html'
     t = p.read_text()
     t = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', '', t, flags=re.S)
     bloc = '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + '</script>'
@@ -40,7 +41,7 @@ def injecter(chemin, graph):
 
 
 def desc_de(chemin):
-    t = pathlib.Path(f'/home/claude/site3/{chemin}index.html').read_text()
+    t = (RACINE / chemin / 'index.html').read_text()
     return re.search(r'<meta name="description" content="([^"]*)"', t).group(1)
 
 

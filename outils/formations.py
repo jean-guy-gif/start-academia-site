@@ -2,7 +2,7 @@
 Source : start-academy.fr/nos-formations (extraction du 05/11/2026), nettoyée.
 AV = objectifs rédigés par Claude à partir du titre : à valider par le formateur."""
 import re, pathlib, html as h
-src = pathlib.Path('/home/claude/outils/pages.py').read_text()
+src = (pathlib.Path(__file__).resolve().parent / 'pages.py').read_text()
 exec(src[:src.index("\npage('")])          # récupère page(), entete, pied, CAL...
 
 AV = True
@@ -171,7 +171,7 @@ page('formations/',
  corps)
 
 # le wrapper .corps ajouté par page() ne doit pas s'appliquer ici
-p = pathlib.Path('/home/claude/site3/formations/index.html')
+p = racine / 'formations' / 'index.html'
 t = p.read_text()
 t = re.sub(r'<div class="corps">(.*?)</div>(\n  </div>)', r'\1\2', t, flags=re.S) if '<div class="corps">' in t else t
 t = t.replace('<section class="clair texte-page">', '<section class="clair texte-page page-catalogue">')

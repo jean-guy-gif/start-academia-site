@@ -1,6 +1,6 @@
 """Génère les sous-pages du site à partir de l'en-tête et du pied de page de index.html."""
 import re, pathlib
-racine = pathlib.Path('/home/claude/site3')
+racine = pathlib.Path(__file__).resolve().parents[1]  # racine du dépôt
 idx = (racine / 'index.html').read_text()
 symboles = re.search(r'<svg width="0".*?</svg>', idx, re.S).group(0)
 entete = re.search(r'<header class="entete">.*?</header>', idx, re.S).group(0).replace('href="#', 'href="/#')

@@ -1,9 +1,9 @@
 """Pages SEO prioritaires (audit du 6 nov. 2026) : une page par recherche commerciale.
 Chaque page : H1 descriptif, programme, outils, public, financement, preuves, FAQ (+ données structurées)."""
 import pathlib, json, html as h, sys
-sys.path.insert(0, '/home/claude/outils')
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from simulateur_html import SIMULATEUR
-src = pathlib.Path('/home/claude/outils/pages.py').read_text()
+src = (pathlib.Path(__file__).resolve().parent / 'pages.py').read_text()
 exec(src[:src.index("\npage('")])
 
 SITE = 'https://www.start-academia.fr'
@@ -40,7 +40,7 @@ def jsonld(chemin, titre_page, desc, faq, cours=None):
 
 def ecrire(chemin, titre, desc, h1, intro, corps, faq, cours=None):
     page(chemin, titre, desc, h1, intro, corps + '\n' + faq_html(faq))
-    p = pathlib.Path(f'/home/claude/site3/{chemin}index.html')
+    p = racine / chemin / 'index.html'
     t = p.read_text()
     t = t.replace('</head>', jsonld(chemin, h.unescape(h1).rstrip('.'), desc, faq, cours) + '\n</head>', 1)
     p.write_text(t)
