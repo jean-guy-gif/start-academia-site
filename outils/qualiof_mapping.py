@@ -42,22 +42,24 @@ THEME_VERS_CATEGORIE = {
 
 # Code QualiOF -> slug d'une des 40 fiches de la liste F de formations.py, pour garder les URL et
 # ancres existantes. Première version obtenue le 06/11/2026 par rapprochement des titres
-# normalisés (sans accents ni durées) entre F et l'API : seul PROD-0003 est identique, les
-# autres sont des rapprochements plausibles à confirmer. Les autres programmes QualiOF n'ont pas
-# d'équivalent dans l'ancien catalogue.
+# normalisés (sans accents ni durées) entre F et l'API, puis vérifiée sur le contenu des fiches.
+# Les autres programmes QualiOF n'ont pas d'équivalent dans l'ancien catalogue.
 CODE_VERS_SLUG_SITE = {
     'PROD-0003': 'limmobilier-et-sa-prospection-efficace-devenir-incontournable-sur-son-secteur',
-    'PROD-0041': 'formation-logiciel-cadastre-com-level-1',  # À VÉRIFIER : « Cadastre Niveau 1 - Présentiel Collectif » / « Logiciel Cadastre.com, niveau 1 »
-    'PROD-0060': 'formation-logiciel-cadastre-com-level-2-pour-les-professionnels-confirmes',  # À VÉRIFIER : « Cadastre Niveau 2 - Présentiel collectif » / « Logiciel Cadastre.com, niveau 2 »
-    'PROD-0059': 'basic-vendeur',  # À VÉRIFIER : « Booster vendeur (8h) » / « Basic vendeur », titres différents
+    # Cadastre : même contenu, même public et mêmes prérequis que les anciennes fiches (vérifié le 06/11/2026)
+    'PROD-0041': 'formation-logiciel-cadastre-com-level-1',
+    'PROD-0060': 'formation-logiciel-cadastre-com-level-2-pour-les-professionnels-confirmes',
+    # PROD-0059 « Booster vendeur (8h) » n'est pas l'ancienne « Basic vendeur » : contenu différent
+    # (captation de vendeurs, leads) et prérequis de 10 mandats. Il garde le slug QualiOF.
 }
 
 # Code QualiOF -> catégorie, quand le thème QualiOF est vide ou ne convient pas. Proposition
-# faite d'après les titres le 06/11/2026, pour les programmes qui ont des apprenants formés :
-# à valider. Mieux : renseigner le thème dans QualiOF puis retirer la ligne d'ici.
+# faite d'après les titres et objectifs le 06/11/2026, pour les programmes qui ont des apprenants
+# formés (relue le 06/11/2026). Mieux : renseigner le thème dans QualiOF puis retirer la ligne d'ici.
 CODE_VERS_CATEGORIE = {
     'PROD-053': 'prospection',   # Cycle complet de prospection, relation client et négociation
     'PROD-055': 'vendeur',       # Maîtrise des techniques de vente immobilière
+    'PROD-0059': 'vendeur',      # Booster vendeur (8h) : captation de vendeurs et mandats exclusifs
     'PROD-0042': 'ia',           # L'IA au service des conseillers immobiliers (72h)
     'PROD-0044': 'ia',           # Vendez mieux avec l'IA
     'PROD-0057': 'ia',           # Intégrer l'IA pour gagner en productivité - 105h
