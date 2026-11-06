@@ -1,0 +1,148 @@
+{
+  "programmes": {
+    "version": "1",
+    "calculeLe": "2026-11-06T09:00:00.000Z",
+    "source": "QualiOF",
+    "organisme": {
+      "nom": "Start Academy",
+      "numeroDeclarationActivite": "93 06 10481 06",
+      "siret": "95131909400029",
+      "email": "contact@exemple.fr",
+      "telephone": "0600000000",
+      "referentHandicap": "Référent exemple"
+    },
+    "methodeIndicateurs": "Exemple. Apprenant formé = présent sur une session terminée (personnes distinctes). Satisfaction = questionnaires à chaud, échelle /5. Taux de recommandation = part des réponses « Oui ».",
+    "programmes": [
+      {
+        "code": "PROD-0042",
+        "slug": "l-intelligence-artificielle-au-service-des-conseillers-immobiliers-72h",
+        "titre": "L'intelligence artificielle au service des conseillers immobiliers (72h)",
+        "theme": "IA",
+        "dureeHeures": 72,
+        "modalite": { "code": "PRESENTIEL", "libelle": "Présentiel" },
+        "public": "Conseillers immobiliers, agents indépendants, managers d’agence",
+        "prerequis": "Aucune compétence technique préalable n’est nécessaire.",
+        "objectifs": [
+          "Comprendre le fonctionnement de l’IA générative et de ChatGPT.",
+          "Maîtriser la création de prompts personnalisés et performants.",
+          "Automatiser la prospection, la relation client et la production de contenus."
+        ],
+        "programme": "## Jour 1 : découverte de l'IA\n- Comprendre l’IA générative\n- Créer et paramétrer son compte **ChatGPT**\n\n## Jour 2 : l'art du prompt immobilier\n1. Principes d’un prompt efficace\n2. Atelier : rédiger 5 prompts personnalisés\n\nContact inscriptions : Prénom NOM — contact@exemple.fr — 06 00 00 00 00",
+        "modules": [
+          { "ordre": 1, "titre": "Découverte de l'IA", "dureeMin": 480 },
+          { "ordre": 2, "titre": "L'art du prompt immobilier", "dureeMin": 480 }
+        ],
+        "methodesPedagogiques": "Apports courts et mises en situation.",
+        "modalitesEvaluation": "QCM de fin de formation.",
+        "accessibilite": "Adaptations possibles, contacter le référent handicap.",
+        "conditionsAcces": null,
+        "profilFormateur": null,
+        "supportsPedagogiques": null,
+        "delaiAcces": "À partir de 11 jours ouvrés après contractualisation.",
+        "prixHT": 3024,
+        "capacite": { "min": 6, "max": 25 },
+        "misAJourLe": "2026-10-02T11:40:40.992Z",
+        "indicateurs": {
+          "apprenantsFormes": 38,
+          "inscriptions": 40,
+          "apprenantsEnCours": 0,
+          "sessionsRealisees": 5,
+          "heuresFormation": 360,
+          "heuresStagiaires": 2736,
+          "satisfaction": { "note5": 4.8, "tauxRecommandation": 96, "nbReponses": 24 }
+        }
+      },
+      {
+        "code": "PROD-0003",
+        "slug": "l-immobilier-et-sa-prospection-efficace-devenir-incontournable-sur-son-secteur",
+        "titre": "L’immobilier et sa prospection efficace : Devenir incontournable sur son secteur",
+        "theme": null,
+        "dureeHeures": 7,
+        "modalite": { "code": "MIXTE", "libelle": "Mixte" },
+        "public": "Conseillers immobiliers et responsables d’agence",
+        "prerequis": "",
+        "objectifs": [
+          "Connaître et choisir les méthodes de prospection immobilière",
+          "Créer et entretenir une base de données solide au quotidien"
+        ],
+        "programme": "",
+        "modules": [],
+        "methodesPedagogiques": "Mises en situation.",
+        "modalitesEvaluation": "Évaluation des acquis.",
+        "accessibilite": "Adaptations possibles.",
+        "conditionsAcces": null,
+        "profilFormateur": null,
+        "supportsPedagogiques": null,
+        "delaiAcces": "Selon le financeur.",
+        "prixHT": null,
+        "capacite": { "min": 1, "max": 12 },
+        "misAJourLe": "2026-09-15T08:00:00.000Z",
+        "indicateurs": {
+          "apprenantsFormes": 1,
+          "inscriptions": 1,
+          "apprenantsEnCours": 0,
+          "sessionsRealisees": 1,
+          "heuresFormation": 7,
+          "heuresStagiaires": 7,
+          "satisfaction": { "note5": null, "tauxRecommandation": null, "nbReponses": 0 }
+        }
+      },
+      {
+        "code": "FRM-0004",
+        "slug": "rentrer-plus-de-mandats-avec-l-ia-de-la-prospection-au-mandat-exclusif",
+        "titre": "Rentrer plus de mandats avec l'IA : de la prospection au mandat exclusif",
+        "theme": "Acquisition / IA",
+        "dureeHeures": 8,
+        "modalite": { "code": "DISTANCIEL", "libelle": "Distanciel" },
+        "public": "Conseillers immobiliers",
+        "prerequis": null,
+        "objectifs": ["Programme publié mais jamais dispensé : ne doit pas apparaître sur le site"],
+        "programme": "",
+        "modules": [],
+        "methodesPedagogiques": "",
+        "modalitesEvaluation": "",
+        "accessibilite": "",
+        "conditionsAcces": null,
+        "profilFormateur": null,
+        "supportsPedagogiques": null,
+        "delaiAcces": "",
+        "prixHT": 336,
+        "capacite": { "min": 1, "max": 12 },
+        "misAJourLe": "2026-11-01T10:00:00.000Z",
+        "indicateurs": {
+          "apprenantsFormes": 0,
+          "inscriptions": 0,
+          "apprenantsEnCours": 0,
+          "sessionsRealisees": 0,
+          "heuresFormation": 0,
+          "heuresStagiaires": 0,
+          "satisfaction": { "note5": null, "tauxRecommandation": null, "nbReponses": 0 }
+        }
+      }
+    ]
+  },
+  "indicateurs": {
+    "version": "1",
+    "source": "QualiOF",
+    "calculeLe": "2026-11-06T09:00:00.000Z",
+    "methode": "Exemple, voir methodeIndicateurs.",
+    "total": {
+      "apprenantsFormes": 39,
+      "inscriptions": 41,
+      "apprenantsEnCours": 0,
+      "sessionsRealisees": 6,
+      "heuresFormation": 367,
+      "heuresStagiaires": 2743,
+      "satisfaction": { "note5": 4.8, "tauxRecommandation": 96, "nbReponses": 24 }
+    },
+    "parProgramme": [
+      { "code": "PROD-0042", "titre": "L'intelligence artificielle au service des conseillers immobiliers (72h)", "apprenantsFormes": 38, "inscriptions": 40, "apprenantsEnCours": 0, "sessionsRealisees": 5, "heuresFormation": 360, "heuresStagiaires": 2736, "satisfaction": { "note5": 4.8, "tauxRecommandation": 96, "nbReponses": 24 } },
+      { "code": "PROD-0003", "titre": "L’immobilier et sa prospection efficace : Devenir incontournable sur son secteur", "apprenantsFormes": 1, "inscriptions": 1, "apprenantsEnCours": 0, "sessionsRealisees": 1, "heuresFormation": 7, "heuresStagiaires": 7, "satisfaction": { "note5": null, "tauxRecommandation": null, "nbReponses": 0 } },
+      { "code": "FRM-0004", "titre": "Rentrer plus de mandats avec l'IA : de la prospection au mandat exclusif", "apprenantsFormes": 0, "inscriptions": 0, "apprenantsEnCours": 0, "sessionsRealisees": 0, "heuresFormation": 0, "heuresStagiaires": 0, "satisfaction": { "note5": null, "tauxRecommandation": null, "nbReponses": 0 } }
+    ],
+    "parAnnee": [
+      { "annee": 2026, "apprenantsFormes": 25, "inscriptions": 26, "apprenantsEnCours": 0, "sessionsRealisees": 4, "heuresFormation": 223, "heuresStagiaires": 1735, "satisfaction": { "note5": 4.8, "tauxRecommandation": 96, "nbReponses": 16 } },
+      { "annee": 2025, "apprenantsFormes": 14, "inscriptions": 15, "apprenantsEnCours": 0, "sessionsRealisees": 2, "heuresFormation": 144, "heuresStagiaires": 1008, "satisfaction": { "note5": 4.9, "tauxRecommandation": 100, "nbReponses": 8 } }
+    ]
+  }
+}
