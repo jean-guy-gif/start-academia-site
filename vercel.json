@@ -1,0 +1,370 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/:path((?!google[0-9a-f]+\\.html$).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(start-academy\\.fr|www\\.start-academy\\.fr|start-academia\\.fr|startacademia\\.fr|www\\.startacademia\\.fr|start-academia\\.com|www\\.start-academia\\.com)$"
+        }
+      ],
+      "destination": "https://www.start-academia.fr/:path",
+      "permanent": true
+    },
+    {
+      "source": "/a-propos/",
+      "destination": "/#equipe",
+      "permanent": true
+    },
+    {
+      "source": "/nos-formateurs/",
+      "destination": "/#equipe",
+      "permanent": true
+    },
+    {
+      "source": "/formateurs/",
+      "destination": "/#equipe",
+      "permanent": true
+    },
+    {
+      "source": "/profil/",
+      "destination": "/#equipe",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/#questions",
+      "permanent": true
+    },
+    {
+      "source": "/opco-financement-formation-quel-budget-pour-mon-entreprise/",
+      "destination": "/financement-formation-immobilier/",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/#rdv",
+      "permanent": true
+    },
+    {
+      "source": "/demande-dinformations-sur-nos-formations/",
+      "destination": "/#rdv",
+      "permanent": true
+    },
+    {
+      "source": "/catalogue-formation-immobiliere/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/consultez-catalogue-formation-immobiliere/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/trouvez-la-formation-dans-limmobilier-quil-vous-faut/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/choisir-ma-formation/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/nos-formations/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/catalogue-formations-nestenn/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/conditions-generales-de-vente/",
+      "destination": "/mentions-legales/",
+      "permanent": true
+    },
+    {
+      "source": "/conditions-generales/",
+      "destination": "/mentions-legales/",
+      "permanent": true
+    },
+    {
+      "source": "/politique-de-confidentialite/",
+      "destination": "/mentions-legales/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2024/12/C1.i1_ConditionsGeneralesDeVente_CGV_v1-2.pdf",
+      "destination": "/documents/conditions-generales-de-vente.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2024/12/C3.i9_ReglementInterieur_V1_2023-1.pdf",
+      "destination": "/documents/reglement-interieur.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2024/12/C6.i26_Charte_Accueil_PSH.pdf",
+      "destination": "/documents/charte-accueil-handicap.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2026/07/Certificat_4283_CW202324-5282_start-academy.pdf",
+      "destination": "/documents/certificat-qualiopi.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/courses/:slug/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/course-category/:path*",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/formation-ia/",
+      "destination": "/formation-ia-immobilier/",
+      "permanent": true
+    },
+    {
+      "source": "/formation-ia-alpes-maritimes/",
+      "destination": "/formation-ia-nice/",
+      "permanent": true
+    },
+    {
+      "source": "/formation-ia-a-nice/",
+      "destination": "/formation-ia-nice/",
+      "permanent": true
+    },
+    {
+      "source": "/formation-immobilier-a-nice/",
+      "destination": "/formation-ia-nice/",
+      "permanent": true
+    },
+    {
+      "source": "/formation-immobilier-a-cannes/",
+      "destination": "/formation-ia-nice/",
+      "permanent": true
+    },
+    {
+      "source": "/formation-logiciel-cadastre-com/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/inscription-formation-ia-lhumain/",
+      "destination": "/formation-ia-immobilier/",
+      "permanent": true
+    },
+    {
+      "source": "/inscription-formation-ia-lhumain-webinaire/",
+      "destination": "/formation-ia-immobilier/",
+      "permanent": true
+    },
+    {
+      "source": "/formulaire-inscription-webinaire/",
+      "destination": "/formation-ia-immobilier/",
+      "permanent": true
+    },
+    {
+      "source": "/formulaire-cadeau-gpts/",
+      "destination": "/formation-chatgpt-immobilier/",
+      "permanent": true
+    },
+    {
+      "source": "/devenir-formateur/",
+      "destination": "/#equipe",
+      "permanent": true
+    },
+    {
+      "source": "/devenir-formateur-e-learning/",
+      "destination": "/#equipe",
+      "permanent": true
+    },
+    {
+      "source": "/comment-gerer-et-fideliser-des-clients-exigeants-dans-limmobilier/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/limpact-des-taux-dinteret-et-de-linflation-sur-le-marche-immobilier-en-2024/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/limportance-de-la-formation-continue-pour-les-conseillers-immobiliers-en-2024/",
+      "destination": "/formation-loi-alur/",
+      "permanent": true
+    },
+    {
+      "source": "/les-meilleures-strategies-pour-generer-des-leads-en-immobilier-grace-aux-outils-digitaux/",
+      "destination": "/formation-ia-immobilier/",
+      "permanent": true
+    },
+    {
+      "source": "/obtenir-son-numero-nda-une-etape-essentielle-pour-les-formateurs-independants/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/se-former-sur-lintelligence-artificielle-pour-performer-en-2025/",
+      "destination": "/formation-ia-immobilier/",
+      "permanent": true
+    },
+    {
+      "source": "/boostez-votre-carriere-la-formation-en-ia-pour-revolutionner-le-secteur-immobilier/",
+      "destination": "/formation-ia-immobilier/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/category/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/author/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/404-2/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/boutique/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/commander/",
+      "destination": "/#rdv",
+      "permanent": true
+    },
+    {
+      "source": "/mon-compte/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/panier/",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/merci/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/merci-de-votre-inscription/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/merci-de-votre-inscription-au-webinaire/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/produit/:path*",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/:path*",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/product-tag/:path*",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/course-tag/:path*",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/:path*",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2026/07/Certificat_5285_CW202324-6284_start-academy.pdf",
+      "destination": "/documents/certificat-qualiopi.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2026/11/Certificat_5285_CW202324-6284_start-academy.pdf",
+      "destination": "/documents/certificat-qualiopi.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/nos-formateurs/:path*",
+      "destination": "/#equipe",
+      "permanent": true
+    },
+    {
+      "source": "/formateurs/:path*",
+      "destination": "/#equipe",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2026/03/Affiche_demarche-de-progres-RHF.pdf",
+      "destination": "/documents/charte-accueil-handicap.pdf",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<sub>.*)\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}
