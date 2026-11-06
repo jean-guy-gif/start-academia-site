@@ -17,6 +17,16 @@ Ancre d'une fiche (/formations/#ancre) : CODE_VERS_SLUG_SITE[code] si présent, 
 # (« IA immo » trouve « IA Immo »). Thèmes relevés dans l'API le 06/11/2026 ; au 06/11, aucun
 # programme qui a des apprenants formés n'a de thème renseigné dans QualiOF.
 THEME_VERS_CATEGORIE = {
+    # Thèmes qui portent le nom d'une catégorie (la spec QualiOF donne « Vendeur » en exemple)
+    'Prospection': 'prospection',
+    'Vendeur': 'vendeur',
+    'Acheteur': 'acheteur',
+    'Intelligence artificielle': 'ia',
+    'Marketing': 'marketing',
+    'Management': 'manager',
+    'Posture': 'mindset',
+    'Mindset': 'mindset',
+    # Thèmes saisis dans QualiOF
     'IA': 'ia',
     'IA Immo': 'ia',
     'IA, Immobilier': 'ia',
