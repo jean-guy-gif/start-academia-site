@@ -109,7 +109,7 @@ page('mentions-legales/',
     RCS Antibes 951&nbsp;319&nbsp;094 · SIRET&nbsp;: 951&nbsp;319&nbsp;094&nbsp;00029 · TVA intracommunautaire&nbsp;: FR14951319094<br>
     Organisme de formation enregistré sous le numéro de déclaration d'activité 93&nbsp;06&nbsp;10481&nbsp;06 auprès du préfet de la région Provence-Alpes-Côte d'Azur. Cet enregistrement ne vaut pas agrément de l'État.<br>
     Directeur de la publication&nbsp;: Laurent Marx, président.<br>
-    Contact&nbsp;: <a href="mailto:info@start-academy.fr">info@start-academy.fr</a>, <a href="tel:+33610230060">06 10 23 00 60</a></p>
+    Contact&nbsp;: <a href="mailto:info@start-academia.fr">info@start-academia.fr</a>, <a href="tel:+33610230060">06 10 23 00 60</a></p>
   </div>
   <div class="bloc">
     <h2>Hébergement</h2>
@@ -122,7 +122,7 @@ page('mentions-legales/',
   <div class="bloc" id="donnees">
     <h2>Données personnelles</h2>
     <p>Ce site ne comporte pas de formulaire et ne dépose aucun cookie publicitaire ni de mesure d'audience. Les polices de caractères sont chargées depuis le service Google Fonts. La démonstration de l'accueil envoie l'adresse tapée au service de géocodage de l'IGN (Base Adresse Nationale) et ses coordonnées à l'API publique DVF du Cerema, uniquement pour afficher le résultat ; nous ne conservons rien. La prise de rendez-vous se fait sur Google Agenda, qui traite vos données selon sa propre politique de confidentialité.</p>
-    <p>Les données que vous nous transmettez (appel, e-mail, rendez-vous) servent uniquement à vous répondre et à organiser votre formation. Elles ne sont ni vendues ni cédées. Vous pouvez demander leur accès, leur rectification ou leur suppression en écrivant à <a href="mailto:info@start-academy.fr">info@start-academy.fr</a>. Vous pouvez aussi saisir la CNIL (<a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
+    <p>Les données que vous nous transmettez (appel, e-mail, rendez-vous) servent uniquement à vous répondre et à organiser votre formation. Elles ne sont ni vendues ni cédées. Vous pouvez demander leur accès, leur rectification ou leur suppression en écrivant à <a href="mailto:info@start-academia.fr">info@start-academia.fr</a>. Vous pouvez aussi saisir la CNIL (<a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
   </div>
   <div class="bloc">
     <h2>Documents</h2>

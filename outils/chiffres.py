@@ -1,4 +1,4 @@
-"""Met à jour les chiffres de l'accueil (index.html) depuis le total des indicateurs QualiOF.
+"""Met à jour les chiffres de toutes les pages (index.html et sous-pages) depuis le total des indicateurs QualiOF.
 
 Dans index.html :
     data-qualiof="champ"       élément dont le texte contient le chiffre (texte simple, sans balise) :
@@ -56,14 +56,19 @@ def main():
     except (ValueError, KeyError, TypeError) as e:
         print(f'chiffres : data/qualiof.json illisible ({e!r}), index.html inchangé', file=sys.stderr)
         return
-    t0 = INDEX.read_text(encoding='utf-8')
-    t, bilan = t0, []
-    for champ, val in texte.items():
-        t, n = appliquer(t, champ, val)
-        bilan.append(f'{champ}={val if val is not None else "masqué"} ({n})')
-    if t != t0:
-        INDEX.write_text(t, encoding='utf-8')
-    print('chiffres :', ', '.join(bilan), '' if t != t0 else '(inchangé)')
+    pages = [INDEX] + sorted(p for p in RACINE.glob('*/index.html') if p.parent.name not in ('.git', 'outils', 'data'))
+    totaux, modifiees = {champ: 0 for champ in texte}, 0
+    for page in pages:
+        t0 = page.read_text(encoding='utf-8')
+        t = t0
+        for champ, val in texte.items():
+            t, n = appliquer(t, champ, val)
+            totaux[champ] += n
+        if t != t0:
+            page.write_text(t, encoding='utf-8')
+            modifiees += 1
+    bilan = [f'{c}={texte[c] if texte[c] is not None else "masqué"} ({totaux[c]})' for c in texte]
+    print('chiffres :', ', '.join(bilan), f'- {modifiees} page(s) modifiée(s) sur {len(pages)}')
 
 
 if __name__ == '__main__':
