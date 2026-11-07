@@ -344,7 +344,8 @@ def carte(f, noms):
     av = ' data-a-valider' if f['av'] else ''
     return (f'''
     <article class="carte-f" id="{f['id']}" data-etapes="{' '.join(f['etapes'])}"{av}>
-      <div class="cf-tete"><span class="cf-duree">{duree(f['heures'])}</span><ul class="cf-etapes" aria-label="Étapes du métier">{puces}</ul></div>
+      <div class="cf-visuel"><img src="/img/etape-{f['visuel']}.webp" width="720" height="260" loading="lazy" alt=""><span class="cf-duree">{duree(f['heures'])}</span></div>
+      <ul class="cf-etapes" aria-label="Étapes du métier">{puces}</ul>
       <h3>{h.escape(f['titre'])}</h3>
       {stats}
       <details class="cf-plus">
@@ -366,6 +367,10 @@ def generer():
     fiches_toutes, source = catalogue()
     for f in fiches_toutes:
         f['etapes'] = etapes_de(f)
+    # visuel de la carte : l'étape la plus rare de la formation, pour varier les images
+    freq = {e[0]: sum(1 for f in fiches_toutes if e[0] in f['etapes']) for e in ETAPES}
+    for f in fiches_toutes:
+        f['visuel'] = min(f['etapes'], key=lambda k: freq[k])
     ordre = {e[0]: i for i, e in enumerate(ETAPES)}
     fiches_toutes.sort(key=lambda f: (ordre[f['etapes'][0]], -(f['ind'].get('apprenantsFormes') or 0)))
     noms = {e[0]: e[1] for e in ETAPES}
