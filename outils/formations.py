@@ -132,6 +132,13 @@ QUALIOF = racine / 'data' / 'qualiof.json'
 NOMS_CATS = {c[0] for c in CATS}
 
 
+TAUX_HORAIRE = 42  # € de l'heure (tarif plancher communiqué par Jean-Guy, nov. 2026)
+
+
+def prix(hh):
+    return 'dès ' + f'{round(hh * TAUX_HORAIRE):,}'.replace(',', '\u202f') + '&nbsp;€'
+
+
 def duree(hh):
     if hh != int(hh):
         return f'{hh:g}'.replace('.', ',') + ' h'
@@ -355,7 +362,7 @@ def carte(f, noms):
     av = ' data-a-valider' if f['av'] else ''
     return (f'''
     <article class="carte-f" id="{f['id']}" data-etapes="{' '.join(f['etapes'])}"{av}>
-      <div class="cf-visuel"><img src="/img/cf-{f['visuel']}.webp" width="720" height="260" loading="lazy" alt=""><span class="cf-duree">{duree(f['heures'])}</span></div>
+      <div class="cf-visuel"><img src="/img/cf-{f['visuel']}.webp" width="720" height="260" loading="lazy" alt=""><span class="cf-duree">{duree(f['heures'])}</span><span class="cf-prix">{prix(f['heures'])}</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier">{puces}</ul>
       <h3>{h.escape(f['titre'])}</h3>
       {stats}
@@ -368,6 +375,7 @@ def carte(f, noms):
             <div><dt>Public</dt><dd>{f['public']}</dd></div>
             <div><dt>Prérequis</dt><dd>{f['prereq']}</dd></div>
             <div><dt>Durée</dt><dd>{duree(f['heures'])}</dd></div>
+            <div><dt>Tarif</dt><dd>À partir de {prix(f['heures'])[4:]} ({TAUX_HORAIRE}&nbsp;€ de l'heure), finançable OPCO, AGEFICE ou FIF PL</dd></div>
           </dl>
         </div>
       </details>

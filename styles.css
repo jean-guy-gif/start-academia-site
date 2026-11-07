@@ -954,6 +954,7 @@ p { text-wrap: pretty; }
 .cf-visuel img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s var(--sortie); }
 .cf-visuel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgb(47 68 206 / .75), rgb(47 68 206 / .15) 55%, rgb(254 85 0 / .45)); }
 .cf-visuel .cf-duree { position: absolute; z-index: 1; left: 16px; bottom: 12px; padding: 4px 10px; border-radius: 999px; background: rgb(11 16 51 / .65); color: #fff; font: .75rem var(--mono); }
+.cf-visuel .cf-prix { position: absolute; z-index: 1; right: 16px; bottom: 12px; padding: 4px 10px; border-radius: 999px; background: var(--orange); color: #fff; font: 600 .75rem var(--mono); }
 .carte-f:hover .cf-visuel img { transform: scale(1.05); }
 .carte-f .cf-etapes { justify-content: flex-start; margin-bottom: 10px; }
 @media (max-width: 520px) { .cf-tete { flex-direction: row; } }

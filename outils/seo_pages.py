@@ -90,6 +90,7 @@ ecrire('formation-ia-immobilier/',
       <li><strong>Parcours complet</strong> «&nbsp;Intégrer l'intelligence artificielle pour gagner en productivité&nbsp;» pour les équipes qui veulent aller plus loin.</li>
       <li><strong>Version débutant ou avancée</strong>, avec un livret tactique pour chaque méthode.</li>
       <li><strong>En agence</strong> sur la Côte d'Azur, <strong>ou à distance</strong> partout en France, en individuel ou en groupe.</li>
+      <li><strong>À partir de 42&nbsp;€ de l'heure</strong>, devis précis après l'appel découverte, et finançable par votre OPCO ou votre fonds d'assurance formation.</li>
     </ul>
     <p><a class="lien-texte" href="/formations/">Voir le détail des 40 formations</a></p>
     <p>Des exemples concrets, étape par étape&nbsp;: <a class="lien-texte" href="/ia-prospection-immobiliere/">prospection</a>, <a class="lien-texte" href="/ia-estimation-immobiliere/">estimation</a>, <a class="lien-texte" href="/ia-mandat-exclusif/">mandat exclusif</a>, <a class="lien-texte" href="/ia-annonce-immobiliere/">annonce</a>, <a class="lien-texte" href="/ia-decouverte-acquereur/">découverte acquéreur</a>, <a class="lien-texte" href="/ia-visite-immobiliere/">visite</a>, <a class="lien-texte" href="/ia-negociation-immobiliere/">négociation</a>.</p>
@@ -142,7 +143,7 @@ ecrire('formation-chatgpt-immobilier/',
 # ---------------------------------------------------------------- 3. Formation IA Nice
 ecrire('formation-ia-nice/',
  "Formation IA immobilier à Nice et dans les Alpes-Maritimes",
- "Formation IA et ChatGPT pour agents immobiliers à Nice, Cannes, Antibes, Grasse et dans tout le 06 : dans votre agence ou à distance. Certifié Qualiopi.",
+ "Formation IA et ChatGPT pour agents immobiliers à Nice, Antibes, Cannes, Grasse et dans tout le 06, dans votre agence. Dès 42 €/h, certifié Qualiopi.",
  "Formation IA immobilier à Nice et dans les Alpes-Maritimes.",
  "Nous formons les agents, mandataires et équipes d'agence de la Côte d'Azur à l'IA, directement dans leurs locaux. Des formateurs installés dans le département, qui connaissent votre marché parce qu'ils y ont fait de la transaction.",
  '''  <div class="bloc">
@@ -158,13 +159,24 @@ ecrire('formation-ia-nice/',
   </div>
   <div class="bloc">
     <h2>Où nous intervenons</h2>
-    <ul class="points">
-      <li><strong>Nice et la métropole</strong>&nbsp;: Nice, Saint-Laurent-du-Var, Cagnes-sur-Mer, Villefranche-sur-Mer, Vence, Saint-Jeannet, Carros.</li>
-      <li><strong>Antibes, Cannes et l'ouest</strong>&nbsp;: Antibes, Juan-les-Pins, Vallauris, Golfe-Juan, Cannes, Le Cannet, Mandelieu-la-Napoule, Mougins.</li>
-      <li><strong>Grasse et le moyen pays</strong>&nbsp;: Grasse, Mouans-Sartoux, Valbonne, Sophia Antipolis, Biot, Roquefort-les-Pins.</li>
-      <li><strong>L'est du département</strong>&nbsp;: Menton, Roquebrune-Cap-Martin, Beausoleil, Èze.</li>
+    <p>Nous nous déplaçons dans <strong>toutes les communes des Alpes-Maritimes</strong>, et notamment dans les dix plus grandes villes du département&nbsp;:</p>
+    <ul class="points villes">
+      <li><strong>Formation IA immobilier à Nice</strong>, dans votre agence ou à distance.</li>
+      <li><strong>Formation IA immobilier à Antibes</strong> et Juan-les-Pins.</li>
+      <li><strong>Formation IA immobilier à Cannes</strong>.</li>
+      <li><strong>Formation IA immobilier à Cagnes-sur-Mer</strong>, où se trouve notre siège.</li>
+      <li><strong>Formation IA immobilier à Grasse</strong> et dans le pays grassois.</li>
+      <li><strong>Formation IA immobilier au Cannet</strong>.</li>
+      <li><strong>Formation IA immobilier à Menton</strong> et sur la Riviera est.</li>
+      <li><strong>Formation IA immobilier à Saint-Laurent-du-Var</strong>.</li>
+      <li><strong>Formation IA immobilier à Vallauris</strong> et Golfe-Juan.</li>
+      <li><strong>Formation IA immobilier à Mandelieu-la-Napoule</strong>.</li>
     </ul>
-    <p>La formation a lieu <strong>dans votre agence</strong>, ou <strong>à distance</strong> si votre équipe est répartie sur plusieurs sites. Nos formateurs sont basés à Cagnes-sur-Mer et à Antibes&nbsp;: les dates s'organisent facilement.</p>
+    <p>Mais aussi Vence, Mougins, Valbonne et Sophia Antipolis, Biot, Villefranche-sur-Mer, Roquebrune-Cap-Martin, Beausoleil, Carros et l'arrière-pays. La formation a lieu <strong>dans votre agence</strong>, ou <strong>à distance</strong> si votre équipe est répartie sur plusieurs sites. Nos formateurs sont basés à Cagnes-sur-Mer et à Antibes&nbsp;: les dates s'organisent facilement.</p>
+  </div>
+  <div class="bloc">
+    <h2>225 avis Google, tous notés 5 étoiles</h2>
+    <p>Les agents et directeurs que nous formons le disent eux-mêmes&nbsp;: des formateurs du terrain, des exercices sur leurs propres dossiers, des outils qu'ils utilisent dès le lendemain. <span data-qualiof="apprenantsFormes">240</span> professionnels de l'immobilier formés, et une note de satisfaction de 4,9 sur 5 dans nos questionnaires de fin de formation.</p>
   </div>
   <div class="bloc">
     <h2>Les outils que vous utiliserez</h2>
@@ -183,7 +195,9 @@ ecrire('formation-ia-nice/',
   ("La formation est-elle réservée aux agences&nbsp;?", "Non. Nous formons aussi les mandataires et agents commerciaux indépendants, seuls ou en petit groupe, ainsi que les directeurs d'agence."),
   ("La formation IA compte-t-elle dans les heures loi ALUR&nbsp;?", "Nos formations portent sur votre activité de transaction et donnent lieu à une attestation de formation continue. Lors de l'appel découverte, nous faisons le point sur vos heures restantes."),
   ("La formation est-elle finançable&nbsp;?", "Oui, par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL…). Start Academia est certifié Qualiopi. La formation n'est pas éligible au CPF à ce jour."),
-  ("Faut-il un niveau particulier en informatique&nbsp;?", "Non. Chaque parcours existe en version débutant et en version avancée.")],
+  ("Faut-il un niveau particulier en informatique&nbsp;?", "Non. Chaque parcours existe en version débutant et en version avancée."),
+  ("Combien coûte une formation IA à Nice&nbsp;?", "À partir de 42 € de l'heure. Chaque formation est construite pour votre agence : le devis précis est établi après l'appel découverte, et la formation peut être prise en charge par votre OPCO ou votre fonds d'assurance formation."),
+  ("Intervenez-vous à Antibes, Cannes ou Menton&nbsp;?", "Oui, dans toutes les communes des Alpes-Maritimes : Nice, Antibes, Cannes, Cagnes-sur-Mer, Grasse, Le Cannet, Menton, Saint-Laurent-du-Var, Vallauris, Mandelieu-la-Napoule et l'arrière-pays.")],
  ("Formation IA immobilier à Nice et dans les Alpes-Maritimes", "Formation pratique à l'IA et à ChatGPT pour les professionnels de l'immobilier, dans votre agence à Nice et dans les Alpes-Maritimes ou à distance."))
 
 # ---------------------------------------------------------------- 5. Loi ALUR (enrichie, audit du 7 nov. 2026)
@@ -658,3 +672,95 @@ Format : déroulé en 5 étapes, puis un tableau objection / réponse.""") + '''
   ("Comment convaincre un vendeur de baisser son prix&nbsp;?", "Avec des faits : ventes comparables, temps passé sur le marché, retours de visites. Une analyse comparative de marché comme Academia ACM rend la discussion objective."),
   ("Peut-on rédiger une offre d'achat avec ChatGPT&nbsp;?", "L'IA peut aider à mettre en forme une lettre de présentation. Pour l'offre elle-même et le compromis, utilisez les modèles validés de votre agence ou du notaire.")],
  ("Négocier une offre immobilière avec l'IA", "Préparer la négociation d'une offre d'achat avec l'IA : arguments de marché, profil du vendeur, mise en forme et transmission de l'offre."))
+
+
+# ---------------------------------------------------------------- Formation Claude immobilier
+ecrire('formation-claude-immobilier/',
+ "Formation Claude pour agents immobiliers | Start Academia",
+ "Formation Claude (Anthropic) pour agents immobiliers : projets, documents longs, annonces. Dans votre agence dans le 06 ou à distance. Dès 42 €/h.",
+ "Formation Claude pour agents immobiliers.",
+ "Claude est l'assistant IA d'Anthropic. Il excelle là où un agent perd le plus de temps à l'écrit&nbsp;: lire un dossier de 80 pages, écrire comme vous, garder le contexte d'une agence d'un jour à l'autre. Nous vous apprenons à vous en servir sur vos vrais dossiers.",
+ '''  <div class="bloc">
+    <h2>Pourquoi Claude en agence</h2>
+    <ul class="points">
+      <li><strong>Les documents longs.</strong> Règlement de copropriété, procès-verbaux d'assemblée générale, diagnostics, PLU&nbsp;: Claude les lit en entier et en sort les points qui comptent pour votre vendeur ou votre acquéreur.</li>
+      <li><strong>Un style d'écriture naturel.</strong> Annonces, courriers, comptes rendus de visite&nbsp;: des textes qui sonnent comme vous, pas comme un robot.</li>
+      <li><strong>Les projets.</strong> Vous déposez une fois votre charte, vos modèles de courriers et vos argumentaires&nbsp;: Claude s'en sert à chaque demande, sans tout réexpliquer.</li>
+      <li><strong>ChatGPT ou Claude&nbsp;?</strong> Les deux sont utiles. En formation, nous vous montrons lequel choisir selon la tâche, et pourquoi.</li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous apprenez, étape par étape</h2>
+    <ol class="points numerotes">
+      <li><strong>Prendre en main Claude</strong>&nbsp;: compte, versions, conversations, confidentialité des données clients.</li>
+      <li><strong>Créer le projet de votre agence</strong>&nbsp;: vos modèles, votre ton, vos secteurs, vos mentions obligatoires.</li>
+      <li><strong>Analyser un dossier de copropriété</strong>&nbsp;: synthèse des PV d'AG, travaux votés, charges, points de vigilance pour l'acquéreur.</li>
+      <li><strong>Écrire au quotidien</strong>&nbsp;: annonces, comptes rendus vendeur, relances acquéreur, réponses aux avis Google.</li>
+      <li><strong>Construire votre bibliothèque de prompts</strong>, livrée avec un livret tactique pour chaque méthode.</li>
+    </ol>
+  </div>
+''' + prompt_bloc("Prompt gratuit : synthèse d'un procès-verbal d'assemblée générale", """Rôle : tu es un conseiller immobilier qui prépare la visite d'un appartement en copropriété.
+Contexte : je te joins les 3 derniers procès-verbaux d'assemblée générale de la copropriété (sans les noms des copropriétaires).
+Tâche : fais-moi une synthèse claire pour un acquéreur : travaux votés et à venir avec leur montant, procédures en cours, évolution des charges, points de vigilance. Signale ce que tu n'as pas trouvé dans les documents au lieu de l'inventer.
+Format : 5 rubriques avec des puces, puis 3 questions à poser au syndic.""") + '''
+  <div class="bloc">
+    <h2>Les règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Données personnelles</strong>&nbsp;: retirez noms, coordonnées et situations des clients avant de déposer un document.</li>
+      <li><strong>Vérification</strong>&nbsp;: Claude peut se tromper. Toute information transmise à un client est vérifiée par vous.</li>
+      <li><strong>Pas d'actes juridiques</strong>&nbsp;: Claude aide à comprendre et à préparer, pas à rédiger un compromis.</li>
+    </ul>
+  </div>
+''' + formation_bloc("Claude est enseigné dans nos formations IA immobilier, en module dédié ou aux côtés de ChatGPT, NotebookLM et Gamma, avec nos outils maison.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("Quelle différence entre Claude et ChatGPT pour un agent immobilier&nbsp;?", "Les deux sont efficaces. Claude est particulièrement à l'aise avec les documents longs et une écriture naturelle ; ChatGPT a d'autres atouts, comme la génération d'images. Nous vous montrons les deux et quand utiliser l'un ou l'autre."),
+  ("Faut-il un abonnement payant à Claude&nbsp;?", "Une version gratuite existe. Pour un usage quotidien en agence et les projets, l'abonnement payant devient vite utile ; nous en parlons pendant l'appel découverte selon votre usage."),
+  ("Peut-on mettre les documents d'un client dans Claude&nbsp;?", "Uniquement après avoir retiré les données personnelles (noms, coordonnées, situation). Nous montrons comment faire en formation."),
+  ("Combien coûte la formation Claude&nbsp;?", "À partir de 42 € de l'heure, finançable par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL). Le devis précis est établi après l'appel découverte.")],
+ ("Formation Claude pour agents immobiliers", "Formation pratique à Claude (Anthropic) pour les professionnels de l'immobilier : projets d'agence, documents longs, rédaction et bibliothèque de prompts."))
+
+# ---------------------------------------------------------------- Formation IA directeurs et managers d'agence
+ecrire('formation-ia-directeur-agence-immobiliere/',
+ "Formation IA directeur d'agence immobilière | Start Academia",
+ "Formation IA pour directeurs et managers d'agence immobilière : pilotage, entretiens individuels, recrutement, déploiement de l'IA dans l'équipe. Dès 42 €/h.",
+ "Formation IA pour directeurs et managers d'agence immobilière.",
+ "Vos conseillers commencent à utiliser l'IA, chacun à sa façon. Votre rôle&nbsp;: en faire un levier collectif, mesurable et conforme. Cette formation vous donne les outils pour piloter l'activité, accompagner chaque conseiller et déployer l'IA dans toute l'agence.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Un directeur passe ses lundis à compiler des chiffres dans trois logiciels, prépare ses entretiens individuels de mémoire, et découvre que deux conseillers collent les coordonnées de vendeurs dans ChatGPT. Il n'a pas besoin d'un outil de plus&nbsp;: il a besoin d'une méthode de pilotage et de règles communes.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Piloter avec les bons indicateurs.</strong> Avec <strong>Academia Pilotage</strong>, notre outil maison, vous suivez l'activité de l'agence et de chaque conseiller&nbsp;: rendez-vous, mandats, exclusivités, ventes.</li>
+      <li><strong>Préparer des entretiens individuels utiles.</strong> Avec <strong>Academia Parcours</strong>, chaque conseiller a son diagnostic de performance immobilière et ses objectifs. L'entretien part des faits, pas des impressions.</li>
+      <li><strong>Recruter et intégrer plus vite.</strong> L'IA vous aide à rédiger l'annonce de recrutement, à préparer l'entretien et à construire le parcours d'intégration du nouveau conseiller.</li>
+      <li><strong>Déployer l'IA dans l'équipe.</strong> Une charte d'usage de l'IA pour l'agence (RGPD, données clients, vérification), des prompts partagés, et un plan de formation par poste.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Un point d'activité hebdomadaire prêt</strong>, sans compiler à la main.</li>
+      <li><strong>Des entretiens individuels préparés</strong> à partir de données, avec des objectifs suivis.</li>
+      <li><strong>Une équipe qui utilise l'IA de la même façon</strong>, dans un cadre conforme.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : préparer un entretien individuel", """Rôle : tu es un directeur d'agence immobilière expérimenté qui prépare l'entretien mensuel d'un conseiller.
+Contexte : indicateurs du mois du conseiller [RENDEZ-VOUS VENDEURS, ESTIMATIONS, MANDATS, DONT EXCLUSIFS, VISITES, OFFRES, VENTES] et ceux du mois précédent. Objectifs fixés : [OBJECTIFS]. Ce que j'ai observé : [POINTS FORTS / DIFFICULTÉS].
+Tâche : prépare-moi un déroulé d'entretien de 30 minutes : ce qui progresse, le point bloquant principal dans la chaîne (prospection, estimation, mandat, visite, offre), 2 actions concrètes pour le mois prochain et la façon de les suivre. Ton bienveillant et exigeant.
+Format : déroulé en 4 temps, puis 5 questions ouvertes à poser au conseiller.""") + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Laisser chacun utiliser l'IA sans cadre.</strong> Sans charte commune, les données clients finissent dans des outils non maîtrisés.</li>
+      <li><strong>Piloter uniquement au chiffre d'affaires.</strong> Il arrive trop tard. Les indicateurs d'activité permettent d'agir avant.</li>
+      <li><strong>Mettre les données nominatives des salariés dans l'IA.</strong> Travaillez avec des indicateurs anonymisés.</li>
+      <li><strong>Former l'équipe d'un bloc.</strong> Un débutant et un conseiller avancé n'ont pas les mêmes besoins&nbsp;: un parcours par niveau.</li>
+    </ul>
+  </div>
+''' + formation_bloc("Pour les directeurs et managers, la formation s'appuie sur nos outils maison Academia Pilotage et Academia Parcours, et peut se compléter d'un <a class=\"lien-texte\" href=\"/coaching-pour-directeur-dagence-immobiliere-dans-le-06/\">coaching de direction et d'un audit d'agence</a>.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("Cette formation est-elle réservée aux directeurs&nbsp;?", "Elle s'adresse aux directeurs, managers, responsables d'équipe et animateurs de réseau de mandataires, c'est-à-dire à toute personne qui accompagne des conseillers."),
+  ("Faut-il déjà utiliser l'IA&nbsp;?", "Non. La formation existe en version débutant et en version avancée. Le but est de piloter l'agence et d'encadrer les usages, pas de devenir technicien."),
+  ("Peut-on former toute l'équipe ensuite&nbsp;?", "Oui. Nous construisons un plan de formation par poste et formons vos conseillers dans l'agence ou à distance."),
+  ("Combien coûte la formation&nbsp;?", "À partir de 42 € de l'heure, finançable par l'OPCO de l'agence ou par le fonds d'assurance formation du dirigeant (AGEFICE, FIF PL). Le devis précis est établi après l'appel découverte.")],
+ ("Formation IA pour directeurs et managers d'agence immobilière", "Piloter une agence immobilière avec l'IA : indicateurs, entretiens individuels, recrutement et déploiement de l'IA dans l'équipe."))
