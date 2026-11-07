@@ -50,7 +50,7 @@ PREUVES = '''  <div class="bloc">
     <h2>Pourquoi Start Academia</h2>
     <ul class="points">
       <li><strong>Des formateurs du métier.</strong> Jean-Guy Ourmières et Laurent Marx ont plus de 10 ans de transaction et accompagnent encore des agences au quotidien.</li>
-      <li><strong>Nos propres outils.</strong> Dossier d'adresse (Mon Secteur), Profiling, Localisateur, ACM&nbsp;: vos équipes repartent avec des outils prêts à servir.</li>
+      <li><strong>Nos propres outils.</strong> Academia Secteur, Academia Profiling, Academia Localisateur, Academia ACM&nbsp;: vos équipes repartent avec des outils prêts à servir.</li>
       <li><strong>Des preuves.</strong> <span data-qualiof="apprenantsFormes">240</span> agents et collaborateurs formés, 225 avis Google notés 5 étoiles, des agences comme Laforêt, Nestenn, Century 21 ou Orpi parmi nos clients.</li>
       <li><strong>Certifié Qualiopi</strong> au titre des actions de formation. <a class="lien-texte" href="/documents/certificat-qualiopi.pdf">Voir le certificat</a></li>
     </ul>
@@ -335,7 +335,7 @@ ecrire('ia-prospection-immobiliere/',
     <h2>La méthode classique, boostée à l'IA</h2>
     <ol class="points numerotes">
       <li><strong>Choisir son secteur.</strong> Les fondamentaux ne changent pas&nbsp;: un périmètre que vous connaissez, où vous pouvez être reconnu. L'IA vous aide à le lire&nbsp;: ventes passées, types de biens, signaux de vente.</li>
-      <li><strong>Préparer chaque adresse.</strong> Avec <strong>Mon Secteur</strong>, notre outil maison, vous générez un <strong>dossier d'adresse</strong>&nbsp;: environnement, ventes récentes du quartier, vie locale avec «&nbsp;Vivre ici&nbsp;». Vous arrivez avec une information utile, pas avec un prix.</li>
+      <li><strong>Préparer chaque adresse.</strong> Avec <strong>Academia Secteur</strong>, notre outil maison, vous générez un <strong>dossier d'adresse</strong>&nbsp;: environnement, ventes récentes du quartier, vie locale avec «&nbsp;Vivre ici&nbsp;». Vous arrivez avec une information utile, pas avec un prix.</li>
       <li><strong>Écrire le bon message.</strong> ChatGPT ou Claude rédigent un courrier ou un message adapté au propriétaire et à la situation (succession, départ en retraite, bien vacant), que vous relisez et signez.</li>
       <li><strong>Tenir une routine.</strong> Une <strong>routine secteur de 45 minutes</strong> par jour&nbsp;: signaux du jour, deux dossiers d'adresse, trois messages, une relance. La régularité fait la différence, l'IA la rend tenable.</li>
     </ol>
@@ -361,9 +361,9 @@ Format : un objet, le courrier, une signature avec [TON NOM], [TON AGENCE], [TA 
       <li><strong>Envoyer sans relire.</strong> L'IA peut inventer un chiffre ou un nom de rue. Vous signez, vous vérifiez.</li>
     </ul>
   </div>
-''' + formation_bloc("La prospection est au cœur de nos formations IA, avec un atelier sur votre propre secteur et l'accès à nos outils maison (Mon Secteur, Localisateur). Nous proposons aussi des parcours dédiés à la prospection et au développement d'un secteur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("La prospection est au cœur de nos formations IA, avec un atelier sur votre propre secteur et l'accès à nos outils maison (Academia Secteur, Academia Localisateur). Nous proposons aussi des parcours dédiés à la prospection et au développement d'un secteur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
  [("L'IA peut-elle trouver des vendeurs à ma place&nbsp;?", "Non. Elle vous fait gagner du temps sur la préparation et l'écriture, et vous aide à repérer les bons signaux. La relation avec le propriétaire reste votre métier."),
-  ("Quel outil utiliser pour prospecter avec l'IA&nbsp;?", "ChatGPT ou Claude pour écrire, et un outil de dossier d'adresse comme Mon Secteur pour préparer le terrain. Nous choisissons toujours l'outil le plus simple pour la tâche."),
+  ("Quel outil utiliser pour prospecter avec l'IA&nbsp;?", "ChatGPT ou Claude pour écrire, et un outil de dossier d'adresse comme Academia Secteur pour préparer le terrain. Nous choisissons toujours l'outil le plus simple pour la tâche."),
   ("Peut-on envoyer des e-mails de prospection à des particuliers&nbsp;?", "Seulement avec leur accord préalable. Le courrier postal reste possible, avec un moyen simple de s'opposer à la sollicitation. Pour le téléphone, il faut vérifier la liste Bloctel."),
   ("Combien de temps faut-il pour voir des résultats&nbsp;?", "La prospection reste un travail de régularité. La méthode vise une routine courte et tenue chaque jour plutôt que de gros efforts ponctuels.")],
  ("Prospection immobilière avec l'IA", "Méthode de prospection de secteur augmentée par l'IA : dossier d'adresse, signaux de vente, courriers personnalisés et routine quotidienne."))
@@ -382,7 +382,7 @@ ecrire('ia-estimation-immobiliere/',
     <h2>La méthode classique, boostée à l'IA</h2>
     <ol class="points numerotes">
       <li><strong>Visiter et relever.</strong> Rien ne remplace la visite&nbsp;: état, exposition, nuisances, travaux à prévoir. Vous dictez vos observations à l'IA au lieu de les retaper le soir.</li>
-      <li><strong>Construire l'ACM.</strong> Avec notre outil <strong>ACM</strong>, vous rassemblez les biens comparables (vendus, en vente, retirés) et vous les comparez point par point.</li>
+      <li><strong>Construire l'ACM.</strong> Avec notre outil <strong>Academia ACM</strong>, vous rassemblez les biens comparables (vendus, en vente, retirés) et vous les comparez point par point.</li>
       <li><strong>Argumenter.</strong> ChatGPT ou Claude transforment vos relevés et votre ACM en un avis de valeur lisible&nbsp;: points forts, points faibles, fourchette, stratégie de prix.</li>
       <li><strong>Présenter.</strong> Gamma met l'avis de valeur en forme en quelques minutes, à vos couleurs, pour le présenter au vendeur ou le lui envoyer.</li>
     </ol>
@@ -408,7 +408,7 @@ Format : 1. Le bien en 3 lignes. 2. Le marché en 5 lignes. 3. La fourchette arg
       <li><strong>Oublier le DPE.</strong> La performance énergétique pèse sur le prix et sur les possibilités de location&nbsp;: intégrez-la dans l'analyse.</li>
     </ul>
   </div>
-''' + formation_bloc("L'estimation est travaillée dans nos formations IA avec votre propre dossier&nbsp;: relevés de visite, ACM avec notre outil maison, avis de valeur et présentation au vendeur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("L'estimation est travaillée dans nos formations IA avec votre propre dossier&nbsp;: relevés de visite, ACM avec notre outil maison Academia ACM, avis de valeur et présentation au vendeur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
  [("L'IA peut-elle estimer un bien immobilier&nbsp;?", "Elle peut aider à analyser et à présenter, mais elle ne remplace ni la visite ni vos comparables. Les estimations automatiques en ligne servent de repère, pas d'avis de valeur."),
   ("Qu'est-ce qu'une ACM&nbsp;?", "Une analyse comparative de marché : la comparaison du bien avec des biens similaires vendus, en vente ou retirés du marché. C'est la base d'un prix argumenté."),
   ("Quel outil pour présenter une estimation&nbsp;?", "Gamma permet de mettre en forme un avis de valeur en quelques minutes. Nous montrons aussi comment garder la charte de votre agence."),
@@ -428,8 +428,8 @@ ecrire('ia-mandat-exclusif/',
   <div class="bloc">
     <h2>La méthode classique, boostée à l'IA</h2>
     <ol class="points numerotes">
-      <li><strong>Préparer le premier rendez-vous en 15 minutes.</strong> Dossier d'adresse, ventes du quartier, questions de découverte&nbsp;: vos outils de prospection deviennent vos outils de préparation.</li>
-      <li><strong>Comprendre le vendeur.</strong> Avec <strong>Profiling</strong>, notre outil maison, vous identifiez le profil de votre interlocuteur et la façon de lui parler. NotebookLM vous aide à retrouver l'essentiel dans ses documents (diagnostics, règlement de copropriété).</li>
+      <li><strong>Préparer le premier rendez-vous en 15 minutes.</strong> Dossier d'adresse avec Academia Secteur, ventes du quartier, questions de découverte&nbsp;: vos outils de prospection deviennent vos outils de préparation.</li>
+      <li><strong>Comprendre le vendeur.</strong> Avec <strong>Academia Profiling</strong>, notre outil maison, vous identifiez le profil de votre interlocuteur et la façon de lui parler. NotebookLM vous aide à retrouver l'essentiel dans ses documents (diagnostics, règlement de copropriété).</li>
       <li><strong>Envoyer le compte rendu dans la demi-heure.</strong> Vous dictez vos notes après le rendez-vous, l'IA les met en forme, vous relisez et vous envoyez&nbsp;: le vendeur reçoit un récapitulatif avant même d'avoir appelé une autre agence.</li>
       <li><strong>Revenir avec le bon dossier.</strong> Au deuxième rendez-vous, l'analyse de marché et le plan de commercialisation défendent l'exclusivité par les faits, pas par la promesse.</li>
       <li><strong>Suivre le vendeur.</strong> Un process de suivi régulier, préparé avec l'IA, montre au vendeur ce que vous faites pour lui chaque semaine.</li>
@@ -456,9 +456,9 @@ Format : un objet, 150 mots maximum, ton chaleureux et professionnel, vouvoiemen
       <li><strong>Mettre des données sensibles dans l'IA.</strong> Pas de situation de santé, de divorce ou de succession nominative dans ChatGPT&nbsp;: gardez ces informations dans votre dossier.</li>
     </ul>
   </div>
-''' + formation_bloc("Le rendez-vous vendeur est un des modules les plus demandés&nbsp;: préparation du premier rendez-vous, découverte avec Profiling et NotebookLM, compte rendu immédiat, deuxième rendez-vous et suivi vendeur, avec un atelier sur vos propres dossiers.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("Le rendez-vous vendeur est un des modules les plus demandés&nbsp;: préparation du premier rendez-vous, découverte avec Academia Profiling et NotebookLM, compte rendu immédiat, deuxième rendez-vous et suivi vendeur, avec un atelier sur vos propres dossiers.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
  [("Comment l'IA aide-t-elle à rentrer un mandat exclusif&nbsp;?", "En vous faisant arriver mieux préparé, en vous aidant à comprendre le vendeur et en envoyant un compte rendu clair très vite après le rendez-vous. La signature reste une affaire de confiance."),
-  ("Qu'est-ce que l'outil Profiling&nbsp;?", "Un outil maison de Start Academia qui aide à identifier le profil d'un vendeur pour adapter sa façon de lui parler. Il est utilisé pendant la formation."),
+  ("Qu'est-ce que l'outil Academia Profiling&nbsp;?", "Un outil maison de Start Academia qui aide à identifier le profil d'un vendeur pour adapter sa façon de lui parler. Il est utilisé pendant la formation."),
   ("Peut-on enregistrer un rendez-vous vendeur&nbsp;?", "Seulement avec l'accord explicite du vendeur, en lui expliquant à quoi sert l'enregistrement. Sinon, prenez des notes et dictez-les après."),
   ("Que dit la loi Hoguet sur le mandat exclusif&nbsp;?", "Le mandat doit être écrit et signé avant toute action de commercialisation, et la clause d'exclusivité doit apparaître en caractères très apparents.")],
  ("Rentrer un mandat exclusif avec l'IA", "Préparer le rendez-vous vendeur, comprendre le profil du vendeur, envoyer un compte rendu immédiat et suivre le vendeur avec l'IA."))
