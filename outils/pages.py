@@ -147,7 +147,7 @@ page('merci-rendez-vous/', 'Appel réservé | Start Academia', 'Votre appel déc
     <ul class="points">
       <li>Notez vos 2 ou 3 tâches les plus chronophages de la semaine (annonces, relances, estimations, compte rendu…).</li>
       <li>Dites-nous les outils que vous utilisez déjà&nbsp;: logiciel de transaction, CRM, ChatGPT ou Claude.</li>
-      <li>Si vous êtes salarié ou en réseau, vérifiez votre financement possible (OPCO, FAF, CPF)&nbsp;: on regarde ensemble pendant l'appel.</li>
+      <li>Si vous êtes salarié ou en réseau, pensez à votre financement possible (OPCO, AGEFICE, FIF PL…)&nbsp;: on regarde ensemble pendant l'appel.</li>
     </ul>
   </div>
   <div class="bloc">
