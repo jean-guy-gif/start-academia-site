@@ -229,7 +229,7 @@ p { text-wrap: pretty; }
 @media (hover: hover) { .manifeste li a:hover { color: var(--bleu); padding-left: 10px; } }
 
 /* ---------- 4. La chaîne (scène épinglée) ---------- */
-.chaine { position: relative; height: 700vh; }
+.chaine { position: relative; height: 800vh; }
 .chaine .scene { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--nuit); }
 .maillon { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .9s var(--sortie), visibility 0s .9s; }
 .maillon.actif { opacity: 1; visibility: visible; transition: opacity .9s var(--sortie), visibility 0s; }
