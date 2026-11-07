@@ -892,3 +892,47 @@ p { text-wrap: pretty; }
 .outil.large .ecran-o { margin: 30px 0 30px 30px; }
 @media (max-width: 1000px) { .outil.large { grid-template-columns: 1fr; } .outil.large .ecran-o { margin: 0; } }
 .inverse .p-bas { right: auto; left: -3%; transform: rotate(-5deg); }
+
+/* Catalogue des formations : la chaîne du métier + cartes */
+.chaine-f { max-width: 1180px; margin-bottom: 28px; }
+.cf-consigne { color: var(--gris); margin-bottom: 14px; }
+.cf-chaine { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; }
+.cf-chaine button { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px; border: 1px solid rgb(47 68 206 / .25); background: #fff; color: var(--encre); font: 500 .9375rem var(--texte); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.cf-chaine button:hover { border-color: var(--bleu); }
+.cf-chaine button[aria-pressed="true"] { background: var(--bleu); border-color: var(--bleu); color: #fff; }
+.cf-chaine .ch-num { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: rgb(47 68 206 / .1); color: var(--bleu); font: .75rem var(--mono); }
+.cf-chaine button[aria-pressed="true"] .ch-num { background: rgb(255 255 255 / .2); color: #fff; }
+.cf-chaine .ch-nb { font: .75rem var(--mono); opacity: .7; }
+.grille-f { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 18px; max-width: 1180px; align-items: start; }
+.carte-f { background: #fff; border-radius: 20px; padding: 24px 24px 18px; box-shadow: 0 1px 0 rgb(16 21 58 / .06), 0 18px 40px -26px rgb(16 21 58 / .3); scroll-margin-top: 100px; min-width: 0; }
+.carte-f.ciblee { outline: 2px solid var(--orange); }
+.carte-f[hidden] { display: none; }
+.cf-tete { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+.cf-duree { font: .8125rem var(--mono); color: var(--bleu); white-space: nowrap; padding-top: 4px; }
+.cf-etapes { list-style: none; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; padding: 0 !important; margin: 0; }
+.cf-etapes li { margin: 0 !important; padding: 3px 9px; border-radius: 999px; background: rgb(47 68 206 / .08); color: var(--bleu); font: .6875rem var(--mono); }
+.carte-f h3 { font: 500 1.2rem/1.3 var(--titre); color: var(--encre); margin-bottom: 16px; overflow-wrap: anywhere; }
+.cf-chiffres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.cf-chiffres div { background: linear-gradient(160deg, rgb(47 68 206 / .07), rgb(254 85 0 / .05)); border-radius: 12px; padding: 10px 12px; min-width: 0; }
+.cf-chiffres strong { display: block; font: 500 1.6rem/1.1 var(--titre); color: var(--bleu); }
+.cf-chiffres strong small { font-size: .9rem; }
+.cf-chiffres strong.neuf { font-size: 1.05rem; color: var(--orange); padding-top: 6px; }
+.cf-chiffres span { display: block; font-size: .75rem; line-height: 1.35; color: var(--gris); }
+.cf-plus summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font: 500 .875rem var(--texte); color: var(--bleu); padding: 6px 0; }
+.cf-plus summary::-webkit-details-marker { display: none; }
+.cf-plus summary::after { content: "+"; font-size: 1.1rem; line-height: 1; }
+.cf-plus[open] summary::after { content: "−"; }
+.cf-plus .fermer, .cf-plus[open] .ouvrir { display: none; }
+.cf-plus[open] .fermer { display: inline; }
+.cf-detail { padding-top: 12px; border-top: 1px solid rgb(16 21 58 / .08); margin-top: 8px; color: var(--gris); font-size: .9375rem; }
+.cf-detail h4 { font: .8125rem var(--mono); color: var(--bleu); font-weight: 400; margin: 14px 0 6px; }
+.cf-detail ul, .cf-detail ol { padding-left: 18px; }
+.cf-detail li { margin-bottom: 5px; }
+.cf-detail .programme h5 { font: 500 .9375rem/1.4 var(--texte); color: var(--encre); margin: 12px 0 4px; }
+.cf-detail .programme p { margin-bottom: 8px; }
+.cf-detail dl div { padding: 8px 0; border-top: 1px solid rgb(16 21 58 / .08); }
+.cf-detail dt { font: .8125rem var(--mono); color: var(--bleu); }
+.cf-vide { max-width: 1180px; color: var(--gris); margin-top: 12px; }
+.cf-vide a { color: var(--bleu); }
+.page-catalogue .communs { max-width: 1180px; margin-top: 56px; }
+@media (max-width: 520px) { .cf-chiffres strong { font-size: 1.3rem; } .cf-tete { flex-direction: column-reverse; } .cf-etapes { justify-content: flex-start; } }

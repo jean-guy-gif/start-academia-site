@@ -238,13 +238,15 @@ def depuis_qualiof(d):
         fiches.append({'cat': categorie(p), 'id': ancre, 'titre': p['titre'], 'heures': p['dureeHeures'],
                        'public': texte(p.get('public')), 'prereq': texte(p.get('prerequis')) or 'Aucun',
                        'obj': [o for o in p['objectifs'] if str(o).strip()], 'av': False,
-                       'programme': markdown(p.get('programme')), 'indicateurs': ligne_indicateurs(ind)})
+                       'programme': markdown(p.get('programme')), 'indicateurs': ligne_indicateurs(ind), 'ind': ind,
+                       'texte': ' '.join([p['titre'], ' '.join(map(str, p['objectifs']))])})
     return fiches
 
 
 def depuis_repli():
     return [{'cat': cat, 'id': slug, 'titre': titre, 'heures': hh, 'public': h.escape(public),
-             'prereq': h.escape(prereq or 'Aucun'), 'obj': obj, 'av': av, 'programme': '', 'indicateurs': ''}
+             'prereq': h.escape(prereq or 'Aucun'), 'obj': obj, 'av': av, 'programme': '', 'indicateurs': '',
+             'ind': {}, 'texte': titre + ' ' + ' '.join(obj)}
             for cat, slug, titre, hh, public, prereq, obj, av in F]
 
 
@@ -261,59 +263,133 @@ def catalogue():
     return depuis_repli(), 'repli'
 
 
-def generer():
-    fiches_toutes, source = catalogue()
-    cats = [c for c in CATS if any(f['cat'] == c[0] for f in fiches_toutes)]
-    nav = ''.join(f'<li><a href="#{c[0]}">{c[1]} <span>{sum(1 for f in fiches_toutes if f["cat"] == c[0])}</span></a></li>' for c in cats)
-    corps = f'''  <div class="catalogue">
-    <nav class="sommaire" aria-label="Catégories de formations"><ol>{nav}</ol></nav>
-    <aside class="communs" aria-labelledby="titre-communs">
-      <h2 id="titre-communs">Valable pour toutes les formations</h2>
-      <dl>
-        <div><dt>Modalités</dt><dd>En agence (Alpes-Maritimes et alentours) ou à distance, en individuel ou en groupe.</dd></div>
-        <div><dt>Méthodes</dt><dd>Apports courts, mises en situation professionnelles, exercices sur vos propres dossiers et échanges de pratiques.</dd></div>
-        <div><dt>Évaluation</dt><dd>Positionnement de départ, évaluation des acquis en fin de formation, questionnaire de satisfaction, attestation remise.</dd></div>
-        <div><dt>Tarif</dt><dd>Sur devis après l’appel découverte. Prise en charge possible par votre OPCO ou votre fonds d’assurance formation (AGEFICE, FIF PL…). Non éligible au CPF à ce jour.</dd></div>
-        <div><dt>Délai d’accès</dt><dd>Démarrage selon vos disponibilités et le délai de prise en charge de votre financeur.</dd></div>
-        <div><dt>Accessibilité</dt><dd>Référent handicap : Jean-Guy Ourmières, <a href="tel:+33610230060">06 10 23 00 60</a>. <a href="/documents/charte-accueil-handicap.pdf">Charte d’accueil</a></dd></div>
-        <div><dt>Formateurs</dt><dd>Laurent Marx et Jean-Guy Ourmières, plus de 10 ans de transaction.</dd></div>
-      </dl>
-    </aside>
-  </div>
+# La chaîne de production du métier (même ordre que l'accueil). Une formation couvre une ou plusieurs
+# étapes, repérées par mots-clés dans son titre et ses objectifs (textes QualiOF).
+ETAPES = [
+ ('prospection', 'Prospection', ['prospect', 'lead', 'capter', 'captation', 'sphere d', 'base de donnees', 'referencement', 'seo', 'reseaux sociaux', 'marketing', 'recherche fonciere']),
+ ('decouverte', 'Découverte', ['relation client', 'relation vendeur', 'decouverte', 'persona', 'qualification']),
+ ('estimation', 'Estimation', ['estimation', 'evaluation', 'analyse de biens', 'analyse approfondie', 'cadastre', 'prix']),
+ ('mandat', 'Mandat', ['mandat', 'exclusi', 'suivi vendeur', 'reporting vendeur']),
+ ('acquereurs', 'Acquéreurs', ['acquereur', 'acheteur']),
+ ('visites', 'Visites et offres', ['visite', 'offre d', 'negociation', 'conclusion de vente', 'techniques de vente', 'annonce']),
+ ('organisation', 'Organisation', ['productivite', 'automatis', 'organisation', "plan d'action", "plan d'utilisation", 'prompt', 'ia generative', 'assistant', 'tableau de bord', "systeme d'information"]),
+ ('administratif', 'Administratif', ['administrat', 'tracfin', 'deontologie', 'discrimination', 'juridique', 'blanchiment', 'anglais']),
+]
+
+COMMUNS = '''  <aside class="communs" aria-labelledby="titre-communs">
+    <h2 id="titre-communs">Valable pour toutes les formations</h2>
+    <dl>
+      <div><dt>Modalités</dt><dd>En agence (Alpes-Maritimes et alentours) ou à distance, en individuel ou en groupe.</dd></div>
+      <div><dt>Méthodes</dt><dd>Apports courts, mises en situation professionnelles, exercices sur vos propres dossiers et échanges de pratiques.</dd></div>
+      <div><dt>Évaluation</dt><dd>Positionnement de départ, évaluation des acquis en fin de formation, questionnaire de satisfaction, attestation remise.</dd></div>
+      <div><dt>Tarif</dt><dd>Sur devis après l’appel découverte. Prise en charge possible par votre OPCO ou votre fonds d’assurance formation (AGEFICE, FIF PL…). Non éligible au CPF à ce jour.</dd></div>
+      <div><dt>Délai d’accès</dt><dd>Démarrage selon vos disponibilités et le délai de prise en charge de votre financeur.</dd></div>
+      <div><dt>Accessibilité</dt><dd>Référent handicap : Jean-Guy Ourmières, <a href="tel:+33610230060">06 10 23 00 60</a>. <a href="/documents/charte-accueil-handicap.pdf">Charte d’accueil</a></dd></div>
+      <div><dt>Formateurs</dt><dd>Laurent Marx et Jean-Guy Ourmières, plus de 10 ans de transaction.</dd></div>
+    </dl>
+  </aside>
 '''
-    for slug_c, nom, img, alt, intro in cats:
-        fiches = ''
-        for f in [f for f in fiches_toutes if f['cat'] == slug_c]:
-            lis = ''.join(f'<li>{h.escape(o)}</li>' for o in f['obj'])
-            indic = f'<span class="indicateurs">{f["indicateurs"]}</span>' if f['indicateurs'] else ''
-            prog = f'<h4 class="titre-programme">Programme</h4><div class="programme">{f["programme"]}</div>' if f['programme'] else ''
-            fiches += f'''
-      <details class="fiche" id="{f['id']}"{' data-a-valider' if f['av'] else ''}>
-        <summary><span class="nom">{h.escape(f['titre'])}{indic}</span><span class="duree">{duree(f['heures'])}</span></summary>
-        <div class="detail">
-          <div><h4>Objectifs</h4><ul>{lis}</ul>{prog}</div>
+
+SCRIPT = '''<script>
+(() => {
+  const boutons = [...document.querySelectorAll('.cf-chaine button')];
+  const cartes = [...document.querySelectorAll('.carte-f')];
+  const vide = document.querySelector('.cf-vide');
+  const filtrer = (k) => {
+    boutons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.etape === k)));
+    let n = 0;
+    cartes.forEach((c) => { const ok = !k || c.dataset.etapes.split(' ').includes(k); c.hidden = !ok; if (ok) n++; });
+    vide.hidden = n > 0;
+  };
+  boutons.forEach((b) => b.addEventListener('click', () => filtrer(b.dataset.etape)));
+  // Lien direct vers une fiche (/formations/#ancre) : on l'ouvre.
+  const id = decodeURIComponent(location.hash.slice(1));
+  const cible = id && document.getElementById(id);
+  if (cible && cible.classList.contains('carte-f')) { cible.querySelector('details').open = true; cible.classList.add('ciblee'); }
+})();
+</script>
+'''
+
+
+def etapes_de(f):
+    s = cle(f.get('texte', ''))
+    return [e[0] for e in ETAPES if any(m in s for m in e[2])] or ['organisation']
+
+
+def chiffres(ind):
+    n = ind.get('apprenantsFormes') or 0
+    sat = ind.get('satisfaction') or {}
+    out = []
+    if n:
+        s = 's' if n > 1 else ''
+        out.append(f'<div><strong>{n}</strong><span>apprenant{s} formé{s}</span></div>')
+    if sat.get('note5') is not None:
+        note = f'{sat["note5"]:.1f}'.replace('.', ',')
+        out.append(f'<div><strong>{note}<small>/5</small></strong><span>satisfaction</span></div>')
+    if sat.get('tauxRecommandation') is not None:
+        k = sat.get('nbReponses') or 0
+        avis = f' ({k} avis)' if k else ''
+        out.append(f'<div><strong>{round(sat["tauxRecommandation"])}<small>&nbsp;%</small></strong><span>recommandent{avis}</span></div>')
+    elif n:
+        out.append('<div><strong class="neuf">Avis</strong><span>en cours de collecte</span></div>')
+    return ''.join(out)
+
+
+def carte(f, noms):
+    lis = ''.join(f'<li>{h.escape(o)}</li>' for o in f['obj'])
+    puces = ''.join(f'<li>{noms[k]}</li>' for k in f['etapes'])
+    prog = f'<h4>Programme</h4><div class="programme">{f["programme"]}</div>' if f['programme'] else ''
+    stats = chiffres(f['ind'])
+    stats = f'<div class="cf-chiffres">{stats}</div>' if stats else ''
+    av = ' data-a-valider' if f['av'] else ''
+    return (f'''
+    <article class="carte-f" id="{f['id']}" data-etapes="{' '.join(f['etapes'])}"{av}>
+      <div class="cf-tete"><span class="cf-duree">{duree(f['heures'])}</span><ul class="cf-etapes" aria-label="Étapes du métier">{puces}</ul></div>
+      <h3>{h.escape(f['titre'])}</h3>
+      {stats}
+      <details class="cf-plus">
+        <summary><span class="ouvrir">Voir les objectifs et le programme</span><span class="fermer">Masquer le détail</span></summary>
+        <div class="cf-detail">
+          <h4>Objectifs</h4><ul>{lis}</ul>
+          {prog}
           <dl>
             <div><dt>Public</dt><dd>{f['public']}</dd></div>
             <div><dt>Prérequis</dt><dd>{f['prereq']}</dd></div>
             <div><dt>Durée</dt><dd>{duree(f['heures'])}</dd></div>
           </dl>
         </div>
-      </details>'''
-        corps += f'''  <section class="famille" id="{slug_c}" aria-labelledby="t-{slug_c}">
-    <div class="famille-tete">
-      <img src="/img/{img}" width="2000" height="1117" loading="lazy" alt="{h.escape(alt)}">
-      <div><h2 id="t-{slug_c}">{nom}</h2><p>{intro}</p></div>
-    </div>
-    <div class="fiches">{fiches}
-    </div>
-  </section>
-'''
+      </details>
+    </article>''')
+
+
+def generer():
+    fiches_toutes, source = catalogue()
+    for f in fiches_toutes:
+        f['etapes'] = etapes_de(f)
+    ordre = {e[0]: i for i, e in enumerate(ETAPES)}
+    fiches_toutes.sort(key=lambda f: (ordre[f['etapes'][0]], -(f['ind'].get('apprenantsFormes') or 0)))
+    noms = {e[0]: e[1] for e in ETAPES}
+
+    chaine = ''.join(
+        f'<li><button type="button" data-etape="{k}" aria-pressed="false"><span class="ch-num">{i + 1}</span>{nom}'
+        f'<span class="ch-nb">{sum(1 for f in fiches_toutes if k in f["etapes"])}</span></button></li>'
+        for i, (k, nom, _) in enumerate(ETAPES))
+    cartes = ''.join(carte(f, noms) for f in fiches_toutes)
+
+    corps = (f'''  <div class="chaine-f">
+    <p class="cf-consigne">Choisissez une étape de votre métier&nbsp;: nous affichons les formations qui la travaillent.</p>
+    <ol class="cf-chaine"><li><button type="button" data-etape="" aria-pressed="true">Toutes<span class="ch-nb">{len(fiches_toutes)}</span></button></li>{chaine}</ol>
+  </div>
+  <div class="grille-f">{cartes}
+  </div>
+  <p class="cf-vide" hidden>Aucune formation pour cette étape pour l'instant&nbsp;: <a href="{CAL}">parlons-en</a>, nous construisons le parcours avec vous.</p>
+''' + COMMUNS + SCRIPT)
 
     page('formations/',
      'Catalogue des formations immobilier et IA | Start Academia',
-     'Toutes nos formations pour agents et agences immobilières : prospection, mandat, acheteur, IA, marketing, management. Objectifs, durées et modalités.',
+     'Nos formations pour agents et agences immobilières, classées par étape du métier : prospection, estimation, mandat, acquéreurs, organisation. Avis et résultats.',
      'Nos formations.',
-     f'{len(fiches_toutes)} formations construites sur les étapes de votre métier. Chacune peut être adaptée à votre agence et combinée dans un parcours sur mesure.',
+     f'{len(fiches_toutes)} formations construites sur les étapes de votre métier, avec les résultats de nos apprenants. Chacune peut être adaptée à votre agence et combinée dans un parcours sur mesure.',
      corps)
 
     # le wrapper .corps ajouté par page() ne doit pas s'appliquer ici
