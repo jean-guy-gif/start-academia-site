@@ -891,3 +891,4 @@ p { text-wrap: pretty; }
 .outil.large { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; grid-template-rows: auto; align-items: center; }
 .outil.large .ecran-o { margin: 30px 0 30px 30px; }
 @media (max-width: 1000px) { .outil.large { grid-template-columns: 1fr; } .outil.large .ecran-o { margin: 0; } }
+.inverse .p-bas { right: auto; left: -3%; transform: rotate(-5deg); }
