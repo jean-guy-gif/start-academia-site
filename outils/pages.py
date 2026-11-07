@@ -121,7 +121,7 @@ page('mentions-legales/',
   </div>
   <div class="bloc" id="donnees">
     <h2>Données personnelles</h2>
-    <p>Ce site ne comporte pas de formulaire et ne dépose aucun cookie publicitaire ni de mesure d'audience. Les polices de caractères sont chargées depuis le service Google Fonts. La démonstration de l'accueil envoie l'adresse tapée au service de géocodage de l'IGN (Base Adresse Nationale) et ses coordonnées à l'API publique DVF du Cerema, uniquement pour afficher le résultat ; nous ne conservons rien. La prise de rendez-vous se fait sur Google Agenda, qui traite vos données selon sa propre politique de confidentialité.</p>
+    <p>Ce site ne comporte pas de formulaire et ne dépose aucun cookie publicitaire ni de mesure d'audience. Les polices de caractères sont chargées depuis le service Google Fonts. La démonstration de l'accueil envoie l'adresse tapée au service de géocodage de l'IGN (Base Adresse Nationale) et ses coordonnées à l'API publique DVF du Cerema, uniquement pour afficher le résultat ; nous ne conservons rien.</p>
     <p>Les données que vous nous transmettez (appel, e-mail, rendez-vous) servent uniquement à vous répondre et à organiser votre formation. Elles ne sont ni vendues ni cédées. La réservation d'un appel découverte passe par le service Brevo Meetings (Sendinblue SAS, Paris), qui nous transmet les informations saisies dans le formulaire et envoie les e-mails et SMS de confirmation et de rappel ; le rendez-vous a lieu sur Google Meet. Vous pouvez demander leur accès, leur rectification ou leur suppression en écrivant à <a href="mailto:info@start-academia.fr">info@start-academia.fr</a>. Vous pouvez aussi saisir la CNIL (<a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
   </div>
   <div class="bloc">
@@ -137,6 +137,28 @@ page('mentions-legales/',
     <h2>Droit applicable</h2>
     <p>Le présent site est soumis au droit français.</p>
   </div>''', appel=False)
+
+
+# Page de remerciement après réservation Brevo
+page('merci-rendez-vous/', 'Appel réservé | Start Academia', 'Votre appel découverte est réservé.', 'Votre appel est réservé.',
+ 'Merci. Vous recevez une confirmation par e-mail avec le lien Google Meet, puis un rappel la veille et une heure avant.',
+ '''  <div class="bloc">
+    <h2>Pour gagner du temps pendant l'appel</h2>
+    <ul class="points">
+      <li>Notez vos 2 ou 3 tâches les plus chronophages de la semaine (annonces, relances, estimations, compte rendu…).</li>
+      <li>Dites-nous les outils que vous utilisez déjà&nbsp;: logiciel de transaction, CRM, ChatGPT ou Claude.</li>
+      <li>Si vous êtes salarié ou en réseau, vérifiez votre financement possible (OPCO, FAF, CPF)&nbsp;: on regarde ensemble pendant l'appel.</li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>En attendant&nbsp;: faites votre diagnostic gratuit</h2>
+    <p>Academia Parcours mesure votre activité sur les étapes du métier (prospection, mandat, acquéreurs, visites…) et vous donne votre diagnostic de performance immobilière en quelques minutes. On s'en servira pendant l'appel pour aller droit à l'essentiel.</p>
+    <p><a class="action" href="https://app.myacademia.ai" rel="noopener">Faire mon diagnostic gratuit<svg aria-hidden="true"><use href="#fleche"/></svg></a></p>
+  </div>
+  <div class="bloc">
+    <h2>Un empêchement&nbsp;?</h2>
+    <p>Utilisez le lien « modifier ou annuler » de votre e-mail de confirmation, ou appelez-nous au <a href="tel:+33610230060">06 10 23 00 60</a>. Ça libère le créneau pour un autre conseiller.</p>
+  </div>''', robots='noindex', appel=False)
 
 # Page 404
 page('404-tmp/', 'Page introuvable | Start Academia', 'Cette page n’existe pas ou plus.', 'Page introuvable.',
