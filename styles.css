@@ -871,3 +871,14 @@ p { text-wrap: pretty; }
 
 .simu-questions { min-width: 0; }
 .prompt-bloc { margin-top: 14px; padding: 18px 20px; border-radius: 14px; background: rgba(47,68,206,.07); border: 1px solid rgba(47,68,206,.18); font: 400 .9rem/1.6 "IBM Plex Mono", monospace; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--encre); }
+
+/* Outil vedette inversé (visuel à gauche) */
+.outil.vedette.inverse { grid-template-columns: 1.15fr 1fr; background: radial-gradient(70% 90% at 0% 100%, rgb(105 136 238 / .3), transparent 60%), linear-gradient(160deg, rgb(255 255 255 / .08), rgb(255 255 255 / .025)); }
+.inverse .compo-dossier { order: -1; margin: 36px 0 36px 36px; }
+.inverse .cd-appli { left: auto; right: 0; transform: perspective(1600px) rotateY(5deg); }
+.inverse .cd-courbe { left: auto; right: 6%; }
+.inverse .p-a { right: auto; left: 9%; transform: rotate(5deg); }
+.inverse .p-b { right: auto; left: -2%; transform: rotate(-6deg); }
+.cd-courbe.sombre { background: #0b1033; }
+@media (hover: hover) { .vedette.inverse:hover .p-a { transform: rotate(8deg) translate(14px, -8px); } .vedette.inverse:hover .p-b { transform: rotate(-9deg) translate(-10px, 6px); } }
+@media (max-width: 1000px) { .outil.vedette.inverse { grid-template-columns: 1fr; } .inverse .compo-dossier { order: 0; margin: 0 22px 26px; } .inverse .cd-appli { transform: none; } }
