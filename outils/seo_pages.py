@@ -92,7 +92,7 @@ ecrire('formation-ia-immobilier/',
       <li><strong>En agence</strong> sur la Côte d'Azur, <strong>ou à distance</strong> partout en France, en individuel ou en groupe.</li>
     </ul>
     <p><a class="lien-texte" href="/formations/">Voir le détail des 40 formations</a></p>
-    <p>Des exemples concrets, étape par étape&nbsp;: <a class="lien-texte" href="/ia-prospection-immobiliere/">prospection</a>, <a class="lien-texte" href="/ia-estimation-immobiliere/">estimation</a>, <a class="lien-texte" href="/ia-mandat-exclusif/">mandat exclusif</a>, <a class="lien-texte" href="/ia-annonce-immobiliere/">annonce</a>.</p>
+    <p>Des exemples concrets, étape par étape&nbsp;: <a class="lien-texte" href="/ia-prospection-immobiliere/">prospection</a>, <a class="lien-texte" href="/ia-estimation-immobiliere/">estimation</a>, <a class="lien-texte" href="/ia-mandat-exclusif/">mandat exclusif</a>, <a class="lien-texte" href="/ia-annonce-immobiliere/">annonce</a>, <a class="lien-texte" href="/ia-decouverte-acquereur/">découverte acquéreur</a>, <a class="lien-texte" href="/ia-visite-immobiliere/">visite</a>, <a class="lien-texte" href="/ia-negociation-immobiliere/">négociation</a>.</p>
   </div>
   <div class="bloc">
     <h2>Pour qui</h2>
@@ -318,6 +318,9 @@ AUTRES = '''  <div class="bloc">
       <li><a class="lien-texte" href="/ia-estimation-immobiliere/">Estimation immobilière avec l'IA</a></li>
       <li><a class="lien-texte" href="/ia-mandat-exclusif/">Rentrer un mandat exclusif avec l'IA</a></li>
       <li><a class="lien-texte" href="/ia-annonce-immobiliere/">Rédiger une annonce immobilière avec l'IA</a></li>
+      <li><a class="lien-texte" href="/ia-decouverte-acquereur/">Découverte acquéreur avec l'IA</a></li>
+      <li><a class="lien-texte" href="/ia-visite-immobiliere/">Préparer et suivre une visite avec l'IA</a></li>
+      <li><a class="lien-texte" href="/ia-negociation-immobiliere/">Négocier une offre avec l'IA</a></li>
     </ul>
   </div>'''
 
@@ -510,3 +513,148 @@ Format : un titre de 60 caractères, l'annonce, la version courte. Laisse à la 
   ("ChatGPT ou Claude pour écrire une annonce&nbsp;?", "Les deux conviennent. Nous montrons les deux en formation et vous gardez celui qui écrit le plus comme vous."),
   ("Peut-on traduire une annonce avec l'IA&nbsp;?", "Oui, c'est un vrai gain sur la Côte d'Azur. Faites relire la version traduite si l'enjeu est important.")],
  ("Rédiger une annonce immobilière avec l'IA", "Rédiger une annonce immobilière conforme et efficace avec l'IA, la décliner par canal et en langue étrangère."))
+
+
+# ---------------------------------------------------------------- Cas pratique 5 : découverte acquéreur
+ecrire('ia-decouverte-acquereur/',
+ "Découverte acquéreur avec l'IA | Start Academia",
+ "Réussir la découverte acquéreur avec l’IA : profil, vrais critères, quartier, financement. Méthode, prompt gratuit et formation pour agents immobiliers.",
+ "Découverte acquéreur avec l'IA.",
+ "Un acquéreur mal découvert, c'est dix visites pour rien. L'IA ne fait pas la découverte à votre place&nbsp;: elle vous aide à la préparer, à aller chercher les vrais critères derrière la liste de souhaits, et à transformer vos notes en fiche exploitable.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Un acquéreur appelle pour un T3 vu sur un portail. Le conseiller prend ses critères au téléphone&nbsp;: budget, surface, quartier. Trois visites plus tard, rien ne lui plaît. Ses vrais critères (le trajet de l'école, le bruit, le financement pas encore validé) n'ont jamais été posés.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Comprendre la personne.</strong> Avec <strong>Academia Profiling</strong>, notre outil maison, vous repérez la façon dont l'acquéreur décide (rapide, analytique, besoin d'être rassuré) et vous adaptez vos questions et votre discours.</li>
+      <li><strong>Creuser les vrais critères.</strong> Derrière «&nbsp;un T3 lumineux&nbsp;», il y a un projet de vie. L'IA vous prépare une trame de questions ouvertes&nbsp;: pourquoi acheter, pourquoi maintenant, ce qui est négociable et ce qui ne l'est pas.</li>
+      <li><strong>Vendre le quartier, pas seulement le bien.</strong> Avec <strong>Academia Vivre ici</strong>, vous montrez écoles, commerces, transports et vie locale autour d'une adresse. L'acquéreur se projette avant même la visite.</li>
+      <li><strong>Valider le financement.</strong> Apport, simulation bancaire, courtier&nbsp;: posé dès la découverte, ça évite les offres qui tombent.</li>
+      <li><strong>Transformer les notes en fiche.</strong> Vous dictez vos notes en sortant du rendez-vous, l'IA en fait une fiche acquéreur claire à reporter dans votre CRM.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Moins de visites inutiles</strong>, parce que vous ne montrez que les biens qui collent aux vrais critères.</li>
+      <li><strong>Une fiche acquéreur propre</strong> sans retaper vos notes le soir.</li>
+      <li><strong>Un acquéreur qui vous fait confiance</strong>, parce qu'il se sent compris dès le premier échange.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : la trame de découverte", """Rôle : tu es un conseiller immobilier expérimenté qui prépare une découverte acquéreur.
+Contexte : l'acquéreur a appelé pour [TYPE DE BIEN, SECTEUR, BUDGET ANNONCÉ]. Ce que je sais déjà : [PROJET : PREMIER ACHAT / AGRANDISSEMENT / INVESTISSEMENT / RÉSIDENCE SECONDAIRE].
+Tâche : prépare-moi une trame de 12 questions ouvertes pour un entretien de 20 minutes : motivation et délai, vrais critères (indispensables / souhaitables / rédhibitoires), quartier et trajets, financement (apport, banque, courtier). Pas de question sur l'origine, la religion, la santé ou la situation familiale si l'acquéreur ne l'aborde pas.
+Format : 4 blocs de 3 questions, puis un modèle de fiche acquéreur à remplir.""") + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Se contenter des critères du portail.</strong> Budget, surface et quartier ne disent pas pourquoi la personne achète.</li>
+      <li><strong>Filtrer les acquéreurs sur des critères discriminatoires.</strong> Origine, nom, âge, situation de famille ou handicap ne peuvent jamais servir à choisir à qui présenter un bien.</li>
+      <li><strong>Coller des données personnelles dans l'IA.</strong> Pas de nom, de téléphone ou de revenus détaillés dans ChatGPT&nbsp;: décrivez le projet de façon anonyme.</li>
+      <li><strong>Faire visiter sans financement validé.</strong> C'est la première cause d'offre qui tombe.</li>
+    </ul>
+  </div>
+''' + formation_bloc("La découverte acquéreur est travaillée dans nos formations avec nos outils maison Academia Profiling et Academia Vivre ici&nbsp;: trame de questions, mise en situation et fiche acquéreur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("L'IA peut-elle faire la découverte acquéreur à ma place&nbsp;?", "Non. L'échange reste humain. L'IA vous aide à préparer les questions, à adapter votre discours au profil et à mettre vos notes au propre."),
+  ("Qu'est-ce que le profiling acquéreur&nbsp;?", "C'est repérer la façon dont une personne prend ses décisions pour adapter votre discours : certains veulent des chiffres, d'autres être rassurés, d'autres aller vite. Notre outil Academia Profiling vous y aide."),
+  ("Peut-on mettre les informations d'un acquéreur dans ChatGPT&nbsp;?", "Évitez les données personnelles. Décrivez le projet (type de bien, budget, motivation) sans nom ni coordonnées : c'est suffisant pour obtenir une bonne trame."),
+  ("Quand parler du financement&nbsp;?", "Dès la découverte. Apport, simulation et accord de principe évitent les visites et les offres qui n'aboutissent pas.")],
+ ("Découverte acquéreur avec l'IA", "Préparer et mener une découverte acquéreur avec l'IA : profil de décision, vrais critères, quartier, financement et fiche acquéreur."))
+
+# ---------------------------------------------------------------- Cas pratique 6 : visite
+ecrire('ia-visite-immobiliere/',
+ "Préparer une visite immobilière avec l'IA | Start Academia",
+ "Préparer une visite avec l'IA, sélectionner les bons biens, faire le compte rendu au vendeur et relancer l'acquéreur. Méthode, prompt gratuit et formation.",
+ "Préparer et suivre une visite avec l'IA.",
+ "La visite se gagne avant et après le rendez-vous. Avant, en choisissant les bons biens et en préparant les réponses. Après, avec un compte rendu au vendeur et une relance de l'acquéreur le jour même. C'est là que l'IA fait gagner du temps.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Un conseiller enchaîne quatre visites l'après-midi. Le soir, il doit faire le retour à quatre vendeurs et relancer quatre acquéreurs. Faute de temps, il appelle deux vendeurs et oublie le reste. Le vendeur sans nouvelles pense que rien ne se passe&nbsp;; l'acquéreur qui n'est pas relancé visite chez le confrère.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Sélectionner les bons biens.</strong> Avec <strong>Academia Radar Acheteur</strong>, vous croisez la fiche acquéreur avec les biens disponibles et vous ne proposez que ceux qui correspondent aux vrais critères.</li>
+      <li><strong>Préparer la visite.</strong> L'IA vous prépare les points forts à montrer, les objections probables (travaux, DPE, charges) et les réponses, à partir de la fiche du bien.</li>
+      <li><strong>Situer le prix.</strong> Avec <strong>Academia ACM</strong>, vous montrez à l'acquéreur où se situe le bien par rapport au marché&nbsp;: il sait si le prix est juste avant de faire une offre.</li>
+      <li><strong>Faire le compte rendu au vendeur.</strong> Vous dictez vos impressions en sortant, l'IA rédige un compte rendu factuel&nbsp;: ce qui a plu, ce qui freine, la suite.</li>
+      <li><strong>Relancer l'acquéreur.</strong> Un message personnalisé le jour même, qui reprend ce qu'il a aimé et propose la prochaine étape.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Des visites mieux ciblées</strong>, donc moins nombreuses pour une offre.</li>
+      <li><strong>Un compte rendu au vendeur après chaque visite</strong>, sans y passer la soirée. C'est ce qui fait rester un vendeur avec vous.</li>
+      <li><strong>Une relance acquéreur le jour même</strong>, au moment où il est le plus motivé.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : le compte rendu de visite au vendeur", """Rôle : tu es un conseiller immobilier qui fait son retour de visite au vendeur.
+Contexte : bien = [TYPE, SECTEUR, PRIX AFFICHÉ]. Visite du [DATE] avec un acquéreur [PROFIL ANONYME : FAMILLE, INVESTISSEUR…]. Ce qui a plu : [POINTS]. Ce qui freine : [POINTS]. Suite prévue : [SECONDE VISITE / RÉFLEXION / OFFRE POSSIBLE / PAS DE SUITE].
+Tâche : rédige un compte rendu de 120 mots, factuel et rassurant, sans enjoliver. Si plusieurs visites font la même remarque, propose une piste d'action (présentation, prix, petits travaux) sans l'imposer.
+Format : un e-mail avec un objet, 3 paragraphes courts, une signature avec [TON NOM] et [TON AGENCE].""") + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Faire visiter sans bon de visite.</strong> Il protège votre travail et votre droit à honoraires.</li>
+      <li><strong>Enjoliver le retour au vendeur.</strong> Un compte rendu trop positif empêche ensuite de parler du prix.</li>
+      <li><strong>Donner le nom de l'acquéreur à l'IA.</strong> Le profil suffit, sans nom ni coordonnées.</li>
+      <li><strong>Laisser l'IA inventer un argument.</strong> Une école «&nbsp;à 5 minutes&nbsp;» ou un DPE «&nbsp;bientôt amélioré&nbsp;» engagent votre responsabilité&nbsp;: tout doit être vérifié.</li>
+    </ul>
+  </div>
+''' + formation_bloc("La visite est travaillée dans nos formations avec nos outils maison Academia Radar Acheteur et Academia ACM&nbsp;: sélection des biens, préparation des objections, compte rendu vendeur et relance acquéreur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("Comment faire un compte rendu de visite au vendeur&nbsp;?", "Rapidement après la visite, de façon factuelle : ce qui a plu, ce qui freine, la suite prévue. L'IA rédige le texte à partir de vos notes dictées, vous relisez et envoyez."),
+  ("L'IA peut-elle choisir les biens à faire visiter&nbsp;?", "Elle vous aide à croiser les critères de l'acquéreur avec vos biens disponibles. La décision reste la vôtre, avec votre connaissance du terrain."),
+  ("Quels outils utiliser pour les visites&nbsp;?", "ChatGPT ou Claude pour les comptes rendus et les relances, et nos outils maison Academia Radar Acheteur et Academia ACM pour la sélection et le prix."),
+  ("Le bon de visite est-il obligatoire&nbsp;?", "Il n'est pas imposé par la loi, mais il est vivement recommandé : il prouve que vous avez présenté le bien et protège votre droit à honoraires.")],
+ ("Préparer et suivre une visite immobilière avec l'IA", "Sélection des biens, préparation des objections, compte rendu au vendeur et relance acquéreur avec l'IA."))
+
+# ---------------------------------------------------------------- Cas pratique 7 : négociation
+ecrire('ia-negociation-immobiliere/',
+ "Négocier une offre immobilière avec l'IA | Start Academia",
+ "Négocier une offre d'achat avec l'IA : argumenter avec le marché, préparer l'appel au vendeur, présenter l'offre. Méthode, prompt gratuit et formation.",
+ "Négocier une offre avec l'IA.",
+ "Une offre arrive en dessous du prix. Le vendeur se vexe, l'acquéreur se braque, et la vente se joue dans les heures qui suivent. L'IA vous aide à préparer les arguments, à choisir les mots et à présenter l'offre clairement aux deux parties.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Un acquéreur fait une offre à 6&nbsp;% sous le prix affiché. Le conseiller appelle le vendeur et lui annonce le chiffre sans préparation. Le vendeur refuse par principe, l'acquéreur part sur un autre bien. Avec les bons arguments, présentés dans le bon ordre, la vente se serait peut-être faite.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Recevoir une offre écrite.</strong> Prix, conditions suspensives, financement, délai&nbsp;: une offre claire et écrite, à transmettre au vendeur.</li>
+      <li><strong>Argumenter avec le marché.</strong> Avec <strong>Academia ACM</strong>, vous montrez au vendeur les ventes comparables et le temps passé sur le marché. Ce n'est plus votre avis contre le sien, c'est le marché.</li>
+      <li><strong>Préparer l'échange.</strong> L'IA vous aide à anticiper les réactions du vendeur selon son profil, repéré avec <strong>Academia Profiling</strong>, et à préparer vos réponses.</li>
+      <li><strong>Mettre l'offre en forme.</strong> Avec <strong>Academia Radar Acheteur</strong>, vous présentez l'offre et le dossier de l'acquéreur (financement, délai) de façon professionnelle, avec le courrier de transmission.</li>
+      <li><strong>Garder le lien des deux côtés.</strong> Un message à l'acquéreur pour le tenir informé pendant la réflexion du vendeur, sans promettre de réponse.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Un vendeur qui discute au lieu de refuser par principe</strong>, parce que vous lui montrez le marché.</li>
+      <li><strong>Une offre présentée proprement en quelques minutes</strong>, avec le dossier de l'acquéreur.</li>
+      <li><strong>Moins de ventes perdues</strong> par manque de préparation dans les heures qui comptent.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : préparer la présentation de l'offre au vendeur", """Rôle : tu es un conseiller immobilier qui prépare l'appel au vendeur pour lui présenter une offre.
+Contexte : prix affiché [PRIX], en vente depuis [DURÉE], [NOMBRE] visites. Offre reçue : [MONTANT], financement [COMPTANT / PRÊT AVEC ACCORD DE PRINCIPE / PRÊT SANS ACCORD], délai [DÉLAI]. Comparables : [2 OU 3 VENTES : SURFACE, PRIX, DÉLAI]. Profil du vendeur : [PRESSÉ / ATTACHÉ AU BIEN / TRÈS ANALYTIQUE].
+Tâche : prépare le déroulé de l'appel : comment introduire l'offre, les 3 arguments de marché à utiliser, les 3 objections probables du vendeur et une réponse pour chacune. Reste neutre : je transmets l'offre, c'est le vendeur qui décide.
+Format : déroulé en 5 étapes, puis un tableau objection / réponse.""") + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Garder une offre pour soi.</strong> Toute offre reçue doit être transmise au vendeur, même si elle vous paraît trop basse.</li>
+      <li><strong>Annoncer le chiffre sans contexte.</strong> Présentez d'abord le marché et le sérieux de l'acquéreur, ensuite le montant.</li>
+      <li><strong>Laisser l'IA rédiger un compromis.</strong> L'IA prépare l'échange, pas les actes&nbsp;: le compromis et ses clauses relèvent du notaire ou d'un modèle juridique validé.</li>
+      <li><strong>Mettre les noms et la situation des clients dans l'IA.</strong> Travaillez avec des données anonymisées.</li>
+    </ul>
+  </div>
+''' + formation_bloc("La négociation est travaillée dans nos formations avec nos outils maison Academia ACM, Academia Profiling et Academia Radar Acheteur&nbsp;: préparation de l'appel vendeur, mise en forme de l'offre et suivi des deux parties.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("L'IA peut-elle négocier à ma place&nbsp;?", "Non. Elle vous aide à préparer les arguments, anticiper les objections et mettre l'offre en forme. La négociation reste un échange humain."),
+  ("Faut-il transmettre une offre très basse au vendeur&nbsp;?", "Oui. Le conseiller transmet toutes les offres qu'il reçoit. C'est la façon de les présenter, avec le marché, qui fait la différence."),
+  ("Comment convaincre un vendeur de baisser son prix&nbsp;?", "Avec des faits : ventes comparables, temps passé sur le marché, retours de visites. Une analyse comparative de marché comme Academia ACM rend la discussion objective."),
+  ("Peut-on rédiger une offre d'achat avec ChatGPT&nbsp;?", "L'IA peut aider à mettre en forme une lettre de présentation. Pour l'offre elle-même et le compromis, utilisez les modèles validés de votre agence ou du notaire.")],
+ ("Négocier une offre immobilière avec l'IA", "Préparer la négociation d'une offre d'achat avec l'IA : arguments de marché, profil du vendeur, mise en forme et transmission de l'offre."))
