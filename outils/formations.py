@@ -276,6 +276,17 @@ ETAPES = [
  ('administratif', 'Administratif', ['administrat', 'tracfin', 'deontologie', 'discrimination', 'juridique', 'blanchiment', 'anglais']),
 ]
 
+VISUELS = {
+ 'prospection': ['agence-a', 'secteur', 'localisateur', 'agence-b', 'antibes-a'],
+ 'decouverte': ['r1-a', 'profiling', 'r1-b', 'strategie', 'equipe'],
+ 'estimation': ['acm', 'dynamique', 'antibes-b'],
+ 'mandat': ['mandat-a', 'point-marche', 'mandat-b', 'mandat-c'],
+ 'acquereurs': ['radar', 'vivre-ici', 'visite-a'],
+ 'visites': ['visite-a', 'criteres', 'visite-b'],
+ 'organisation': ['formation-a', 'parcours', 'pilotage', 'formation-b', 'formation-c'],
+ 'administratif': ['final-a', 'final-b', 'mandat-c', 'formation-c'],
+}
+
 COMMUNS = '''  <aside class="communs" aria-labelledby="titre-communs">
     <h2 id="titre-communs">Valable pour toutes les formations</h2>
     <dl>
@@ -344,7 +355,7 @@ def carte(f, noms):
     av = ' data-a-valider' if f['av'] else ''
     return (f'''
     <article class="carte-f" id="{f['id']}" data-etapes="{' '.join(f['etapes'])}"{av}>
-      <div class="cf-visuel"><img src="/img/etape-{f['visuel']}.webp" width="720" height="260" loading="lazy" alt=""><span class="cf-duree">{duree(f['heures'])}</span></div>
+      <div class="cf-visuel"><img src="/img/cf-{f['visuel']}.webp" width="720" height="260" loading="lazy" alt=""><span class="cf-duree">{duree(f['heures'])}</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier">{puces}</ul>
       <h3>{h.escape(f['titre'])}</h3>
       {stats}
@@ -367,10 +378,15 @@ def generer():
     fiches_toutes, source = catalogue()
     for f in fiches_toutes:
         f['etapes'] = etapes_de(f)
-    # visuel de la carte : l'étape la plus rare de la formation, pour varier les images
+    # visuel de chaque carte : une image différente par formation, prise d'abord dans la réserve de
+    # l'étape la plus spécifique (la plus rare) qu'elle couvre, puis dans la réserve commune.
     freq = {e[0]: sum(1 for f in fiches_toutes if e[0] in f['etapes']) for e in ETAPES}
+    pris = set()
     for f in fiches_toutes:
-        f['visuel'] = min(f['etapes'], key=lambda k: freq[k])
+        prefs = [v for k in sorted(f['etapes'], key=lambda k: freq[k]) for v in VISUELS[k]]
+        libres = [v for v in prefs + [v for l in VISUELS.values() for v in l] if v not in pris]
+        f['visuel'] = libres[0] if libres else VISUELS[f['etapes'][0]][0]
+        pris.add(f['visuel'])
     ordre = {e[0]: i for i, e in enumerate(ETAPES)}
     fiches_toutes.sort(key=lambda f: (ordre[f['etapes'][0]], -(f['ind'].get('apprenantsFormes') or 0)))
     noms = {e[0]: e[1] for e in ETAPES}
