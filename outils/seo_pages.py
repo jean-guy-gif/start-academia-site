@@ -225,6 +225,7 @@ ecrire('formation-loi-alur/',
       <li><strong>Jour 2, vendre et suivre</strong>&nbsp;: annonces conformes, découverte acquéreur, visite, négociation et suivi client, avec les bons réflexes pour protéger les données de vos clients.</li>
     </ol>
     <p>Chaque séquence part d'un cas réel de votre agence, avec un exercice pratique et un livret tactique pour réutiliser les méthodes au quotidien.</p>
+    <p><strong>Déontologie et non-discrimination couvertes.</strong> Pour les heures obligatoires, nous proposons le module <a href="/formations/#non-discrimination-tracfin-et-deontologie">Non-discrimination, Tracfin et déontologie</a> (8&nbsp;h), à intégrer à votre parcours.</p>
   </div>
   <div class="bloc">
     <h2>À distance ou en présentiel&nbsp;?</h2>
