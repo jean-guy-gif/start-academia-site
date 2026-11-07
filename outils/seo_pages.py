@@ -92,6 +92,7 @@ ecrire('formation-ia-immobilier/',
       <li><strong>En agence</strong> sur la Côte d'Azur, <strong>ou à distance</strong> partout en France, en individuel ou en groupe.</li>
     </ul>
     <p><a class="lien-texte" href="/formations/">Voir le détail des 40 formations</a></p>
+    <p>Des exemples concrets, étape par étape&nbsp;: <a class="lien-texte" href="/ia-prospection-immobiliere/">prospection</a>, <a class="lien-texte" href="/ia-estimation-immobiliere/">estimation</a>, <a class="lien-texte" href="/ia-mandat-exclusif/">mandat exclusif</a>, <a class="lien-texte" href="/ia-annonce-immobiliere/">annonce</a>.</p>
   </div>
   <div class="bloc">
     <h2>Pour qui</h2>
@@ -291,3 +292,221 @@ ecrire('financement-formation-immobilier/',
   ("Quel montant puis-je obtenir&nbsp;?", "Il dépend de votre financeur et de votre statut. Pour 2026, le FIF PL prévoit pour les agents immobiliers jusqu'à 900 € par an et 300 € par jour, avec des plafonds proportionnels pour les micro-entrepreneurs. Nous vérifions avec vous les critères en vigueur."),
   ("Qui monte le dossier&nbsp;?", "La demande est déposée par vous ou votre employeur, mais nous fournissons tous les documents (devis, programme, convention, attestation) et nous vous guidons pas à pas."),
   ("Les formations Start Academia sont-elles éligibles au CPF&nbsp;?", "Pas à ce jour. Elles sont finançables par OPCO, FIF PL ou AGEFICE, et comptent pour la formation continue loi ALUR.")])
+
+
+# ================================================================ Pages cas pratiques (une étape du métier = une page)
+def prompt_bloc(titre, texte):
+    return f'''  <div class="bloc">
+    <h2>{titre}</h2>
+    <p>Copiez ce prompt dans ChatGPT ou Claude, remplacez les zones entre crochets, et relisez toujours le résultat avant de l'utiliser.</p>
+    <pre class="prompt-bloc">{texte}</pre>
+  </div>'''
+
+
+def formation_bloc(texte):
+    return f'''  <div class="bloc">
+    <h2>La formation qui va avec</h2>
+    <p>{texte}</p>
+    <p><a class="lien-texte" href="/formations/">Voir le catalogue des formations</a> &nbsp; <a class="lien-texte" href="/formation-ia-immobilier/">Voir la formation IA immobilier complète</a></p>
+  </div>'''
+
+
+AUTRES = '''  <div class="bloc">
+    <h2>Les autres étapes boostées à l'IA</h2>
+    <ul class="points">
+      <li><a class="lien-texte" href="/ia-prospection-immobiliere/">Prospection immobilière avec l'IA</a></li>
+      <li><a class="lien-texte" href="/ia-estimation-immobiliere/">Estimation immobilière avec l'IA</a></li>
+      <li><a class="lien-texte" href="/ia-mandat-exclusif/">Rentrer un mandat exclusif avec l'IA</a></li>
+      <li><a class="lien-texte" href="/ia-annonce-immobiliere/">Rédiger une annonce immobilière avec l'IA</a></li>
+    </ul>
+  </div>'''
+
+# ---------------------------------------------------------------- Cas pratique 1 : prospection
+ecrire('ia-prospection-immobiliere/',
+ "Prospection immobilière avec l'IA | Start Academia",
+ "Prospecter son secteur avec l'IA : dossier d'adresse, signaux de vente, courriers personnalisés, routine de 45 minutes. Méthode, prompt gratuit et formation.",
+ "Prospection immobilière avec l'IA.",
+ "Le boîtage au hasard et les scripts d'appel tout faits ne rentrent plus de vendeurs. L'IA ne remplace pas le terrain&nbsp;: elle vous aide à arriver chez le bon propriétaire, au bon moment, avec quelque chose d'utile à lui apporter.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Un conseiller finit sa semaine épuisé&nbsp;: photos, visites, flyers, mails, publications. À la question «&nbsp;quel vendeur as-tu fait avancer cette semaine&nbsp;?&nbsp;», le silence. Il n'a pas manqué d'activité, il a confondu activité et prospection. Le problème n'est pas le temps passé, c'est l'absence de méthode pour choisir où frapper et quoi dire.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Choisir son secteur.</strong> Les fondamentaux ne changent pas&nbsp;: un périmètre que vous connaissez, où vous pouvez être reconnu. L'IA vous aide à le lire&nbsp;: ventes passées, types de biens, signaux de vente.</li>
+      <li><strong>Préparer chaque adresse.</strong> Avec <strong>Mon Secteur</strong>, notre outil maison, vous générez un <strong>dossier d'adresse</strong>&nbsp;: environnement, ventes récentes du quartier, vie locale avec «&nbsp;Vivre ici&nbsp;». Vous arrivez avec une information utile, pas avec un prix.</li>
+      <li><strong>Écrire le bon message.</strong> ChatGPT ou Claude rédigent un courrier ou un message adapté au propriétaire et à la situation (succession, départ en retraite, bien vacant), que vous relisez et signez.</li>
+      <li><strong>Tenir une routine.</strong> Une <strong>routine secteur de 45 minutes</strong> par jour&nbsp;: signaux du jour, deux dossiers d'adresse, trois messages, une relance. La régularité fait la différence, l'IA la rend tenable.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Un dossier d'adresse en quelques minutes</strong> au lieu d'une recherche à la main sur plusieurs sites.</li>
+      <li><strong>Une routine de 45 minutes</strong> qui remplace des après-midi de boîtage sans suivi.</li>
+      <li><strong>Des messages personnalisés</strong> au lieu du même courrier pour toute la rue.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : le courrier de prospection", '''Rôle : tu es un conseiller immobilier expérimenté sur [VILLE / QUARTIER].
+Contexte : je prospecte la rue [NOM DE LA RUE]. Ventes récentes du quartier : [2 OU 3 EXEMPLES, TYPE ET SURFACE, SANS NOM DE PROPRIÉTAIRE]. Mon point fort : [CE QUE TU APPORTES].
+Tâche : rédige un courrier de prospection de 120 mots pour les propriétaires de la rue. Apporte une information utile sur le marché local, ne promets aucun prix, termine par une proposition simple (un échange de 15 minutes).
+Format : un objet, le courrier, une signature avec [TON NOM], [TON AGENCE], [TA CARTE PRO].''') + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Annoncer un prix par courrier.</strong> Une estimation se fait après visite. Le courrier ouvre la porte, il ne la referme pas.</li>
+      <li><strong>Mettre des données personnelles dans l'IA.</strong> Pas de nom, de téléphone ou de situation familiale de propriétaires dans ChatGPT. Travaillez avec des informations anonymisées.</li>
+      <li><strong>Prospecter sans respecter le RGPD.</strong> Le courrier postal est possible, avec un moyen simple de ne plus être sollicité. Pour le téléphone, vérifiez la liste Bloctel. Pour l'e-mail ou le SMS, il faut l'accord préalable du particulier.</li>
+      <li><strong>Envoyer sans relire.</strong> L'IA peut inventer un chiffre ou un nom de rue. Vous signez, vous vérifiez.</li>
+    </ul>
+  </div>
+''' + formation_bloc("La prospection est au cœur de nos formations IA, avec un atelier sur votre propre secteur et l'accès à nos outils maison (Mon Secteur, Localisateur). Nous proposons aussi des parcours dédiés à la prospection et au développement d'un secteur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("L'IA peut-elle trouver des vendeurs à ma place&nbsp;?", "Non. Elle vous fait gagner du temps sur la préparation et l'écriture, et vous aide à repérer les bons signaux. La relation avec le propriétaire reste votre métier."),
+  ("Quel outil utiliser pour prospecter avec l'IA&nbsp;?", "ChatGPT ou Claude pour écrire, et un outil de dossier d'adresse comme Mon Secteur pour préparer le terrain. Nous choisissons toujours l'outil le plus simple pour la tâche."),
+  ("Peut-on envoyer des e-mails de prospection à des particuliers&nbsp;?", "Seulement avec leur accord préalable. Le courrier postal reste possible, avec un moyen simple de s'opposer à la sollicitation. Pour le téléphone, il faut vérifier la liste Bloctel."),
+  ("Combien de temps faut-il pour voir des résultats&nbsp;?", "La prospection reste un travail de régularité. La méthode vise une routine courte et tenue chaque jour plutôt que de gros efforts ponctuels.")],
+ ("Prospection immobilière avec l'IA", "Méthode de prospection de secteur augmentée par l'IA : dossier d'adresse, signaux de vente, courriers personnalisés et routine quotidienne."))
+
+# ---------------------------------------------------------------- Cas pratique 2 : estimation
+ecrire('ia-estimation-immobiliere/',
+ "Estimation immobilière avec l'IA | Start Academia",
+ "Estimer un bien avec l'IA : analyse comparative de marché, avis de valeur argumenté, présentation au vendeur. Méthode, prompt gratuit et formation.",
+ "Estimation immobilière avec l'IA.",
+ "Le vendeur a déjà vu trois estimations en ligne et deux confrères. Ce qui fait la différence, ce n'est pas le chiffre&nbsp;: c'est la façon dont vous l'expliquez. L'IA vous aide à construire une analyse comparative solide et à la présenter clairement.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Un vendeur vous reçoit avec un prix en tête, souvent trop haut. Si vous arrivez avec un simple chiffre, vous entrez dans une enchère avec les autres agences. Si vous arrivez avec une analyse claire du marché, vous devenez celui qui conseille.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Visiter et relever.</strong> Rien ne remplace la visite&nbsp;: état, exposition, nuisances, travaux à prévoir. Vous dictez vos observations à l'IA au lieu de les retaper le soir.</li>
+      <li><strong>Construire l'ACM.</strong> Avec notre outil <strong>ACM</strong>, vous rassemblez les biens comparables (vendus, en vente, retirés) et vous les comparez point par point.</li>
+      <li><strong>Argumenter.</strong> ChatGPT ou Claude transforment vos relevés et votre ACM en un avis de valeur lisible&nbsp;: points forts, points faibles, fourchette, stratégie de prix.</li>
+      <li><strong>Présenter.</strong> Gamma met l'avis de valeur en forme en quelques minutes, à vos couleurs, pour le présenter au vendeur ou le lui envoyer.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Un avis de valeur argumenté</strong> au lieu d'un chiffre seul, qui défend le prix par le marché.</li>
+      <li><strong>Une présentation professionnelle</strong> sans passer votre soirée sur la mise en page.</li>
+      <li><strong>Un vendeur qui comprend</strong> pourquoi le prix est juste, et qui revient vers vous.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : l'avis de valeur argumenté", '''Rôle : tu es un conseiller immobilier qui prépare un avis de valeur pour un vendeur.
+Contexte : bien = [TYPE, SURFACE, PIÈCES, ÉTAGE, EXTÉRIEUR, DPE]. Mes relevés de visite : [POINTS FORTS / POINTS FAIBLES / TRAVAUX]. Biens comparables : [3 À 5 BIENS : SURFACE, PRIX, VENDU OU EN VENTE, DÉLAI].
+Tâche : rédige un avis de valeur clair. Explique comment chaque comparable justifie la fourchette, sans jargon. Propose une stratégie de prix et ce qui se passe si le prix est trop haut.
+Format : 1. Le bien en 3 lignes. 2. Le marché en 5 lignes. 3. La fourchette argumentée. 4. La stratégie conseillée.''') + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Laisser l'IA fixer le prix.</strong> ChatGPT n'a pas accès à vos ventes réelles et peut inventer des références. Le prix vient de vos comparables, l'IA aide à l'expliquer.</li>
+      <li><strong>Estimer sans visite.</strong> Un avis de valeur sérieux suppose d'avoir vu le bien.</li>
+      <li><strong>Mettre le nom du vendeur ou l'adresse exacte dans l'IA.</strong> Décrivez le bien sans données personnelles.</li>
+      <li><strong>Oublier le DPE.</strong> La performance énergétique pèse sur le prix et sur les possibilités de location&nbsp;: intégrez-la dans l'analyse.</li>
+    </ul>
+  </div>
+''' + formation_bloc("L'estimation est travaillée dans nos formations IA avec votre propre dossier&nbsp;: relevés de visite, ACM avec notre outil maison, avis de valeur et présentation au vendeur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("L'IA peut-elle estimer un bien immobilier&nbsp;?", "Elle peut aider à analyser et à présenter, mais elle ne remplace ni la visite ni vos comparables. Les estimations automatiques en ligne servent de repère, pas d'avis de valeur."),
+  ("Qu'est-ce qu'une ACM&nbsp;?", "Une analyse comparative de marché : la comparaison du bien avec des biens similaires vendus, en vente ou retirés du marché. C'est la base d'un prix argumenté."),
+  ("Quel outil pour présenter une estimation&nbsp;?", "Gamma permet de mettre en forme un avis de valeur en quelques minutes. Nous montrons aussi comment garder la charte de votre agence."),
+  ("Peut-on utiliser ChatGPT avec des données de vendeur&nbsp;?", "Évitez les données personnelles (nom, adresse exacte, situation). Décrivez le bien : c'est suffisant pour obtenir une bonne analyse.")],
+ ("Estimation immobilière avec l'IA", "Construire une analyse comparative de marché et un avis de valeur argumenté avec l'IA, puis le présenter au vendeur."))
+
+# ---------------------------------------------------------------- Cas pratique 3 : mandat exclusif
+ecrire('ia-mandat-exclusif/',
+ "Rentrer un mandat exclusif avec l'IA | Start Academia",
+ "Préparer le rendez-vous vendeur en 15 minutes, comprendre son profil, envoyer le compte rendu dans la demi-heure : rentrer des mandats exclusifs avec l'IA.",
+ "Rentrer un mandat exclusif avec l'IA.",
+ "Le mandat exclusif se gagne avant, pendant et juste après le rendez-vous vendeur. L'IA vous aide à arriver préparé, à comprendre la personne en face de vous et à envoyer un suivi plus rapide que tous vos confrères.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Trois agences ont vu le même vendeur dans la semaine. Elles ont toutes parlé de leur réseau et de leurs portails. Celle qui signe l'exclusivité est souvent celle qui a le mieux compris le projet du vendeur et qui lui a envoyé, le jour même, un compte rendu clair avec la suite.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Préparer le premier rendez-vous en 15 minutes.</strong> Dossier d'adresse, ventes du quartier, questions de découverte&nbsp;: vos outils de prospection deviennent vos outils de préparation.</li>
+      <li><strong>Comprendre le vendeur.</strong> Avec <strong>Profiling</strong>, notre outil maison, vous identifiez le profil de votre interlocuteur et la façon de lui parler. NotebookLM vous aide à retrouver l'essentiel dans ses documents (diagnostics, règlement de copropriété).</li>
+      <li><strong>Envoyer le compte rendu dans la demi-heure.</strong> Vous dictez vos notes après le rendez-vous, l'IA les met en forme, vous relisez et vous envoyez&nbsp;: le vendeur reçoit un récapitulatif avant même d'avoir appelé une autre agence.</li>
+      <li><strong>Revenir avec le bon dossier.</strong> Au deuxième rendez-vous, l'analyse de marché et le plan de commercialisation défendent l'exclusivité par les faits, pas par la promesse.</li>
+      <li><strong>Suivre le vendeur.</strong> Un process de suivi régulier, préparé avec l'IA, montre au vendeur ce que vous faites pour lui chaque semaine.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>15 minutes de préparation</strong> pour un premier rendez-vous vendeur, au lieu d'arriver les mains vides ou d'y passer une heure.</li>
+      <li><strong>Un compte rendu envoyé dans la demi-heure</strong> au lieu du lendemain, ou jamais.</li>
+      <li><strong>Un discours adapté au profil du vendeur</strong>, ce qui change le rapport de force sur l'exclusivité.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : le compte rendu du rendez-vous vendeur", '''Rôle : tu es mon assistant de conseiller immobilier.
+Contexte : je sors d'un premier rendez-vous avec un vendeur. Mes notes brutes : [COLLE OU DICTE TES NOTES, SANS NOM NI ADRESSE]. Ce que je propose : [MANDAT EXCLUSIF, DURÉE, PLAN D'ACTION].
+Tâche : rédige le mail de compte rendu au vendeur. Reprends son projet avec ses mots, les points clés du bien, ce que j'ai compris de ses attentes, puis les prochaines étapes datées.
+Format : un objet, 150 mots maximum, ton chaleureux et professionnel, vouvoiement, signature [TON NOM], [TON AGENCE].''') + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Envoyer le compte rendu sans relire.</strong> L'IA peut mal comprendre une note. Ce mail engage votre agence.</li>
+      <li><strong>Utiliser le profiling pour manipuler.</strong> Il sert à mieux écouter et à adapter votre discours, pas à forcer une décision.</li>
+      <li><strong>Négocier sans mandat signé.</strong> La loi Hoguet impose un mandat écrit avant toute action de commercialisation. La clause d'exclusivité doit figurer en caractères très apparents.</li>
+      <li><strong>Mettre des données sensibles dans l'IA.</strong> Pas de situation de santé, de divorce ou de succession nominative dans ChatGPT&nbsp;: gardez ces informations dans votre dossier.</li>
+    </ul>
+  </div>
+''' + formation_bloc("Le rendez-vous vendeur est un des modules les plus demandés&nbsp;: préparation du premier rendez-vous, découverte avec Profiling et NotebookLM, compte rendu immédiat, deuxième rendez-vous et suivi vendeur, avec un atelier sur vos propres dossiers.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("Comment l'IA aide-t-elle à rentrer un mandat exclusif&nbsp;?", "En vous faisant arriver mieux préparé, en vous aidant à comprendre le vendeur et en envoyant un compte rendu clair très vite après le rendez-vous. La signature reste une affaire de confiance."),
+  ("Qu'est-ce que l'outil Profiling&nbsp;?", "Un outil maison de Start Academia qui aide à identifier le profil d'un vendeur pour adapter sa façon de lui parler. Il est utilisé pendant la formation."),
+  ("Peut-on enregistrer un rendez-vous vendeur&nbsp;?", "Seulement avec l'accord explicite du vendeur, en lui expliquant à quoi sert l'enregistrement. Sinon, prenez des notes et dictez-les après."),
+  ("Que dit la loi Hoguet sur le mandat exclusif&nbsp;?", "Le mandat doit être écrit et signé avant toute action de commercialisation, et la clause d'exclusivité doit apparaître en caractères très apparents.")],
+ ("Rentrer un mandat exclusif avec l'IA", "Préparer le rendez-vous vendeur, comprendre le profil du vendeur, envoyer un compte rendu immédiat et suivre le vendeur avec l'IA."))
+
+# ---------------------------------------------------------------- Cas pratique 4 : annonce
+ecrire('ia-annonce-immobiliere/',
+ "Rédiger une annonce immobilière avec l'IA | Start Academia",
+ "Écrire une annonce immobilière avec ChatGPT ou Claude : texte qui donne envie, déclinaisons par portail, mentions obligatoires et DPE. Prompt gratuit.",
+ "Rédiger une annonce immobilière avec l'IA.",
+ "Une annonce n'est neuve qu'une seule fois. L'IA vous aide à écrire un texte qui donne envie de visiter, à le décliner pour chaque portail et réseau social, sans jamais oublier les mentions obligatoires.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Le mandat est signé, le vendeur attend de voir son bien en ligne. L'annonce est souvent écrite vite, le soir, sur le même modèle que les autres&nbsp;: «&nbsp;Rare&nbsp;!&nbsp;», «&nbsp;Coup de cœur assuré&nbsp;». Elle ne se distingue pas et le vendeur le voit.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Partir des faits.</strong> Surface, pièces, exposition, extérieur, DPE, charges, ce qui rend le bien unique. Vous les dictez ou les collez depuis votre logiciel.</li>
+      <li><strong>Écrire l'annonce principale.</strong> ChatGPT ou Claude rédigent un texte qui parle à l'acquéreur visé (famille, investisseur, résidence secondaire), sans superlatifs vides.</li>
+      <li><strong>Décliner par canal.</strong> Une version portail, une version réseaux sociaux, une version en anglais ou en italien pour la clientèle étrangère, à partir du même texte.</li>
+      <li><strong>Faire vivre l'annonce.</strong> Une rotation sur 15 jours&nbsp;: nouvel angle, nouvelle photo de tête, nouveau titre, pour relancer l'intérêt sans baisser le prix.</li>
+      <li><strong>Vérifier les mentions.</strong> Une relecture systématique des mentions obligatoires avant publication.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Une annonce et ses déclinaisons</strong> rédigées en une fois, au lieu de réécrire pour chaque portail.</li>
+      <li><strong>Des annonces en langue étrangère</strong> sans passer par un traducteur.</li>
+      <li><strong>Un vendeur rassuré</strong> qui voit son bien mis en valeur dès la mise en ligne.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : l'annonce qui donne envie", '''Rôle : tu es un rédacteur d'annonces immobilières qui connaît [VILLE / QUARTIER].
+Contexte : bien = [TYPE, SURFACE, PIÈCES, ÉTAGE, EXPOSITION, EXTÉRIEUR, STATIONNEMENT]. Ce qui le rend unique : [2 OU 3 POINTS]. Acquéreur visé : [FAMILLE / INVESTISSEUR / RÉSIDENCE SECONDAIRE].
+Tâche : rédige une annonce de 150 mots qui donne envie de visiter, concrète, sans superlatifs vides (pas de « rare », « coup de cœur », « exceptionnel »). Puis une version de 50 mots pour les réseaux sociaux.
+Format : un titre de 60 caractères, l'annonce, la version courte. Laisse à la fin les champs à compléter : prix, honoraires, DPE et GES, coûts annuels d'énergie, copropriété.''') + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Publier sans les mentions obligatoires.</strong> Prix, honoraires et à qui ils incombent, classes énergie et climat du DPE, estimation des coûts annuels d'énergie, et pour une copropriété le nombre de lots, les charges annuelles et les éventuelles procédures en cours.</li>
+      <li><strong>Laisser l'IA inventer.</strong> Une vue mer «&nbsp;dégagée&nbsp;» ou une surface arrondie engagent votre responsabilité. Chaque information doit être vérifiée.</li>
+      <li><strong>Écrire une annonce discriminante.</strong> Aucune mention sur le profil des acquéreurs ou des locataires recherchés.</li>
+      <li><strong>Copier l'annonce d'un confrère.</strong> L'IA réécrit, mais c'est votre bien et votre texte.</li>
+    </ul>
+  </div>
+''' + formation_bloc("La rédaction d'annonces est travaillée dans nos formations ChatGPT et IA immobilier&nbsp;: annonce principale, déclinaisons par canal, version en langue étrangère, rotation et vérification des mentions obligatoires.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("Peut-on rédiger une annonce immobilière avec ChatGPT&nbsp;?", "Oui, à condition de lui donner des informations exactes et de relire. L'IA écrit, vous vérifiez les faits et les mentions obligatoires."),
+  ("Quelles sont les mentions obligatoires d'une annonce immobilière&nbsp;?", "Le prix, les honoraires et la partie qui les paie, les classes énergie et climat du DPE, l'estimation des coûts annuels d'énergie et, en copropriété, le nombre de lots, les charges annuelles et les procédures en cours."),
+  ("ChatGPT ou Claude pour écrire une annonce&nbsp;?", "Les deux conviennent. Nous montrons les deux en formation et vous gardez celui qui écrit le plus comme vous."),
+  ("Peut-on traduire une annonce avec l'IA&nbsp;?", "Oui, c'est un vrai gain sur la Côte d'Azur. Faites relire la version traduite si l'enjeu est important.")],
+ ("Rédiger une annonce immobilière avec l'IA", "Rédiger une annonce immobilière conforme et efficace avec l'IA, la décliner par canal et en langue étrangère."))

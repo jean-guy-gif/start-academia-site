@@ -870,3 +870,4 @@ p { text-wrap: pretty; }
 }
 
 .simu-questions { min-width: 0; }
+.prompt-bloc { margin-top: 14px; padding: 18px 20px; border-radius: 14px; background: rgba(47,68,206,.07); border: 1px solid rgba(47,68,206,.18); font: 400 .9rem/1.6 "IBM Plex Mono", monospace; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--encre); }
