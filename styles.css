@@ -882,3 +882,5 @@ p { text-wrap: pretty; }
 .cd-courbe.sombre { background: #0b1033; }
 @media (hover: hover) { .vedette.inverse:hover .p-a { transform: rotate(8deg) translate(14px, -8px); } .vedette.inverse:hover .p-b { transform: rotate(-9deg) translate(-10px, 6px); } }
 @media (max-width: 1000px) { .outil.vedette.inverse { grid-template-columns: 1fr; } .inverse .compo-dossier { order: 0; margin: 0 22px 26px; } .inverse .cd-appli { transform: none; } }
+.p-bas { right: -3%; top: 40%; width: 24%; transform: rotate(5deg); }
+@media (hover: hover) { .vedette:hover .p-bas { transform: rotate(8deg) translate(10px, 8px); } }
