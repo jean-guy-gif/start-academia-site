@@ -69,35 +69,6 @@ def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=Tr
     dossier.mkdir(parents=True, exist_ok=True)
     (dossier / 'index.html').write_text(html)
 
-page('formation-loi-alur/',
- 'Formation loi ALUR pour agents immobiliers | Start Academia',
- 'Validez vos heures de formation continue loi ALUR avec des formations immobilier et IA sur mesure. Organisme certifié Qualiopi, Côte d’Azur et à distance.',
- 'Formation loi ALUR pour les agents immobiliers.',
- 'Validez vos heures de formation continue obligatoires avec des formations utiles dès le lendemain, sur votre métier et vos dossiers.',
- '''  <div class="bloc">
-    <h2>Ce que la loi vous demande</h2>
-    <p>Pour renouveler votre carte professionnelle, ou votre attestation si vous êtes collaborateur ou agent commercial, vous devez justifier de <strong>14 heures de formation continue par an, ou 42 heures sur 3 années consécutives</strong>.</p>
-    <p>Parmi ces heures, certains thèmes sont obligatoires sur la période, notamment la déontologie et la non-discrimination dans l'accès au logement. Lors de l'appel découverte, on fait le point sur les heures qu'il vous reste et sur les thèmes à couvrir.</p>
-  </div>
-  <div class="bloc">
-    <h2>Ce que nous vous proposons</h2>
-    <ul class="points">
-      <li><strong>Des heures qui servent à vendre.</strong> Prospection, estimation, mandat, découverte, visite, négociation, suivi&nbsp;: chaque module travaille une étape de votre métier, avec l'IA et nos outils maison.</li>
-      <li><strong>Sur mesure.</strong> Le programme et la durée sont fixés avec vous selon vos besoins et vos heures restantes.</li>
-      <li><strong>En agence sur la Côte d'Azur ou à distance</strong>, partout en France, en individuel ou en groupe.</li>
-      <li><strong>Une attestation</strong> de formation remise à chaque participant pour vos heures ALUR.</li>
-    </ul>
-  </div>
-  <div class="bloc">
-    <h2>Pour qui</h2>
-    <p>Agents immobiliers, négociateurs, mandataires et agents commerciaux, collaborateurs, directeurs et directrices d'agence. Débutants avec l'IA comme utilisateurs avancés&nbsp;: chaque parcours existe en version débutant et en version avancée.</p>
-  </div>
-  <div class="bloc">
-    <h2>Financement</h2>
-    <p>Start Academia est certifié Qualiopi au titre des actions de formation. Votre formation peut être prise en charge par votre OPCO (salariés et agences) ou par votre fonds d'assurance formation, comme l'AGEFICE ou le FIF PL (indépendants). Nos formations ne sont pas éligibles au CPF à ce jour. Nous vous aidons gratuitement à monter votre dossier.</p>
-    <p><a class="lien-texte" href="/financement-formation-immobilier/">OPCO, FIF PL, AGEFICE&nbsp;: qui finance selon votre statut</a> · <a class="lien-texte" href="/documents/certificat-qualiopi.pdf">Voir notre certificat Qualiopi</a></p>
-  </div>''')
-
 page('coaching-pour-directeur-dagence-immobiliere-dans-le-06/',
  'Coaching de directeur d’agence immobilière | Start Academia',
  'Audit et coaching pour directeurs d’agence immobilière dans les Alpes-Maritimes : organisation, équipe, résultats et outils IA. Accompagnement sur l’année.',

@@ -53,10 +53,6 @@ for el in liste["itemListElement"]:
     el["item"]["url"] = el.pop("url")
 injecter('formations/', base('formations/', 'Catalogue des formations', d) + [liste])
 
-d = desc_de('formation-loi-alur/')
-injecter('formation-loi-alur/', base('formation-loi-alur/', 'Formation loi ALUR', d) +
-         [cours('Formation continue loi ALUR pour agents immobiliers', d)])
-
 c = 'coaching-pour-directeur-dagence-immobiliere-dans-le-06/'
 d = desc_de(c)
 injecter(c, base(c, 'Coaching et audit de direction d’agence immobilière', d) +

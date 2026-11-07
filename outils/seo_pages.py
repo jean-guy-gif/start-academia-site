@@ -51,7 +51,7 @@ PREUVES = '''  <div class="bloc">
     <ul class="points">
       <li><strong>Des formateurs du métier.</strong> Jean-Guy Ourmières et Laurent Marx ont plus de 10 ans de transaction et accompagnent encore des agences au quotidien.</li>
       <li><strong>Nos propres outils.</strong> Dossier d'adresse (Mon Secteur), Profiling, Localisateur, ACM&nbsp;: vos équipes repartent avec des outils prêts à servir.</li>
-      <li><strong>Des preuves.</strong> 420 agents et collaborateurs formés, 224 avis Google notés 5 étoiles, des agences comme Laforêt, Nestenn, Century 21 ou Orpi parmi nos clients.</li>
+      <li><strong>Des preuves.</strong> 420 agents et collaborateurs formés, 225 avis Google notés 5 étoiles, des agences comme Laforêt, Nestenn, Century 21 ou Orpi parmi nos clients.</li>
       <li><strong>Certifié Qualiopi</strong> au titre des actions de formation. <a class="lien-texte" href="/documents/certificat-qualiopi.pdf">Voir le certificat</a></li>
     </ul>
   </div>'''
@@ -140,34 +140,104 @@ ecrire('formation-chatgpt-immobilier/',
 
 # ---------------------------------------------------------------- 3. Formation IA Nice
 ecrire('formation-ia-nice/',
- "Formation IA et ChatGPT à Nice | Start Academia",
- "Formation à l'IA et à ChatGPT à Nice et dans les Alpes-Maritimes : en agence, dans vos locaux ou à distance. Organisme certifié Qualiopi, financement possible.",
- "Formation IA et ChatGPT à Nice et dans les Alpes-Maritimes.",
- "Nous venons former vos équipes sur place, à Nice et partout sur la Côte d'Azur. Une formation pratique, sur vos vrais dossiers, par des formateurs installés dans le département.",
+ "Formation IA immobilier à Nice et dans les Alpes-Maritimes",
+ "Formation IA et ChatGPT pour agents immobiliers à Nice, Cannes, Antibes, Grasse et dans tout le 06 : dans votre agence ou à distance. Certifié Qualiopi.",
+ "Formation IA immobilier à Nice et dans les Alpes-Maritimes.",
+ "Nous formons les agents, mandataires et équipes d'agence de la Côte d'Azur à l'IA, directement dans leurs locaux. Des formateurs installés dans le département, qui connaissent votre marché parce qu'ils y ont fait de la transaction.",
  '''  <div class="bloc">
-    <h2>Où nous intervenons</h2>
-    <p>Nice, Antibes, Cannes, Cagnes-sur-Mer, Sophia Antipolis, Vence, Grasse, Menton, Villefranche-sur-Mer, Saint-Laurent-du-Var et tout le département des Alpes-Maritimes. La formation a lieu <strong>dans vos locaux</strong>, ou <strong>à distance</strong> si votre équipe est répartie.</p>
-    <p>Nos formateurs sont basés à Cagnes-sur-Mer et à Antibes&nbsp;: les dates s'organisent facilement, sans frais de déplacement lointains.</p>
+    <h2>Une formation IA pensée pour l'immobilier azuréen</h2>
+    <p>Le marché des Alpes-Maritimes ne ressemble à aucun autre&nbsp;: clientèle internationale, résidences secondaires, biens de prestige sur le littoral, villages et maisons dans l'arrière-pays, vendeurs exigeants et concurrence forte entre agences. Une formation IA générique ne répond pas à ces situations. La nôtre part de vos dossiers réels, à chaque étape de la transaction.</p>
+    <ul class="points">
+      <li><strong>Prospection</strong>&nbsp;: préparer un secteur, cibler les propriétaires, écrire des messages qui donnent envie de vous rappeler.</li>
+      <li><strong>Estimation et rendez-vous vendeur</strong>&nbsp;: un dossier d'adresse complet en quelques minutes avec nos outils maison, une analyse comparative claire, un argumentaire prêt.</li>
+      <li><strong>Mandat et annonces</strong>&nbsp;: des annonces conformes (mentions obligatoires, DPE) et adaptées à votre clientèle, y compris en anglais ou en italien pour les acquéreurs étrangers.</li>
+      <li><strong>Découverte, visite, négociation, suivi</strong>&nbsp;: comptes rendus, relances et synthèses de documents sans y passer vos soirées.</li>
+    </ul>
+    <p><a class="lien-texte" href="/formation-ia-immobilier/">Voir le programme complet de la formation IA immobilier</a></p>
   </div>
   <div class="bloc">
-    <h2>Ce que vous apprenez</h2>
+    <h2>Où nous intervenons</h2>
     <ul class="points">
-      <li><strong>ChatGPT et les assistants IA</strong> (Claude, Gemini, NotebookLM) appliqués à vos tâches réelles&nbsp;: rédaction, prospection, préparation de rendez-vous, synthèse de documents.</li>
-      <li><strong>Les présentations et supports</strong> générés en quelques minutes avec Gamma.</li>
-      <li><strong>Les bons réflexes</strong>&nbsp;: vérifier ce que l'IA produit, protéger les données de vos clients, respecter la réglementation de votre métier.</li>
+      <li><strong>Nice et la métropole</strong>&nbsp;: Nice, Saint-Laurent-du-Var, Cagnes-sur-Mer, Villefranche-sur-Mer, Vence, Saint-Jeannet, Carros.</li>
+      <li><strong>Antibes, Cannes et l'ouest</strong>&nbsp;: Antibes, Juan-les-Pins, Vallauris, Golfe-Juan, Cannes, Le Cannet, Mandelieu-la-Napoule, Mougins.</li>
+      <li><strong>Grasse et le moyen pays</strong>&nbsp;: Grasse, Mouans-Sartoux, Valbonne, Sophia Antipolis, Biot, Roquefort-les-Pins.</li>
+      <li><strong>L'est du département</strong>&nbsp;: Menton, Roquebrune-Cap-Martin, Beausoleil, Èze.</li>
     </ul>
-    <p>Notre spécialité est l'immobilier&nbsp;: agences, réseaux, mandataires et directeurs. <a class="lien-texte" href="/formation-ia-immobilier/">Voir la formation IA immobilier</a></p>
+    <p>La formation a lieu <strong>dans votre agence</strong>, ou <strong>à distance</strong> si votre équipe est répartie sur plusieurs sites. Nos formateurs sont basés à Cagnes-sur-Mer et à Antibes&nbsp;: les dates s'organisent facilement.</p>
+  </div>
+  <div class="bloc">
+    <h2>Les outils que vous utiliserez</h2>
+    <p>ChatGPT, Claude, Gemini, NotebookLM et Gamma, choisis selon la tâche, et nos outils maison&nbsp;: dossier d'adresse, localisateur, analyse comparative de marché, profiling vendeur et assistant juridique. Chaque parcours existe en version débutant et en version avancée.</p>
   </div>
   <div class="bloc">
     <h2>Ils se sont formés près de chez vous</h2>
     <p>Des agences de la Côte d'Azur nous font confiance, dont Century 21 Albert 1er, Century 21 Azurim, Century 21 Villas d'Azur, Orpi MCH Immobilier, Akorimmo, Riviera King, L'Agence Signature, Octantimmo, Agence Bristol et Marclé Real Estate.</p>
   </div>
+  <div class="bloc">
+    <h2>Des heures qui comptent pour la loi ALUR</h2>
+    <p>Nos formations sont centrées sur votre activité de transaction&nbsp;: elles donnent lieu à une attestation pour votre formation continue obligatoire. <a class="lien-texte" href="/formation-loi-alur/">Tout savoir sur la formation loi ALUR</a></p>
+  </div>
 ''' + FINANCEMENT + '\n' + PREUVES,
- [("Où ont lieu les formations IA à Nice&nbsp;?", "Dans vos locaux, à Nice ou ailleurs dans les Alpes-Maritimes, ou à distance. Nous adaptons le lieu et les dates à votre équipe."),
-  ("La formation IA est-elle finançable&nbsp;?", "Oui, par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL…). Start Academia est certifié Qualiopi. La formation n'est pas éligible au CPF à ce jour."),
-  ("Faut-il un niveau particulier&nbsp;?", "Non. Chaque parcours existe en version débutant et en version avancée."),
-  ("Combien de personnes par session&nbsp;?", "En individuel ou en groupe : le format est défini avec vous lors de l'appel découverte.")],
- ("Formation IA et ChatGPT à Nice", "Formation pratique à l'intelligence artificielle et à ChatGPT, dans vos locaux à Nice et dans les Alpes-Maritimes ou à distance."))
+ [("Où ont lieu les formations IA immobilier dans les Alpes-Maritimes&nbsp;?", "Dans votre agence, à Nice, Cannes, Antibes, Grasse, Menton ou ailleurs dans le département, ou à distance. Nous adaptons le lieu et les dates à votre équipe."),
+  ("La formation est-elle réservée aux agences&nbsp;?", "Non. Nous formons aussi les mandataires et agents commerciaux indépendants, seuls ou en petit groupe, ainsi que les directeurs d'agence."),
+  ("La formation IA compte-t-elle dans les heures loi ALUR&nbsp;?", "Nos formations portent sur votre activité de transaction et donnent lieu à une attestation de formation continue. Lors de l'appel découverte, nous faisons le point sur vos heures restantes."),
+  ("La formation est-elle finançable&nbsp;?", "Oui, par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL…). Start Academia est certifié Qualiopi. La formation n'est pas éligible au CPF à ce jour."),
+  ("Faut-il un niveau particulier en informatique&nbsp;?", "Non. Chaque parcours existe en version débutant et en version avancée.")],
+ ("Formation IA immobilier à Nice et dans les Alpes-Maritimes", "Formation pratique à l'IA et à ChatGPT pour les professionnels de l'immobilier, dans votre agence à Nice et dans les Alpes-Maritimes ou à distance."))
+
+# ---------------------------------------------------------------- 5. Loi ALUR (enrichie, audit du 7 nov. 2026)
+ecrire('formation-loi-alur/',
+ 'Formation loi ALUR pour agents immobiliers | Start Academia',
+ 'Formation continue loi ALUR : 14 h par an ou 42 h sur 3 ans, déontologie, non-discrimination. Formations immobilier et IA sur mesure, à distance ou en agence.',
+ 'Formation loi ALUR pour les agents immobiliers.',
+ "Validez vos heures de formation continue obligatoires avec des formations utiles dès le lendemain, sur votre métier et vos vrais dossiers. En agence sur la Côte d'Azur ou à distance, partout en France.",
+ '''  <div class="bloc">
+    <h2>Ce que la loi vous demande</h2>
+    <p>Depuis la loi ALUR du 24 mars 2014, les professionnels de l'immobilier doivent suivre une formation continue. Son contenu est fixé par le décret n°&nbsp;2016-173 du 18 février 2016, complété par le décret n°&nbsp;2020-1259 du 14 octobre 2020.</p>
+    <ul class="points">
+      <li><strong>Durée</strong>&nbsp;: 14 heures par an, ou 42 heures au cours de 3 années consécutives d'exercice.</li>
+      <li><strong>Thèmes obligatoires sur 3 ans</strong>&nbsp;: au moins 2 heures sur la déontologie et au moins 2 heures sur la non-discrimination dans l'accès au logement.</li>
+      <li><strong>Contenu</strong>&nbsp;: les formations doivent avoir un lien direct avec l'activité professionnelle exercée.</li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>Qui est concerné</h2>
+    <ul class="points">
+      <li>Les titulaires de la carte professionnelle (transaction, gestion, syndic) et les directeurs d'établissement.</li>
+      <li>Les collaborateurs habilités à négocier pour le compte de l'agence, salariés ou non&nbsp;: négociateurs salariés, agents commerciaux, mandataires.</li>
+    </ul>
+    <p>Le titulaire de la carte justifie ses heures lors du renouvellement de sa carte, tous les 3 ans. Il lui revient aussi de vérifier que ses collaborateurs ont suivi leurs propres heures avant de renouveler leur attestation d'habilitation.</p>
+  </div>
+  <div class="bloc">
+    <h2>Ce que nous vous proposons</h2>
+    <ul class="points">
+      <li><strong>Des heures qui servent à vendre.</strong> Prospection, estimation, mandat, découverte, visite, négociation, suivi&nbsp;: chaque module travaille une étape de votre métier, avec l'IA et nos outils maison.</li>
+      <li><strong>Sur mesure.</strong> Le programme et la durée sont fixés avec vous selon vos besoins et les heures qu'il vous reste à faire.</li>
+      <li><strong>En agence sur la Côte d'Azur ou à distance</strong>, partout en France, en individuel ou en groupe.</li>
+      <li><strong>Une attestation</strong> de formation remise à chaque participant, à conserver pour le renouvellement de la carte ou de l'attestation.</li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>Exemple de parcours de 14 heures</h2>
+    <p>Un parcours se construit avec vous. À titre d'exemple, sur deux journées de 7 heures&nbsp;:</p>
+    <ol class="points numerotes">
+      <li><strong>Jour 1, rentrer des mandats</strong>&nbsp;: prospection de secteur, dossier d'adresse, préparation du rendez-vous vendeur, estimation argumentée.</li>
+      <li><strong>Jour 2, vendre et suivre</strong>&nbsp;: annonces conformes, découverte acquéreur, visite, négociation et suivi client, avec les bons réflexes pour protéger les données de vos clients.</li>
+    </ol>
+    <p>Chaque séquence part d'un cas réel de votre agence, avec un exercice pratique et un livret tactique pour réutiliser les méthodes au quotidien.</p>
+  </div>
+  <div class="bloc">
+    <h2>À distance ou en présentiel&nbsp;?</h2>
+    <p>Le texte n'impose pas de format&nbsp;: une formation suivie à distance compte autant qu'une formation en salle, si elle remplit les conditions de durée et de contenu. Nous proposons les deux, et beaucoup d'agences combinent une journée en présentiel et des séances courtes à distance.</p>
+  </div>
+''' + FINANCEMENT + '\n' + PREUVES,
+ [("Combien d'heures de formation loi ALUR faut-il faire&nbsp;?", "14 heures par an, ou 42 heures au cours de 3 années consécutives d'exercice. Sur ces 3 années, au moins 2 heures doivent porter sur la déontologie et au moins 2 heures sur la non-discrimination dans l'accès au logement."),
+  ("Une formation à l'IA compte-t-elle pour la loi ALUR&nbsp;?", "Oui, si elle a un lien direct avec votre activité professionnelle. Nos formations sont appliquées à la transaction immobilière (prospection, estimation, mandat, vente) et donnent lieu à une attestation."),
+  ("La formation loi ALUR peut-elle se faire à distance&nbsp;?", "Oui. Le texte n'impose pas de format : une formation à distance compte dès lors qu'elle respecte les conditions de durée et de contenu."),
+  ("Les agents commerciaux et mandataires sont-ils concernés&nbsp;?", "Oui. Toutes les personnes habilitées à négocier pour le compte du titulaire de la carte, salariées ou non, doivent suivre la formation continue."),
+  ("Qui contrôle les heures de formation&nbsp;?", "La CCI, lors du renouvellement de la carte professionnelle tous les 3 ans. Le titulaire de la carte vérifie de son côté les heures de ses collaborateurs."),
+  ("Comment financer sa formation loi ALUR&nbsp;?", "Par l'OPCO de l'agence pour les salariés, par le FIF PL ou l'AGEFICE pour les indépendants. Start Academia est certifié Qualiopi. Nos formations ne sont pas éligibles au CPF à ce jour.")],
+ ("Formation continue loi ALUR pour agents immobiliers", "Formations immobilier et IA sur mesure validant les heures de formation continue obligatoires des professionnels de l'immobilier, en agence ou à distance."))
 
 
 # ---------------------------------------------------------------- 4. Financement (reprend l'ancienne page OPCO)
