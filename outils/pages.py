@@ -6,7 +6,7 @@ symboles = re.search(r'<svg width="0".*?</svg>', idx, re.S).group(0)
 entete = re.search(r'<header class="entete">.*?</header>', idx, re.S).group(0).replace('href="#', 'href="/#')
 pied = re.search(r'<footer class="pied">.*?</footer>', idx, re.S).group(0).replace('href="#', 'href="/#')
 fonts = re.search(r'<link rel="preconnect" href="https://fonts.googleapis.com">.*?display=swap">', idx, re.S).group(0)
-CAL = 'https://calendar.app.google/7XsB8TrXs1KSkHs4A'
+CAL = 'https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte'
 fl = '<svg aria-hidden="true"><use href="#fleche"/></svg>'
 
 def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=True):
@@ -122,7 +122,7 @@ page('mentions-legales/',
   <div class="bloc" id="donnees">
     <h2>Données personnelles</h2>
     <p>Ce site ne comporte pas de formulaire et ne dépose aucun cookie publicitaire ni de mesure d'audience. Les polices de caractères sont chargées depuis le service Google Fonts. La démonstration de l'accueil envoie l'adresse tapée au service de géocodage de l'IGN (Base Adresse Nationale) et ses coordonnées à l'API publique DVF du Cerema, uniquement pour afficher le résultat ; nous ne conservons rien. La prise de rendez-vous se fait sur Google Agenda, qui traite vos données selon sa propre politique de confidentialité.</p>
-    <p>Les données que vous nous transmettez (appel, e-mail, rendez-vous) servent uniquement à vous répondre et à organiser votre formation. Elles ne sont ni vendues ni cédées. Vous pouvez demander leur accès, leur rectification ou leur suppression en écrivant à <a href="mailto:info@start-academia.fr">info@start-academia.fr</a>. Vous pouvez aussi saisir la CNIL (<a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
+    <p>Les données que vous nous transmettez (appel, e-mail, rendez-vous) servent uniquement à vous répondre et à organiser votre formation. Elles ne sont ni vendues ni cédées. La réservation d'un appel découverte passe par le service Brevo Meetings (Sendinblue SAS, Paris), qui nous transmet les informations saisies dans le formulaire et envoie les e-mails et SMS de confirmation et de rappel ; le rendez-vous a lieu sur Google Meet. Vous pouvez demander leur accès, leur rectification ou leur suppression en écrivant à <a href="mailto:info@start-academia.fr">info@start-academia.fr</a>. Vous pouvez aussi saisir la CNIL (<a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
   </div>
   <div class="bloc">
     <h2>Documents</h2>

@@ -8,7 +8,7 @@
   const liste = document.querySelector('#suggestions');
   const bulle = document.querySelector('.bulle-demo');
   const dossier = bulle.querySelector('.dossier');
-  const CAL = 'https://calendar.app.google/7XsB8TrXs1KSkHs4A';
+  const CAL = 'https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte';
   const nb = new Intl.NumberFormat('fr-FR');
   const eur = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 });
   const mois = new Intl.DateTimeFormat('fr-FR', { month: 'short', year: 'numeric' });

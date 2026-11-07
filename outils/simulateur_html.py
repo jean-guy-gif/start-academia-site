@@ -1,7 +1,7 @@
 """Bloc HTML du simulateur de financement (page /financement-formation-immobilier/).
 Les années et taux affichés sont remplis par simulateur.js depuis sa CONFIG."""
 
-CAL = 'https://calendar.app.google/7XsB8TrXs1KSkHs4A'
+CAL = 'https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte'
 
 def radio(nom, options):
     return ''.join(f'<label class="simu-choix"><input type="radio" name="{nom}" value="{v}"{" checked" if i == 0 else ""}><span>{t}</span></label>'
