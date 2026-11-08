@@ -23,7 +23,7 @@
         "heuresStagiaires": 5623,
         "inscriptions": 141,
         "satisfaction": {
-          "nbReponses": 79,
+          "nbReponses": 130,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -51,7 +51,7 @@
       "heuresStagiaires": 14280,
       "inscriptions": 360,
       "satisfaction": {
-        "nbReponses": 223,
+        "nbReponses": 274,
         "note5": 5,
         "tauxRecommandation": 100
       },
@@ -548,8 +548,8 @@
         "heuresStagiaires": 3672,
         "inscriptions": 51,
         "satisfaction": {
-          "nbReponses": 23,
-          "note5": 4.8,
+          "nbReponses": 46,
+          "note5": 4.9,
           "tauxRecommandation": 100
         },
         "sessionsRealisees": 13
@@ -618,7 +618,7 @@
         "heuresStagiaires": 1680,
         "inscriptions": 16,
         "satisfaction": {
-          "nbReponses": 9,
+          "nbReponses": 16,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -658,7 +658,7 @@
         "heuresStagiaires": 200,
         "inscriptions": 25,
         "satisfaction": {
-          "nbReponses": 2,
+          "nbReponses": 7,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -694,7 +694,7 @@
         "heuresStagiaires": 40,
         "inscriptions": 5,
         "satisfaction": {
-          "nbReponses": 4,
+          "nbReponses": 5,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -767,9 +767,9 @@
         "heuresStagiaires": 231,
         "inscriptions": 3,
         "satisfaction": {
-          "nbReponses": 0,
-          "note5": null,
-          "tauxRecommandation": null
+          "nbReponses": 3,
+          "note5": 5,
+          "tauxRecommandation": 100
         },
         "sessionsRealisees": 1
       },
@@ -844,7 +844,7 @@
         "heuresStagiaires": 400,
         "inscriptions": 10,
         "satisfaction": {
-          "nbReponses": 5,
+          "nbReponses": 9,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -919,7 +919,7 @@
         "heuresStagiaires": 360,
         "inscriptions": 15,
         "satisfaction": {
-          "nbReponses": 9,
+          "nbReponses": 11,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -1195,9 +1195,9 @@
         "heuresStagiaires": 84,
         "inscriptions": 6,
         "satisfaction": {
-          "nbReponses": 0,
-          "note5": null,
-          "tauxRecommandation": null
+          "nbReponses": 6,
+          "note5": 5,
+          "tauxRecommandation": 100
         },
         "sessionsRealisees": 1
       },
