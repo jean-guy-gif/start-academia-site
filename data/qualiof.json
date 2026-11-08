@@ -4,10 +4,10 @@
       {
         "annee": 2026,
         "apprenantsEnCours": 0,
-        "apprenantsFormes": 144,
+        "apprenantsFormes": 179,
         "heuresFormation": 1843,
-        "heuresStagiaires": 4460,
-        "inscriptions": 163,
+        "heuresStagiaires": 7495,
+        "inscriptions": 205,
         "satisfaction": {
           "nbReponses": 130,
           "note5": 5,
@@ -23,7 +23,7 @@
         "heuresStagiaires": 5623,
         "inscriptions": 141,
         "satisfaction": {
-          "nbReponses": 78,
+          "nbReponses": 79,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -46,12 +46,12 @@
     ],
     "total": {
       "apprenantsEnCours": 0,
-      "apprenantsFormes": 240,
+      "apprenantsFormes": 274,
       "heuresFormation": 3578,
-      "heuresStagiaires": 11245,
-      "inscriptions": 318,
+      "heuresStagiaires": 14280,
+      "inscriptions": 360,
       "satisfaction": {
-        "nbReponses": 222,
+        "nbReponses": 223,
         "note5": 5,
         "tauxRecommandation": 100
       },
@@ -653,10 +653,10 @@
       "dureeHeures": 8,
       "indicateurs": {
         "apprenantsEnCours": 0,
-        "apprenantsFormes": 17,
+        "apprenantsFormes": 18,
         "heuresFormation": 40,
-        "heuresStagiaires": 136,
-        "inscriptions": 17,
+        "heuresStagiaires": 200,
+        "inscriptions": 25,
         "satisfaction": {
           "nbReponses": 2,
           "note5": 5,
@@ -807,7 +807,7 @@
         "heuresStagiaires": 208,
         "inscriptions": 26,
         "satisfaction": {
-          "nbReponses": 10,
+          "nbReponses": 11,
           "note5": 4.9,
           "tauxRecommandation": 100
         },
@@ -1336,10 +1336,10 @@
       "dureeHeures": 152,
       "indicateurs": {
         "apprenantsEnCours": 0,
-        "apprenantsFormes": 0,
+        "apprenantsFormes": 11,
         "heuresFormation": 152,
-        "heuresStagiaires": 0,
-        "inscriptions": 0,
+        "heuresStagiaires": 1672,
+        "inscriptions": 11,
         "satisfaction": {
           "nbReponses": 11,
           "note5": 5,
@@ -1374,10 +1374,10 @@
       "dureeHeures": 11,
       "indicateurs": {
         "apprenantsEnCours": 0,
-        "apprenantsFormes": 0,
+        "apprenantsFormes": 9,
         "heuresFormation": 11,
-        "heuresStagiaires": 0,
-        "inscriptions": 0,
+        "heuresStagiaires": 99,
+        "inscriptions": 9,
         "satisfaction": {
           "nbReponses": 9,
           "note5": 5,
@@ -1410,10 +1410,10 @@
       "dureeHeures": 72,
       "indicateurs": {
         "apprenantsEnCours": 0,
-        "apprenantsFormes": 7,
+        "apprenantsFormes": 9,
         "heuresFormation": 72,
-        "heuresStagiaires": 504,
-        "inscriptions": 7,
+        "heuresStagiaires": 648,
+        "inscriptions": 9,
         "satisfaction": {
           "nbReponses": 9,
           "note5": 5,
@@ -1447,10 +1447,10 @@
       "dureeHeures": 88,
       "indicateurs": {
         "apprenantsEnCours": 0,
-        "apprenantsFormes": 0,
+        "apprenantsFormes": 12,
         "heuresFormation": 264,
-        "heuresStagiaires": 0,
-        "inscriptions": 0,
+        "heuresStagiaires": 1056,
+        "inscriptions": 12,
         "satisfaction": {
           "nbReponses": 10,
           "note5": 5,
