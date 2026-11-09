@@ -9,7 +9,7 @@
         "heuresStagiaires": 7495,
         "inscriptions": 205,
         "satisfaction": {
-          "nbReponses": 130,
+          "nbReponses": 174,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -51,7 +51,7 @@
       "heuresStagiaires": 14280,
       "inscriptions": 360,
       "satisfaction": {
-        "nbReponses": 274,
+        "nbReponses": 318,
         "note5": 5,
         "tauxRecommandation": 100
       },
@@ -548,7 +548,7 @@
         "heuresStagiaires": 3672,
         "inscriptions": 51,
         "satisfaction": {
-          "nbReponses": 46,
+          "nbReponses": 49,
           "note5": 4.9,
           "tauxRecommandation": 100
         },
@@ -807,8 +807,8 @@
         "heuresStagiaires": 208,
         "inscriptions": 26,
         "satisfaction": {
-          "nbReponses": 11,
-          "note5": 4.9,
+          "nbReponses": 17,
+          "note5": 5,
           "tauxRecommandation": 100
         },
         "sessionsRealisees": 7
@@ -844,7 +844,7 @@
         "heuresStagiaires": 400,
         "inscriptions": 10,
         "satisfaction": {
-          "nbReponses": 9,
+          "nbReponses": 10,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -955,7 +955,7 @@
         "heuresStagiaires": 832,
         "inscriptions": 52,
         "satisfaction": {
-          "nbReponses": 49,
+          "nbReponses": 52,
           "note5": 5,
           "tauxRecommandation": 100
         },
@@ -1232,9 +1232,9 @@
         "heuresStagiaires": 210,
         "inscriptions": 2,
         "satisfaction": {
-          "nbReponses": 0,
-          "note5": null,
-          "tauxRecommandation": null
+          "nbReponses": 2,
+          "note5": 5,
+          "tauxRecommandation": 100
         },
         "sessionsRealisees": 1
       },
@@ -1268,9 +1268,9 @@
         "heuresStagiaires": 116,
         "inscriptions": 29,
         "satisfaction": {
-          "nbReponses": 0,
-          "note5": null,
-          "tauxRecommandation": null
+          "nbReponses": 29,
+          "note5": 5,
+          "tauxRecommandation": 100
         },
         "sessionsRealisees": 1
       },
