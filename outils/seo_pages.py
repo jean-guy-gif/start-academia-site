@@ -408,6 +408,7 @@ def formation_bloc(texte):
 AUTRES = '''  <div class="bloc">
     <h2>Les autres étapes boostées à l'IA</h2>
     <ul class="points">
+      <li><a class="lien-texte" href="/prospection-immobiliere-sans-pige/">Prospecter sans pige depuis le 11 août 2026</a></li>
       <li><a class="lien-texte" href="/ia-prospection-immobiliere/">Prospection immobilière avec l'IA</a></li>
       <li><a class="lien-texte" href="/ia-estimation-immobiliere/">Estimation immobilière avec l'IA</a></li>
       <li><a class="lien-texte" href="/ia-mandat-exclusif/">Rentrer un mandat exclusif avec l'IA</a></li>
@@ -454,14 +455,14 @@ Format : un objet, le courrier, une signature avec [TON NOM], [TON AGENCE], [TA 
     <ul class="points">
       <li><strong>Annoncer un prix par courrier.</strong> Une estimation se fait après visite. Le courrier ouvre la porte, il ne la referme pas.</li>
       <li><strong>Mettre des données personnelles dans l'IA.</strong> Pas de nom, de téléphone ou de situation familiale de propriétaires dans ChatGPT. Travaillez avec des informations anonymisées.</li>
-      <li><strong>Prospecter sans respecter le RGPD.</strong> Le courrier postal est possible, avec un moyen simple de ne plus être sollicité. Pour le téléphone, vérifiez la liste Bloctel. Pour l'e-mail ou le SMS, il faut l'accord préalable du particulier.</li>
+      <li><strong>Prospecter sans respecter le RGPD.</strong> Le courrier postal est possible, avec un moyen simple de ne plus être sollicité. Depuis le 11 août 2026, appeler un particulier exige son consentement préalable, même s'il a publié une annonce. Pour l'e-mail ou le SMS, il faut aussi son accord préalable. <a class="lien-texte" href="/prospection-immobiliere-sans-pige/">Notre guide pour prospecter sans pige</a></li>
       <li><strong>Envoyer sans relire.</strong> L'IA peut inventer un chiffre ou un nom de rue. Vous signez, vous vérifiez.</li>
     </ul>
   </div>
 ''' + formation_bloc("La prospection est au cœur de nos formations IA, avec un atelier sur votre propre secteur et l'accès à nos outils maison (Academia Secteur, Academia Localisateur). Nous proposons aussi des parcours dédiés à la prospection et au développement d'un secteur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
  [("L'IA peut-elle trouver des vendeurs à ma place&nbsp;?", "Non. Elle vous fait gagner du temps sur la préparation et l'écriture, et vous aide à repérer les bons signaux. La relation avec le propriétaire reste votre métier."),
   ("Quel outil utiliser pour prospecter avec l'IA&nbsp;?", "ChatGPT ou Claude pour écrire, et un outil de dossier d'adresse comme Academia Secteur pour préparer le terrain. Nous choisissons toujours l'outil le plus simple pour la tâche."),
-  ("Peut-on envoyer des e-mails de prospection à des particuliers&nbsp;?", "Seulement avec leur accord préalable. Le courrier postal reste possible, avec un moyen simple de s'opposer à la sollicitation. Pour le téléphone, il faut vérifier la liste Bloctel."),
+  ("Peut-on envoyer des e-mails de prospection à des particuliers&nbsp;?", "Seulement avec leur accord préalable. Le courrier postal reste possible, avec un moyen simple de s'opposer à la sollicitation. Pour le téléphone, il faut le consentement préalable du particulier depuis le 11 août 2026."),
   ("Combien de temps faut-il pour voir des résultats&nbsp;?", "La prospection reste un travail de régularité. La méthode vise une routine courte et tenue chaque jour plutôt que de gros efforts ponctuels.")],
  ("Prospection immobilière avec l'IA", "Méthode de prospection de secteur augmentée par l'IA : dossier d'adresse, signaux de vente, courriers personnalisés et routine quotidienne."))
 
@@ -943,3 +944,92 @@ ecrire('financement-formation-auto-entrepreneur/',
   ("Quand déposer la demande&nbsp;?", "Au moins 15 jours avant le début de la formation, auprès de votre point d'accueil AGEFICE. Une demande déposée après le début de la formation est refusée."),
   ("Combien reste-t-il à payer sur une formation Start Academia&nbsp;?", "Nos formations sont à 42 € de l'heure, le coût horaire maximum de l'AGEFICE en présentiel. Dans la limite de votre enveloppe annuelle, une formation en présentiel est donc prise en charge en totalité. En classe virtuelle, le plafond est de 35 € de l'heure : il reste 7 € de l'heure à votre charge."),
   ("Les formations Start Academia sont-elles éligibles au CPF&nbsp;?", "Pas à ce jour. Elles sont finançables par l'AGEFICE, le FIF PL ou l'OPCO, et comptent pour la formation continue loi ALUR.")])
+
+
+# ================================================================ Guide : prospecter sans pige (fin du démarchage téléphonique, 11 août 2026)
+# Inspiré de la masterclass Immo2 « Les nouvelles techniques de prospection dans un monde sans pige »
+# (Sébastien Tedesco et Jean-Guy Ourmières, 21 mai 2026).
+ecrire('prospection-immobiliere-sans-pige/',
+ 'Prospection immobilière sans pige : la méthode 2026',
+ "Pige interdite depuis le 11 août 2026 : ce qui reste permis et 7 tactiques pour rentrer des vendeurs sans appel à froid. Méthode et prompt gratuit.",
+ "Prospecter sans pige&nbsp;: la méthode qui remplace le téléphone.",
+ "Depuis le 11 août 2026, appeler un particulier repéré sur une annonce est interdit sans son accord. Vous perdez une tactique, la pige. Vous gagnez une méthode&nbsp;: apporter de la valeur à la bonne personne, par le bon canal, assez souvent pour devenir l'agent du quartier.",
+ """  <div class="bloc">
+    <h2>Ce qui a changé le 11 août 2026</h2>
+    <ul class="points">
+      <li><strong>Plus d'appel sans consentement.</strong> La loi du 30 juin 2025 interdit de démarcher un consommateur par téléphone s'il n'a pas donné son accord au préalable. Le numéro affiché dans une annonce de particulier ne vaut pas accord&nbsp;: la pige téléphonique classique est terminée.</li>
+      <li><strong>Un consentement encadré.</strong> Le décret du 23 juillet 2026 limite sa durée à un an, sans reconduction tacite. Il doit résulter d'un acte clair, et vous devez pouvoir le prouver.</li>
+      <li><strong>Des sanctions lourdes.</strong> Jusqu'à 75&nbsp;000&nbsp;€ d'amende pour une personne physique et 375&nbsp;000&nbsp;€ pour une société.</li>
+      <li><strong>Bloctel n'existe plus.</strong> Il n'y a plus de liste à consulter&nbsp;: sans accord, on n'appelle pas.</li>
+    </ul>
+    <p><strong>Ce qui reste permis</strong>&nbsp;: le courrier adressé, le boîtage (en respectant le «&nbsp;Stop Pub&nbsp;»), le terrain, les réseaux sociaux, et l'appel d'une personne qui vous l'a demandé, par exemple via un formulaire. L'e-mail et le SMS de prospection vers un particulier demandent, eux, son accord préalable.</p>
+  </div>
+  <div class="bloc">
+    <h2>La grammaire de la prospection&nbsp;: cible × contenu × canal</h2>
+    <p>La pige n'était qu'une seule combinaison&nbsp;: vendeur particulier × «&nbsp;je peux vous aider&nbsp;» × téléphone. Une tactique, c'est toujours trois choix&nbsp;:</p>
+    <ul class="points">
+      <li><strong>La cible</strong>&nbsp;: voisins d'un bien que vous venez de rentrer, vendeurs particuliers, acquéreurs reçus en agence, anciens clients vendeurs ou acheteurs, réseau personnel, habitants du secteur.</li>
+      <li><strong>Le contenu</strong>&nbsp;: baromètre de la résidence, dossier expert (DPE, succession), guide vendeur, foire aux questions interactive, étude de cas, gazette du quartier, avis clients, simple «&nbsp;j'ai pensé à vous&nbsp;».</li>
+      <li><strong>Le canal</strong>&nbsp;: courrier adressé, boîtage, e-mail, SMS, QR code, réseaux sociaux, rencontre terrain, téléphone quand la personne l'a accepté.</li>
+    </ul>
+    <p>7 cibles × 8 contenus × 8 canaux&nbsp;: plus de 400 combinaisons possibles. Et une règle pour les faire fonctionner&nbsp;: <strong>régularité × présence sur plusieurs canaux × valeur apportée</strong>. Un propriétaire ne vous confie pas son bien au premier contact&nbsp;: il faut passer d'une prospection <em>intéressée</em> à une prospection <em>intéressante</em>.</p>
+  </div>
+  <div class="bloc">
+    <h2>7 tactiques qui rentrent des vendeurs sans appel à froid</h2>
+    <ol class="points numerotes">
+      <li><strong>Le baromètre de la résidence.</strong> Vous venez de faire une estimation&nbsp;? Compilez en moins d'une semaine un baromètre de la résidence (prix au m², évolution, délais de vente) et déposez-le dans toutes les boîtes. Une estimation devient 70 points de contact qui apportent une information, pas une sollicitation.</li>
+      <li><strong>Le dossier DPE.</strong> À un vendeur dont le logement est mal classé, ne dites pas «&nbsp;j'ai vu votre DPE, je peux vous aider&nbsp;» (rejet immédiat). Envoyez par courrier un dossier qui montre comment gagner une classe avec un budget réaliste. Vous créez un capital de confiance.</li>
+      <li><strong>La FAQ «&nbsp;vendre seul, bien accompagné&nbsp;» par QR code.</strong> Un courrier avec un QR code mène à un assistant qui répond aux questions du vendeur particulier. Pour obtenir la réponse détaillée ou être rappelé, il laisse ses coordonnées <strong>et coche son accord</strong>&nbsp;: c'est un consentement documenté, et un contact qualifié.</li>
+      <li><strong>Les zones qui tournent.</strong> Le fichier public des ventes (DVF), analysé avec l'IA, fait ressortir les rues où les biens changent de mains plus souvent que la moyenne. Vous concentrez vos baromètres et vos courriers là où ça vend.</li>
+      <li><strong>Les acquéreurs reçus en agence.</strong> Recevez vos acheteurs physiquement et poussez la découverte&nbsp;: beaucoup sont aussi vendeurs, et ils repèrent sur les portails des biens que vous n'avez pas vus.</li>
+      <li><strong>Les avis Google aux bons moments.</strong> Demandez l'avis à chaque moment fort (offre acceptée, signature, remise des clés). Les avis nourrissent votre visibilité locale et sont lus par les assistants comme ChatGPT ou Claude quand on leur demande «&nbsp;quel agent choisir&nbsp;».</li>
+      <li><strong>Les anciens clients, à vie.</strong> Quatre moments dans l'année&nbsp;: l'anniversaire de l'achat avec un point sur la valeur, le baromètre de leur résidence, les vœux personnalisés, un «&nbsp;j'ai pensé à vous&nbsp;». Par courrier, ou par e-mail et SMS s'ils l'ont accepté.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Recueillir un consentement qui tient</h2>
+    <p>Pour pouvoir rappeler quelqu'un, votre formulaire (estimation en ligne, QR code, page de contact) doit indiquer clairement&nbsp;:</p>
+    <ul class="points">
+      <li>l'identité de votre agence et la nature des appels (estimation, vente, recherche)&nbsp;;</li>
+      <li>un choix libre d'accepter ou de refuser, avec une case non cochée par défaut&nbsp;;</li>
+      <li>la durée de l'accord, un an au maximum&nbsp;;</li>
+      <li>la façon de le retirer à tout moment, aussi simplement qu'il a été donné.</li>
+    </ul>
+    <p>Gardez la preuve (date, formulaire, texte accepté) dans votre logiciel de transaction. Un lead acheté à un fournisseur ne vous autorise à appeler que si ce consentement vous couvre aussi.</p>
+  </div>
+  <div class="bloc">
+    <h2>Ce que change l'IA</h2>
+    <ul class="points">
+      <li><strong>Le baromètre de résidence</strong>&nbsp;: 2&nbsp;heures de compilation à la main, environ 20&nbsp;minutes avec un dossier d'adresse <strong>Academia Secteur</strong> et ChatGPT ou Claude pour la mise en forme.</li>
+      <li><strong>Le dossier DPE</strong>&nbsp;: données publiques de l'ADEME, travaux chiffrés par l'IA, mise en page avec Gamma.</li>
+      <li><strong>Les zones qui tournent</strong>&nbsp;: un fichier DVF donné à Claude ou ChatGPT, qui en sort les secteurs les plus actifs.</li>
+      <li><strong>La FAQ vendeur</strong>&nbsp;: un assistant personnalisé, signé de votre nom, qui répond la nuit et le week-end.</li>
+    </ul>
+    <p>Temps indicatifs, constatés en formation. La relecture reste obligatoire&nbsp;: vous signez, vous vérifiez.</p>
+  </div>
+""" + prompt_bloc("Prompt gratuit : le baromètre de la résidence", """Rôle : tu es un conseiller immobilier qui connaît bien [VILLE / QUARTIER].
+Contexte : je viens d'estimer un bien dans la résidence [NOM OU RUE]. Voici les ventes des 3 dernières années dans la résidence et la rue, sans aucun nom de propriétaire : [DATE, TYPE, SURFACE, PRIX POUR CHAQUE VENTE]. Prix moyen du quartier : [PRIX AU M²].
+Tâche : rédige un baromètre d'une page pour les habitants de la résidence : prix moyen au m² et son évolution, délai de vente constaté, 3 conseils pour vendre au bon prix. Ton neutre et informatif, aucune promesse de prix, aucune information permettant d'identifier un vendeur.
+Format : un titre, 3 chiffres clés, 3 conseils, une signature avec [TON NOM], [TON AGENCE], [TA CARTE PRO] et un QR code vers [TA PAGE DE CONTACT AVEC CONSENTEMENT].""") + """
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Appeler le numéro d'une annonce.</strong> Depuis le 11 août 2026, c'est un démarchage sans consentement. Et un mandat obtenu ainsi peut être contesté.</li>
+      <li><strong>Envoyer des e-mails ou des SMS sans accord.</strong> La prospection par message vers un particulier demande aussi son accord préalable.</li>
+      <li><strong>Se servir du fichier DVF pour retrouver un vendeur.</strong> Ses conditions d'utilisation interdisent de réidentifier les personnes. Utilisez-le pour des statistiques de rue ou de quartier, jamais pour cibler un propriétaire.</li>
+      <li><strong>Le flyer centré sur l'agence.</strong> «&nbsp;Nous avons vendu, nous recherchons&nbsp;» n'apporte rien au lecteur. Apportez une information qu'il ne trouve nulle part ailleurs.</li>
+      <li><strong>Une seule action, sans suite.</strong> Un propriétaire a besoin de plusieurs contacts avant d'identifier un professionnel. La régularité fait la différence.</li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>D'où vient cette méthode</h2>
+    <p>Ces tactiques ont été présentées en direct lors de la masterclass Immo2 «&nbsp;Les nouvelles techniques de prospection dans un monde sans pige&nbsp;», animée par Sébastien Tedesco et Jean-Guy Ourmières. Nous les déployons depuis en agence, sur les dossiers des conseillers.</p>
+    <p>Sources&nbsp;: <a class="lien-texte" href="https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/les-regles-du-demarchage-telephonique-simposant-aux-entreprises" rel="noopener">DGCCRF, les règles du démarchage téléphonique</a> · <a class="lien-texte" href="https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/" rel="noopener">DVF, conditions d'utilisation</a></p>
+  </div>
+""" + formation_bloc("La prospection sans pige est un module de nos formations IA&nbsp;: atelier sur votre propre secteur, baromètre et dossier DPE construits en séance, formulaire de consentement prêt à l'emploi, avec nos outils maison Academia Secteur et Academia Vivre ici.") + '\n' + AUTRES.replace('      <li><a class="lien-texte" href="/prospection-immobiliere-sans-pige/">Prospecter sans pige depuis le 11 août 2026</a></li>\n', '') + '\n' + FINANCEMENT + '\n' + PREUVES,
+ [("La pige immobilière est-elle interdite&nbsp;?", "La pige téléphonique l'est depuis le 11 août 2026 : appeler un particulier repéré sur une annonce sans son accord préalable est un démarchage interdit. Repérer les annonces reste possible ; c'est l'appel à froid qui ne l'est plus."),
+  ("Peut-on encore envoyer un courrier à un vendeur particulier&nbsp;?", "Oui. Le courrier adressé et le boîtage restent possibles, en respectant le Stop Pub pour le boîtage et le droit de la personne à ne plus être sollicitée."),
+  ("Comment obtenir le consentement d'un vendeur&nbsp;?", "Par une démarche où il vous demande de le recontacter : formulaire d'estimation, QR code sur un courrier, page de contact. Le formulaire doit indiquer votre identité, l'objet des appels, la durée de l'accord (un an maximum) et la façon de le retirer, avec une case non cochée par défaut."),
+  ("Combien de temps dure un consentement&nbsp;?", "Un an au maximum, sans reconduction tacite, selon le décret du 23 juillet 2026. Au-delà, il faut le redemander."),
+  ("Peut-on appeler un ancien client&nbsp;?", "Pour lui proposer vos services, seulement s'il a donné son accord. Le courrier reste possible, et l'e-mail aussi pour des services analogues à ceux qu'il a déjà utilisés, avec un lien pour se désinscrire."),
+  ("Qu'est-ce que la formation apporte de plus&nbsp;?", "Un atelier sur votre secteur réel : baromètre, dossier DPE et formulaire de consentement construits en séance avec l'IA et nos outils, pour repartir avec une routine de prospection conforme.")])
