@@ -176,7 +176,7 @@ ecrire('formation-ia-nice/',
   </div>
   <div class="bloc">
     <h2>227 avis Google, une note de 5,0 sur 5</h2>
-    <p>Les agents et directeurs que nous formons le disent eux-mêmes&nbsp;: des formateurs du terrain, des exercices sur leurs propres dossiers, des outils qu'ils utilisent dès le lendemain. <span data-qualiof="apprenantsFormes">240</span> professionnels de l'immobilier formés, et une note de satisfaction de 4,9 sur 5 dans nos questionnaires de fin de formation. <a class="lien-texte" href="/resultats/">Voir tous les résultats et les avis</a></p>
+    <p>Les agents et directeurs que nous formons le disent eux-mêmes&nbsp;: des formateurs du terrain, des exercices sur leurs propres dossiers, des outils qu'ils utilisent dès le lendemain. <span data-qualiof="apprenantsFormes">240</span> professionnels de l'immobilier formés, et une note de satisfaction de <span data-qualiof="note5">4,9</span> sur 5 dans nos questionnaires de fin de formation. <a class="lien-texte" href="/resultats/">Voir tous les résultats et les avis</a></p>
   </div>
   <div class="bloc">
     <h2>Les outils que vous utiliserez</h2>
