@@ -11,6 +11,7 @@ import re, sys, json, pathlib, unicodedata, html as h
 OUTILS = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(OUTILS))
 from qualiof_mapping import THEME_VERS_CATEGORIE, CODE_VERS_SLUG_SITE, CODE_VERS_CATEGORIE
+from fiches_map import FICHES
 src = (OUTILS / 'pages.py').read_text()
 exec(src[:src.index("\npage('")])          # récupère racine, page(), entete, pied, CAL...
 
@@ -360,12 +361,14 @@ def carte(f, noms):
     stats = chiffres(f['ind'])
     stats = f'<div class="cf-chiffres">{stats}</div>' if stats else ''
     av = ' data-a-valider' if f['av'] else ''
+    fiche = (f'<a class="cf-fiche" href="/formations/{FICHES[f["id"]]}/">Voir la fiche complète</a>'
+             if f['id'] in FICHES else '')
     return (f'''
     <article class="carte-f" id="{f['id']}" data-etapes="{' '.join(f['etapes'])}"{av}>
       <div class="cf-visuel"><img src="/img/cf-{f['visuel']}.webp" width="720" height="260" loading="lazy" alt="{h.escape(f['titre'], quote=True)}"><span class="cf-duree">{duree(f['heures'])}</span><span class="cf-prix">{prix(f['heures'])}</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier">{puces}</ul>
       <h3>{h.escape(f['titre'])}</h3>
-      {stats}
+      {stats}{fiche}
       <details class="cf-plus">
         <summary><span class="ouvrir">Voir les objectifs et le programme</span><span class="fermer">Masquer le détail</span></summary>
         <div class="cf-detail">

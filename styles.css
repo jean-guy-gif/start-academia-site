@@ -922,6 +922,7 @@ p { text-wrap: pretty; }
 .cf-chiffres strong small { font-size: .9rem; }
 .cf-chiffres strong.neuf { font-size: 1.05rem; color: var(--orange); padding-top: 6px; }
 .cf-chiffres span { display: block; font-size: .75rem; line-height: 1.35; color: var(--gris); }
+.cf-fiche { display: inline-block; margin: 2px 0 6px; font: 600 .875rem var(--texte); color: var(--bleu); text-decoration: underline; text-underline-offset: 3px; }
 .cf-plus summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font: 500 .875rem var(--texte); color: var(--bleu); padding: 6px 0; }
 .cf-plus summary::-webkit-details-marker { display: none; }
 .cf-plus summary::after { content: "+"; font-size: 1.1rem; line-height: 1; }

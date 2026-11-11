@@ -56,7 +56,7 @@ def main():
     except (ValueError, KeyError, TypeError) as e:
         print(f'chiffres : data/qualiof.json illisible ({e!r}), index.html inchangé', file=sys.stderr)
         return
-    pages = [INDEX] + sorted(p for p in RACINE.glob('*/index.html') if p.parent.name not in ('.git', 'outils', 'data'))
+    pages = [INDEX] + sorted(p for p in RACINE.glob('**/index.html') if p != INDEX and not ({'.git', 'outils', 'data', 'node_modules'} & set(p.relative_to(RACINE).parts)))
     totaux, modifiees = {champ: 0 for champ in texte}, 0
     for page in pages:
         t0 = page.read_text(encoding='utf-8')

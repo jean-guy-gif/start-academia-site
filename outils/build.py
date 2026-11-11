@@ -5,7 +5,7 @@ S'arrête au premier script en erreur, avec son code de sortie."""
 import pathlib, subprocess, sys
 
 OUTILS = pathlib.Path(__file__).resolve().parent
-ETAPES = ['pages.py', 'formations.py', 'seo_pages.py', 'resultats.py', 'jsonld_pages.py', 'chiffres.py']
+ETAPES = ['pages.py', 'formations.py', 'seo_pages.py', 'fiches_formations.py', 'resultats.py', 'jsonld_pages.py', 'chiffres.py']
 
 for script in ETAPES:
     print(f'--- {script}', flush=True)
