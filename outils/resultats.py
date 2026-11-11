@@ -188,7 +188,7 @@ html = f'''<!DOCTYPE html>
       <div><strong><span data-qualiof="apprenantsFormes">240</span></strong><span>apprenants formés</span><small>Source&nbsp;: QualiOF</small></div>
       <div><strong>5,0<em>/5</em></strong><span>227 avis Google</span><small>Relevé le 11/11/2026</small></div>
       <div><strong><span data-qualiof="tauxRecommandation">100</span><em>&nbsp;%</em></strong><span>recommandent la formation</span><small>Source&nbsp;: QualiOF</small></div>
-      <div><strong>26</strong><span>agences et réseaux clients</span><small>Logos en bas de page</small></div>
+      <div><strong>37</strong><span>agences et réseaux clients</span><small>Logos en bas de page</small></div>
     </div>
   </div>
 </section>
