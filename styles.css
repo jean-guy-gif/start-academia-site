@@ -1097,3 +1097,6 @@ p { text-wrap: pretty; }
 @media (prefers-reduced-motion: reduce) { .ch-flux, .ch-noeud[aria-pressed="true"] .ch-point::after, .ch-etape { animation: none; } }
 .ch-glisser { display: none; font: .75rem var(--mono); color: var(--bleu-p); text-align: center; margin-top: 8px; }
 @media (max-width: 980px) { .ch-glisser { display: block; } }
+
+/* Programmes QualiOF : les listes numérotées recommencent à 1 à chaque point, on affiche des puces */
+.programme ol { list-style: disc; }
