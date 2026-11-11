@@ -43,6 +43,11 @@
       "permanent": true
     },
     {
+      "source": "/suis-je-eligible-aux-3-000-e-de-financement-opco-en-tant-quautoentrepreneur/",
+      "destination": "/financement-formation-auto-entrepreneur/",
+      "permanent": true
+    },
+    {
       "source": "/contact/",
       "destination": "/#rdv",
       "permanent": true

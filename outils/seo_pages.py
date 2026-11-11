@@ -349,6 +349,7 @@ ecrire('financement-formation-immobilier/',
       <li><strong>Vous dirigez une agence</strong>&nbsp;: si vous êtes salarié de votre société, vos formations passent par l'OPCO comme celles de vos équipes&nbsp;; sinon, par votre fonds d'assurance formation.</li>
     </ul>
     <p><strong>Pour savoir à coup sûr de quel fonds vous dépendez</strong>, téléchargez votre <strong>attestation de contribution à la formation professionnelle</strong> dans votre espace URSSAF&nbsp;: le nom du fonds y figure.</p>
+    <p><strong>Auto-entrepreneur&nbsp;?</strong> <a class="lien-texte" href="/financement-formation-auto-entrepreneur/">Avez-vous droit aux 3&nbsp;000&nbsp;€ de l'AGEFICE&nbsp;? Conditions et calcul</a></p>
   </div>
 ''' + SIMULATEUR + '''
   <div class="bloc" id="fif-pl">
@@ -367,7 +368,7 @@ ecrire('financement-formation-immobilier/',
     <ol class="points numerotes">
       <li><strong>Appel découverte</strong>&nbsp;: on fait le point sur votre statut, vos besoins et vos heures loi ALUR.</li>
       <li><strong>Devis, programme et convention</strong>&nbsp;: vous recevez les documents exigés par votre financeur.</li>
-      <li><strong>Demande de prise en charge</strong>&nbsp;: vous la déposez sur l'espace de votre OPCO ou de votre fonds, avec notre aide. Faites-la de préférence avant le début de la formation.</li>
+      <li><strong>Demande de prise en charge</strong>&nbsp;: vous la déposez sur l'espace de votre OPCO ou de votre fonds, avec notre aide. Déposez-la avant le début de la formation&nbsp;: au moins 15&nbsp;jours avant pour l'AGEFICE.</li>
       <li><strong>Formation</strong>, en agence sur la Côte d'Azur ou à distance.</li>
       <li><strong>Attestation et facture</strong>&nbsp;: vous les transmettez à votre financeur pour le remboursement.</li>
     </ol>
@@ -843,3 +844,102 @@ Format : déroulé en 4 temps, puis 5 questions ouvertes à poser au conseiller.
   ("Peut-on former toute l'équipe ensuite&nbsp;?", "Oui. Nous construisons un plan de formation par poste et formons vos conseillers dans l'agence ou à distance."),
   ("Combien coûte la formation&nbsp;?", "À partir de 42 € de l'heure, finançable par l'OPCO de l'agence ou par le fonds d'assurance formation du dirigeant (AGEFICE, FIF PL). Le devis précis est établi après l'appel découverte.")],
  ("Formation IA pour directeurs et managers d'agence immobilière", "Piloter une agence immobilière avec l'IA : indicateurs, entretiens individuels, recrutement et déploiement de l'IA dans l'équipe."))
+
+
+# ================================================================ Guide : auto-entrepreneur et 3 000 € (reprise de l'article le plus vu de l'ancien site)
+ecrire('financement-formation-auto-entrepreneur/',
+ 'OPCO auto-entrepreneur : avez-vous droit aux 3 000 € ?',
+ "Auto-entrepreneur, agent commercial, mandataire : pas d'OPCO, mais jusqu'à 3 000 € par an avec l'AGEFICE. Conditions 2026, calcul et démarches.",
+ "Auto-entrepreneur&nbsp;: avez-vous droit aux 3&nbsp;000&nbsp;€ de formation&nbsp;?",
+ "Un auto-entrepreneur n'a pas d'OPCO. Mais il cotise pour sa formation, et peut obtenir jusqu'à <strong>3&nbsp;000&nbsp;€ par an</strong> s'il dépend de l'AGEFICE. Voici qui y a droit en 2026, comment le vérifier en 5 minutes, et ce que ça finance concrètement.",
+ '''  <div class="bloc">
+    <h2>La réponse en 30 secondes</h2>
+    <ul class="points">
+      <li><strong>Pas d'OPCO pour un auto-entrepreneur.</strong> Les OPCO financent la formation des salariés. Vous, vous dépendez d'un <strong>fonds d'assurance formation</strong> (FAF), financé par la contribution à la formation professionnelle (CFP) prélevée avec vos cotisations URSSAF.</li>
+      <li><strong>Si votre fonds est l'AGEFICE</strong>&nbsp;: jusqu'à <strong>3&nbsp;000&nbsp;€ par an</strong> si votre CFP de l'année est d'au moins 7&nbsp;€, et <strong>600&nbsp;€</strong> si elle est comprise entre 0 et 7&nbsp;€.</li>
+      <li><strong>Si votre fonds est le FIF PL</strong>, fréquent chez les agents immobiliers&nbsp;: d'autres plafonds s'appliquent (voir plus bas).</li>
+      <li><strong>Une seule façon d'être sûr</strong>&nbsp;: votre attestation CFP, dans votre espace URSSAF. Le nom du fonds y figure.</li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>AGEFICE ou FIF PL&nbsp;: de quel fonds dépendez-vous&nbsp;?</h2>
+    <p>L'AGEFICE finance les <strong>dirigeants non salariés</strong>&nbsp;: commerçants, gérants majoritaires, entrepreneurs individuels et auto-entrepreneurs. Les <strong>professions libérales non médicales</strong> relèvent du <strong>FIF PL</strong>. Dans l'immobilier, les deux cas existent&nbsp;:</p>
+    <ul class="points">
+      <li><strong>Agent commercial ou mandataire en réseau</strong>&nbsp;: souvent le FIF PL, parfois l'AGEFICE selon votre code d'activité.</li>
+      <li><strong>Dirigeant non salarié d'une agence</strong> (gérant majoritaire, entreprise individuelle)&nbsp;: généralement l'AGEFICE.</li>
+      <li><strong>Dirigeant salarié de sa société</strong> (président de SAS, gérant minoritaire)&nbsp;: c'est l'OPCO de l'agence, comme pour vos salariés.</li>
+    </ul>
+    <p>Le fonds indiqué sur votre attestation CFP fait foi. Pour l'AGEFICE, il faut aussi être <strong>à jour du versement de votre CFP</strong>.</p>
+  </div>
+  <div class="bloc">
+    <h2>Vérifier votre attestation en 5 minutes</h2>
+    <ol class="points numerotes">
+      <li><strong>Connectez-vous</strong> à votre espace sur autoentrepreneur.urssaf.fr.</li>
+      <li><strong>Ouvrez la rubrique des attestations</strong> et téléchargez l'<strong>attestation de contribution à la formation professionnelle</strong> (CFP) de l'année.</li>
+      <li><strong>Lisez le nom du fonds</strong>&nbsp;: AGEFICE, FIF PL ou autre.</li>
+      <li><strong>Relevez le montant de CFP versé</strong>&nbsp;: c'est lui qui fixe votre plafond.</li>
+    </ol>
+    <p>Gardez ce PDF&nbsp;: il fait partie des pièces demandées pour la prise en charge.</p>
+  </div>
+  <div class="bloc">
+    <h2>Le calcul&nbsp;: de votre chiffre d'affaires à votre plafond</h2>
+    <p>En micro-entreprise, la CFP est un pourcentage du chiffre d'affaires encaissé&nbsp;: <strong>0,20&nbsp;%</strong> pour une activité libérale (BNC, cas de la plupart des agents commerciaux) et <strong>0,10&nbsp;%</strong> pour une activité commerciale. Pour atteindre les 7&nbsp;€ qui ouvrent le plafond de 3&nbsp;000&nbsp;€, il suffit donc d'environ <strong>3&nbsp;500&nbsp;€ de chiffre d'affaires annuel en BNC</strong>, ou 7&nbsp;000&nbsp;€ en activité commerciale.</p>
+    <ul class="points">
+      <li><strong>Exemple 1</strong>&nbsp;: agent commercial en micro-BNC, 30&nbsp;000&nbsp;€ de chiffre d'affaires en 2025. CFP&nbsp;: 30&nbsp;000 × 0,20&nbsp;% = <strong>60&nbsp;€</strong>. Si son attestation indique l'AGEFICE, son plafond 2026 est de <strong>3&nbsp;000&nbsp;€</strong>.</li>
+      <li><strong>Exemple 2</strong>&nbsp;: mandataire qui démarre, 2&nbsp;000&nbsp;€ de chiffre d'affaires en 2025. CFP&nbsp;: <strong>4&nbsp;€</strong>, sous le seuil de 7&nbsp;€. Plafond AGEFICE&nbsp;: <strong>600&nbsp;€</strong>.</li>
+    </ul>
+    <p>Ces calculs sont théoriques&nbsp;: c'est le montant réellement versé, inscrit sur l'attestation, qui compte. <a class="lien-texte" href="/financement-formation-immobilier/#simulateur-financement">Faire le calcul avec notre simulateur</a></p>
+  </div>
+  <div class="bloc">
+    <h2>Ce que financent les 3&nbsp;000&nbsp;€ en pratique</h2>
+    <p>L'AGEFICE paie les frais de formation dans la limite d'un <strong>coût horaire maximum</strong>&nbsp;: <strong>42&nbsp;€ de l'heure en présentiel</strong>, 35&nbsp;€ en classe virtuelle et 20&nbsp;€ en e-learning. Nos formations sont à 42&nbsp;€ de l'heure&nbsp;: en présentiel, le taux est donc couvert en entier.</p>
+    <ul class="points">
+      <li><strong>Formation IA de 21&nbsp;heures en présentiel</strong>&nbsp;: 882&nbsp;€, pris en charge en totalité.</li>
+      <li><strong>Parcours IA complet de 72&nbsp;heures en présentiel</strong>&nbsp;: 3&nbsp;024&nbsp;€. L'AGEFICE couvre 3&nbsp;000&nbsp;€, il reste <strong>24&nbsp;€</strong> à votre charge.</li>
+      <li><strong>La même formation de 21&nbsp;heures en classe virtuelle</strong>&nbsp;: plafond de 35&nbsp;€ de l'heure, soit 735&nbsp;€ pris en charge et 147&nbsp;€ à votre charge.</li>
+    </ul>
+    <p>En plus, l'AGEFICE prévoit une <strong>indemnité pour perte de ressources</strong> de 8&nbsp;€ par heure de formation en présentiel ou en classe virtuelle, proportionnelle à la CFP versée. Elle ne s'impute pas sur l'enveloppe de 3&nbsp;000&nbsp;€.</p>
+    <p>Montants calculés sur une enveloppe 2026 non encore utilisée et sous réserve de l'accord de l'AGEFICE.</p>
+  </div>
+  <div class="bloc" id="fif-pl">
+    <h2>Si votre attestation indique le FIF PL</h2>
+    <p>Pour 2026, les critères du FIF PL pour les agents immobiliers (code NAF 6831Z) prévoient une prise en charge plafonnée à <strong>900&nbsp;€ par an</strong> et <strong>300&nbsp;€ par jour</strong>. Pour les micro-entrepreneurs, la prise en charge est <strong>proportionnelle à la CFP versée</strong>&nbsp;: une petite contribution donne droit à une partie seulement de ces plafonds. <a class="lien-texte" href="/financement-formation-immobilier/#fif-pl">Le détail sur notre page financement</a></p>
+  </div>
+  <div class="bloc">
+    <h2>Les démarches, dans l'ordre</h2>
+    <ol class="points numerotes">
+      <li><strong>Vérifiez votre fonds et votre CFP</strong> sur l'attestation URSSAF.</li>
+      <li><strong>Demandez le devis et le programme</strong> à l'organisme de formation, qui doit être déclaré et certifié Qualiopi. Start Academia l'est.</li>
+      <li><strong>Déposez la demande de prise en charge au moins 15&nbsp;jours avant le début de la formation</strong>, auprès de votre point d'accueil AGEFICE (souvent la CCI). Une demande tardive est refusée.</li>
+      <li><strong>Suivez la formation</strong>, puis récupérez la facture acquittée et l'attestation d'assiduité.</li>
+      <li><strong>Envoyez la demande de remboursement</strong> dans les 4&nbsp;mois qui suivent la fin de la formation.</li>
+    </ol>
+    <p>Nous préparons avec vous tous les documents&nbsp;: devis, programme, convention et attestations.</p>
+  </div>
+  <div class="bloc">
+    <h2>Les erreurs qui font perdre la prise en charge</h2>
+    <ul class="points">
+      <li><strong>Chercher son OPCO.</strong> Un auto-entrepreneur n'en a pas&nbsp;: c'est le fonds de l'attestation CFP qui compte.</li>
+      <li><strong>Déposer la demande après le début de la formation.</strong> C'est le premier motif de refus.</li>
+      <li><strong>Oublier une CFP impayée ou nulle.</strong> Sans CFP versée, pas de prise en charge AGEFICE.</li>
+      <li><strong>Consommer son enveloppe sur une formation sans lien avec son activité.</strong> Elle est annuelle&nbsp;: choisissez la formation qui vous fera rentrer des mandats.</li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>Sources officielles</h2>
+    <ul class="points">
+      <li><a class="lien-texte" href="https://communication-agefice.fr/plafonds-financiers-annee-2026/" rel="noopener">AGEFICE&nbsp;: plafonds financiers 2026</a></li>
+      <li><a class="lien-texte" href="https://communication-agefice.fr/les-ressortissants-de-lagefice/" rel="noopener">AGEFICE&nbsp;: qui sont les ressortissants</a></li>
+      <li><a class="lien-texte" href="https://entreprendre.service-public.gouv.fr/vosdroits/R72935" rel="noopener">Service-public&nbsp;: demande de prise en charge d'une formation pour un commerçant</a></li>
+      <li><a class="lien-texte" href="https://www.fifpl.fr/" rel="noopener">FIF PL</a></li>
+    </ul>
+    <p>Critères en vigueur au 11 novembre 2026. Ils changent chaque année&nbsp;: nous les vérifions avec vous au moment de votre demande.</p>
+  </div>
+''' + PREUVES,
+ [("Un auto-entrepreneur a-t-il un OPCO&nbsp;?", "Non. Les OPCO financent la formation des salariés. Un auto-entrepreneur dépend d'un fonds d'assurance formation : l'AGEFICE, le FIF PL ou un autre fonds selon son activité. Le nom figure sur l'attestation de contribution à la formation professionnelle, dans l'espace URSSAF."),
+  ("Qui a droit aux 3 000 € de l'AGEFICE&nbsp;?", "Les dirigeants non salariés qui dépendent de l'AGEFICE, auto-entrepreneurs compris, à jour de leur contribution à la formation professionnelle et dont la CFP de l'année atteint au moins 7 €. En dessous de 7 €, le plafond est de 600 € par an."),
+  ("Quel chiffre d'affaires faut-il pour atteindre 7 € de CFP&nbsp;?", "En micro-entreprise, environ 3 500 € de chiffre d'affaires annuel pour une activité libérale (taux de 0,20 %) et 7 000 € pour une activité commerciale (taux de 0,10 %). Le montant réellement versé, inscrit sur l'attestation URSSAF, fait foi."),
+  ("Un agent commercial immobilier dépend-il de l'AGEFICE&nbsp;?", "Pas toujours. Beaucoup d'agents commerciaux et de mandataires dépendent du FIF PL, d'autres de l'AGEFICE selon leur code d'activité. Seule l'attestation CFP permet de le savoir."),
+  ("Quand déposer la demande&nbsp;?", "Au moins 15 jours avant le début de la formation, auprès de votre point d'accueil AGEFICE. Une demande déposée après le début de la formation est refusée."),
+  ("Combien reste-t-il à payer sur une formation Start Academia&nbsp;?", "Nos formations sont à 42 € de l'heure, le coût horaire maximum de l'AGEFICE en présentiel. Dans la limite de votre enveloppe annuelle, une formation en présentiel est donc prise en charge en totalité. En classe virtuelle, le plafond est de 35 € de l'heure : il reste 7 € de l'heure à votre charge."),
+  ("Les formations Start Academia sont-elles éligibles au CPF&nbsp;?", "Pas à ce jour. Elles sont finançables par l'AGEFICE, le FIF PL ou l'OPCO, et comptent pour la formation continue loi ALUR.")])
