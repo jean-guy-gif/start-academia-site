@@ -23,7 +23,7 @@ def cours(nom, desc, heures=None):
     c = {"@type": "Course", "name": nom, "description": desc, "provider": ORG, "inLanguage": "fr",
          "hasCourseInstance": [{"@type": "CourseInstance", "courseMode": "Onsite", "location": "Alpes-Maritimes, France"},
                                {"@type": "CourseInstance", "courseMode": "Online"}],
-         "offers": {"@type": "Offer", "category": "Sur devis", "availability": "https://schema.org/InStock"}}
+         "offers": {"@type": "Offer", "category": "Paid", "availability": "https://schema.org/InStock"}}
     if heures:
         c["timeRequired"] = f"PT{int(round(heures))}H"
     return c
@@ -43,12 +43,18 @@ def desc_de(chemin):
     return re.search(r'<meta name="description" content="([^"]*)"', t).group(1)
 
 
+def resume(f):
+    """Description lisible : les objectifs réels, sans les phrases d'introduction (« … sera capable de : »)."""
+    objs = [str(o).strip().rstrip(' ;.') for o in f['obj'] if str(o).strip() and not str(o).strip().endswith(':')]
+    return (f"{f['titre']} : " + ' ; '.join(objs[:3]) + '.') if objs else f['titre']
+
+
 # Catalogue : liste des formations
 d = desc_de('formations/')
 liste = {"@type": "ItemList", "name": "Catalogue des formations Start Academia", "numberOfItems": len(F),
          "itemListElement": [
              {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/formations/#{f['id']}",
-              "item": cours(f['titre'], (f['obj'][0] if f['obj'] else f['titre']), f['heures'])} for i, f in enumerate(F)]}
+              "item": cours(f['titre'], resume(f), f['heures'])} for i, f in enumerate(F)]}
 for el in liste["itemListElement"]:
     el["item"]["url"] = el.pop("url")
 injecter('formations/', base('formations/', 'Catalogue des formations', d) + [liste])

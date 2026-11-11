@@ -33,7 +33,7 @@ def jsonld(chemin, titre_page, desc, faq, cours=None):
                       "provider": {"@id": f"{SITE}/#organisation"}, "inLanguage": "fr",
                       "hasCourseInstance": [{"@type": "CourseInstance", "courseMode": m,
                                              "location": "Alpes-Maritimes, France" if m == "Onsite" else None} for m in ("Onsite", "Online")],
-                      "offers": {"@type": "Offer", "category": "Sur devis", "availability": "https://schema.org/InStock"}})
+                      "offers": {"@type": "Offer", "category": "Paid", "availability": "https://schema.org/InStock"}})
         for ci in graph[-1]["hasCourseInstance"]:
             if ci["location"] is None: del ci["location"]
     return '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + '</script>'

@@ -298,6 +298,16 @@
       "permanent": true
     },
     {
+      "source": "/categorie-produit/:path*",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
+      "source": "/etiquette-produit/:path*",
+      "destination": "/formations/",
+      "permanent": true
+    },
+    {
       "source": "/course-tag/:path*",
       "destination": "/formations/",
       "permanent": true
@@ -354,7 +364,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=604800"
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
         }
       ]
     },

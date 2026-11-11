@@ -52,7 +52,7 @@ def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=Tr
 <main id="contenu">
 <section class="page-tete">
   <div class="contenu">
-    <p class="fil"><a href="/">Accueil</a> <span aria-hidden="true">/</span> {h1.rstrip('.')}</p>
+    <nav class="fil" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">/</span> {h1.rstrip('.')}</nav>
     <h1>{h1}</h1>
     <p class="promesse">{intro}</p>
     {f'<a class="action" href="{CAL}" rel="noopener">Réserver mon appel découverte{fl}</a>' if appel else ''}

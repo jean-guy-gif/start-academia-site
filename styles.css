@@ -241,6 +241,10 @@ p { text-wrap: pretty; }
 .maillon .texte { position: absolute; left: var(--bord); bottom: clamp(56px, 11vh, 120px); width: min(560px, 46vw); transform: translateY(24px); transition: transform 1s var(--sortie); }
 .maillon.actif .texte { transform: none; }
 .maillon .rang { font: .875rem var(--mono); color: var(--bleu-p); }
+.maillon .guides { margin-top: 14px; font: .8125rem/1.6 var(--mono); color: var(--bleu-p); }
+.maillon .guides a { color: #fff; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgb(255 255 255 / .45); margin-right: 14px; }
+.maillon .guides a:hover { text-decoration-color: var(--orange, #fe5500); }
+.maillon .guides span { margin-right: 8px; }
 .maillon h3 { font-size: clamp(2.6rem, 5.4vw, 5rem); margin: 10px 0 18px; }
 .maillon .geste { font-size: 1.2rem; line-height: 1.45; margin-bottom: 22px; max-width: 34ch; }
 .maillon dl { display: grid; grid-template-columns: 96px 1fr; border-top: 1px solid rgb(255 255 255 / .2); font-size: .975rem; }
@@ -362,7 +366,7 @@ p { text-wrap: pretty; }
 
 /* ---------- Pied de page ---------- */
 .pied { background: #070a24; color: rgb(255 255 255 / .72); padding: 72px var(--bord) 32px; font-size: .9375rem; }
-.pied .colonnes { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+.pied .colonnes { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 36px; }
 .pied h2 { font: 600 .9375rem var(--texte); color: #fff; margin-bottom: 14px; letter-spacing: 0; }
 .pied ul { list-style: none; }
 .pied li { margin-bottom: 8px; }

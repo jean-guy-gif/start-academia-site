@@ -362,7 +362,7 @@ def carte(f, noms):
     av = ' data-a-valider' if f['av'] else ''
     return (f'''
     <article class="carte-f" id="{f['id']}" data-etapes="{' '.join(f['etapes'])}"{av}>
-      <div class="cf-visuel"><img src="/img/cf-{f['visuel']}.webp" width="720" height="260" loading="lazy" alt=""><span class="cf-duree">{duree(f['heures'])}</span><span class="cf-prix">{prix(f['heures'])}</span></div>
+      <div class="cf-visuel"><img src="/img/cf-{f['visuel']}.webp" width="720" height="260" loading="lazy" alt="{h.escape(f['titre'], quote=True)}"><span class="cf-duree">{duree(f['heures'])}</span><span class="cf-prix">{prix(f['heures'])}</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier">{puces}</ul>
       <h3>{h.escape(f['titre'])}</h3>
       {stats}
