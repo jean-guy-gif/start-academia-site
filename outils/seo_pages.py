@@ -51,7 +51,7 @@ PREUVES = '''  <div class="bloc">
     <ul class="points">
       <li><strong>Des formateurs du métier.</strong> Jean-Guy Ourmières et Laurent Marx ont plus de 10 ans de transaction et accompagnent encore des agences au quotidien.</li>
       <li><strong>Nos propres outils.</strong> Academia Secteur, Academia Profiling, Academia Localisateur, Academia ACM&nbsp;: vos équipes repartent avec des outils prêts à servir.</li>
-      <li><strong>Des preuves.</strong> <span data-qualiof="apprenantsFormes">240</span> agents et collaborateurs formés, 225 avis Google notés 5 étoiles, des agences comme Laforêt, Nestenn, Century 21 ou Orpi parmi nos clients.</li>
+      <li><strong>Des preuves.</strong> <span data-qualiof="apprenantsFormes">240</span> agents et collaborateurs formés, 227 avis Google (note de 5,0 sur 5), des agences comme Laforêt, Nestenn, Century 21 ou Orpi parmi nos clients.</li>
       <li><strong>Certifié Qualiopi</strong> au titre des actions de formation. <a class="lien-texte" href="/documents/certificat-qualiopi.pdf">Voir le certificat</a></li>
     </ul>
   </div>'''
@@ -175,8 +175,8 @@ ecrire('formation-ia-nice/',
     <p>Mais aussi Vence, Mougins, Valbonne et Sophia Antipolis, Biot, Villefranche-sur-Mer, Roquebrune-Cap-Martin, Beausoleil, Carros et l'arrière-pays. La formation a lieu <strong>dans votre agence</strong>, ou <strong>à distance</strong> si votre équipe est répartie sur plusieurs sites. Nos formateurs sont basés à Cagnes-sur-Mer et à Antibes&nbsp;: les dates s'organisent facilement.</p>
   </div>
   <div class="bloc">
-    <h2>225 avis Google, tous notés 5 étoiles</h2>
-    <p>Les agents et directeurs que nous formons le disent eux-mêmes&nbsp;: des formateurs du terrain, des exercices sur leurs propres dossiers, des outils qu'ils utilisent dès le lendemain. <span data-qualiof="apprenantsFormes">240</span> professionnels de l'immobilier formés, et une note de satisfaction de 4,9 sur 5 dans nos questionnaires de fin de formation.</p>
+    <h2>227 avis Google, une note de 5,0 sur 5</h2>
+    <p>Les agents et directeurs que nous formons le disent eux-mêmes&nbsp;: des formateurs du terrain, des exercices sur leurs propres dossiers, des outils qu'ils utilisent dès le lendemain. <span data-qualiof="apprenantsFormes">240</span> professionnels de l'immobilier formés, et une note de satisfaction de 4,9 sur 5 dans nos questionnaires de fin de formation. <a class="lien-texte" href="/resultats/">Voir tous les résultats et les avis</a></p>
   </div>
   <div class="bloc">
     <h2>Les outils que vous utiliserez</h2>
