@@ -128,7 +128,7 @@
       "permanent": true
     },
     {
-      "source": "/course-category/:path*",
+      "source": "/course-category/(.*)",
       "destination": "/formations/",
       "permanent": true
     },
@@ -233,12 +233,12 @@
       "permanent": true
     },
     {
-      "source": "/category/:path*",
+      "source": "/category/(.*)",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/author/:path*",
+      "source": "/author/(.*)",
       "destination": "/",
       "permanent": true
     },
@@ -283,37 +283,37 @@
       "permanent": true
     },
     {
-      "source": "/produit/:path*",
+      "source": "/produit/(.*)",
       "destination": "/formations/",
       "permanent": true
     },
     {
-      "source": "/product-category/:path*",
+      "source": "/product-category/(.*)",
       "destination": "/formations/",
       "permanent": true
     },
     {
-      "source": "/product-tag/:path*",
+      "source": "/product-tag/(.*)",
       "destination": "/formations/",
       "permanent": true
     },
     {
-      "source": "/categorie-produit/:path*",
+      "source": "/categorie-produit/(.*)",
       "destination": "/formations/",
       "permanent": true
     },
     {
-      "source": "/etiquette-produit/:path*",
+      "source": "/etiquette-produit/(.*)",
       "destination": "/formations/",
       "permanent": true
     },
     {
-      "source": "/course-tag/:path*",
+      "source": "/course-tag/(.*)",
       "destination": "/formations/",
       "permanent": true
     },
     {
-      "source": "/courses/:path*",
+      "source": "/courses/(.*)",
       "destination": "/formations/",
       "permanent": true
     },
@@ -328,12 +328,12 @@
       "permanent": true
     },
     {
-      "source": "/nos-formateurs/:path*",
+      "source": "/nos-formateurs/(.*)",
       "destination": "/#equipe",
       "permanent": true
     },
     {
-      "source": "/formateurs/:path*",
+      "source": "/formateurs/(.*)",
       "destination": "/#equipe",
       "permanent": true
     },
