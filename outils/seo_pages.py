@@ -155,7 +155,7 @@ ecrire('formation-ia-nice/',
       <li><strong>Mandat et annonces</strong>&nbsp;: des annonces conformes (mentions obligatoires, DPE) et adaptées à votre clientèle, y compris en anglais ou en italien pour les acquéreurs étrangers.</li>
       <li><strong>Découverte, visite, négociation, suivi</strong>&nbsp;: comptes rendus, relances et synthèses de documents sans y passer vos soirées.</li>
     </ul>
-    <p><a class="lien-texte" href="/formation-ia-immobilier/">Voir le programme complet de la formation IA immobilier</a></p>
+    <p><a class="lien-texte" href="/formation-ia-immobilier/">Voir le programme complet de la formation IA immobilier</a> · <a class="lien-texte" href="/formation-immobilier-nice/">Formations immobilier hors IA à Nice et dans le 06</a></p>
   </div>
   <div class="bloc">
     <h2>Où nous intervenons</h2>
@@ -200,11 +200,83 @@ ecrire('formation-ia-nice/',
   ("Intervenez-vous à Antibes, Cannes ou Menton&nbsp;?", "Oui, dans toutes les communes des Alpes-Maritimes : Nice, Antibes, Cannes, Cagnes-sur-Mer, Grasse, Le Cannet, Menton, Saint-Laurent-du-Var, Vallauris, Mandelieu-la-Napoule et l'arrière-pays.")],
  ("Formation IA immobilier à Nice et dans les Alpes-Maritimes", "Formation pratique à l'IA et à ChatGPT pour les professionnels de l'immobilier, dans votre agence à Nice et dans les Alpes-Maritimes ou à distance."))
 
+
+# ---------------------------------------------------------------- Formation immobilier Nice / 06 (formation continue, hors IA)
+VILLES_06 = '''    <ul class="points villes">
+      <li><strong>Formation immobilier à Nice</strong>, dans votre agence ou en groupe.</li>
+      <li><strong>Formation immobilier à Antibes</strong> et Juan-les-Pins.</li>
+      <li><strong>Formation immobilier à Cannes</strong>.</li>
+      <li><strong>Formation immobilier à Cagnes-sur-Mer</strong>, où se trouve notre siège.</li>
+      <li><strong>Formation immobilier à Grasse</strong> et dans le pays grassois.</li>
+      <li><strong>Formation immobilier au Cannet</strong>.</li>
+      <li><strong>Formation immobilier à Menton</strong> et sur la Riviera est.</li>
+      <li><strong>Formation immobilier à Saint-Laurent-du-Var</strong>.</li>
+      <li><strong>Formation immobilier à Vallauris</strong> et Golfe-Juan.</li>
+      <li><strong>Formation immobilier à Mandelieu-la-Napoule</strong>.</li>
+    </ul>'''
+
+ecrire('formation-immobilier-nice/',
+ "Formation immobilier à Nice et dans les Alpes-Maritimes",
+ "Formation continue pour agents immobiliers, mandataires et agences à Nice et dans tout le 06 : prospection, mandat, vente, loi ALUR. Dès 42 €/h, Qualiopi.",
+ "Formation immobilier à Nice et dans les Alpes-Maritimes.",
+ "Des formations pour les professionnels de l'immobilier en activité&nbsp;: agents, mandataires, négociateurs, assistants et directeurs d'agence. Directement dans votre agence, partout dans le 06, ou à distance. Par des formateurs qui ont fait de la transaction sur la Côte d'Azur.",
+ '''  <div class="bloc">
+    <h2>Pour qui&nbsp;?</h2>
+    <p>Start Academia est un organisme de <strong>formation continue</strong>&nbsp;: nous formons des professionnels déjà en poste, ou en train de démarrer leur activité, sur les gestes du métier. Nous ne préparons pas de diplôme (BTS, licence ou bachelor).</p>
+    <ul class="points">
+      <li><strong>Agents et mandataires indépendants</strong>, seuls ou en petit groupe.</li>
+      <li><strong>Équipes d'agence</strong>&nbsp;: négociateurs, assistants commerciaux, chargés de clientèle.</li>
+      <li><strong>Directeurs et managers</strong> qui veulent faire progresser leur équipe et piloter leur activité.</li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>Les formations, étape par étape</h2>
+    <p>Chaque parcours suit la chaîne du métier et se construit avec vous, selon vos besoins et les heures loi ALUR qu'il vous reste à faire. Quelques exemples de notre catalogue&nbsp;:</p>
+    <ul class="points">
+      <li><strong>Prospection</strong>&nbsp;: devenir incontournable sur son secteur, dossier d'adresse, cadastre (niveaux 1 et 2), prospection par les DPE.</li>
+      <li><strong>Estimation et mandat</strong>&nbsp;: préparer le rendez-vous vendeur, défendre son prix avec une analyse comparative de marché, signer et tenir l'exclusivité.</li>
+      <li><strong>Vente</strong>&nbsp;: techniques de vente immobilière, découverte acquéreur, visite, négociation et suivi client.</li>
+      <li><strong>Investissement locatif</strong>&nbsp;: conseiller les investisseurs sur la rentabilité et la rénovation énergétique.</li>
+      <li><strong>Direction d'agence</strong>&nbsp;: piloter son équipe, ses chiffres et ses entretiens individuels.</li>
+      <li><strong>Obligations réglementaires</strong>&nbsp;: non-discrimination, Tracfin et déontologie.</li>
+    </ul>
+    <p>L'intelligence artificielle est intégrée à chaque étape, avec nos outils maison. Pour un parcours centré sur l'IA&nbsp;: <a class="lien-texte" href="/formation-ia-nice/">formation IA immobilier à Nice</a>. <a class="lien-texte" href="/formations/">Voir les 40 formations du catalogue</a></p>
+  </div>
+  <div class="bloc">
+    <h2>Pensée pour le marché azuréen</h2>
+    <p>Résidences secondaires, clientèle internationale, biens de prestige sur le littoral, villages et maisons de l'arrière-pays, copropriétés anciennes, vendeurs exigeants et forte concurrence entre agences&nbsp;: nos exercices partent de ces situations et de vos dossiers réels, pas de cas d'école.</p>
+  </div>
+  <div class="bloc">
+    <h2>Où nous intervenons</h2>
+    <p>Nous nous déplaçons dans <strong>toutes les communes des Alpes-Maritimes</strong>, et notamment dans les dix plus grandes villes du département&nbsp;:</p>
+''' + VILLES_06 + '''
+    <p>Mais aussi Vence, Mougins, Valbonne et Sophia Antipolis, Biot, Villefranche-sur-Mer, Roquebrune-Cap-Martin, Beausoleil, Carros et l'arrière-pays. Nos formateurs sont basés à Cagnes-sur-Mer et à Antibes. Vos collaborateurs sont répartis sur plusieurs agences&nbsp;? La formation peut aussi se faire à distance.</p>
+  </div>
+  <div class="bloc">
+    <h2>Format et tarif</h2>
+    <ul class="points">
+      <li><strong>En agence, en groupe ou en individuel</strong>, sur des journées ou des séances courtes.</li>
+      <li><strong>À partir de 42&nbsp;€ de l'heure</strong>, devis précis après l'appel découverte.</li>
+      <li><strong>Une attestation</strong> pour vos heures de formation continue loi ALUR. <a class="lien-texte" href="/formation-loi-alur/">Tout savoir sur la loi ALUR</a></li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>Ils se sont formés près de chez vous</h2>
+    <p>Des agences de la Côte d'Azur nous font confiance, dont Century 21 Albert 1er, Century 21 Azurim, Century 21 Villas d'Azur, Orpi MCH Immobilier, Akorimmo, Riviera King, L'Agence Signature, Octantimmo, Agence Bristol et Marclé Real Estate. <a class="lien-texte" href="/resultats/">Voir les résultats et les 227 avis Google</a></p>
+  </div>
+''' + FINANCEMENT + '\n' + PREUVES,
+ [("Quelle formation immobilier suivre à Nice quand on est déjà agent&nbsp;?", "Une formation continue centrée sur votre métier : prospection, estimation, mandat, vente ou direction d'agence. Nous construisons le parcours avec vous lors de l'appel découverte, selon vos besoins et vos heures loi ALUR restantes."),
+  ("Préparez-vous au BTS ou à un diplôme de l'immobilier&nbsp;?", "Non. Start Academia forme les professionnels en activité ou en démarrage. Pour un diplôme (BTS Professions immobilières, licence, bachelor), il faut vous tourner vers une école ou un établissement d'enseignement."),
+  ("Intervenez-vous à Cannes, Antibes ou Menton&nbsp;?", "Oui, dans toutes les communes des Alpes-Maritimes : Nice, Antibes, Cannes, Cagnes-sur-Mer, Grasse, Le Cannet, Menton, Saint-Laurent-du-Var, Vallauris, Mandelieu-la-Napoule et l'arrière-pays, ou à distance."),
+  ("Combien coûte une formation immobilier&nbsp;?", "À partir de 42 € de l'heure. Le devis précis est établi après l'appel découverte. La formation peut être prise en charge par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL). Elle n'est pas éligible au CPF à ce jour."),
+  ("Ces formations comptent-elles pour la loi ALUR&nbsp;?", "Oui. Elles portent sur votre activité de transaction et donnent lieu à une attestation pour vos heures de formation continue obligatoires.")],
+ ("Formation immobilier à Nice et dans les Alpes-Maritimes", "Formation continue pour les professionnels de l'immobilier : prospection, estimation, mandat, vente, direction d'agence et obligations réglementaires, dans votre agence à Nice et dans les Alpes-Maritimes ou à distance."))
+
 # ---------------------------------------------------------------- 5. Loi ALUR (enrichie, audit du 7 nov. 2026)
 ecrire('formation-loi-alur/',
- 'Formation loi ALUR pour agents immobiliers | Start Academia',
- 'Formation continue loi ALUR : 14 h par an ou 42 h sur 3 ans, déontologie, non-discrimination. Formations immobilier et IA sur mesure, à distance ou en agence.',
- 'Formation loi ALUR pour les agents immobiliers.',
+ 'Formation loi ALUR à Nice et à distance | Start Academia',
+ 'Formation loi ALUR à Nice, dans le 06 ou à distance : 14 h par an, déontologie, non-discrimination. Agents et mandataires, dès 42 €/h, certifié Qualiopi.',
+ 'Formation loi ALUR pour les agents immobiliers, à Nice et à distance.',
  "Validez vos heures de formation continue obligatoires avec des formations utiles dès le lendemain, sur votre métier et vos vrais dossiers. En agence sur la Côte d'Azur ou à distance, partout en France.",
  '''  <div class="bloc">
     <h2>Ce que la loi vous demande</h2>
@@ -243,6 +315,11 @@ ecrire('formation-loi-alur/',
     <p><strong>Déontologie et non-discrimination couvertes.</strong> Pour les heures obligatoires, nous proposons le module <a href="/formations/#non-discrimination-tracfin-et-deontologie">Non-discrimination, Tracfin et déontologie</a> (8&nbsp;h), à intégrer à votre parcours.</p>
   </div>
   <div class="bloc">
+    <h2>Votre formation loi ALUR à Nice et dans les Alpes-Maritimes</h2>
+    <p>Nous venons dans votre agence, partout dans le 06, pour former toute l'équipe en une fois&nbsp;: Nice, Antibes, Cannes, Cagnes-sur-Mer, Grasse, Le Cannet, Menton, Saint-Laurent-du-Var, Vallauris, Mandelieu-la-Napoule et l'arrière-pays. Les mandataires et agents indépendants peuvent se regrouper sur une session ou suivre leurs heures à distance.</p>
+    <p>Dans les Alpes-Maritimes, la carte professionnelle est délivrée et renouvelée par la CCI Nice Côte d'Azur&nbsp;: c'est à elle que vous présenterez vos attestations tous les 3 ans. <a class="lien-texte" href="/formation-immobilier-nice/">Nos formations immobilier à Nice et dans le 06</a></p>
+  </div>
+  <div class="bloc">
     <h2>À distance ou en présentiel&nbsp;?</h2>
     <p>Le texte n'impose pas de format&nbsp;: une formation suivie à distance compte autant qu'une formation en salle, si elle remplit les conditions de durée et de contenu. Nous proposons les deux, et beaucoup d'agences combinent une journée en présentiel et des séances courtes à distance.</p>
   </div>
@@ -252,8 +329,10 @@ ecrire('formation-loi-alur/',
   ("La formation loi ALUR peut-elle se faire à distance&nbsp;?", "Oui. Le texte n'impose pas de format : une formation à distance compte dès lors qu'elle respecte les conditions de durée et de contenu."),
   ("Les agents commerciaux et mandataires sont-ils concernés&nbsp;?", "Oui. Toutes les personnes habilitées à négocier pour le compte du titulaire de la carte, salariées ou non, doivent suivre la formation continue."),
   ("Qui contrôle les heures de formation&nbsp;?", "La CCI, lors du renouvellement de la carte professionnelle tous les 3 ans. Le titulaire de la carte vérifie de son côté les heures de ses collaborateurs."),
+  ("Où suivre sa formation loi ALUR à Nice&nbsp;?", "Directement dans votre agence, partout dans les Alpes-Maritimes, ou à distance. Start Academia est installé à Cagnes-sur-Mer et forme les équipes d'agence comme les mandataires indépendants, avec une attestation pour chaque participant."),
+  ("Combien coûte une formation loi ALUR&nbsp;?", "À partir de 42 € de l'heure, soit à partir de 588 € pour 14 heures. Le devis précis est établi après l'appel découverte, et la formation peut être prise en charge par votre OPCO ou votre fonds d'assurance formation."),
   ("Comment financer sa formation loi ALUR&nbsp;?", "Par l'OPCO de l'agence pour les salariés, par le FIF PL ou l'AGEFICE pour les indépendants. Start Academia est certifié Qualiopi. Nos formations ne sont pas éligibles au CPF à ce jour.")],
- ("Formation continue loi ALUR pour agents immobiliers", "Formations immobilier et IA sur mesure validant les heures de formation continue obligatoires des professionnels de l'immobilier, en agence ou à distance."))
+ ("Formation continue loi ALUR pour agents immobiliers", "Formations immobilier et IA sur mesure validant les heures de formation continue obligatoires des professionnels de l'immobilier, en agence à Nice et dans les Alpes-Maritimes ou à distance."))
 
 
 # ---------------------------------------------------------------- 4. Financement (reprend l'ancienne page OPCO)

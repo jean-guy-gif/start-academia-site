@@ -144,12 +144,12 @@
     },
     {
       "source": "/formation-immobilier-a-nice/",
-      "destination": "/formation-ia-nice/",
+      "destination": "/formation-immobilier-nice/",
       "permanent": true
     },
     {
       "source": "/formation-immobilier-a-cannes/",
-      "destination": "/formation-ia-nice/",
+      "destination": "/formation-immobilier-nice/",
       "permanent": true
     },
     {
