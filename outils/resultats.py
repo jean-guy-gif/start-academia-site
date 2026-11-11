@@ -92,9 +92,58 @@ def theme(titre, n, _, citations):
       </section>'''
 
 
-boutons_e = ''.join(f'<button type="button" data-filtre="etape" data-val="{k}" aria-pressed="false">{v}</button>' for k, v in ETAPES)
-boutons_p = ''.join(f'<button type="button" data-filtre="profil" data-val="{k}" aria-pressed="false">{v}</button>' for k, v in PROFILS)
-cartes = ''.join(carte(*x) for x in HISTOIRES)
+
+# ---------- La chaîne vivante : les 8 étapes du métier (accueil) + le pilotage d'agence
+import math
+CHAINE = [
+    ('Prospection', "Repérer les propriétaires de votre secteur, puis leur parler au bon moment.", "Un dossier d'adresse complet en quelques minutes et des messages personnalisés, avec Academia Secteur et Academia Vivre ici.", [2]),
+    ('Découverte', "Comprendre le vendeur : son projet, ses motivations, ses freins, sa façon de décider.", "Son profil et la manière de lui parler avant le rendez-vous avec Academia Profiling, ses documents analysés avec NotebookLM.", [6]),
+    ('Estimation', "Justifier un prix réaliste, comparables à l'appui.", "Une analyse comparative claire et un avis de valeur argumenté, avec Academia ACM.", [0]),
+    ('Mandat', "Signer l'exclusivité, puis prouver au vendeur, semaine après semaine, que vous travaillez pour lui.", "Un argumentaire adapté au vendeur et un process de suivi qui le tient informé, préparé avec l'IA.", [1, 0]),
+    ('Acquéreurs', "Comprendre l'acquéreur et son projet de vie, pas seulement ses critères.", "Une découverte qui va jusqu'à sa vie dans le quartier, avec Academia Vivre ici et Academia Profiling.", [3]),
+    ('Visites et offres', "Sélectionner les bons biens, faire visiter, puis défendre l'offre devant le vendeur.", "Une sélection ciblée et des offres argumentées par le marché, avec Academia ACM et Academia Radar Acheteur.", []),
+    ('Organisation', "Tenir son agenda, ses relances et ses priorités sans y passer ses soirées.", "Une semaine planifiée, des mails et comptes rendus rédigés en quelques minutes, avec ChatGPT et Claude.", [7, 5]),
+    ('Administratif', "Traiter les documents, la conformité et les tâches répétitives.", "Des synthèses de documents, des réponses juridiques vérifiées et des tâches automatisées, avec NotebookLM, Academia Juridique et nos outils IA.", []),
+    ("Pilotage d'agence", "Suivre l'activité de l'équipe, accompagner chaque conseiller, fixer les bons objectifs.", "Les indicateurs de l'agence et de chaque conseiller avec Academia Pilotage, les diagnostics et objectifs avec Academia Parcours.", [4]),
+]
+N = len(CHAINE)
+
+
+def pos(i):
+    return round(5 + i * (90 / (N - 1)), 2), round(50 + 30 * math.sin(i * 0.95 + 0.4), 2)
+
+
+pts = [pos(i) for i in range(N)]
+chemin = 'M' + ' '.join(f'{x},{y * 0.3:.2f}' for x, y in pts)
+
+
+def noeud(i, c):
+    x, y = pts[i]
+    vide = '' if c[3] else ' vide'
+    actif = 'true' if i == 0 else 'false'
+    nb = len(c[3]) or ''
+    return (f'<button type="button" class="ch-noeud{vide}" style="left:{x}%;top:{y}%" data-i="{i}" aria-pressed="{actif}" aria-controls="ch-panneau">'
+            f'<span class="ch-point"><b>{nb}</b></span><span class="ch-nom"><small>{i + 1:02d}</small>{h.escape(c[0])}</span></button>')
+
+
+def panneau(i, c):
+    nom, geste, ia, ids = c
+    cartes_e = ''.join(carte(*HISTOIRES[k]) for k in ids)
+    if not cartes_e:
+        cartes_e = ('<article class="rs-carte rs-vide"><p>Pas encore de résultat publié à cette étape.</p>'
+                    f'<p>Ce sera peut-être le vôtre&nbsp;: <a href="{CAL}" rel="noopener">parlons-en</a>.</p></article>')
+    cache = '' if i == 0 else ' hidden'
+    return (f'\n      <div class="ch-etape" data-i="{i}"{cache}>'
+            f'<div class="ch-texte"><p class="ch-num">Étape {i + 1:02d} sur {N}</p><h3>{h.escape(nom)}</h3>'
+            f'<p class="ch-geste">{h.escape(geste)}</p><p class="ch-ia"><span>Avec l\'IA</span>{h.escape(ia)}</p>'
+            '<div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button>'
+            '<button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div>'
+            f'<div class="ch-preuves">{cartes_e}</div></div>')
+
+
+noeuds = ''.join(noeud(i, c) for i, c in enumerate(CHAINE))
+panneaux = ''.join(panneau(i, c) for i, c in enumerate(CHAINE))
+
 themes = ''.join(theme(*x) for x in THEMES)
 
 TITRE = 'Résultats et avis de nos clients | Start Academia'
@@ -144,15 +193,20 @@ html = f'''<!DOCTYPE html>
   </div>
 </section>
 
-<section class="rs-filtres-zone" aria-labelledby="titre-filtres">
+<section class="rs-chaine" aria-labelledby="titre-chaine">
   <div class="rs-large">
-    <p class="surtitre">Trouvez quelqu'un comme vous</p>
-    <h2 id="titre-filtres" class="rs-h2">Quel est votre défi&nbsp;?</h2>
-    <div class="rs-filtres" role="group" aria-label="Filtrer par étape du métier"><button type="button" data-filtre="etape" data-val="" aria-pressed="true">Toutes les étapes</button>{boutons_e}</div>
-    <div class="rs-filtres rs-filtres-p" role="group" aria-label="Filtrer par profil"><button type="button" data-filtre="profil" data-val="" aria-pressed="true">Tous les profils</button>{boutons_p}</div>
-    <p class="rs-compte" aria-live="polite"></p>
-    <div class="rs-grille">{cartes}
-      <article class="rs-carte rs-vide" hidden><p>Pas encore de résultat publié pour ce filtre. Ce sera peut-être le vôtre&nbsp;: <a href="{CAL}" rel="noopener">parlons-en</a>.</p></article>
+    <p class="surtitre">La chaîne du métier</p>
+    <h2 id="titre-chaine" class="rs-h2">Choisissez une étape.<br>Voyez ce qui a changé.</h2>
+  </div>
+  <p class="ch-glisser" aria-hidden="true">← Glissez pour voir les 9 étapes →</p>
+  <div class="ch-scene">
+    <div class="ch-reseau">
+      <svg class="ch-svg" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="ch-trace" d="{chemin}"/><path class="ch-flux" d="{chemin}"/></svg>
+      {noeuds}
+    </div>
+  </div>
+  <div class="rs-large">
+    <div id="ch-panneau" class="ch-panneau" aria-live="polite">{panneaux}
     </div>
     <p class="rs-legende"><span class="rs-type rs-apprenant">Résultat d'apprenant</span> rapporté par l'apprenant ou l'agence après la formation · <span class="rs-type rs-analyse">Analyse Start Academia</span> calculé à partir des suivis de nos formations</p>
   </div>
@@ -214,25 +268,17 @@ html = f'''<!DOCTYPE html>
 <script src="/logo.js" defer></script>
 <script>
 (function () {{
-  var f = {{ etape: '', profil: '' }}, cartes = [].slice.call(document.querySelectorAll('.rs-carte:not(.rs-vide)')),
-      vide = document.querySelector('.rs-vide'), compte = document.querySelector('.rs-compte');
-  function maj() {{
-    var n = 0;
-    cartes.forEach(function (c) {{
-      var ok = (!f.etape || c.dataset.etapes.split(' ').indexOf(f.etape) > -1) && (!f.profil || c.dataset.profils.split(' ').indexOf(f.profil) > -1);
-      c.hidden = !ok; if (ok) n++;
-    }});
-    vide.hidden = n > 0;
-    compte.textContent = n + (n > 1 ? ' résultats' : ' résultat');
+  var noeuds = [].slice.call(document.querySelectorAll('.ch-noeud')), etapes = [].slice.call(document.querySelectorAll('.ch-etape')), cur = 0;
+  function aller(i) {{
+    cur = (i + noeuds.length) % noeuds.length;
+    noeuds.forEach(function (n, k) {{ n.setAttribute('aria-pressed', k === cur ? 'true' : 'false'); n.classList.toggle('passe', k < cur); }});
+    etapes.forEach(function (e, k) {{ e.hidden = k !== cur; }});
+    var sc = document.querySelector('.ch-scene'), n = noeuds[cur];
+    if (sc.scrollWidth > sc.clientWidth) sc.scrollTo({{ left: n.offsetLeft - sc.clientWidth / 2, behavior: 'smooth' }});
   }}
-  document.querySelectorAll('[data-filtre]').forEach(function (b) {{
-    b.addEventListener('click', function () {{
-      f[b.dataset.filtre] = b.dataset.val;
-      document.querySelectorAll('[data-filtre="' + b.dataset.filtre + '"]').forEach(function (x) {{ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }});
-      maj();
-    }});
-  }});
-  maj();
+  noeuds.forEach(function (n, k) {{ n.addEventListener('click', function () {{ aller(k); }}); }});
+  document.querySelectorAll('[data-pas]').forEach(function (b) {{ b.addEventListener('click', function () {{ aller(cur + (+b.dataset.pas)); }}); }});
+  aller(0);
 }})();
 </script>
 </body>

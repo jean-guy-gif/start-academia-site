@@ -1042,3 +1042,53 @@ p { text-wrap: pretty; }
 }
 @media (prefers-reduced-motion: reduce) { .rs-carte { animation: none; } }
 .rs-lien-accueil { max-width: 1280px; margin-top: 32px; }
+/* Résultats : la chaîne vivante */
+.rs-chaine { position: relative; padding: clamp(80px, 10vw, 130px) var(--bord); overflow: hidden; color: #fff;
+  background: radial-gradient(50% 45% at 15% 35%, rgb(47 68 206 / .5), transparent 70%), radial-gradient(40% 40% at 90% 70%, rgb(254 85 0 / .22), transparent 70%), radial-gradient(rgb(185 205 255 / .14) 1px, transparent 1.4px) 0 0 / 24px 24px, var(--nuit); }
+.rs-chaine .surtitre { color: var(--bleu-p); }
+.ch-scene { margin: 10px calc(-1 * var(--bord)) 0; padding: 0 var(--bord); overflow-x: auto; scrollbar-width: none; }
+.ch-scene::-webkit-scrollbar { display: none; }
+.ch-reseau { position: relative; height: 330px; min-width: 980px; max-width: 1240px; margin: 0 auto; }
+.ch-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ch-svg path { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+.ch-trace { stroke: rgb(185 205 255 / .28); stroke-width: 2; }
+.ch-flux { stroke: var(--orange); stroke-width: 2.5; stroke-dasharray: 2 26; animation: ch-flux 2.4s linear infinite; opacity: .9; }
+@keyframes ch-flux { to { stroke-dashoffset: -28; } }
+.ch-noeud { position: absolute; transform: translate(-50%, -50%); display: grid; justify-items: center; background: none; border: 0; color: #fff; cursor: pointer; padding: 6px; font: inherit; }
+.ch-point { position: relative; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--nuit); box-shadow: 0 0 0 2px var(--bleu-p), 0 0 18px rgb(105 136 238 / .55); transition: width .45s var(--sortie), height .45s var(--sortie), background .3s, box-shadow .3s; }
+.ch-point b { font: 600 .7rem var(--mono); color: var(--bleu-p); }
+.ch-noeud.vide .ch-point { box-shadow: 0 0 0 2px rgb(185 205 255 / .35); background: transparent; }
+.ch-noeud.passe .ch-point { background: var(--bleu); box-shadow: 0 0 0 2px var(--bleu-m), 0 0 16px rgb(47 68 206 / .7); }
+.ch-noeud.passe .ch-point b { color: #fff; }
+.ch-noeud:hover .ch-point { box-shadow: 0 0 0 2px #fff, 0 0 24px rgb(185 205 255 / .8); }
+.ch-noeud[aria-pressed="true"] .ch-point { width: 54px; height: 54px; background: var(--orange); box-shadow: 0 0 0 6px rgb(254 85 0 / .25), 0 0 40px rgb(254 85 0 / .75); }
+.ch-noeud[aria-pressed="true"] .ch-point b { color: #fff; font-size: 1rem; }
+.ch-noeud[aria-pressed="true"] .ch-point::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgb(254 85 0 / .6); animation: ch-pouls 1.8s var(--sortie) infinite; }
+@keyframes ch-pouls { from { transform: scale(1); opacity: 1; } to { transform: scale(1.9); opacity: 0; } }
+.ch-nom { position: absolute; top: calc(100% + 2px); white-space: nowrap; font: 500 .95rem var(--titre); color: rgb(255 255 255 / .78); text-align: center; transition: color .3s; }
+.ch-nom small { display: block; font: .68rem var(--mono); color: var(--bleu-p); letter-spacing: .06em; }
+.ch-noeud[aria-pressed="true"] .ch-nom { color: #fff; font-size: 1.1rem; }
+.ch-noeud:focus-visible { outline: none; } .ch-noeud:focus-visible .ch-point { box-shadow: 0 0 0 3px #fff; }
+.ch-panneau { margin-top: 26px; }
+.ch-etape { display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(24px, 4vw, 56px); align-items: start; animation: ch-entre .55s var(--sortie); }
+.ch-etape[hidden] { display: none; }
+@keyframes ch-entre { from { opacity: 0; transform: translateY(14px); } }
+.ch-num { font: .75rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: #ffb08a; margin-bottom: 10px; }
+.ch-texte h3 { font: 500 clamp(2rem, 3.6vw, 2.8rem)/1.05 var(--titre); letter-spacing: -.02em; margin-bottom: 14px; }
+.ch-geste { font-size: 1.1rem; color: rgb(255 255 255 / .88); margin-bottom: 18px; }
+.ch-ia { padding: 16px 18px; border-radius: 16px; background: rgb(255 255 255 / .06); box-shadow: inset 0 0 0 1px rgb(185 205 255 / .16); color: rgb(255 255 255 / .8); font-size: .95rem; }
+.ch-ia span { display: block; font: .7rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--bleu-p); margin-bottom: 4px; }
+.ch-nav { display: flex; gap: 10px; margin-top: 22px; }
+.ch-nav button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgb(185 205 255 / .35); background: transparent; color: #fff; font-size: 1.2rem; cursor: pointer; transition: background .25s, border-color .25s; }
+.ch-nav button:hover { background: var(--orange); border-color: var(--orange); }
+.ch-preuves { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.ch-preuves .rs-carte:only-child { grid-column: span 2; }
+.rs-chaine .rs-vide { background: rgb(255 255 255 / .06); box-shadow: inset 0 0 0 1px rgb(185 205 255 / .2); color: rgb(255 255 255 / .82); padding: 36px; gap: 6px; }
+.rs-chaine .rs-vide a { color: #ffb08a; }
+.rs-chaine .rs-legende { color: rgb(255 255 255 / .62); margin-top: 34px; }
+.rs-chaine .rs-type.rs-apprenant { background: rgb(232 236 255 / .9); }
+@media (max-width: 900px) { .ch-etape { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .ch-preuves { grid-template-columns: 1fr; } .ch-preuves .rs-carte:only-child { grid-column: auto; } .ch-reseau { height: 300px; } }
+@media (prefers-reduced-motion: reduce) { .ch-flux, .ch-noeud[aria-pressed="true"] .ch-point::after, .ch-etape { animation: none; } }
+.ch-glisser { display: none; font: .75rem var(--mono); color: var(--bleu-p); text-align: center; margin-top: 8px; }
+@media (max-width: 980px) { .ch-glisser { display: block; } }

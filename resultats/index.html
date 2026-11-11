@@ -64,21 +64,45 @@
   </div>
 </section>
 
-<section class="rs-filtres-zone" aria-labelledby="titre-filtres">
+<section class="rs-chaine" aria-labelledby="titre-chaine">
   <div class="rs-large">
-    <p class="surtitre">Trouvez quelqu'un comme vous</p>
-    <h2 id="titre-filtres" class="rs-h2">Quel est votre défi&nbsp;?</h2>
-    <div class="rs-filtres" role="group" aria-label="Filtrer par étape du métier"><button type="button" data-filtre="etape" data-val="" aria-pressed="true">Toutes les étapes</button><button type="button" data-filtre="etape" data-val="prospection" aria-pressed="false">Prospection</button><button type="button" data-filtre="etape" data-val="decouverte" aria-pressed="false">Découverte</button><button type="button" data-filtre="etape" data-val="estimation" aria-pressed="false">Estimation</button><button type="button" data-filtre="etape" data-val="mandat" aria-pressed="false">Mandat</button><button type="button" data-filtre="etape" data-val="acquereurs" aria-pressed="false">Acquéreurs</button><button type="button" data-filtre="etape" data-val="organisation" aria-pressed="false">Organisation</button><button type="button" data-filtre="etape" data-val="ia" aria-pressed="false">IA au quotidien</button><button type="button" data-filtre="etape" data-val="direction" aria-pressed="false">Direction d'agence</button></div>
-    <div class="rs-filtres rs-filtres-p" role="group" aria-label="Filtrer par profil"><button type="button" data-filtre="profil" data-val="" aria-pressed="true">Tous les profils</button><button type="button" data-filtre="profil" data-val="conseiller" aria-pressed="false">Conseiller ou mandataire</button><button type="button" data-filtre="profil" data-val="direction" aria-pressed="false">Directeur ou manager</button><button type="button" data-filtre="profil" data-val="equipe" aria-pressed="false">Équipe d'agence</button></div>
-    <p class="rs-compte" aria-live="polite"></p>
-    <div class="rs-grille">
+    <p class="surtitre">La chaîne du métier</p>
+    <h2 id="titre-chaine" class="rs-h2">Choisissez une étape.<br>Voyez ce qui a changé.</h2>
+  </div>
+  <p class="ch-glisser" aria-hidden="true">← Glissez pour voir les 9 étapes →</p>
+  <div class="ch-scene">
+    <div class="ch-reseau">
+      <svg class="ch-svg" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="ch-trace" d="M5.0,18.50 16.25,23.78 27.5,21.71 38.75,14.03 50.0,7.16 61.25,6.85 72.5,13.36 83.75,21.25 95.0,23.90"/><path class="ch-flux" d="M5.0,18.50 16.25,23.78 27.5,21.71 38.75,14.03 50.0,7.16 61.25,6.85 72.5,13.36 83.75,21.25 95.0,23.90"/></svg>
+      <button type="button" class="ch-noeud" style="left:5.0%;top:61.68%" data-i="0" aria-pressed="true" aria-controls="ch-panneau"><span class="ch-point"><b>1</b></span><span class="ch-nom"><small>01</small>Prospection</span></button><button type="button" class="ch-noeud" style="left:16.25%;top:79.27%" data-i="1" aria-pressed="false" aria-controls="ch-panneau"><span class="ch-point"><b>1</b></span><span class="ch-nom"><small>02</small>Découverte</span></button><button type="button" class="ch-noeud" style="left:27.5%;top:72.37%" data-i="2" aria-pressed="false" aria-controls="ch-panneau"><span class="ch-point"><b>1</b></span><span class="ch-nom"><small>03</small>Estimation</span></button><button type="button" class="ch-noeud" style="left:38.75%;top:46.75%" data-i="3" aria-pressed="false" aria-controls="ch-panneau"><span class="ch-point"><b>2</b></span><span class="ch-nom"><small>04</small>Mandat</span></button><button type="button" class="ch-noeud" style="left:50.0%;top:23.85%" data-i="4" aria-pressed="false" aria-controls="ch-panneau"><span class="ch-point"><b>1</b></span><span class="ch-nom"><small>05</small>Acquéreurs</span></button><button type="button" class="ch-noeud vide" style="left:61.25%;top:22.83%" data-i="5" aria-pressed="false" aria-controls="ch-panneau"><span class="ch-point"><b></b></span><span class="ch-nom"><small>06</small>Visites et offres</span></button><button type="button" class="ch-noeud" style="left:72.5%;top:44.54%" data-i="6" aria-pressed="false" aria-controls="ch-panneau"><span class="ch-point"><b>2</b></span><span class="ch-nom"><small>07</small>Organisation</span></button><button type="button" class="ch-noeud vide" style="left:83.75%;top:70.82%" data-i="7" aria-pressed="false" aria-controls="ch-panneau"><span class="ch-point"><b></b></span><span class="ch-nom"><small>08</small>Administratif</span></button><button type="button" class="ch-noeud" style="left:95.0%;top:79.68%" data-i="8" aria-pressed="false" aria-controls="ch-panneau"><span class="ch-point"><b>1</b></span><span class="ch-nom"><small>09</small>Pilotage d&#x27;agence</span></button>
+    </div>
+  </div>
+  <div class="rs-large">
+    <div id="ch-panneau" class="ch-panneau" aria-live="polite">
+      <div class="ch-etape" data-i="0"><div class="ch-texte"><p class="ch-num">Étape 01 sur 9</p><h3>Prospection</h3><p class="ch-geste">Repérer les propriétaires de votre secteur, puis leur parler au bon moment.</p><p class="ch-ia"><span>Avec l'IA</span>Un dossier d&#x27;adresse complet en quelques minutes et des messages personnalisés, avec Academia Secteur et Academia Vivre ici.</p><div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button><button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div><div class="ch-preuves">
+      <article class="rs-carte rs-apprenant" data-etapes="prospection" data-profils="equipe direction">
+        <span class="rs-type">Résultat d'apprenant</span>
+        <strong class="rs-chiffre">150 lots</strong>
+        <p class="rs-phrase">Une agence niçoise a récupéré 150 lots en gestion.</p>
+        <p class="rs-qui">Agence à Nice</p>
+        <ul class="rs-tags" aria-label="Étapes concernées"><li>Prospection</li></ul>
+      </article></div></div>
+      <div class="ch-etape" data-i="1" hidden><div class="ch-texte"><p class="ch-num">Étape 02 sur 9</p><h3>Découverte</h3><p class="ch-geste">Comprendre le vendeur : son projet, ses motivations, ses freins, sa façon de décider.</p><p class="ch-ia"><span>Avec l'IA</span>Son profil et la manière de lui parler avant le rendez-vous avec Academia Profiling, ses documents analysés avec NotebookLM.</p><div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button><button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div><div class="ch-preuves">
+      <article class="rs-carte rs-analyse" data-etapes="decouverte" data-profils="conseiller equipe">
+        <span class="rs-type">Analyse Start Academia</span>
+        <strong class="rs-chiffre">+ 25 %</strong>
+        <p class="rs-phrase">Nos apprenants augmentent leur taux de transformation de plus de 25 %.</p>
+        <p class="rs-qui">Analyse Start Academia des suivis de formation</p>
+        <ul class="rs-tags" aria-label="Étapes concernées"><li>Découverte</li></ul>
+      </article></div></div>
+      <div class="ch-etape" data-i="2" hidden><div class="ch-texte"><p class="ch-num">Étape 03 sur 9</p><h3>Estimation</h3><p class="ch-geste">Justifier un prix réaliste, comparables à l&#x27;appui.</p><p class="ch-ia"><span>Avec l'IA</span>Une analyse comparative claire et un avis de valeur argumenté, avec Academia ACM.</p><div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button><button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div><div class="ch-preuves">
       <article class="rs-carte rs-apprenant" data-etapes="estimation mandat" data-profils="conseiller">
         <span class="rs-type">Résultat d'apprenant</span>
         <strong class="rs-chiffre">2 exclusivités</strong>
         <p class="rs-phrase">Brian a repris 2 exclusivités dans la semaine qui a suivi la formation.</p>
         <p class="rs-qui">Brian, conseiller immobilier</p>
         <ul class="rs-tags" aria-label="Étapes concernées"><li>Estimation</li><li>Mandat</li></ul>
-      </article>
+      </article></div></div>
+      <div class="ch-etape" data-i="3" hidden><div class="ch-texte"><p class="ch-num">Étape 04 sur 9</p><h3>Mandat</h3><p class="ch-geste">Signer l&#x27;exclusivité, puis prouver au vendeur, semaine après semaine, que vous travaillez pour lui.</p><p class="ch-ia"><span>Avec l'IA</span>Un argumentaire adapté au vendeur et un process de suivi qui le tient informé, préparé avec l&#x27;IA.</p><div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button><button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div><div class="ch-preuves">
       <article class="rs-carte rs-apprenant" data-etapes="mandat" data-profils="conseiller">
         <span class="rs-type">Résultat d'apprenant</span>
         <strong class="rs-chiffre">80 % du stock</strong>
@@ -86,41 +110,23 @@
         <p class="rs-qui">Esthel, conseillère immobilière</p>
         <ul class="rs-tags" aria-label="Étapes concernées"><li>Mandat</li></ul>
       </article>
-      <article class="rs-carte rs-apprenant" data-etapes="prospection" data-profils="equipe direction">
+      <article class="rs-carte rs-apprenant" data-etapes="estimation mandat" data-profils="conseiller">
         <span class="rs-type">Résultat d'apprenant</span>
-        <strong class="rs-chiffre">150 lots</strong>
-        <p class="rs-phrase">Une agence niçoise a récupéré 150 lots en gestion.</p>
-        <p class="rs-qui">Agence à Nice</p>
-        <ul class="rs-tags" aria-label="Étapes concernées"><li>Prospection</li></ul>
-      </article>
+        <strong class="rs-chiffre">2 exclusivités</strong>
+        <p class="rs-phrase">Brian a repris 2 exclusivités dans la semaine qui a suivi la formation.</p>
+        <p class="rs-qui">Brian, conseiller immobilier</p>
+        <ul class="rs-tags" aria-label="Étapes concernées"><li>Estimation</li><li>Mandat</li></ul>
+      </article></div></div>
+      <div class="ch-etape" data-i="4" hidden><div class="ch-texte"><p class="ch-num">Étape 05 sur 9</p><h3>Acquéreurs</h3><p class="ch-geste">Comprendre l&#x27;acquéreur et son projet de vie, pas seulement ses critères.</p><p class="ch-ia"><span>Avec l'IA</span>Une découverte qui va jusqu&#x27;à sa vie dans le quartier, avec Academia Vivre ici et Academia Profiling.</p><div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button><button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div><div class="ch-preuves">
       <article class="rs-carte rs-apprenant" data-etapes="acquereurs" data-profils="equipe">
         <span class="rs-type">Résultat d'apprenant</span>
         <strong class="rs-chiffre">+ 1 M€</strong>
         <p class="rs-phrase">Une agence du neuf a conclu une vente à plus d&#x27;un million d&#x27;euros.</p>
         <p class="rs-qui">Agence spécialisée dans le neuf</p>
         <ul class="rs-tags" aria-label="Étapes concernées"><li>Acquéreurs</li></ul>
-      </article>
-      <article class="rs-carte rs-apprenant" data-etapes="direction" data-profils="direction equipe">
-        <span class="rs-type">Résultat d'apprenant</span>
-        <strong class="rs-chiffre">Record</strong>
-        <p class="rs-phrase">Accompagnée toute l&#x27;année, l&#x27;agence a réalisé le meilleur chiffre d&#x27;affaires de son histoire.</p>
-        <p class="rs-qui">Agence suivie à l&#x27;année</p>
-        <ul class="rs-tags" aria-label="Étapes concernées"><li>Direction d'agence</li></ul>
-      </article>
-      <article class="rs-carte rs-apprenant" data-etapes="ia organisation" data-profils="conseiller">
-        <span class="rs-type">Résultat d'apprenant</span>
-        <strong class="rs-chiffre">Son site</strong>
-        <p class="rs-phrase">Grâce à la formation, Mathieu a créé lui-même le site de son activité.</p>
-        <p class="rs-qui">Mathieu, agent immobilier</p>
-        <ul class="rs-tags" aria-label="Étapes concernées"><li>IA au quotidien</li><li>Organisation</li></ul>
-      </article>
-      <article class="rs-carte rs-analyse" data-etapes="decouverte" data-profils="conseiller equipe">
-        <span class="rs-type">Analyse Start Academia</span>
-        <strong class="rs-chiffre">+ 25 %</strong>
-        <p class="rs-phrase">Nos apprenants augmentent leur taux de transformation de plus de 25 %.</p>
-        <p class="rs-qui">Analyse Start Academia des suivis de formation</p>
-        <ul class="rs-tags" aria-label="Étapes concernées"><li>Découverte</li></ul>
-      </article>
+      </article></div></div>
+      <div class="ch-etape" data-i="5" hidden><div class="ch-texte"><p class="ch-num">Étape 06 sur 9</p><h3>Visites et offres</h3><p class="ch-geste">Sélectionner les bons biens, faire visiter, puis défendre l&#x27;offre devant le vendeur.</p><p class="ch-ia"><span>Avec l'IA</span>Une sélection ciblée et des offres argumentées par le marché, avec Academia ACM et Academia Radar Acheteur.</p><div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button><button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div><div class="ch-preuves"><article class="rs-carte rs-vide"><p>Pas encore de résultat publié à cette étape.</p><p>Ce sera peut-être le vôtre&nbsp;: <a href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">parlons-en</a>.</p></article></div></div>
+      <div class="ch-etape" data-i="6" hidden><div class="ch-texte"><p class="ch-num">Étape 07 sur 9</p><h3>Organisation</h3><p class="ch-geste">Tenir son agenda, ses relances et ses priorités sans y passer ses soirées.</p><p class="ch-ia"><span>Avec l'IA</span>Une semaine planifiée, des mails et comptes rendus rédigés en quelques minutes, avec ChatGPT et Claude.</p><div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button><button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div><div class="ch-preuves">
       <article class="rs-carte rs-analyse" data-etapes="organisation ia" data-profils="conseiller equipe">
         <span class="rs-type">Analyse Start Academia</span>
         <strong class="rs-chiffre">8 h</strong>
@@ -128,7 +134,22 @@
         <p class="rs-qui">Analyse Start Academia des suivis de formation</p>
         <ul class="rs-tags" aria-label="Étapes concernées"><li>Organisation</li><li>IA au quotidien</li></ul>
       </article>
-      <article class="rs-carte rs-vide" hidden><p>Pas encore de résultat publié pour ce filtre. Ce sera peut-être le vôtre&nbsp;: <a href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">parlons-en</a>.</p></article>
+      <article class="rs-carte rs-apprenant" data-etapes="ia organisation" data-profils="conseiller">
+        <span class="rs-type">Résultat d'apprenant</span>
+        <strong class="rs-chiffre">Son site</strong>
+        <p class="rs-phrase">Grâce à la formation, Mathieu a créé lui-même le site de son activité.</p>
+        <p class="rs-qui">Mathieu, agent immobilier</p>
+        <ul class="rs-tags" aria-label="Étapes concernées"><li>IA au quotidien</li><li>Organisation</li></ul>
+      </article></div></div>
+      <div class="ch-etape" data-i="7" hidden><div class="ch-texte"><p class="ch-num">Étape 08 sur 9</p><h3>Administratif</h3><p class="ch-geste">Traiter les documents, la conformité et les tâches répétitives.</p><p class="ch-ia"><span>Avec l'IA</span>Des synthèses de documents, des réponses juridiques vérifiées et des tâches automatisées, avec NotebookLM, Academia Juridique et nos outils IA.</p><div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button><button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div><div class="ch-preuves"><article class="rs-carte rs-vide"><p>Pas encore de résultat publié à cette étape.</p><p>Ce sera peut-être le vôtre&nbsp;: <a href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">parlons-en</a>.</p></article></div></div>
+      <div class="ch-etape" data-i="8" hidden><div class="ch-texte"><p class="ch-num">Étape 09 sur 9</p><h3>Pilotage d&#x27;agence</h3><p class="ch-geste">Suivre l&#x27;activité de l&#x27;équipe, accompagner chaque conseiller, fixer les bons objectifs.</p><p class="ch-ia"><span>Avec l'IA</span>Les indicateurs de l&#x27;agence et de chaque conseiller avec Academia Pilotage, les diagnostics et objectifs avec Academia Parcours.</p><div class="ch-nav"><button type="button" data-pas="-1" aria-label="Étape précédente">←</button><button type="button" data-pas="1" aria-label="Étape suivante">→</button></div></div><div class="ch-preuves">
+      <article class="rs-carte rs-apprenant" data-etapes="direction" data-profils="direction equipe">
+        <span class="rs-type">Résultat d'apprenant</span>
+        <strong class="rs-chiffre">Record</strong>
+        <p class="rs-phrase">Accompagnée toute l&#x27;année, l&#x27;agence a réalisé le meilleur chiffre d&#x27;affaires de son histoire.</p>
+        <p class="rs-qui">Agence suivie à l&#x27;année</p>
+        <ul class="rs-tags" aria-label="Étapes concernées"><li>Direction d'agence</li></ul>
+      </article></div></div>
     </div>
     <p class="rs-legende"><span class="rs-type rs-apprenant">Résultat d'apprenant</span> rapporté par l'apprenant ou l'agence après la formation · <span class="rs-type rs-analyse">Analyse Start Academia</span> calculé à partir des suivis de nos formations</p>
   </div>
@@ -218,25 +239,17 @@
 <script src="/logo.js" defer></script>
 <script>
 (function () {
-  var f = { etape: '', profil: '' }, cartes = [].slice.call(document.querySelectorAll('.rs-carte:not(.rs-vide)')),
-      vide = document.querySelector('.rs-vide'), compte = document.querySelector('.rs-compte');
-  function maj() {
-    var n = 0;
-    cartes.forEach(function (c) {
-      var ok = (!f.etape || c.dataset.etapes.split(' ').indexOf(f.etape) > -1) && (!f.profil || c.dataset.profils.split(' ').indexOf(f.profil) > -1);
-      c.hidden = !ok; if (ok) n++;
-    });
-    vide.hidden = n > 0;
-    compte.textContent = n + (n > 1 ? ' résultats' : ' résultat');
+  var noeuds = [].slice.call(document.querySelectorAll('.ch-noeud')), etapes = [].slice.call(document.querySelectorAll('.ch-etape')), cur = 0;
+  function aller(i) {
+    cur = (i + noeuds.length) % noeuds.length;
+    noeuds.forEach(function (n, k) { n.setAttribute('aria-pressed', k === cur ? 'true' : 'false'); n.classList.toggle('passe', k < cur); });
+    etapes.forEach(function (e, k) { e.hidden = k !== cur; });
+    var sc = document.querySelector('.ch-scene'), n = noeuds[cur];
+    if (sc.scrollWidth > sc.clientWidth) sc.scrollTo({ left: n.offsetLeft - sc.clientWidth / 2, behavior: 'smooth' });
   }
-  document.querySelectorAll('[data-filtre]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      f[b.dataset.filtre] = b.dataset.val;
-      document.querySelectorAll('[data-filtre="' + b.dataset.filtre + '"]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      maj();
-    });
-  });
-  maj();
+  noeuds.forEach(function (n, k) { n.addEventListener('click', function () { aller(k); }); });
+  document.querySelectorAll('[data-pas]').forEach(function (b) { b.addEventListener('click', function () { aller(cur + (+b.dataset.pas)); }); });
+  aller(0);
 })();
 </script>
 </body>
