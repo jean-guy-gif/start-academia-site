@@ -19,7 +19,7 @@ Objectif unique de conversion : réserver un appel découverte.
 | `styles.css` | Feuille de style unique (charte : #2F44CE, #6988EE, #B9CDFF, #FE5500) |
 | `voyage.js` | Vidéo du bateau pilotée par le défilement (choix 1080 carré / 1920 / 2560 selon l'écran) |
 | `simulateur.js` | Simulateur de financement. **Barèmes, taux et années dans `CONFIG` en tête de fichier**, à mettre à jour chaque année (rien n'est reconduit automatiquement) |
-| `paperboard.js`, `logo3d.js`, `logo3d-geo.js`, `logo.js`, `fin.js`, `demo.js` | Animations de l'accueil |
+| `paperboard.js`, `logo3d.js`, `logo3d-geo.js`, `logo.js`, `fin.js`, `demo.js`, `mur.js` | Animations de l'accueil (`mur.js` : défilement du mur de logos) |
 | `img/`, `documents/` | Images, vidéos, PDF (CGV, règlement intérieur, charte handicap, certificat Qualiopi valable jusqu'au 23/07/2029) |
 | `vercel.json` | Redirections 301 de l'ancien site WordPress, redirection des autres domaines vers www.start-academia.fr, `noindex` sur *.vercel.app |
 | `outils/` | Générateurs Python des pages (non déployés, voir `.vercelignore`) |
