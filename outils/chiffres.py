@@ -5,13 +5,24 @@ Dans index.html :
                                le premier nombre est remplacé, ainsi que data-compte s'il existe
                                (animation de fin.js) ;
     data-qualiof-bloc="champ"  bloc à masquer (attribut hidden) si la valeur vaut null.
-Champs : apprenantsFormes, tauxRecommandation, note5.
+Champs : apprenantsFormes, tauxRecommandation, note5, nbFormations (nombre de formations affichées
+dans le catalogue /formations/, relu dans la page générée : il suit donc QualiOF sans saisie à la main).
 Sans data/qualiof.json, index.html n'est pas modifié. Les avis Google ne viennent pas de QualiOF."""
 import json, pathlib, re, sys
 
 RACINE = pathlib.Path(__file__).resolve().parents[1]
 QUALIOF = RACINE / 'data' / 'qualiof.json'
 INDEX = RACINE / 'index.html'
+CATALOGUE = RACINE / 'formations' / 'index.html'
+
+
+def nb_formations():
+    """Nombre affiché sur le bouton « Toutes » du catalogue, ou None si la page est absente ou illisible."""
+    try:
+        m = re.search(r'>Toutes<span class="ch-nb">(\d+)</span>', CATALOGUE.read_text(encoding='utf-8'))
+    except OSError:
+        return None
+    return m.group(1) if m else None
 
 
 def valeurs(total):
@@ -53,6 +64,9 @@ def main():
     try:
         total = json.loads(QUALIOF.read_text(encoding='utf-8'))['indicateurs']['total']
         texte = valeurs(total)
+        nb = nb_formations()
+        if nb is not None:
+            texte['nbFormations'] = nb
     except (ValueError, KeyError, TypeError) as e:
         print(f'chiffres : data/qualiof.json illisible ({e!r}), index.html inchangé', file=sys.stderr)
         return

@@ -1214,3 +1214,13 @@ p { text-wrap: pretty; }
 .faq-liste details { transition: box-shadow .3s; }
 .faq-liste details[open] { background: #fff; box-shadow: inset 3px 0 0 var(--orange), 0 1px 0 rgb(16 21 58 / .05), 0 24px 44px -28px rgb(47 68 206 / .5); }
 .faq-liste summary::after { background-color: var(--ivoire); }
+
+/* Page Résultats : le libellé de la dernière étape s'aligne sur son point au lieu de déborder à droite */
+.ch-noeud:last-of-type .ch-nom { right: 0; text-align: right; }
+
+/* ---------- Accueil : passages entre sections sombres et claires ----------
+   Même filet dégradé que sur les sous-pages, à chaque changement de fond. */
+.partenaires-v2, .equipe-v2, .pourqui, .manifeste, .pratique-v2 { border: 0 solid; border-image: linear-gradient(90deg, var(--bleu), var(--bleu-m) 45%, var(--orange)) 1; }
+.partenaires-v2, .equipe-v2 { border-top-width: 3px; }
+.pourqui { border-top-width: 3px; border-bottom-width: 3px; }
+.manifeste, .pratique-v2 { border-bottom-width: 3px; }

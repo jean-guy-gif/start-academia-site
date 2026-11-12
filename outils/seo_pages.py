@@ -92,7 +92,7 @@ ecrire('formation-ia-immobilier/',
       <li><strong>En agence</strong> sur la Côte d'Azur, <strong>ou à distance</strong> partout en France, en individuel ou en groupe.</li>
       <li><strong>À partir de 42&nbsp;€ de l'heure</strong>, devis précis après l'appel découverte, et finançable par votre OPCO ou votre fonds d'assurance formation.</li>
     </ul>
-    <p><a class="lien-texte" href="/formations/">Voir le détail des 40 formations</a></p>
+    <p><a class="lien-texte" href="/formations/">Voir le détail des <span data-qualiof="nbFormations">27</span> formations</a></p>
     <p>Des exemples concrets, étape par étape&nbsp;: <a class="lien-texte" href="/ia-prospection-immobiliere/">prospection</a>, <a class="lien-texte" href="/ia-estimation-immobiliere/">estimation</a>, <a class="lien-texte" href="/ia-mandat-exclusif/">mandat exclusif</a>, <a class="lien-texte" href="/ia-annonce-immobiliere/">annonce</a>, <a class="lien-texte" href="/ia-decouverte-acquereur/">découverte acquéreur</a>, <a class="lien-texte" href="/ia-visite-immobiliere/">visite</a>, <a class="lien-texte" href="/ia-negociation-immobiliere/">négociation</a>.</p>
   </div>
   <div class="bloc">
