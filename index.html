@@ -111,20 +111,32 @@
   </div>
 </section>
 
-<!-- 1 bis. Portes d'entrée par profil, plus un accès direct aux outils -->
+<!-- 1 bis. Trois portes en 3D : le visiteur pousse la sienne et la page se règle sur son profil (portes.js) -->
 <section class="portes" id="portes" aria-labelledby="titre-portes">
-  <div class="portes-panneau">
-    <svg class="portes-reseau" viewBox="0 0 520 480" aria-hidden="true"><circle class="pr-cercle" cx="250" cy="250" r="70"/><circle class="pr-cercle" cx="250" cy="250" r="130"/><circle class="pr-cercle" cx="250" cy="250" r="190"/><circle class="pr-cercle" cx="250" cy="250" r="250"/><circle class="pr-cercle" cx="250" cy="250" r="310"/><line x1="60" y1="250" x2="150" y2="120"/><line x1="150" y1="120" x2="250" y2="210"/><line x1="60" y1="250" x2="250" y2="210"/><line x1="250" y1="210" x2="210" y2="330"/><line x1="150" y1="120" x2="340" y2="90"/><line x1="250" y1="210" x2="380" y2="260"/><line x1="340" y1="90" x2="380" y2="260"/><line x1="210" y1="330" x2="330" y2="400"/><line x1="380" y1="260" x2="330" y2="400"/><line x1="340" y1="90" x2="470" y2="180"/><line x1="380" y1="260" x2="470" y2="180"/><line x1="60" y1="250" x2="120" y2="420"/><line x1="210" y1="330" x2="120" y2="420"/><line x1="330" y1="400" x2="470" y2="360"/><line x1="380" y1="260" x2="470" y2="360"/><line x1="470" y1="180" x2="470" y2="360"/><circle class="pr-noeud" cx="60" cy="250" r="3.5"/><circle class="pr-noeud" cx="150" cy="120" r="3.5"/><circle class="pr-orange" cx="250" cy="210" r="6"/><circle class="pr-noeud" cx="210" cy="330" r="3.5"/><circle class="pr-noeud" cx="340" cy="90" r="3.5"/><circle class="pr-noeud" cx="380" cy="260" r="3.5"/><circle class="pr-orange" cx="330" cy="400" r="6"/><circle class="pr-orange" cx="470" cy="180" r="6"/><circle class="pr-noeud" cx="120" cy="420" r="3.5"/><circle class="pr-noeud" cx="470" cy="360" r="3.5"/></svg>
+  <div class="portes-scene" data-etat="choix">
     <div class="portes-tete">
       <h2 id="titre-portes">Vous êtes&nbsp;?</h2>
-      <p>Trois parcours, un même point de départ&nbsp;: 30 minutes d'appel pour cadrer vos besoins et votre financement.</p>
+      <p>Poussez votre porte. La suite de la page se règle sur votre métier.</p>
     </div>
-    <ul class="portes-rangs">
-      <li><a class="rang" href="/formation-ia-directeur-agence-immobiliere/" data-suivi="porte-agence"><span class="rang-titre">Je dirige une agence</span><span class="rang-texte">Former mon équipe et piloter l'activité, sur mes dossiers.</span><span class="rang-fleche"><svg aria-hidden="true"><use href="#fleche"/></svg></span></a></li>
-      <li><a class="rang" href="/formation-ia-reseau-mandataires/" data-suivi="porte-reseau"><span class="rang-titre">J'anime un réseau</span><span class="rang-texte">Déployer une formation IA concrète auprès de mes mandataires.</span><span class="rang-fleche"><svg aria-hidden="true"><use href="#fleche"/></svg></span></a></li>
-      <li><a class="rang" href="/formation-ia-immobilier/" data-suivi="porte-conseiller"><span class="rang-titre">Je suis conseiller ou indépendant</span><span class="rang-texte">Gagner du temps à chaque étape et valider mes heures loi ALUR.</span><span class="rang-fleche"><svg aria-hidden="true"><use href="#fleche"/></svg></span></a></li>
-      <li><a class="rang rang-outils" href="#outils" data-suivi="porte-outils"><span class="rang-titre">Je veux d'abord voir les outils</span><span class="rang-texte">Tester un cas concret, sans rendez-vous.</span><span class="rang-fleche"><svg aria-hidden="true"><use href="#fleche"/></svg></span></a></li>
-    </ul>
+    <div class="portes-couloir">
+      <a class="porte" href="/formation-ia-directeur-agence-immobiliere/" data-profil="agence" data-suivi="porte-agence">
+        <span class="porte-cadre"><img src="/img/agence.webp" alt="" width="2000" height="1117" loading="lazy"><span class="porte-lumiere"></span></span>
+        <span class="porte-battant"><span class="porte-nom"><span class="pn-verbe">Je dirige</span>une agence</span><span class="porte-poignee"></span></span>
+        <span class="porte-seuil"></span>
+      </a>
+      <a class="porte" href="/formation-ia-reseau-mandataires/" data-profil="reseau" data-suivi="porte-reseau">
+        <span class="porte-cadre"><img src="/img/formation.webp" alt="" width="2000" height="1117" loading="lazy"><span class="porte-lumiere"></span></span>
+        <span class="porte-battant"><span class="porte-nom"><span class="pn-verbe">J'anime</span>un réseau</span><span class="porte-poignee"></span></span>
+        <span class="porte-seuil"></span>
+      </a>
+      <a class="porte" href="/formation-ia-immobilier/" data-profil="conseiller" data-suivi="porte-conseiller">
+        <span class="porte-cadre"><img src="/img/visite.webp" alt="" width="2000" height="1117" loading="lazy"><span class="porte-lumiere"></span></span>
+        <span class="porte-battant"><span class="porte-nom"><span class="pn-verbe">Je suis</span>conseiller<span class="pn-petit">ou indépendant</span></span><span class="porte-poignee"></span></span>
+        <span class="porte-seuil"></span>
+      </a>
+    </div>
+    <div class="parcours" hidden></div>
+    <a class="portes-outils" href="#outils" data-suivi="porte-outils">Pas encore décidé&nbsp;? Voir d'abord les outils</a>
   </div>
 </section>
 
@@ -633,6 +645,7 @@
 </script>
 <script src="/suivi.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script src="/portes.js" defer></script>
 <script src="/demo.js" defer></script>
 <script src="/voyage.js" defer></script>
 <script src="/logo.js" defer></script>
