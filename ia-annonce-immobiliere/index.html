@@ -24,8 +24,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script src="/suivi.js" defer></script>
-
-
+<script src="/copier.js" defer></script>
+<script src="/gestes.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://www.start-academia.fr/ia-annonce-immobiliere/", "url": "https://www.start-academia.fr/ia-annonce-immobiliere/", "name": "Rédiger une annonce immobilière avec l'IA", "description": "Écrire une annonce immobilière avec ChatGPT ou Claude : texte qui donne envie, déclinaisons par portail, mentions obligatoires et DPE. Prompt gratuit.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://www.start-academia.fr/#site"}, "about": {"@id": "https://www.start-academia.fr/#organisation"}, "dateModified": "2026-11-12", "author": {"@type": "Person", "@id": "https://www.start-academia.fr/#jean-guy", "name": "Jean-Guy Ourmières"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Peut-on rédiger une annonce immobilière avec ChatGPT ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, à condition de lui donner des informations exactes et de relire. L'IA écrit, vous vérifiez les faits et les mentions obligatoires."}}, {"@type": "Question", "name": "Quelles sont les mentions obligatoires d'une annonce immobilière ?", "acceptedAnswer": {"@type": "Answer", "text": "Le prix, les honoraires et la partie qui les paie, les classes énergie et climat du DPE, l'estimation des coûts annuels d'énergie et, en copropriété, le nombre de lots, les charges annuelles et les procédures en cours."}}, {"@type": "Question", "name": "ChatGPT ou Claude pour écrire une annonce ?", "acceptedAnswer": {"@type": "Answer", "text": "Les deux conviennent. Nous montrons les deux en formation et vous gardez celui qui écrit le plus comme vous."}}, {"@type": "Question", "name": "Peut-on traduire une annonce avec l'IA ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, c'est un vrai gain sur la Côte d'Azur. Faites relire la version traduite si l'enjeu est important."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.start-academia.fr/"}, {"@type": "ListItem", "position": 2, "name": "Rédiger une annonce immobilière avec l'IA", "item": "https://www.start-academia.fr/ia-annonce-immobiliere/"}]}, {"@type": "Course", "name": "Rédiger une annonce immobilière avec l'IA", "description": "Rédiger une annonce immobilière conforme et efficace avec l'IA, la décliner par canal et en langue étrangère.", "provider": {"@id": "https://www.start-academia.fr/#organisation"}, "inLanguage": "fr", "hasCourseInstance": [{"@type": "CourseInstance", "courseMode": "Onsite", "location": "Alpes-Maritimes, France"}, {"@type": "CourseInstance", "courseMode": "Online"}], "offers": {"@type": "Offer", "category": "Paid", "availability": "https://schema.org/InStock"}}]}</script>
 </head>
@@ -61,16 +61,48 @@
     <nav class="fil" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">/</span> Rédiger une annonce immobilière avec l'IA</nav>
     <h1>Rédiger une annonce immobilière avec l'IA.</h1>
     <p class="promesse">Une annonce n'est neuve qu'une seule fois. L'IA vous aide à écrire un texte qui donne envie de visiter, à le décliner pour chaque portail et réseau social, sans jamais oublier les mentions obligatoires.</p>
-    <a class="action" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Réserver mon appel découverte<svg aria-hidden="true"><use href="#fleche"/></svg></a>
+    <a class="action" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Réserver mon appel découverte<svg aria-hidden="true"><use href="#fleche"/></svg></a><nav class="rail-etapes" aria-label="Les étapes de la vente"><ol><li><a href="/ia-prospection-immobiliere/"><span>1</span>Prospection</a></li><li><a href="/ia-estimation-immobiliere/"><span>2</span>Estimation</a></li><li><a href="/ia-mandat-exclusif/"><span>3</span>Mandat</a></li><li class="ici"><a href="/ia-annonce-immobiliere/" aria-current="page"><span>4</span>Annonce</a></li><li><a href="/ia-decouverte-acquereur/"><span>5</span>Acquéreur</a></li><li><a href="/ia-visite-immobiliere/"><span>6</span>Visite</a></li><li><a href="/ia-negociation-immobiliere/"><span>7</span>Négociation</a></li></ol></nav>
   </div>
 </section>
 <section class="clair texte-page">
   <p class="signature">Par <a href="/#equipe">Jean-Guy Ourmières</a>, co-dirigeant et formateur <span aria-hidden="true">·</span> Mis à jour le <time datetime="2026-11-12">12 novembre 2026</time></p>
-  <div class="bloc">
+  <div class="bloc b-plan b-geste b-mentions">
+    <h2>Votre annonce est-elle complète&nbsp;?</h2><div class="corps">
+    <p class="plan-intro">Une annonce qui donne envie et à laquelle il manque une mention reste une annonce en infraction. Décrivez votre cas, puis touchez ce qui figure déjà dans votre annonce de vente.</p>
+    <div class="mentions">
+      <div class="mentions-cas">
+        <fieldset><legend>Le bien est en copropriété</legend><label><input type="radio" name="m-copro" value="oui" checked><span>Oui</span></label><label><input type="radio" name="m-copro" value="non"><span>Non</span></label></fieldset>
+        <fieldset><legend>Honoraires à la charge</legend><label><input type="radio" name="m-hono" value="vendeur" checked><span>Du vendeur</span></label><label><input type="radio" name="m-hono" value="acquereur"><span>De l'acquéreur</span></label></fieldset>
+        <fieldset><legend>Classe énergie</legend><label><input type="radio" name="m-dpe" value="ae" checked><span>A à E</span></label><label><input type="radio" name="m-dpe" value="fg"><span>F ou G</span></label></fieldset>
+        <fieldset><legend>Vous publiez comme</legend><label><input type="radio" name="m-statut" value="agence" checked><span>Agence</span></label><label><input type="radio" name="m-statut" value="agentco"><span>Agent commercial</span></label></fieldset>
+      </div>
+      <div class="mentions-fiche">
+        <p class="mentions-titre">Votre annonce</p>
+        <ul class="mentions-liste">
+          <li><label><input type="checkbox" data-mention="prix de vente honoraires inclus"><span>Prix de vente, honoraires inclus</span></label></li>
+          <li><label><input type="checkbox" data-mention="à qui incombent les honoraires"><span>À qui incombent les honoraires</span></label></li>
+          <li data-si="acquereur"><label><input type="checkbox" data-mention="prix hors honoraires"><span>Prix hors honoraires</span></label></li>
+          <li data-si="acquereur"><label><input type="checkbox" data-mention="honoraires en pourcentage du prix"><span>Honoraires en pourcentage du prix</span></label></li>
+          <li><label><input type="checkbox" data-mention="classes énergie et climat du DPE"><span>Classes énergie et climat du DPE</span></label></li>
+          <li><label><input type="checkbox" data-mention="estimation des coûts annuels d'énergie et année de référence"><span>Coûts annuels d'énergie estimés, avec l'année de référence</span></label></li>
+          <li data-si="fg"><label><input type="checkbox" data-mention="mention « Logement à consommation énergétique excessive »"><span>Mention «&nbsp;Logement à consommation énergétique excessive&nbsp;»</span></label></li>
+          <li><label><input type="checkbox" data-mention="renvoi vers le site Géorisques"><span>Renvoi vers le site Géorisques pour les risques</span></label></li>
+          <li data-si="copro"><label><input type="checkbox" data-mention="bien soumis au statut de la copropriété"><span>Bien soumis au statut de la copropriété</span></label></li>
+          <li data-si="copro"><label><input type="checkbox" data-mention="nombre de lots"><span>Nombre de lots de la copropriété</span></label></li>
+          <li data-si="copro"><label><input type="checkbox" data-mention="montant moyen annuel des charges"><span>Montant moyen annuel des charges</span></label></li>
+          <li data-si="copro"><label><input type="checkbox" data-mention="procédures en cours dans la copropriété"><span>Procédures en cours, s'il y en a</span></label></li>
+          <li data-si="agentco"><label><input type="checkbox" data-mention="statut d'agent commercial"><span>Votre statut d'agent commercial</span></label></li>
+        </ul>
+        <p class="mentions-verdict" aria-live="polite"></p>
+      </div>
+    </div>
+    <p class="freins-note">Liste de contrôle pour une annonce de vente publiée par un professionnel (arrêté du 10 janvier 2017, article L.&nbsp;721-1 du Code de la construction et de l'habitation, règles du DPE). Elle ne remplace pas la relecture de votre responsable ou de votre syndicat. Les mentions de votre cas complètent le prompt plus bas.</p></div>
+  </div>
+  <div class="bloc b-cas">
     <h2>Le cas en agence</h2><div class="corps">
     <p>Le mandat est signé, le vendeur attend de voir son bien en ligne. L'annonce est souvent écrite vite, le soir, sur le même modèle que les autres&nbsp;: «&nbsp;Rare&nbsp;!&nbsp;», «&nbsp;Coup de cœur assuré&nbsp;». Elle ne se distingue pas et le vendeur le voit.</p></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-methode">
     <h2>La méthode classique, boostée à l'IA</h2><div class="corps">
     <ol class="points numerotes">
       <li><strong>Partir des faits.</strong> Surface, pièces, exposition, extérieur, DPE, charges, ce qui rend le bien unique. Vous les dictez ou les collez depuis votre logiciel.</li>
@@ -80,7 +112,7 @@
       <li><strong>Vérifier les mentions.</strong> Une relecture systématique des mentions obligatoires avant publication.</li>
     </ol></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-gains">
     <h2>Ce que vous gagnez</h2><div class="corps">
     <ul class="points">
       <li><strong>Une annonce et ses déclinaisons</strong> rédigées en une fois, au lieu de réécrire pour chaque portail.</li>
@@ -88,15 +120,15 @@
       <li><strong>Un vendeur rassuré</strong> qui voit son bien mis en valeur dès la mise en ligne.</li>
     </ul></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-prompt">
     <h2>Prompt gratuit : l'annonce qui donne envie</h2><div class="corps">
     <p>Copiez ce prompt dans ChatGPT ou Claude, remplacez les zones entre crochets, et relisez toujours le résultat avant de l'utiliser.</p>
     <pre class="prompt-bloc">Rôle : tu es un rédacteur d'annonces immobilières qui connaît [VILLE / QUARTIER].
 Contexte : bien = [TYPE, SURFACE, PIÈCES, ÉTAGE, EXPOSITION, EXTÉRIEUR, STATIONNEMENT]. Ce qui le rend unique : [2 OU 3 POINTS]. Acquéreur visé : [FAMILLE / INVESTISSEUR / RÉSIDENCE SECONDAIRE].
 Tâche : rédige une annonce de 150 mots qui donne envie de visiter, concrète, sans superlatifs vides (pas de « rare », « coup de cœur », « exceptionnel »). Puis une version de 50 mots pour les réseaux sociaux.
-Format : un titre de 60 caractères, l'annonce, la version courte. Laisse à la fin les champs à compléter : prix, honoraires, DPE et GES, coûts annuels d'énergie, copropriété.</pre></div>
+Format : un titre de 60 caractères, l'annonce, la version courte. Laisse à la fin les champs à compléter : [MENTIONS OBLIGATOIRES DE TON ANNONCE].</pre></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-erreurs">
     <h2>Erreurs fréquentes et règles à respecter</h2><div class="corps">
     <ul class="points">
       <li><strong>Publier sans les mentions obligatoires.</strong> Prix, honoraires et à qui ils incombent, classes énergie et climat du DPE, estimation des coûts annuels d'énergie, et pour une copropriété le nombre de lots, les charges annuelles et les éventuelles procédures en cours.</li>

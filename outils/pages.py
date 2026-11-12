@@ -24,10 +24,12 @@ VARIANTES = [('Construisez votre plan', 'b-plan'), ("Qu'est-ce qui vous mange", 
 # et portent chacune un geste. ETAPES_PILOTES : celles dont le geste est construit et validé.
 ETAPES = [('ia-prospection-immobiliere/', 'Prospection'), ('ia-estimation-immobiliere/', 'Estimation'), ('ia-mandat-exclusif/', 'Mandat'),
           ('ia-annonce-immobiliere/', 'Annonce'), ('ia-decouverte-acquereur/', 'Acquéreur'), ('ia-visite-immobiliere/', 'Visite'), ('ia-negociation-immobiliere/', 'Négociation')]
-ETAPES_PILOTES = {'ia-mandat-exclusif/'}
+ETAPES_PILOTES = {'ia-mandat-exclusif/', 'ia-prospection-immobiliere/', 'ia-estimation-immobiliere/', 'ia-annonce-immobiliere/'}
 PILOTES |= ETAPES_PILOTES
 SCRIPTS_PAGE['ia-mandat-exclusif/'] = ['freins.js']
+SCRIPTS_PAGE.update({'ia-prospection-immobiliere/': ['gestes.js'], 'ia-estimation-immobiliere/': ['gestes.js'], 'ia-annonce-immobiliere/': ['gestes.js']})
 VARIANTES.insert(0, ('Le vendeur hésite', 'b-plan b-freins'))
+VARIANTES[:0] = [('Un signal dans votre rue', 'b-plan b-geste b-signaux'), ('Que contient votre avis de valeur', 'b-plan b-geste b-dossier'), ('Votre annonce est-elle complète', 'b-plan b-geste b-mentions')]
 
 
 def rail(chemin):

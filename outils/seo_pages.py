@@ -548,6 +548,45 @@ ecrire('ia-prospection-immobiliere/',
  "Prospection immobilière avec l'IA.",
  "Le boîtage au hasard et les scripts d'appel tout faits ne rentrent plus de vendeurs. L'IA ne remplace pas le terrain&nbsp;: elle vous aide à arriver chez le bon propriétaire, au bon moment, avec quelque chose d'utile à lui apporter.",
  '''  <div class="bloc">
+    <h2>Un signal dans votre rue. Par où l'aborder&nbsp;?</h2>
+    <p class="plan-intro">Le boîtage au hasard ne dit rien au propriétaire. Un signal, si. Choisissez celui que vous avez sous la main&nbsp;: voici ce que vous lui apportez, et le temps que cela prend avec la méthode.</p>
+    <div class="signaux">
+      <div class="signaux-rue" aria-hidden="true">
+        <svg viewBox="0 0 600 420" preserveAspectRatio="none"><path d="M0 150H600M0 300H600M190 0V420M430 0V420"/><g><rect x="20" y="20" width="70" height="100"/><rect x="100" y="20" width="70" height="100"/><rect x="220" y="20" width="90" height="100"/><rect x="320" y="20" width="90" height="100"/><rect x="460" y="20" width="120" height="100"/><rect x="20" y="180" width="150" height="90"/><rect x="220" y="180" width="60" height="90"/><rect x="290" y="180" width="120" height="90"/><rect x="460" y="180" width="55" height="90"/><rect x="525" y="180" width="55" height="90"/><rect x="20" y="330" width="70" height="70"/><rect x="100" y="330" width="70" height="70"/><rect x="220" y="330" width="190" height="70"/><rect x="460" y="330" width="120" height="70"/></g></svg>
+      </div>
+      <ul class="signaux-liste">
+        <li class="signal" data-signal="un logement classé F ou G dans la rue" data-x="22" data-y="17">
+          <h3>Un DPE F ou G</h3>
+          <p>Le propriétaire reçoit un dossier sur la performance énergétique de son logement et ce qu'elle change pour une vente. Vous apportez une information, pas une estimation.</p>
+          <p class="signal-chiffre"><strong>5&nbsp;min</strong> par dossier, en routine</p>
+          <p class="signal-suite"><a class="lien-texte" href="/prospecter-avec-le-dpe/">Le guide&nbsp;: prospecter avec le DPE</a></p>
+        </li>
+        <li class="signal" data-signal="un particulier qui vend seul" data-x="60" data-y="54">
+          <h3>Un particulier vend seul</h3>
+          <p>Vous répondez par écrit aux questions qu'il se pose, sans l'appeler&nbsp;: depuis le 11 août 2026, le démarchage téléphonique exige son accord préalable.</p>
+          <p class="signal-chiffre"><strong>5&nbsp;min</strong> par courrier</p>
+          <p class="signal-suite"><a class="lien-texte" href="/prospection-immobiliere-sans-pige/">Le guide&nbsp;: prospecter sans pige</a></p>
+        </li>
+        <li class="signal" data-signal="une vente récente dans la rue" data-x="85" data-y="17">
+          <h3>Une vente vient de se faire</h3>
+          <p>Les voisins se demandent à quel prix. Vous leur donnez le marché de leur rue sur une demi-page, sans parler de leur bien.</p>
+          <p class="signal-chiffre"><strong>5&nbsp;min</strong> par baromètre de rue, en routine</p>
+        </li>
+        <li class="signal" data-signal="une rue entière à couvrir" data-x="15" data-y="54">
+          <h3>Une rue à couvrir</h3>
+          <p>Le même passage en boîtes aux lettres, avec une information qui concerne vraiment cette rue plutôt qu'un prospectus d'agence.</p>
+          <p class="signal-chiffre"><strong>5&nbsp;min</strong> par tournée, en routine</p>
+        </li>
+        <li class="signal" data-signal="un nouveau secteur à ouvrir" data-x="52" data-y="87">
+          <h3>Un secteur à ouvrir</h3>
+          <p>Avant le premier courrier, vous lisez le secteur&nbsp;: ventes passées, types de biens, ce qui se vend et à quel rythme.</p>
+          <p class="signal-chiffre"><strong>15 à 20&nbsp;min</strong> pour l'étude complète</p>
+        </li>
+      </ul>
+    </div>
+    <p class="freins-note">Les temps sont ceux de la méthode, une fois les outils en place. Le signal choisi complète le prompt plus bas.</p>
+  </div>
+  <div class="bloc">
     <h2>Le cas en agence</h2>
     <p>Un conseiller finit sa semaine épuisé&nbsp;: photos, visites, flyers, mails, publications. À la question «&nbsp;quel vendeur as-tu fait avancer cette semaine&nbsp;?&nbsp;», le silence. Il n'a pas manqué d'activité, il a confondu activité et prospection. Le problème n'est pas le temps passé, c'est l'absence de méthode pour choisir où frapper et quoi dire.</p>
   </div>
@@ -569,7 +608,7 @@ ecrire('ia-prospection-immobiliere/',
     </ul>
   </div>
 ''' + prompt_bloc("Prompt gratuit : le courrier de prospection", '''Rôle : tu es un conseiller immobilier expérimenté sur [VILLE / QUARTIER].
-Contexte : je prospecte la rue [NOM DE LA RUE]. Ventes récentes du quartier : [2 OU 3 EXEMPLES, TYPE ET SURFACE, SANS NOM DE PROPRIÉTAIRE]. Mon point fort : [CE QUE TU APPORTES].
+Contexte : je prospecte la rue [NOM DE LA RUE]. Le signal qui m'amène : [SIGNAL DU JOUR]. Ventes récentes du quartier : [2 OU 3 EXEMPLES, TYPE ET SURFACE, SANS NOM DE PROPRIÉTAIRE]. Mon point fort : [CE QUE TU APPORTES].
 Tâche : rédige un courrier de prospection de 120 mots pour les propriétaires de la rue. Apporte une information utile sur le marché local, ne promets aucun prix, termine par une proposition simple (un échange de 15 minutes).
 Format : un objet, le courrier, une signature avec [TON NOM], [TON AGENCE], [TA CARTE PRO].''') + '''
   <div class="bloc">
@@ -595,6 +634,29 @@ ecrire('ia-estimation-immobiliere/',
  "Estimation immobilière avec l'IA.",
  "Le vendeur a déjà vu trois estimations en ligne et deux confrères. Ce qui fait la différence, ce n'est pas le chiffre&nbsp;: c'est la façon dont vous l'expliquez. L'IA vous aide à construire une analyse comparative solide et à la présenter clairement.",
  '''  <div class="bloc">
+    <h2>Que contient votre avis de valeur&nbsp;?</h2>
+    <p class="plan-intro">Le vendeur a déjà un chiffre en tête. Ce qui le fait bouger, c'est ce que vous posez à côté. Cochez les pièces que vous apportez aujourd'hui&nbsp;: votre dossier se monte, et ce qui manque apparaît.</p>
+    <div class="avisv">
+      <ul class="avisv-pieces">
+        <li><label><input type="checkbox" data-piece="mes relevés de visite" data-manque="Sans visite, pas d'avis de valeur sérieux."><span>Vos relevés de visite</span></label></li>
+        <li><label><input type="checkbox" data-piece="les ventes comparables du quartier" data-manque="Sans ventes réelles, le prix n'est qu'une opinion."><span>Les ventes comparables du quartier</span></label></li>
+        <li><label><input type="checkbox" data-piece="les biens concurrents en vente" data-manque="Le vendeur compare déjà son bien à ceux-là. Autant le faire avec lui."><span>Les biens concurrents en vente</span></label></li>
+        <li><label><input type="checkbox" data-piece="les biens retirés de la vente" data-manque="Ils montrent à quel prix le marché a dit non."><span>Les biens retirés de la vente</span></label></li>
+        <li><label><input type="checkbox" data-piece="le DPE" data-manque="La classe énergie pèse sur le prix et sur la location."><span>Le DPE</span></label></li>
+        <li><label><input type="checkbox" data-piece="les travaux chiffrés" data-manque="Sans chiffre, l'acquéreur imagine le pire et négocie d'autant."><span>Les travaux chiffrés <em>2&nbsp;h → 25&nbsp;min avec la méthode</em></span></label></li>
+        <li><label><input type="checkbox" data-piece="le dossier de copropriété résumé" data-manque="Trois ans de procès-verbaux que personne ne lira en entier."><span>Le dossier de copropriété résumé <em>2&nbsp;h → 15&nbsp;min par famille de documents</em></span></label></li>
+        <li><label><input type="checkbox" data-piece="la valeur perçue par le vendeur" data-manque="Tant que son chiffre n'est pas sur la table, il ne bougera pas."><span>La valeur perçue par le vendeur</span></label></li>
+      </ul>
+      <div class="avisv-scene" hidden>
+        <div class="avisv-pile" aria-hidden="true"></div>
+        <p class="avisv-compte" aria-live="polite"></p>
+        <p class="avisv-verdict"></p>
+        <ul class="avisv-manques"></ul>
+      </div>
+    </div>
+    <p class="freins-note">Les pièces cochées complètent le prompt plus bas. Le prix reste le vôtre&nbsp;: l'IA aide à l'expliquer, pas à le fixer.</p>
+  </div>
+  <div class="bloc">
     <h2>Le cas en agence</h2>
     <p>Un vendeur vous reçoit avec un prix en tête, souvent trop haut. Si vous arrivez avec un simple chiffre, vous entrez dans une enchère avec les autres agences. Si vous arrivez avec une analyse claire du marché, vous devenez celui qui conseille.</p>
   </div>
@@ -616,7 +678,7 @@ ecrire('ia-estimation-immobiliere/',
     </ul>
   </div>
 ''' + prompt_bloc("Prompt gratuit : l'avis de valeur argumenté", '''Rôle : tu es un conseiller immobilier qui prépare un avis de valeur pour un vendeur.
-Contexte : bien = [TYPE, SURFACE, PIÈCES, ÉTAGE, EXTÉRIEUR, DPE]. Mes relevés de visite : [POINTS FORTS / POINTS FAIBLES / TRAVAUX]. Biens comparables : [3 À 5 BIENS : SURFACE, PRIX, VENDU OU EN VENTE, DÉLAI].
+Contexte : bien = [TYPE, SURFACE, PIÈCES, ÉTAGE, EXTÉRIEUR, DPE]. Mes relevés de visite : [POINTS FORTS / POINTS FAIBLES / TRAVAUX]. Biens comparables : [3 À 5 BIENS : SURFACE, PRIX, VENDU OU EN VENTE, DÉLAI]. Les pièces de mon dossier : [PIÈCES DU DOSSIER].
 Tâche : rédige un avis de valeur clair. Explique comment chaque comparable justifie la fourchette, sans jargon. Propose une stratégie de prix et ce qui se passe si le prix est trop haut.
 Format : 1. Le bien en 3 lignes. 2. Le marché en 5 lignes. 3. La fourchette argumentée. 4. La stratégie conseillée.''') + '''
   <div class="bloc">
@@ -773,6 +835,38 @@ ecrire('ia-annonce-immobiliere/',
  "Rédiger une annonce immobilière avec l'IA.",
  "Une annonce n'est neuve qu'une seule fois. L'IA vous aide à écrire un texte qui donne envie de visiter, à le décliner pour chaque portail et réseau social, sans jamais oublier les mentions obligatoires.",
  '''  <div class="bloc">
+    <h2>Votre annonce est-elle complète&nbsp;?</h2>
+    <p class="plan-intro">Une annonce qui donne envie et à laquelle il manque une mention reste une annonce en infraction. Décrivez votre cas, puis touchez ce qui figure déjà dans votre annonce de vente.</p>
+    <div class="mentions">
+      <div class="mentions-cas">
+        <fieldset><legend>Le bien est en copropriété</legend><label><input type="radio" name="m-copro" value="oui" checked><span>Oui</span></label><label><input type="radio" name="m-copro" value="non"><span>Non</span></label></fieldset>
+        <fieldset><legend>Honoraires à la charge</legend><label><input type="radio" name="m-hono" value="vendeur" checked><span>Du vendeur</span></label><label><input type="radio" name="m-hono" value="acquereur"><span>De l'acquéreur</span></label></fieldset>
+        <fieldset><legend>Classe énergie</legend><label><input type="radio" name="m-dpe" value="ae" checked><span>A à E</span></label><label><input type="radio" name="m-dpe" value="fg"><span>F ou G</span></label></fieldset>
+        <fieldset><legend>Vous publiez comme</legend><label><input type="radio" name="m-statut" value="agence" checked><span>Agence</span></label><label><input type="radio" name="m-statut" value="agentco"><span>Agent commercial</span></label></fieldset>
+      </div>
+      <div class="mentions-fiche">
+        <p class="mentions-titre">Votre annonce</p>
+        <ul class="mentions-liste">
+          <li><label><input type="checkbox" data-mention="prix de vente honoraires inclus"><span>Prix de vente, honoraires inclus</span></label></li>
+          <li><label><input type="checkbox" data-mention="à qui incombent les honoraires"><span>À qui incombent les honoraires</span></label></li>
+          <li data-si="acquereur"><label><input type="checkbox" data-mention="prix hors honoraires"><span>Prix hors honoraires</span></label></li>
+          <li data-si="acquereur"><label><input type="checkbox" data-mention="honoraires en pourcentage du prix"><span>Honoraires en pourcentage du prix</span></label></li>
+          <li><label><input type="checkbox" data-mention="classes énergie et climat du DPE"><span>Classes énergie et climat du DPE</span></label></li>
+          <li><label><input type="checkbox" data-mention="estimation des coûts annuels d'énergie et année de référence"><span>Coûts annuels d'énergie estimés, avec l'année de référence</span></label></li>
+          <li data-si="fg"><label><input type="checkbox" data-mention="mention « Logement à consommation énergétique excessive »"><span>Mention «&nbsp;Logement à consommation énergétique excessive&nbsp;»</span></label></li>
+          <li><label><input type="checkbox" data-mention="renvoi vers le site Géorisques"><span>Renvoi vers le site Géorisques pour les risques</span></label></li>
+          <li data-si="copro"><label><input type="checkbox" data-mention="bien soumis au statut de la copropriété"><span>Bien soumis au statut de la copropriété</span></label></li>
+          <li data-si="copro"><label><input type="checkbox" data-mention="nombre de lots"><span>Nombre de lots de la copropriété</span></label></li>
+          <li data-si="copro"><label><input type="checkbox" data-mention="montant moyen annuel des charges"><span>Montant moyen annuel des charges</span></label></li>
+          <li data-si="copro"><label><input type="checkbox" data-mention="procédures en cours dans la copropriété"><span>Procédures en cours, s'il y en a</span></label></li>
+          <li data-si="agentco"><label><input type="checkbox" data-mention="statut d'agent commercial"><span>Votre statut d'agent commercial</span></label></li>
+        </ul>
+        <p class="mentions-verdict" aria-live="polite"></p>
+      </div>
+    </div>
+    <p class="freins-note">Liste de contrôle pour une annonce de vente publiée par un professionnel (arrêté du 10 janvier 2017, article L.&nbsp;721-1 du Code de la construction et de l'habitation, règles du DPE). Elle ne remplace pas la relecture de votre responsable ou de votre syndicat. Les mentions de votre cas complètent le prompt plus bas.</p>
+  </div>
+  <div class="bloc">
     <h2>Le cas en agence</h2>
     <p>Le mandat est signé, le vendeur attend de voir son bien en ligne. L'annonce est souvent écrite vite, le soir, sur le même modèle que les autres&nbsp;: «&nbsp;Rare&nbsp;!&nbsp;», «&nbsp;Coup de cœur assuré&nbsp;». Elle ne se distingue pas et le vendeur le voit.</p>
   </div>
@@ -797,7 +891,7 @@ ecrire('ia-annonce-immobiliere/',
 ''' + prompt_bloc("Prompt gratuit : l'annonce qui donne envie", '''Rôle : tu es un rédacteur d'annonces immobilières qui connaît [VILLE / QUARTIER].
 Contexte : bien = [TYPE, SURFACE, PIÈCES, ÉTAGE, EXPOSITION, EXTÉRIEUR, STATIONNEMENT]. Ce qui le rend unique : [2 OU 3 POINTS]. Acquéreur visé : [FAMILLE / INVESTISSEUR / RÉSIDENCE SECONDAIRE].
 Tâche : rédige une annonce de 150 mots qui donne envie de visiter, concrète, sans superlatifs vides (pas de « rare », « coup de cœur », « exceptionnel »). Puis une version de 50 mots pour les réseaux sociaux.
-Format : un titre de 60 caractères, l'annonce, la version courte. Laisse à la fin les champs à compléter : prix, honoraires, DPE et GES, coûts annuels d'énergie, copropriété.''') + '''
+Format : un titre de 60 caractères, l'annonce, la version courte. Laisse à la fin les champs à compléter : [MENTIONS OBLIGATOIRES DE TON ANNONCE].''') + '''
   <div class="bloc">
     <h2>Erreurs fréquentes et règles à respecter</h2>
     <ul class="points">

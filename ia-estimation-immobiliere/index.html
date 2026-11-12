@@ -24,8 +24,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script src="/suivi.js" defer></script>
-
-
+<script src="/copier.js" defer></script>
+<script src="/gestes.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://www.start-academia.fr/ia-estimation-immobiliere/", "url": "https://www.start-academia.fr/ia-estimation-immobiliere/", "name": "Estimation immobilière avec l'IA", "description": "Estimer un bien avec l'IA : analyse comparative de marché, avis de valeur argumenté, présentation au vendeur. Méthode, prompt gratuit et formation.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://www.start-academia.fr/#site"}, "about": {"@id": "https://www.start-academia.fr/#organisation"}, "dateModified": "2026-11-12", "author": {"@type": "Person", "@id": "https://www.start-academia.fr/#jean-guy", "name": "Jean-Guy Ourmières"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://www.start-academia.fr/img/acm-analyse-prix.webp"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "L'IA peut-elle estimer un bien immobilier ?", "acceptedAnswer": {"@type": "Answer", "text": "Elle peut aider à analyser et à présenter, mais elle ne remplace ni la visite ni vos comparables. Les estimations automatiques en ligne servent de repère, pas d'avis de valeur."}}, {"@type": "Question", "name": "Qu'est-ce qu'une ACM ?", "acceptedAnswer": {"@type": "Answer", "text": "Une analyse comparative de marché : la comparaison du bien avec des biens similaires vendus, en vente ou retirés du marché. C'est la base d'un prix argumenté."}}, {"@type": "Question", "name": "Quel outil pour présenter une estimation ?", "acceptedAnswer": {"@type": "Answer", "text": "Gamma permet de mettre en forme un avis de valeur en quelques minutes. Nous montrons aussi comment garder la charte de votre agence."}}, {"@type": "Question", "name": "Peut-on utiliser ChatGPT avec des données de vendeur ?", "acceptedAnswer": {"@type": "Answer", "text": "Évitez les données personnelles (nom, adresse exacte, situation). Décrivez le bien : c'est suffisant pour obtenir une bonne analyse."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.start-academia.fr/"}, {"@type": "ListItem", "position": 2, "name": "Estimation immobilière avec l'IA", "item": "https://www.start-academia.fr/ia-estimation-immobiliere/"}]}, {"@type": "Course", "name": "Estimation immobilière avec l'IA", "description": "Construire une analyse comparative de marché et un avis de valeur argumenté avec l'IA, puis le présenter au vendeur.", "provider": {"@id": "https://www.start-academia.fr/#organisation"}, "inLanguage": "fr", "hasCourseInstance": [{"@type": "CourseInstance", "courseMode": "Onsite", "location": "Alpes-Maritimes, France"}, {"@type": "CourseInstance", "courseMode": "Online"}], "offers": {"@type": "Offer", "category": "Paid", "availability": "https://schema.org/InStock"}}]}</script>
 </head>
@@ -61,16 +61,39 @@
     <nav class="fil" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">/</span> Estimation immobilière avec l'IA</nav>
     <h1>Estimation immobilière avec l'IA.</h1>
     <p class="promesse">Le vendeur a déjà vu trois estimations en ligne et deux confrères. Ce qui fait la différence, ce n'est pas le chiffre&nbsp;: c'est la façon dont vous l'expliquez. L'IA vous aide à construire une analyse comparative solide et à la présenter clairement.</p>
-    <a class="action" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Réserver mon appel découverte<svg aria-hidden="true"><use href="#fleche"/></svg></a>
+    <a class="action" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Réserver mon appel découverte<svg aria-hidden="true"><use href="#fleche"/></svg></a><nav class="rail-etapes" aria-label="Les étapes de la vente"><ol><li><a href="/ia-prospection-immobiliere/"><span>1</span>Prospection</a></li><li class="ici"><a href="/ia-estimation-immobiliere/" aria-current="page"><span>2</span>Estimation</a></li><li><a href="/ia-mandat-exclusif/"><span>3</span>Mandat</a></li><li><a href="/ia-annonce-immobiliere/"><span>4</span>Annonce</a></li><li><a href="/ia-decouverte-acquereur/"><span>5</span>Acquéreur</a></li><li><a href="/ia-visite-immobiliere/"><span>6</span>Visite</a></li><li><a href="/ia-negociation-immobiliere/"><span>7</span>Négociation</a></li></ol></nav>
   </div>
 </section>
 <section class="clair texte-page">
   <p class="signature">Par <a href="/#equipe">Jean-Guy Ourmières</a>, co-dirigeant et formateur <span aria-hidden="true">·</span> Mis à jour le <time datetime="2026-11-12">12 novembre 2026</time></p>
-  <div class="bloc">
+  <div class="bloc b-plan b-geste b-dossier">
+    <h2>Que contient votre avis de valeur&nbsp;?</h2><div class="corps">
+    <p class="plan-intro">Le vendeur a déjà un chiffre en tête. Ce qui le fait bouger, c'est ce que vous posez à côté. Cochez les pièces que vous apportez aujourd'hui&nbsp;: votre dossier se monte, et ce qui manque apparaît.</p>
+    <div class="avisv">
+      <ul class="avisv-pieces">
+        <li><label><input type="checkbox" data-piece="mes relevés de visite" data-manque="Sans visite, pas d'avis de valeur sérieux."><span>Vos relevés de visite</span></label></li>
+        <li><label><input type="checkbox" data-piece="les ventes comparables du quartier" data-manque="Sans ventes réelles, le prix n'est qu'une opinion."><span>Les ventes comparables du quartier</span></label></li>
+        <li><label><input type="checkbox" data-piece="les biens concurrents en vente" data-manque="Le vendeur compare déjà son bien à ceux-là. Autant le faire avec lui."><span>Les biens concurrents en vente</span></label></li>
+        <li><label><input type="checkbox" data-piece="les biens retirés de la vente" data-manque="Ils montrent à quel prix le marché a dit non."><span>Les biens retirés de la vente</span></label></li>
+        <li><label><input type="checkbox" data-piece="le DPE" data-manque="La classe énergie pèse sur le prix et sur la location."><span>Le DPE</span></label></li>
+        <li><label><input type="checkbox" data-piece="les travaux chiffrés" data-manque="Sans chiffre, l'acquéreur imagine le pire et négocie d'autant."><span>Les travaux chiffrés <em>2&nbsp;h → 25&nbsp;min avec la méthode</em></span></label></li>
+        <li><label><input type="checkbox" data-piece="le dossier de copropriété résumé" data-manque="Trois ans de procès-verbaux que personne ne lira en entier."><span>Le dossier de copropriété résumé <em>2&nbsp;h → 15&nbsp;min par famille de documents</em></span></label></li>
+        <li><label><input type="checkbox" data-piece="la valeur perçue par le vendeur" data-manque="Tant que son chiffre n'est pas sur la table, il ne bougera pas."><span>La valeur perçue par le vendeur</span></label></li>
+      </ul>
+      <div class="avisv-scene" hidden>
+        <div class="avisv-pile" aria-hidden="true"></div>
+        <p class="avisv-compte" aria-live="polite"></p>
+        <p class="avisv-verdict"></p>
+        <ul class="avisv-manques"></ul>
+      </div>
+    </div>
+    <p class="freins-note">Les pièces cochées complètent le prompt plus bas. Le prix reste le vôtre&nbsp;: l'IA aide à l'expliquer, pas à le fixer.</p></div>
+  </div>
+  <div class="bloc b-cas">
     <h2>Le cas en agence</h2><div class="corps">
     <p>Un vendeur vous reçoit avec un prix en tête, souvent trop haut. Si vous arrivez avec un simple chiffre, vous entrez dans une enchère avec les autres agences. Si vous arrivez avec une analyse claire du marché, vous devenez celui qui conseille.</p></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-methode">
     <h2>La méthode classique, boostée à l'IA</h2><div class="corps">
     <ol class="points numerotes">
       <li><strong>Visiter et relever.</strong> Rien ne remplace la visite&nbsp;: état, exposition, nuisances, travaux à prévoir. Vous dictez vos observations à l'IA au lieu de les retaper le soir.</li>
@@ -80,7 +103,7 @@
     </ol>
     <figure class="capture"><img src="/img/acm-analyse-prix.webp" width="1100" height="648" loading="lazy" alt="L&#x27;analyse des prix présentée au vendeur : sa valeur perçue, le prix des concurrents, l&#x27;analyse du conseiller et les prix affichés sur une ligne."><figcaption>Academia ACM · l&#x27;analyse des prix présentée au vendeur</figcaption></figure></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-gains">
     <h2>Ce que vous gagnez</h2><div class="corps">
     <ul class="points">
       <li><strong>Un avis de valeur argumenté</strong> au lieu d'un chiffre seul, qui défend le prix par le marché.</li>
@@ -88,15 +111,15 @@
       <li><strong>Un vendeur qui comprend</strong> pourquoi le prix est juste, et qui revient vers vous.</li>
     </ul></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-prompt">
     <h2>Prompt gratuit : l'avis de valeur argumenté</h2><div class="corps">
     <p>Copiez ce prompt dans ChatGPT ou Claude, remplacez les zones entre crochets, et relisez toujours le résultat avant de l'utiliser.</p>
     <pre class="prompt-bloc">Rôle : tu es un conseiller immobilier qui prépare un avis de valeur pour un vendeur.
-Contexte : bien = [TYPE, SURFACE, PIÈCES, ÉTAGE, EXTÉRIEUR, DPE]. Mes relevés de visite : [POINTS FORTS / POINTS FAIBLES / TRAVAUX]. Biens comparables : [3 À 5 BIENS : SURFACE, PRIX, VENDU OU EN VENTE, DÉLAI].
+Contexte : bien = [TYPE, SURFACE, PIÈCES, ÉTAGE, EXTÉRIEUR, DPE]. Mes relevés de visite : [POINTS FORTS / POINTS FAIBLES / TRAVAUX]. Biens comparables : [3 À 5 BIENS : SURFACE, PRIX, VENDU OU EN VENTE, DÉLAI]. Les pièces de mon dossier : [PIÈCES DU DOSSIER].
 Tâche : rédige un avis de valeur clair. Explique comment chaque comparable justifie la fourchette, sans jargon. Propose une stratégie de prix et ce qui se passe si le prix est trop haut.
 Format : 1. Le bien en 3 lignes. 2. Le marché en 5 lignes. 3. La fourchette argumentée. 4. La stratégie conseillée.</pre></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-erreurs">
     <h2>Erreurs fréquentes et règles à respecter</h2><div class="corps">
     <ul class="points">
       <li><strong>Laisser l'IA fixer le prix.</strong> ChatGPT n'a pas accès à vos ventes réelles et peut inventer des références. Le prix vient de vos comparables, l'IA aide à l'expliquer.</li>
