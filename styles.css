@@ -1614,3 +1614,39 @@ p { text-wrap: pretty; }
 .texte-page .bloc.b-agence .semaine-programme li { display: grid; grid-template-columns: 14rem 1fr; gap: 6px 20px; padding: 14px 0; border-top: 1px solid rgb(185 205 255 / .2); color: rgb(255 255 255 / .78); }
 @media (max-width: 900px) { .texte-page .bloc.b-agence .semaine-programme li { grid-template-columns: 1fr; } }
 @media (max-width: 420px) { .agence-poste { padding: 14px; } .agence-poste button { width: 38px; height: 38px; } }
+
+/* ---------- Accueil, chaîne des 8 étapes : poignée « Avant / Avec l'IA » (chaine.js) ---------- */
+.maillon.coupe { --coupe: 62%; }
+.coupe-avant { position: absolute; inset: 0; overflow: hidden; clip-path: inset(0 calc(100% - var(--coupe)) 0 0); filter: grayscale(1) brightness(.5) contrast(.95); }
+.coupe-avant > img, .coupe-avant > svg { position: absolute; }
+.maillon .visuel .coupe-avant img { width: 100%; height: 100%; object-fit: cover; }
+.maillon .graphique .coupe-avant { background: inherit; }
+.maillon.coupe .texte { z-index: 4; }
+.coupe-poignee { position: absolute; z-index: 3; left: var(--coupe); top: 0; bottom: 0; width: 44px; margin-left: -22px; padding: 0; border: 0; background: none; cursor: ew-resize; touch-action: none; }
+.coupe-poignee::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: linear-gradient(180deg, transparent, #fff 18%, #fff 82%, transparent); box-shadow: 0 0 18px rgb(254 85 0 / .9); }
+.coupe-poignee span { position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 8px rgb(254 85 0 / .22), 0 14px 34px rgb(0 0 0 / .5); transition: transform .25s var(--sortie); }
+.coupe-poignee span::before, .coupe-poignee span::after { content: ""; position: absolute; top: 50%; width: 9px; height: 9px; margin-top: -5px; border-top: 2px solid #1a0d05; border-left: 2px solid #1a0d05; }
+.coupe-poignee span::before { left: 14px; transform: rotate(-45deg); }
+.coupe-poignee span::after { right: 14px; transform: rotate(135deg); }
+.coupe-poignee:focus-visible { outline: none; }
+.coupe-poignee:focus-visible span { box-shadow: 0 0 0 4px #fff, 0 14px 34px rgb(0 0 0 / .5); }
+.maillon.tire .coupe-poignee span { transform: scale(1.12); }
+.coupe-nom { position: absolute; z-index: 2; top: clamp(96px, 14vh, 150px); padding: 7px 14px; border-radius: 999px; font: .8125rem var(--mono); pointer-events: none; transition: opacity .3s; }
+.coupe-nom-avant { right: calc(100% - var(--coupe) + 40px); background: rgb(11 16 51 / .7); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .35); color: #fff; }
+.coupe-nom-ia { left: calc(var(--coupe) + 40px); background: var(--orange); color: #1a0d05; }
+.maillon[data-cote="ia"] .coupe-nom-avant, .maillon[data-cote="avant"] .coupe-nom-ia { opacity: 0; }
+.maillon.coupe dl dt, .maillon.coupe dl dd, .maillon.coupe .preuve { transition: opacity .35s, color .35s; }
+.maillon[data-cote="avant"] dl > :nth-child(n+3), .maillon[data-cote="avant"] .preuve { opacity: .32; }
+.maillon[data-cote="ia"] dl > :nth-child(-n+2) { opacity: .32; }
+.maillon[data-cote="ia"] dl > dd:last-child { color: #fff; }
+@media (hover: hover) { .coupe-poignee:hover span { transform: scale(1.08); } }
+@media (max-width: 771px) {
+  .coupe-nom { top: 84px; }
+  .coupe-poignee span { width: 48px; height: 48px; margin: -24px 0 0 -24px; }
+  .coupe-poignee span::before { left: 11px; } .coupe-poignee span::after { right: 11px; }
+  .coupe-poignee::before { bottom: 96px; }
+}
+@media (prefers-reduced-motion: reduce) { .coupe-poignee span, .coupe-nom, .maillon.coupe dl dt, .maillon.coupe dl dd, .maillon.coupe .preuve { transition: none; } }
+
+/* « Pour qui » réduit au rappel loi ALUR (les profils sont portés par les portes) */
+.pourqui.pourqui-alur { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
