@@ -595,7 +595,6 @@
         points.forEach((c, i) => { c.classList.toggle('ici', i === k); c.classList.toggle('fait', i < k); });
         lignes.forEach((l, i) => l.classList.toggle('ici', i === k));
       }
-      maillons[k].style.setProperty('--q', (p - k).toFixed(3));
     }
     barre.classList.toggle('visible', y > innerHeight * 1.5 && final.getBoundingClientRect().top > innerHeight);
   };
