@@ -26,10 +26,12 @@ ETAPES = [('ia-prospection-immobiliere/', 'Prospection'), ('ia-estimation-immobi
           ('ia-annonce-immobiliere/', 'Annonce'), ('ia-decouverte-acquereur/', 'Acquéreur'), ('ia-visite-immobiliere/', 'Visite'), ('ia-negociation-immobiliere/', 'Négociation')]
 ETAPES_PILOTES = {c for c, _ in ETAPES}
 PILOTES |= ETAPES_PILOTES
+PILOTES.add('formation-loi-alur/')
+SCRIPTS_PAGE['formation-loi-alur/'] = ['gestes.js']
 SCRIPTS_PAGE['ia-mandat-exclusif/'] = ['freins.js']
 SCRIPTS_PAGE.update({'ia-decouverte-acquereur/': ['freins.js'], 'ia-visite-immobiliere/': ['gestes.js'], 'ia-negociation-immobiliere/': ['gestes.js'], 'ia-prospection-immobiliere/': ['gestes.js'], 'ia-estimation-immobiliere/': ['gestes.js'], 'ia-annonce-immobiliere/': ['gestes.js']})
 VARIANTES.insert(0, ('Le vendeur hésite', 'b-plan b-freins'))
-VARIANTES[:0] = [("L'acquéreur vous donne une liste", 'b-plan b-freins b-souhaits'), ('La visite est finie', 'b-plan b-geste b-visite'), ('Une offre arrive sous le prix', 'b-plan b-geste b-offre'), ('Un signal dans votre rue', 'b-plan b-geste b-signaux'), ('Que contient votre avis de valeur', 'b-plan b-geste b-dossier'), ('Votre annonce est-elle complète', 'b-plan b-geste b-mentions')]
+VARIANTES[:0] = [('Où en êtes-vous de vos 42', 'b-plan b-geste b-alur'), ("L'acquéreur vous donne une liste", 'b-plan b-freins b-souhaits'), ('La visite est finie', 'b-plan b-geste b-visite'), ('Une offre arrive sous le prix', 'b-plan b-geste b-offre'), ('Un signal dans votre rue', 'b-plan b-geste b-signaux'), ('Que contient votre avis de valeur', 'b-plan b-geste b-dossier'), ('Votre annonce est-elle complète', 'b-plan b-geste b-mentions')]
 
 
 def rail(chemin):

@@ -397,10 +397,28 @@ ecrire('formation-immobilier-nice/',
 # ---------------------------------------------------------------- 5. Loi ALUR (enrichie, audit du 7 nov. 2026)
 ecrire('formation-loi-alur/',
  'Formation loi ALUR à Nice et à distance | Start Academia',
- 'Formation loi ALUR à Nice, dans le 06 ou à distance : 14 h par an, déontologie, non-discrimination. Agents et mandataires, dès 42 €/h, certifié Qualiopi.',
+ 'Formation loi ALUR à Nice, dans le 06 ou à distance : 14 h par an, déontologie, non-discrimination. Agents et mandataires, dès 42 € HT/h, certifié Qualiopi.',
  'Formation loi ALUR pour les agents immobiliers, à Nice et à distance.',
  "Validez vos heures de formation continue obligatoires avec des formations utiles dès le lendemain, sur votre métier et vos vrais dossiers. En agence sur la Côte d'Azur ou à distance, partout en France.",
  '''  <div class="bloc">
+    <h2>Où en êtes-vous de vos 42&nbsp;heures&nbsp;?</h2>
+    <p class="plan-intro">La loi demande 42 heures de formation continue sur 3 ans, dont 2 heures de déontologie et 2 heures sur la non-discrimination. Réglez ce que vous avez déjà fait&nbsp;: ce qui reste s'affiche.</p>
+    <div class="alur">
+      <div class="alur-saisie">
+        <p class="plan-champ"><label for="al-h">Heures déjà suivies sur vos 3 ans <strong id="al-hv">0&nbsp;h</strong></label><input id="al-h" type="range" min="0" max="42" step="1" value="0"></p>
+        <fieldset class="puces"><legend>Déjà faites sur ces 3 ans</legend><label><input type="checkbox" id="al-deo"><span>2 h de déontologie</span></label><label><input type="checkbox" id="al-dis"><span>2 h de non-discrimination</span></label></fieldset>
+        <fieldset class="puces"><legend>Votre renouvellement arrive dans</legend><label><input type="radio" name="al-quand" value="3"><span>Plus de 2 ans</span></label><label><input type="radio" name="al-quand" value="2"><span>1 à 2 ans</span></label><label><input type="radio" name="al-quand" value="1"><span>Moins d'un an</span></label></fieldset>
+      </div>
+      <div class="alur-scene" hidden>
+        <div class="offre-barre" aria-hidden="true"><i class="offre-pleine"></i><i class="offre-vide"></i></div>
+        <p class="alur-reste" aria-live="polite"></p>
+        <p class="alur-texte"></p>
+        <p class="alur-suite"><a class="lien-texte" href="/formations/#non-discrimination-tracfin-et-deontologie">Le module Non-discrimination, Tracfin et déontologie (8&nbsp;h)</a> <a class="lien-texte alur-finance" href="/financement-formation-immobilier/#simulateur" data-suivi="alur-financement">Voir mon financement</a></p>
+      </div>
+    </div>
+    <p class="freins-note">Repère indicatif, calculé sur ce que vous indiquez (décret n°&nbsp;2016-173 du 18 février 2016, complété par le décret n°&nbsp;2020-1259 du 14 octobre 2020). Le décompte qui fait foi est celui de vos attestations, au renouvellement de votre carte ou de votre habilitation.</p>
+  </div>
+  <div class="bloc">
     <h2>Ce que la loi vous demande</h2>
     <p>Depuis la loi ALUR du 24 mars 2014, les professionnels de l'immobilier doivent suivre une formation continue. Son contenu est fixé par le décret n°&nbsp;2016-173 du 18 février 2016, complété par le décret n°&nbsp;2020-1259 du 14 octobre 2020.</p>
     <ul class="points">

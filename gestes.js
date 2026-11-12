@@ -157,4 +157,37 @@
     bloc.addEventListener('input', maj); bloc.addEventListener('change', maj);
     bloc.classList.add('geste-actif'); maj();
   })();
+
+  /* ---- Loi ALUR : où en êtes-vous de vos 42 heures ---- */
+  (function () {
+    var bloc = document.querySelector('.b-alur'); if (!bloc) return;
+    var TOTAL = 42, c = bloc.querySelector('#al-h'), hv = bloc.querySelector('#al-hv'), deo = bloc.querySelector('#al-deo'), dis = bloc.querySelector('#al-dis');
+    var scene = bloc.querySelector('.alur-scene'), barre = bloc.querySelector('.offre-barre'), reste = bloc.querySelector('.alur-reste'), texte = bloc.querySelector('.alur-texte'), fin = bloc.querySelector('.alur-finance');
+    var envoye = false;
+    function maj() {
+      var fait = parseInt(c.value, 10) || 0, r = TOTAL - fait, manque = [];
+      if (!deo.checked) manque.push('2 h de déontologie');
+      if (!dis.checked) manque.push('2 h de non-discrimination');
+      var themes = manque.join(' et '), q = (bloc.querySelector('input[name="al-quand"]:checked') || {}).value;
+      hv.textContent = fait + ' h';
+      barre.style.setProperty('--part', Math.max(r > 0 ? 3 : 100, fait / TOTAL * 100) + '%');
+      barre.classList.toggle('plein', r <= 0);
+      var aFaire = r > 0 ? r : manque.length * 2;
+      reste.innerHTML = aFaire === 0 ? '<strong>À jour</strong> vos 42 heures et les deux thèmes obligatoires sont faits' : '<strong>' + aFaire + ' h</strong> ' + (r > 0 ? 'restantes sur 42' : 'de thèmes obligatoires à ajouter');
+      var t;
+      if (aFaire === 0) t = 'Gardez vos attestations : elles vous seront demandées au renouvellement.';
+      else if (r <= 0) t = 'Vos 42 heures sont faites, mais il manque ' + themes + '. Ces thèmes sont obligatoires sur la période.';
+      else {
+        t = 'Il vous reste ' + r + ' heures à suivre' + (themes ? ', dont ' + themes : '') + '.';
+        if (q === '1') t += ' À planifier dans l’année, sans attendre le dernier trimestre.';
+        else if (q) t += q === '3' ? ' Vous pouvez les étaler d\u2019ici le renouvellement.' : ' À répartir sur les deux prochaines années.';
+      }
+      texte.textContent = t;
+      fin.hidden = aFaire < 4;
+      fin.textContent = 'Voir mon financement pour ces ' + aFaire + ' heures';
+      fin.setAttribute('href', '/financement-formation-immobilier/?heures=' + aFaire + '#simulateur');
+    }
+    bloc.addEventListener('input', function () { maj(); if (!envoye) { envoye = true; mesure('heures_alur', { page: location.pathname }); } });
+    scene.hidden = false; bloc.classList.add('geste-actif'); maj();
+  })();
 })();
