@@ -25,6 +25,7 @@
 <link rel="stylesheet" href="/styles.css">
 <script src="/suivi.js" defer></script>
 <script src="/copier.js" defer></script>
+<script src="/plan-reseau.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://www.start-academia.fr/formation-ia-reseau-mandataires/", "url": "https://www.start-academia.fr/formation-ia-reseau-mandataires/", "name": "Formation IA pour réseaux de mandataires immobiliers", "description": "Formation IA pour réseaux de mandataires immobiliers : diagnostic par mandataire, groupes de niveau, à distance ou sur place, outils inclus. Certifié Qualiopi.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://www.start-academia.fr/#site"}, "about": {"@id": "https://www.start-academia.fr/#organisation"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "La formation peut-elle se faire entièrement à distance ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Les sessions peuvent avoir lieu en visio, en présentiel, ou en combinant les deux, selon l'implantation de vos mandataires."}}, {"@type": "Question", "name": "Nos mandataires n'ont pas tous le même niveau. Comment faites-vous ?", "acceptedAnswer": {"@type": "Answer", "text": "Chacun fait d'abord son diagnostic avec Academia Parcours. Nous constituons ensuite des groupes de niveau, avec une version débutant et une version avancée du programme."}}, {"@type": "Question", "name": "Qui finance la formation ?", "acceptedAnswer": {"@type": "Answer", "text": "Soit le réseau, dans le cadre d'un partenariat, soit chaque mandataire par son fonds d'assurance formation (AGEFICE, FIF PL selon son statut). Nous montons les dossiers avec vous. La formation n'est pas éligible au CPF à ce jour."}}, {"@type": "Question", "name": "Les outils restent-ils accessibles après la formation ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Les outils maison utilisés pendant la formation restent accessibles ensuite. Les conditions sont précisées dans le devis."}}, {"@type": "Question", "name": "Combien coûte la formation ?", "acceptedAnswer": {"@type": "Answer", "text": "À partir de 42 € de l'heure. Le devis dépend du nombre de mandataires, du format et de la durée : il est établi après l'appel découverte."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.start-academia.fr/"}, {"@type": "ListItem", "position": 2, "name": "Formation IA pour réseaux de mandataires immobiliers", "item": "https://www.start-academia.fr/formation-ia-reseau-mandataires/"}]}, {"@type": "Course", "name": "Formation IA pour réseaux de mandataires immobiliers", "description": "Déployer l'IA dans un réseau de mandataires immobiliers : diagnostic par mandataire, groupes de niveau, outils fournis et cadre d'usage commun.", "provider": {"@id": "https://www.start-academia.fr/#organisation"}, "inLanguage": "fr", "hasCourseInstance": [{"@type": "CourseInstance", "courseMode": "Onsite", "location": "Alpes-Maritimes, France"}, {"@type": "CourseInstance", "courseMode": "Online"}], "offers": {"@type": "Offer", "category": "Paid", "availability": "https://schema.org/InStock"}}]}</script>
 </head>
@@ -64,6 +65,61 @@
   </div>
 </section>
 <section class="clair texte-page">
+  <div class="bloc b-plan">
+    <h2>Construisez votre plan de déploiement</h2><div class="corps">
+    <div class="plan-reseau">
+      <p class="plan-intro">Réglez les quatre curseurs&nbsp;: votre réseau se répartit en groupes de niveau et votre plan s'écrit en dessous.</p>
+      <div class="plan-scene">
+        <form class="plan-reglages" onsubmit="return false">
+          <div class="plan-champ">
+            <label for="plan-n">Votre réseau</label>
+            <output class="plan-val plan-val-n" for="plan-n">120 mandataires</output>
+            <input id="plan-n" type="range" min="10" max="1000" step="10" value="120">
+          </div>
+          <div class="plan-champ">
+            <label for="plan-deb">Part de débutants en IA</label>
+            <output class="plan-val plan-val-deb" for="plan-deb">72 débutants · 48 déjà utilisateurs</output>
+            <input id="plan-deb" type="range" min="0" max="100" step="10" value="60">
+          </div>
+          <div class="plan-champ">
+            <label for="plan-h">Durée du parcours</label>
+            <output class="plan-val plan-val-h" for="plan-h">16 h par mandataire</output>
+            <input id="plan-h" type="range" min="4" max="32" step="4" value="16">
+          </div>
+          <div class="plan-champ">
+            <span class="plan-label" id="plan-format-l">Format des sessions</span>
+            <div class="plan-format" role="group" aria-labelledby="plan-format-l">
+              <button type="button" data-format="visio" aria-pressed="true">Visio</button>
+              <button type="button" data-format="presentiel" aria-pressed="false">Présentiel</button>
+              <button type="button" data-format="mixte" aria-pressed="false">Les deux</button>
+            </div>
+          </div>
+        </form>
+        <div class="plan-vue">
+          <canvas class="plan-toile" aria-hidden="true"></canvas>
+          <p class="plan-legende"><span class="pl-deb">Débutants</span><span class="pl-av">Déjà utilisateurs</span><span class="pl-session">Une session, 50 au plus</span><span class="plan-echelle">1 point = 1 mandataire</span></p>
+        </div>
+      </div>
+      <div class="plan-resultat" aria-live="polite">
+        <div class="plan-chiffres">
+          <p><strong id="pt-groupes">3</strong><span id="pt-groupes-l">groupes de niveau</span></p>
+          <p><strong id="pt-h">16&nbsp;h</strong><span>par mandataire</span></p>
+          <p><strong id="pt-format">Visio</strong><span>format des sessions</span></p>
+        </div>
+        <ol class="plan-etapes">
+          <li><strong>Diagnostic</strong><span id="pe-1">Les 120 mandataires font leur diagnostic avec Academia Parcours&nbsp;: vous savez qui débute et qui est avancé.</span></li>
+          <li><strong>Groupes</strong><span id="pe-2">2 groupes débutants et 1 groupe avancé, 50 mandataires au plus par session.</span></li>
+          <li><strong>Sessions</strong><span id="pe-3">16 h par mandataire, en visio. Les heures comptent pour la loi ALUR.</span></li>
+          <li><strong>Outils et cadre</strong><span>Nos outils maison remis à chaque mandataire, et une charte d'usage de l'IA commune au réseau.</span></li>
+        </ol>
+        <div class="plan-actions">
+          <a class="action plan-appel" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Recevoir mon devis&nbsp;: réserver l'appel<svg aria-hidden="true"><use href="#fleche"/></svg></a>
+          <button type="button" class="plan-copier" hidden>Copier mon plan</button>
+          <span class="plan-note">Devis établi après l'appel découverte de 30 minutes.</span>
+        </div>
+      </div>
+    </div></div>
+  </div>
   <div class="bloc b-cas">
     <h2>Le cas en réseau</h2><div class="corps">
     <p>Un réseau réunit des mandataires qui démarrent et d'autres qui signent depuis dix ans. Certains rédigent déjà leurs annonces avec ChatGPT, d'autres n'ont jamais ouvert l'outil, et quelques-uns y collent les coordonnées de leurs vendeurs. L'animateur n'a ni le temps ni le support pour remettre tout le monde au même niveau. Il lui faut un programme commun, découpé par niveau, que chaque mandataire applique dès le lendemain sur ses propres dossiers.</p></div>

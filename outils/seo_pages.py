@@ -920,6 +920,61 @@ ecrire('formation-ia-reseau-mandataires/',
  "Formation IA pour réseaux de mandataires immobiliers.",
  "Vos mandataires testent déjà l'IA, chacun dans son coin et avec des résultats inégaux. Nous déployons une formation concrète dans tout le réseau&nbsp;: mêmes méthodes, mêmes outils, un cadre conforme, et un parcours adapté au niveau de chacun.",
  '''  <div class="bloc">
+    <h2>Construisez votre plan de déploiement</h2>
+    <div class="plan-reseau">
+      <p class="plan-intro">Réglez les quatre curseurs&nbsp;: votre réseau se répartit en groupes de niveau et votre plan s'écrit en dessous.</p>
+      <div class="plan-scene">
+        <form class="plan-reglages" onsubmit="return false">
+          <div class="plan-champ">
+            <label for="plan-n">Votre réseau</label>
+            <output class="plan-val plan-val-n" for="plan-n">120 mandataires</output>
+            <input id="plan-n" type="range" min="10" max="1000" step="10" value="120">
+          </div>
+          <div class="plan-champ">
+            <label for="plan-deb">Part de débutants en IA</label>
+            <output class="plan-val plan-val-deb" for="plan-deb">72 débutants · 48 déjà utilisateurs</output>
+            <input id="plan-deb" type="range" min="0" max="100" step="10" value="60">
+          </div>
+          <div class="plan-champ">
+            <label for="plan-h">Durée du parcours</label>
+            <output class="plan-val plan-val-h" for="plan-h">16 h par mandataire</output>
+            <input id="plan-h" type="range" min="4" max="32" step="4" value="16">
+          </div>
+          <div class="plan-champ">
+            <span class="plan-label" id="plan-format-l">Format des sessions</span>
+            <div class="plan-format" role="group" aria-labelledby="plan-format-l">
+              <button type="button" data-format="visio" aria-pressed="true">Visio</button>
+              <button type="button" data-format="presentiel" aria-pressed="false">Présentiel</button>
+              <button type="button" data-format="mixte" aria-pressed="false">Les deux</button>
+            </div>
+          </div>
+        </form>
+        <div class="plan-vue">
+          <canvas class="plan-toile" aria-hidden="true"></canvas>
+          <p class="plan-legende"><span class="pl-deb">Débutants</span><span class="pl-av">Déjà utilisateurs</span><span class="pl-session">Une session, 50 au plus</span><span class="plan-echelle">1 point = 1 mandataire</span></p>
+        </div>
+      </div>
+      <div class="plan-resultat" aria-live="polite">
+        <div class="plan-chiffres">
+          <p><strong id="pt-groupes">3</strong><span id="pt-groupes-l">groupes de niveau</span></p>
+          <p><strong id="pt-h">16&nbsp;h</strong><span>par mandataire</span></p>
+          <p><strong id="pt-format">Visio</strong><span>format des sessions</span></p>
+        </div>
+        <ol class="plan-etapes">
+          <li><strong>Diagnostic</strong><span id="pe-1">Les 120 mandataires font leur diagnostic avec Academia Parcours&nbsp;: vous savez qui débute et qui est avancé.</span></li>
+          <li><strong>Groupes</strong><span id="pe-2">2 groupes débutants et 1 groupe avancé, 50 mandataires au plus par session.</span></li>
+          <li><strong>Sessions</strong><span id="pe-3">16 h par mandataire, en visio. Les heures comptent pour la loi ALUR.</span></li>
+          <li><strong>Outils et cadre</strong><span>Nos outils maison remis à chaque mandataire, et une charte d'usage de l'IA commune au réseau.</span></li>
+        </ol>
+        <div class="plan-actions">
+          <a class="action plan-appel" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Recevoir mon devis&nbsp;: réserver l'appel<svg aria-hidden="true"><use href="#fleche"/></svg></a>
+          <button type="button" class="plan-copier" hidden>Copier mon plan</button>
+          <span class="plan-note">Devis établi après l'appel découverte de 30 minutes.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bloc">
     <h2>Le cas en réseau</h2>
     <p>Un réseau réunit des mandataires qui démarrent et d'autres qui signent depuis dix ans. Certains rédigent déjà leurs annonces avec ChatGPT, d'autres n'ont jamais ouvert l'outil, et quelques-uns y collent les coordonnées de leurs vendeurs. L'animateur n'a ni le temps ni le support pour remettre tout le monde au même niveau. Il lui faut un programme commun, découpé par niveau, que chaque mandataire applique dès le lendemain sur ses propres dossiers.</p>
   </div>
