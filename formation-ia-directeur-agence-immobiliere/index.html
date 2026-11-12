@@ -24,8 +24,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script src="/suivi.js" defer></script>
-
-
+<script src="/copier.js" defer></script>
+<script src="/agence.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://www.start-academia.fr/formation-ia-directeur-agence-immobiliere/", "url": "https://www.start-academia.fr/formation-ia-directeur-agence-immobiliere/", "name": "Formation IA pour directeurs et managers d'agence immobilière", "description": "Formation IA pour directeurs et managers d'agence immobilière : pilotage, entretiens individuels, recrutement, déploiement de l'IA dans l'équipe. Dès 42 €/h.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://www.start-academia.fr/#site"}, "about": {"@id": "https://www.start-academia.fr/#organisation"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Cette formation est-elle réservée aux directeurs ?", "acceptedAnswer": {"@type": "Answer", "text": "Elle s'adresse aux directeurs, managers, responsables d'équipe et animateurs de réseau de mandataires, c'est-à-dire à toute personne qui accompagne des conseillers."}}, {"@type": "Question", "name": "Faut-il déjà utiliser l'IA ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. La formation existe en version débutant et en version avancée. Le but est de piloter l'agence et d'encadrer les usages, pas de devenir technicien."}}, {"@type": "Question", "name": "Peut-on former toute l'équipe ensuite ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Nous construisons un plan de formation par poste et formons vos conseillers dans l'agence ou à distance."}}, {"@type": "Question", "name": "Combien coûte la formation ?", "acceptedAnswer": {"@type": "Answer", "text": "À partir de 42 € de l'heure, finançable par l'OPCO de l'agence ou par le fonds d'assurance formation du dirigeant (AGEFICE, FIF PL). Le devis précis est établi après l'appel découverte."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.start-academia.fr/"}, {"@type": "ListItem", "position": 2, "name": "Formation IA pour directeurs et managers d'agence immobilière", "item": "https://www.start-academia.fr/formation-ia-directeur-agence-immobiliere/"}]}, {"@type": "Course", "name": "Formation IA pour directeurs et managers d'agence immobilière", "description": "Piloter une agence immobilière avec l'IA : indicateurs, entretiens individuels, recrutement et déploiement de l'IA dans l'équipe.", "provider": {"@id": "https://www.start-academia.fr/#organisation"}, "inLanguage": "fr", "hasCourseInstance": [{"@type": "CourseInstance", "courseMode": "Onsite", "location": "Alpes-Maritimes, France"}, {"@type": "CourseInstance", "courseMode": "Online"}], "offers": {"@type": "Offer", "category": "Paid", "availability": "https://schema.org/InStock"}}]}</script>
 </head>
@@ -65,11 +65,58 @@
   </div>
 </section>
 <section class="clair texte-page">
-  <div class="bloc">
+  <div class="bloc b-plan b-agence">
+    <h2>Le rythme de votre agence</h2><div class="corps">
+    <div class="agence">
+      <p class="plan-intro">Composez votre équipe et choisissez la fréquence de vos entretiens. Votre agence se dessine, votre mois de pilotage s'écrit en dessous.</p>
+      <div class="plan-scene">
+        <div class="agence-reglages">
+          <div class="agence-postes">
+            <div class="agence-poste" data-poste="conseillers" data-max="40"><span class="tr-label">Conseillers</span><button type="button" aria-label="Un de moins">−</button><output>6</output><button type="button" aria-label="Un de plus">+</button></div>
+            <div class="agence-poste" data-poste="assistantes" data-max="10"><span class="tr-label">Assistantes</span><button type="button" aria-label="Un de moins">−</button><output>1</output><button type="button" aria-label="Un de plus">+</button></div>
+            <div class="agence-poste" data-poste="managers" data-max="10"><span class="tr-label">Managers</span><button type="button" aria-label="Un de moins">−</button><output>1</output><button type="button" aria-label="Un de plus">+</button></div>
+            <div class="agence-poste agence-vous"><span class="tr-label">Directeur</span><output>Vous</output></div>
+          </div>
+          <div class="plan-champ">
+            <span class="plan-label" id="agence-freq-l">Vos entretiens individuels</span>
+            <div class="plan-format agence-freq" role="group" aria-labelledby="agence-freq-l">
+              <button type="button" data-freq="4" aria-pressed="false">Chaque semaine</button>
+              <button type="button" data-freq="2" aria-pressed="false">Tous les quinze jours</button>
+              <button type="button" data-freq="1" aria-pressed="true">Chaque mois</button>
+            </div>
+          </div>
+        </div>
+        <div class="plan-vue">
+          <canvas class="plan-toile agence-toile" aria-hidden="true"></canvas>
+          <p class="plan-legende"><span class="pl-session">Vous</span><span class="pl-av">Managers</span><span class="pl-deb">Conseillers</span><span class="pl-ass">Assistantes</span></p>
+        </div>
+      </div>
+      <div class="plan-resultat" aria-live="polite">
+        <div class="plan-chiffres">
+          <p><strong id="ag-equipe">9</strong><span id="ag-equipe-l">personnes dans l'agence</span></p>
+          <p><strong id="ag-entretiens">8</strong><span id="ag-entretiens-l">entretiens par mois</span></p>
+          <p><strong id="ag-prepa">40&nbsp;min</strong><span>pour les préparer tous</span></p>
+        </div>
+        <ol class="plan-etapes agence-etapes">
+          <li><strong>Le lundi</strong><span>Quinze minutes pour lire l'activité de l'agence et de chaque conseiller&nbsp;: rendez-vous, mandats, exclusivités, ventes.</span></li>
+          <li><strong>La réunion</strong><span>Quarante-cinq minutes au plus, debout, avec un support et une sortie en action.</span></li>
+          <li><strong>Les entretiens</strong><span id="ag-e3">Un entretien chaque mois avec chacun, soit 8 entretiens par mois. Cinq minutes de préparation chacun, à partir des indicateurs du conseiller&nbsp;: 40 min par mois.</span></li>
+          <li><strong>Le cadre</strong><span>Une charte d'usage de l'IA pour toute l'agence&nbsp;: données clients, RGPD, relecture de ce que l'IA produit.</span></li>
+        </ol>
+        <ul class="semaine-programme" id="ag-plan"></ul>
+        <div class="plan-actions">
+          <a class="action agence-appel" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Parler de mon agence&nbsp;: réserver l'appel<svg aria-hidden="true"><use href="#fleche"/></svg></a>
+          <button type="button" class="plan-copier" hidden>Copier mon plan</button>
+          <span class="plan-note">Devis établi après l'appel découverte de 30 minutes.</span>
+        </div>
+      </div>
+    </div></div>
+  </div>
+ <div class="bloc b-cas">
     <h2>Le cas en agence</h2><div class="corps">
     <p>Un directeur passe ses lundis à compiler des chiffres dans trois logiciels, prépare ses entretiens individuels de mémoire, et découvre que deux conseillers collent les coordonnées de vendeurs dans ChatGPT. Il n'a pas besoin d'un outil de plus&nbsp;: il a besoin d'une méthode de pilotage et de règles communes.</p></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-methode">
     <h2>La méthode classique, boostée à l'IA</h2><div class="corps">
     <ol class="points numerotes">
       <li><strong>Piloter avec les bons indicateurs.</strong> Avec <strong>Academia Pilotage</strong>, notre outil maison, vous suivez l'activité de l'agence et de chaque conseiller&nbsp;: rendez-vous, mandats, exclusivités, ventes.</li>
@@ -78,15 +125,15 @@
       <li><strong>Déployer l'IA dans l'équipe.</strong> Une charte d'usage de l'IA pour l'agence (RGPD, données clients, vérification), des prompts partagés, et un plan de formation par poste.</li>
     </ol></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-gains">
     <h2>Ce que vous gagnez</h2><div class="corps">
     <ul class="points">
-      <li><strong>Un point d'activité hebdomadaire prêt</strong>, sans compiler à la main.</li>
-      <li><strong>Des entretiens individuels préparés</strong> à partir de données, avec des objectifs suivis.</li>
-      <li><strong>Une équipe qui utilise l'IA de la même façon</strong>, dans un cadre conforme.</li>
+      <li><strong>Un point d'activité hebdomadaire prêt.</strong> Sans compiler les chiffres à la main.</li>
+      <li><strong>Des entretiens individuels préparés.</strong> À partir de données, avec des objectifs suivis.</li>
+      <li><strong>Une équipe qui utilise l'IA de la même façon.</strong> Dans un cadre conforme.</li>
     </ul></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-prompt">
     <h2>Prompt gratuit : préparer un entretien individuel</h2><div class="corps">
     <p>Copiez ce prompt dans ChatGPT ou Claude, remplacez les zones entre crochets, et relisez toujours le résultat avant de l'utiliser.</p>
     <pre class="prompt-bloc">Rôle : tu es un directeur d'agence immobilière expérimenté qui prépare l'entretien mensuel d'un conseiller.
@@ -94,7 +141,7 @@ Contexte : indicateurs du mois du conseiller [RENDEZ-VOUS VENDEURS, ESTIMATIONS,
 Tâche : prépare-moi un déroulé d'entretien de 30 minutes : ce qui progresse, le point bloquant principal dans la chaîne (prospection, estimation, mandat, visite, offre), 2 actions concrètes pour le mois prochain et la façon de les suivre. Ton bienveillant et exigeant.
 Format : déroulé en 4 temps, puis 5 questions ouvertes à poser au conseiller.</pre></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-erreurs">
     <h2>Erreurs fréquentes et règles à respecter</h2><div class="corps">
     <ul class="points">
       <li><strong>Laisser chacun utiliser l'IA sans cadre.</strong> Sans charte commune, les données clients finissent dans des outils non maîtrisés.</li>

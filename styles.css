@@ -1596,3 +1596,21 @@ p { text-wrap: pretty; }
   .tache-reglages { grid-template-columns: 1fr; padding-left: 16px; }
   .texte-page .bloc.b-semaine .semaine-programme li { grid-template-columns: 1fr; }
 }
+
+/* ---------- Page directeurs : « Le rythme de votre agence » (agence.js) ---------- */
+.agence-reglages { display: grid; gap: clamp(22px, 2.6vw, 34px); }
+.agence-postes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.agence-poste { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 10px; align-items: center; padding: 16px 18px; border-radius: 20px; background: rgb(255 255 255 / .06); box-shadow: inset 0 0 0 1px rgb(185 205 255 / .2); }
+.agence-poste .tr-label { grid-column: 1 / -1; margin-bottom: 4px; }
+.agence-poste button { width: 42px; height: 42px; border: 0; border-radius: 50%; background: rgb(255 255 255 / .1); box-shadow: inset 0 0 0 1px rgb(185 205 255 / .35); color: #fff; font: 500 1.2rem var(--texte); cursor: pointer; }
+.agence-poste button:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+.agence-poste output { text-align: center; font: 500 clamp(1.8rem, 2.8vw, 2.6rem)/1 var(--titre); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.agence-vous { box-shadow: inset 0 0 0 1.5px var(--orange); }
+.agence-vous output { grid-column: 1 / -1; text-align: left; color: #ffb08a; }
+.agence-toile { aspect-ratio: 1; }
+.plan-legende .pl-ass::before { background: #4a5fd6; }
+.agence:not(.actif) .plan-vue { display: none; }
+.agence .semaine-programme { margin-top: clamp(22px, 2.8vw, 40px); }
+.texte-page .bloc.b-agence .semaine-programme li { display: grid; grid-template-columns: 14rem 1fr; gap: 6px 20px; padding: 14px 0; border-top: 1px solid rgb(185 205 255 / .2); color: rgb(255 255 255 / .78); }
+@media (max-width: 900px) { .texte-page .bloc.b-agence .semaine-programme li { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .agence-poste { padding: 14px; } .agence-poste button { width: 38px; height: 38px; } }

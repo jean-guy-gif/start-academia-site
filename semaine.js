@@ -6,7 +6,7 @@
   var racine = document.querySelector('.semaine');
   if (!racine) return;
   var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var ETAPES = { prospection: ['Prospection', '/ia-prospection-immobiliere/'], vendeur: ['Vendeur', '/ia-mandat-exclusif/'], acquereurs: ['Acquéreurs', '/ia-decouverte-acquereur/'] };
+  var ETAPES = { prospection: ['Prospection', '/ia-prospection-immobiliere/'], vendeur: ['Vendeur', '/ia-estimation-immobiliere/'], mandat: ['Mandat', '/ia-mandat-exclusif/'], acquereurs: ['Acquéreurs', '/ia-decouverte-acquereur/'], visites: ['Visites', '/ia-visite-immobiliere/'] };
   function q(s) { return racine.querySelector(s); }
   function el(tag, cls, txt) { var n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; }
   function duree(m) {

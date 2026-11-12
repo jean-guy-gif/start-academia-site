@@ -156,8 +156,15 @@ ecrire('formation-ia-immobilier/',
             <li class="tache"><label><input type="checkbox" data-ia="15" data-etape="vendeur" data-unite="rendez-vous"><span class="tache-nom">Préparer le second rendez-vous et la stratégie</span><em class="tache-ia">15&nbsp;min avec la méthode</em></label></li>
             <li class="tache"><label><input type="checkbox" data-ia="10" data-etape="vendeur" data-unite="bien"><span class="tache-nom">Défendre un prix par le potentiel de rénovation</span><em class="tache-ia">10&nbsp;min avec la méthode</em></label></li>
           </ul></fieldset>
+          <fieldset class="semaine-etape"><legend>Mandat</legend><ul>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="mandat" data-unite="annonce"><span class="tache-nom">Rédiger une annonce</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="mandat" data-unite="point"><span class="tache-nom">Faire le point de suivi avec un vendeur</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+          </ul></fieldset>
           <fieldset class="semaine-etape"><legend>Acquéreurs</legend><ul>
             <li class="tache"><label><input type="checkbox" data-ia="3" data-etape="acquereurs" data-unite="recherche"><span class="tache-nom">Sélectionner des annonces pour un acquéreur</span><em class="tache-ia">3&nbsp;min avec la méthode</em></label></li>
+          </ul></fieldset>
+          <fieldset class="semaine-etape"><legend>Visites</legend><ul>
+            <li class="tache"><label><input type="checkbox" data-ia="1" data-etape="visites" data-unite="compte rendu"><span class="tache-nom">Rédiger un compte rendu de visite</span><em class="tache-ia">1&nbsp;min avec la méthode</em></label></li>
           </ul></fieldset>
         </div>
         <div class="plan-vue semaine-vue">
@@ -176,7 +183,7 @@ ecrire('formation-ia-immobilier/',
         <div class="plan-actions">
           <a class="action semaine-appel" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Réserver mon appel découverte<svg aria-hidden="true"><use href="#fleche"/></svg></a>
           <button type="button" class="plan-copier" hidden>Copier ma semaine</button>
-          <span class="plan-note">Temps en routine tirés de nos livrets tactiques, une fois l'outil en place.</span>
+          <span class="plan-note">Temps en routine annoncés dans nos formations et nos livrets tactiques, une fois l'outil en place.</span>
         </div>
       </div>
     </div>
@@ -919,6 +926,53 @@ ecrire('formation-ia-directeur-agence-immobiliere/',
  "Formation IA pour directeurs et managers d'agence immobilière.",
  "Vos conseillers commencent à utiliser l'IA, chacun à sa façon. Votre rôle&nbsp;: en faire un levier collectif, mesurable et conforme. Cette formation vous donne les outils pour piloter l'activité, accompagner chaque conseiller et déployer l'IA dans toute l'agence.",
  '''  <div class="bloc">
+    <h2>Le rythme de votre agence</h2>
+    <div class="agence">
+      <p class="plan-intro">Composez votre équipe et choisissez la fréquence de vos entretiens. Votre agence se dessine, votre mois de pilotage s'écrit en dessous.</p>
+      <div class="plan-scene">
+        <div class="agence-reglages">
+          <div class="agence-postes">
+            <div class="agence-poste" data-poste="conseillers" data-max="40"><span class="tr-label">Conseillers</span><button type="button" aria-label="Un de moins">−</button><output>6</output><button type="button" aria-label="Un de plus">+</button></div>
+            <div class="agence-poste" data-poste="assistantes" data-max="10"><span class="tr-label">Assistantes</span><button type="button" aria-label="Un de moins">−</button><output>1</output><button type="button" aria-label="Un de plus">+</button></div>
+            <div class="agence-poste" data-poste="managers" data-max="10"><span class="tr-label">Managers</span><button type="button" aria-label="Un de moins">−</button><output>1</output><button type="button" aria-label="Un de plus">+</button></div>
+            <div class="agence-poste agence-vous"><span class="tr-label">Directeur</span><output>Vous</output></div>
+          </div>
+          <div class="plan-champ">
+            <span class="plan-label" id="agence-freq-l">Vos entretiens individuels</span>
+            <div class="plan-format agence-freq" role="group" aria-labelledby="agence-freq-l">
+              <button type="button" data-freq="4" aria-pressed="false">Chaque semaine</button>
+              <button type="button" data-freq="2" aria-pressed="false">Tous les quinze jours</button>
+              <button type="button" data-freq="1" aria-pressed="true">Chaque mois</button>
+            </div>
+          </div>
+        </div>
+        <div class="plan-vue">
+          <canvas class="plan-toile agence-toile" aria-hidden="true"></canvas>
+          <p class="plan-legende"><span class="pl-session">Vous</span><span class="pl-av">Managers</span><span class="pl-deb">Conseillers</span><span class="pl-ass">Assistantes</span></p>
+        </div>
+      </div>
+      <div class="plan-resultat" aria-live="polite">
+        <div class="plan-chiffres">
+          <p><strong id="ag-equipe">9</strong><span id="ag-equipe-l">personnes dans l'agence</span></p>
+          <p><strong id="ag-entretiens">8</strong><span id="ag-entretiens-l">entretiens par mois</span></p>
+          <p><strong id="ag-prepa">40&nbsp;min</strong><span>pour les préparer tous</span></p>
+        </div>
+        <ol class="plan-etapes agence-etapes">
+          <li><strong>Le lundi</strong><span>Quinze minutes pour lire l'activité de l'agence et de chaque conseiller&nbsp;: rendez-vous, mandats, exclusivités, ventes.</span></li>
+          <li><strong>La réunion</strong><span>Quarante-cinq minutes au plus, debout, avec un support et une sortie en action.</span></li>
+          <li><strong>Les entretiens</strong><span id="ag-e3">Un entretien chaque mois avec chacun, soit 8 entretiens par mois. Cinq minutes de préparation chacun, à partir des indicateurs du conseiller&nbsp;: 40 min par mois.</span></li>
+          <li><strong>Le cadre</strong><span>Une charte d'usage de l'IA pour toute l'agence&nbsp;: données clients, RGPD, relecture de ce que l'IA produit.</span></li>
+        </ol>
+        <ul class="semaine-programme" id="ag-plan"></ul>
+        <div class="plan-actions">
+          <a class="action agence-appel" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Parler de mon agence&nbsp;: réserver l'appel<svg aria-hidden="true"><use href="#fleche"/></svg></a>
+          <button type="button" class="plan-copier" hidden>Copier mon plan</button>
+          <span class="plan-note">Devis établi après l'appel découverte de 30 minutes.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div class="bloc">
     <h2>Le cas en agence</h2>
     <p>Un directeur passe ses lundis à compiler des chiffres dans trois logiciels, prépare ses entretiens individuels de mémoire, et découvre que deux conseillers collent les coordonnées de vendeurs dans ChatGPT. Il n'a pas besoin d'un outil de plus&nbsp;: il a besoin d'une méthode de pilotage et de règles communes.</p>
   </div>
@@ -934,9 +988,9 @@ ecrire('formation-ia-directeur-agence-immobiliere/',
   <div class="bloc">
     <h2>Ce que vous gagnez</h2>
     <ul class="points">
-      <li><strong>Un point d'activité hebdomadaire prêt</strong>, sans compiler à la main.</li>
-      <li><strong>Des entretiens individuels préparés</strong> à partir de données, avec des objectifs suivis.</li>
-      <li><strong>Une équipe qui utilise l'IA de la même façon</strong>, dans un cadre conforme.</li>
+      <li><strong>Un point d'activité hebdomadaire prêt.</strong> Sans compiler les chiffres à la main.</li>
+      <li><strong>Des entretiens individuels préparés.</strong> À partir de données, avec des objectifs suivis.</li>
+      <li><strong>Une équipe qui utilise l'IA de la même façon.</strong> Dans un cadre conforme.</li>
     </ul>
   </div>
 ''' + prompt_bloc("Prompt gratuit : préparer un entretien individuel", """Rôle : tu es un directeur d'agence immobilière expérimenté qui prépare l'entretien mensuel d'un conseiller.
