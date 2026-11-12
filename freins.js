@@ -8,8 +8,10 @@
   var compte = bloc.querySelector('.freins-compte');
   var fin = bloc.querySelector('.freins-fin');
   var zone = null, envoye = false;
+  var ul = bloc.querySelector('.freins'), d = function (a, defaut) { return ul.getAttribute('data-' + a) || defaut; };
+  var NOM = d('zone', '[FREINS DU VENDEUR]'), UN = d('un', 'preuve posée'), PLUS = d('plusieurs', 'preuves posées'), SUITE = d('suite', 'sur la table'), EVT = d('evenement', 'freins_mandat');
   [].forEach.call(document.querySelectorAll('.b-prompt pre.prompt-bloc mark'), function (m) {
-    if (m.textContent === '[FREINS DU VENDEUR]') zone = m;
+    if (m.textContent === NOM) zone = m;
   });
 
   function maj() {
@@ -19,12 +21,12 @@
       if (r) { n++; noms.push(c.getAttribute('data-frein')); }
       if (temps[i]) temps[i].classList.toggle('pose', r);
     });
-    if (compte) compte.innerHTML = '<strong>' + n + '<span> / ' + cartes.length + '</span></strong> ' + (n > 1 ? 'preuves posées' : 'preuve posée') + ' sur la table';
+    if (compte) compte.innerHTML = '<strong>' + n + '<span> / ' + cartes.length + '</span></strong> ' + (n > 1 ? PLUS : UN) + ' ' + SUITE;
     if (fin) fin.hidden = n < cartes.length;
-    if (zone) { zone.textContent = noms.length ? noms.join(', ') : '[FREINS DU VENDEUR]'; zone.classList.toggle('rempli', noms.length > 0); }
+    if (zone) { zone.textContent = noms.length ? noms.join(', ') : NOM; zone.classList.toggle('rempli', noms.length > 0); }
     if (n === cartes.length && !envoye) {
       envoye = true;
-      if (window.va) window.va('event', { name: 'freins_mandat', data: { page: location.pathname } });
+      if (window.va) window.va('event', { name: EVT, data: { page: location.pathname } });
     }
   }
 
@@ -37,12 +39,12 @@
     b.setAttribute('aria-controls', verso.id);
     b.setAttribute('aria-expanded', 'false');
     b.innerHTML = '<span class="frein-geste">Retourner</span>';
-    b.setAttribute('aria-label', 'Retourner le frein ' + (dit ? dit.textContent : i + 1));
+    b.setAttribute('aria-label', 'Retourner ' + (dit ? dit.textContent : 'la carte ' + (i + 1)));
     verso.setAttribute('aria-hidden', 'true');
     b.addEventListener('click', function () {
       var r = c.classList.toggle('retournee');
       b.setAttribute('aria-expanded', r ? 'true' : 'false');
-      b.firstChild.textContent = r ? 'Revoir le frein' : 'Retourner';
+      b.firstChild.textContent = r ? 'Revoir la phrase' : 'Retourner';
       verso.setAttribute('aria-hidden', r ? 'false' : 'true');
       recto.setAttribute('aria-hidden', r ? 'true' : 'false');
       maj();

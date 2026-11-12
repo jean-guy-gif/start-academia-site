@@ -1802,3 +1802,43 @@ p { text-wrap: pretty; }
   .geste-actif .mentions-fiche { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) { .feuillet, .balise { transition: none; } }
+
+/* ---------- Lot 3 (fin) : découverte acquéreur, visite, négociation ---------- */
+.texte-page .bloc.b-souhaits .frein-verso h3 { font-size: 1.2rem; line-height: 1.25; color: var(--bleu); }
+.texte-page .bloc.b-souhaits .frein-dit { font-size: clamp(1.35rem, 1.9vw, 1.75rem); }
+.visite-choix, .offre-saisie { display: grid; gap: 18px; }
+.visite-choix fieldset, .offre-saisie fieldset { margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.visite-choix legend, .offre-saisie legend { float: left; width: 100%; margin-bottom: 8px; padding: 0; font: .8125rem var(--mono); color: var(--bleu-p); }
+.visite-choix input, .offre-saisie fieldset input { position: absolute; opacity: 0; pointer-events: none; }
+.visite-choix label span, .offre-saisie fieldset label span { display: inline-flex; align-items: center; min-height: 42px; padding: 0 16px; border-radius: 999px; background: rgb(255 255 255 / .08); box-shadow: inset 0 0 0 1px rgb(185 205 255 / .3); color: #fff; font: 500 .875rem var(--texte); cursor: pointer; transition: background .2s, color .2s; }
+.visite-choix input:checked + span, .offre-saisie fieldset input:checked + span { background: var(--orange); box-shadow: none; color: #1a0d05; }
+.visite-choix input:focus-visible + span, .offre-saisie fieldset input:focus-visible + span { outline: 3px solid #fff; outline-offset: 3px; }
+.geste-actif .visite { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.visite-message { position: sticky; top: 110px; padding: clamp(20px, 2.4vw, 32px); border-radius: 24px; background: #fff; color: var(--nuit); box-shadow: 0 50px 80px -40px rgb(0 0 0 / .8); transform: perspective(1600px) rotateY(-7deg) rotateX(2deg); transform-origin: 0 50%; }
+.texte-page .bloc.b-visite .visite-objet { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid rgb(16 21 58 / .12); font: .8125rem var(--mono); color: var(--bleu); }
+.texte-page .bloc.b-visite .visite-corps p { margin: 0 0 10px; font-size: 1rem; line-height: 1.55; color: var(--nuit); }
+.texte-page .bloc.b-visite .visite-chiffre { margin-top: 16px; padding-top: 12px; border-top: 1px solid rgb(16 21 58 / .12); font: .8125rem/1.4 var(--mono); color: #3d4474; }
+.visite-chiffre strong { display: block; font: 500 1.6rem/1.2 var(--titre); color: var(--bleu); }
+
+.geste-actif .offre { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+.offre-saisie .plan-champ { display: grid; gap: 8px; }
+.offre-saisie .plan-champ input { width: 100%; min-height: 56px; padding: 0 18px; border: 0; border-radius: 16px; background: rgb(255 255 255 / .08); box-shadow: inset 0 0 0 1px rgb(185 205 255 / .35); color: #fff; font: 500 1.5rem var(--titre); }
+.offre-saisie .plan-champ input::placeholder { color: rgb(255 255 255 / .32); }
+.offre-saisie .plan-champ input:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.offre-barre { position: relative; display: flex; height: clamp(90px, 10vw, 130px); border-radius: 18px; overflow: hidden; box-shadow: 0 40px 50px -30px rgb(0 0 0 / .8); transform: perspective(900px) rotateX(38deg); transform-origin: 50% 100%; }
+.offre-pleine { flex: 0 0 var(--part, 90%); background: linear-gradient(90deg, var(--bleu), var(--bleu-m)); transition: flex-basis .6s var(--sortie); }
+.offre-vide { flex: 1; background: repeating-linear-gradient(135deg, var(--orange) 0 10px, #ff7a35 10px 20px); }
+.texte-page .bloc.b-offre .offre-ecart { margin-top: 18px; font: .875rem/1.5 var(--mono); color: var(--bleu-p); }
+.offre-ecart strong { display: block; font: 500 clamp(3rem, 5.4vw, 5rem)/1 var(--titre); color: #fff; }
+.offre-temps { list-style: none; counter-reset: temps; margin: clamp(24px, 3vw, 44px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; }
+.offre-temps li { counter-increment: temps; padding: clamp(20px, 2vw, 28px); border-radius: 22px; background: linear-gradient(160deg, rgb(255 255 255 / .12), rgb(255 255 255 / .04)); box-shadow: inset 0 0 0 1px rgb(185 205 255 / .2); }
+.offre-temps li::before { content: counter(temps); display: grid; place-items: center; width: 28px; height: 28px; margin-bottom: 14px; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--bleu-p); font: .8125rem var(--mono); color: var(--bleu-p); }
+.texte-page .bloc.b-offre .offre-temps h3 { margin: 0 0 8px; font: 500 1.3rem/1.2 var(--titre); color: #fff; }
+.texte-page .bloc.b-offre .offre-temps p { font-size: .9375rem; line-height: 1.55; }
+.texte-page .bloc.b-offre .offre-preuve { margin-top: clamp(20px, 2.4vw, 32px); padding-left: 18px; border-left: 3px solid var(--orange); font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: #fff; max-width: 60ch; }
+.texte-page .bloc.b-offre .offre-preuve strong { font-weight: 600; color: #fff; }
+@media (max-width: 860px) {
+  .geste-actif .visite, .geste-actif .offre { grid-template-columns: 1fr; }
+  .visite-message { position: static; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .offre-pleine { transition: none; } }

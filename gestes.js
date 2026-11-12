@@ -96,4 +96,65 @@
     bloc.addEventListener('change', function () { touche = true; maj(); });
     bloc.classList.add('geste-actif'); maj();
   })();
+
+  /* ---- Visite : le compte rendu au vendeur ---- */
+  (function () {
+    var bloc = document.querySelector('.b-visite'); if (!bloc) return;
+    var msg = bloc.querySelector('.visite-message'), objet = bloc.querySelector('.visite-objet'), corps = bloc.querySelector('.visite-corps');
+    var zp = zone('[POINTS QUI ONT PLU]'), zf = zone('[POINTS QUI FREINENT]'), zs = zone('[SECONDE VISITE / RÉFLEXION / OFFRE POSSIBLE / PAS DE SUITE]');
+    var envoye = false;
+    var T = {
+      fr: { et: ' et ', objet: 'Objet : retour sur la visite de ce jour', bonjour: 'Bonjour, je sors de la visite de votre bien.', plu: 'Ce qui a plu : ', pasPlu: 'Les visiteurs ne se sont pas exprimés sur les points forts.', frein: 'Ce qui freine : ', pasFrein: 'Aucun frein exprimé pendant la visite.',
+        suite: { seconde: 'La suite : ils souhaitent revenir pour une seconde visite. Je vous propose une date dès qu’elle est fixée.', reflexion: 'La suite : ils prennent le temps de la réflexion. Je les rappelle dans deux jours et je vous tiens informé.', offre: 'La suite : une offre est envisagée. Je vous appelle dès que je l’ai par écrit.', rien: 'La suite : ils ne donnent pas suite. Leur retour reste utile, je le garde pour notre prochain point.' } },
+      en: { et: ' and ', objet: 'Subject: feedback on today’s viewing', bonjour: 'Hello, I have just finished the viewing of your property.', plu: 'What they liked: ', pasPlu: 'The visitors did not comment on the strong points.', frein: 'What holds them back: ', pasFrein: 'No concern was raised during the viewing.',
+        suite: { seconde: 'Next step: they would like to come back for a second viewing. I will suggest a date as soon as it is set.', reflexion: 'Next step: they are taking time to think it over. I will call them back in two days and keep you informed.', offre: 'Next step: an offer is being considered. I will call you as soon as I have it in writing.', rien: 'Next step: they will not take it further. Their feedback is still useful and I will keep it for our next review.' } }
+    };
+    var NOMS = { seconde: 'seconde visite', reflexion: 'réflexion', offre: 'offre possible', rien: 'pas de suite' };
+    function liste(nom, langue) { return [].map.call(bloc.querySelectorAll('input[name="' + nom + '"]:checked'), function (c) { return c.getAttribute('data-' + langue); }); }
+    function phrase(a, et) { return a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + et + a[a.length - 1]; }
+    function maj() {
+      var l = (bloc.querySelector('input[name="v-langue"]:checked') || {}).value || 'fr', t = T[l];
+      var plu = liste('v-plu', l), fr = liste('v-frein', l), s = (bloc.querySelector('input[name="v-suite"]:checked') || {}).value;
+      var lignes = [t.bonjour, plu.length ? t.plu + phrase(plu, t.et) + '.' : t.pasPlu, fr.length ? t.frein + phrase(fr, t.et) + '.' : t.pasFrein];
+      if (s) lignes.push(t.suite[s]);
+      objet.textContent = t.objet; corps.innerHTML = '';
+      corps.setAttribute('lang', l);
+      lignes.forEach(function (x) { var p = document.createElement('p'); p.textContent = x; corps.appendChild(p); });
+      remplir(zp, '[POINTS QUI ONT PLU]', phrase(liste('v-plu', 'fr'), ' et '));
+      remplir(zf, '[POINTS QUI FREINENT]', phrase(liste('v-frein', 'fr'), ' et '));
+      remplir(zs, '[SECONDE VISITE / RÉFLEXION / OFFRE POSSIBLE / PAS DE SUITE]', s ? NOMS[s] : '');
+      if (s && (plu.length || fr.length) && !envoye) { envoye = true; mesure('cr_visite', { page: location.pathname }); }
+    }
+    bloc.addEventListener('change', maj);
+    msg.hidden = false; bloc.classList.add('geste-actif'); maj();
+  })();
+
+  /* ---- Négociation : l'écart entre le prix affiché et l'offre ---- */
+  (function () {
+    var bloc = document.querySelector('.b-offre'); if (!bloc) return;
+    var cp = bloc.querySelector('#o-prix'), co = bloc.querySelector('#o-offre');
+    var scene = bloc.querySelector('.offre-scene'), barre = bloc.querySelector('.offre-barre'), ecart = bloc.querySelector('.offre-ecart'), t1 = bloc.querySelector('.offre-t1');
+    var base = t1.textContent, envoye = false;
+    var zprix = zone('[PRIX]'), zmont = zone('[MONTANT]'), zec = zone('[ÉCART AVEC LE PRIX AFFICHÉ]'), zfin = zone('[COMPTANT / PRÊT AVEC ACCORD DE PRINCIPE / PRÊT SANS ACCORD]');
+    function nombre(c) { var n = parseInt(c.value.replace(/[^0-9]/g, ''), 10); return isNaN(n) ? 0 : n; }
+    function euros(n) { return n.toLocaleString('fr-FR') + ' €'; }
+    function maj() {
+      var p = nombre(cp), o = nombre(co), f = (bloc.querySelector('input[name="o-fin"]:checked') || {}).value || '';
+      remplir(zprix, '[PRIX]', p ? euros(p) : ''); remplir(zmont, '[MONTANT]', o ? euros(o) : '');
+      remplir(zfin, '[COMPTANT / PRÊT AVEC ACCORD DE PRINCIPE / PRÊT SANS ACCORD]', f);
+      if (!p || !o) { scene.hidden = true; t1.textContent = base; remplir(zec, '[ÉCART AVEC LE PRIX AFFICHÉ]', ''); return; }
+      var d = p - o, pct = Math.abs(d) / p * 100, txt = pct.toFixed(1).replace('.', ',') + ' %';
+      var sens = d > 0 ? 'sous le prix affiché' : d < 0 ? 'au-dessus du prix affiché' : '';
+      scene.hidden = false;
+      barre.style.setProperty('--part', Math.max(4, Math.min(100, o / p * 100)) + '%');
+      barre.classList.toggle('plein', d <= 0);
+      ecart.innerHTML = d === 0 ? '<strong>Au prix</strong> l’offre est égale au prix affiché' : '<strong>' + (d > 0 ? '− ' : '+ ') + txt + '</strong> soit ' + euros(Math.abs(d)) + ' ' + sens;
+      var resume = d === 0 ? 'au prix affiché' : euros(Math.abs(d)) + ' ' + sens + ' (' + txt + ')';
+      t1.textContent = 'Une offre écrite à ' + euros(o) + ', ' + resume + (f ? ', financement : ' + f : '') + '. Vous la transmettez avec ses conditions et son délai, sans la commenter.';
+      remplir(zec, '[ÉCART AVEC LE PRIX AFFICHÉ]', resume);
+      if (!envoye) { envoye = true; mesure('ecart_offre', { page: location.pathname }); }
+    }
+    bloc.addEventListener('input', maj); bloc.addEventListener('change', maj);
+    bloc.classList.add('geste-actif'); maj();
+  })();
 })();

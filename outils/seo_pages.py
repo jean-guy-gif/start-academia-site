@@ -916,6 +916,72 @@ ecrire('ia-decouverte-acquereur/',
  "Découverte acquéreur avec l'IA.",
  "Un acquéreur mal découvert, c'est dix visites pour rien. L'IA ne fait pas la découverte à votre place&nbsp;: elle vous aide à la préparer, à aller chercher les vrais critères derrière la liste de souhaits, et à transformer vos notes en fiche exploitable.",
  '''  <div class="bloc">
+    <h2>L'acquéreur vous donne une liste. Que cherche-t-il vraiment&nbsp;?</h2>
+    <p class="plan-intro">Une découverte bâclée, c'est dix visites pour rien. Retournez ce que l'acquéreur vous dit au premier rendez-vous&nbsp;: derrière chaque phrase, la question qui va chercher le vrai critère, et ce qu'elle vous évite.</p>
+    <ul class="freins" data-zone="[CE QUE L'ACQUÉREUR A DÉJÀ DIT]" data-un="question posée" data-plusieurs="questions posées" data-suite="avant la première visite" data-evenement="souhaits_acquereur">
+      <li class="frein" data-frein="ses critères tiennent en une liste de souhaits">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">Les critères</p>
+          <p class="frein-dit">«&nbsp;On veut une terrasse et du calme.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">Les critères</p>
+          <h3>«&nbsp;Qu'est-ce qui vous manque le plus là où vous vivez aujourd'hui&nbsp;?&nbsp;»</h3>
+          <p>La liste de souhaits décrit un bien. La réponse décrit un projet de vie, et sépare l'indispensable du négociable.</p>
+        </div>
+      </li>
+      <li class="frein" data-frein="il annonce un budget sans dire s'il est validé">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">Le financement</p>
+          <p class="frein-dit">«&nbsp;Notre budget, c'est 450&nbsp;000&nbsp;€.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">Le financement</p>
+          <h3>«&nbsp;Ce montant, la banque l'a validé ou c'est ce que vous aimeriez mettre&nbsp;?&nbsp;»</h3>
+          <p>Un financement n'est «&nbsp;validé&nbsp;» que s'il l'est. Posée dès la découverte, la question évite l'offre qui tombe trois semaines plus tard.</p>
+        </div>
+      </li>
+      <li class="frein" data-frein="il dit ne pas être pressé">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">Le délai</p>
+          <p class="frein-dit">«&nbsp;On n'est pas pressés.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">Le délai</p>
+          <h3>«&nbsp;Que se passe-t-il si vous n'avez rien trouvé dans six mois&nbsp;?&nbsp;»</h3>
+          <p>Un bail qui se termine, une rentrée scolaire, une vente en cours&nbsp;: le vrai calendrier sort rarement tout seul.</p>
+        </div>
+      </li>
+      <li class="frein" data-frein="la décision ne se prendra pas seul">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">Le décideur</p>
+          <p class="frein-dit">«&nbsp;Je visite d'abord seul.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">Le décideur</p>
+          <h3>«&nbsp;Qui d'autre doit dire oui avant une offre&nbsp;?&nbsp;»</h3>
+          <p>Tant que le décideur n'a pas vu le bien, il n'y a pas d'offre. Autant le savoir avant d'organiser la visite.</p>
+        </div>
+      </li>
+      <li class="frein" data-frein="il compte travailler avec plusieurs agences">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">L'engagement</p>
+          <p class="frein-dit">«&nbsp;On travaillera avec celui qui nous trouve la maison.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">L'engagement</p>
+          <h3>«&nbsp;Si je cherche pour vous chaque semaine, qu'attendez-vous de moi en échange&nbsp;?&nbsp;»</h3>
+          <p>C'est la porte du mandat de recherche exclusif. Il est écrit, sur le modèle de votre agence, et aucune somme n'est due avant la conclusion de la vente.</p>
+        </div>
+      </li>
+      <li class="freins-bilan">
+        <p class="freins-compte" aria-live="polite">Cinq phrases, cinq questions.</p>
+        <p class="freins-fin" hidden>Un acquéreur qui se sent compris va au bout. Mickael, conseiller formé, transforme 3 offres sur 4 en compromis, contre 1 sur 2 auparavant. <a class="lien-texte" href="#titre-final" data-suivi="souhaits-appel">Réserver mon appel découverte</a></p>
+      </li>
+    </ul>
+    <p class="freins-note">Les phrases retournées complètent le prompt plus bas. Aucune question sur l'origine, la religion, la santé ou la situation de famille si l'acquéreur ne l'aborde pas.</p>
+  </div>
+  <div class="bloc">
     <h2>Le cas en agence</h2>
     <p>Un acquéreur appelle pour un T3 vu sur un portail. Le conseiller prend ses critères au téléphone&nbsp;: budget, surface, quartier. Trois visites plus tard, rien ne lui plaît. Ses vrais critères (le trajet de l'école, le bruit, le financement pas encore validé) n'ont jamais été posés.</p>
   </div>
@@ -938,7 +1004,7 @@ ecrire('ia-decouverte-acquereur/',
     </ul>
   </div>
 ''' + prompt_bloc("Prompt gratuit : la trame de découverte", """Rôle : tu es un conseiller immobilier expérimenté qui prépare une découverte acquéreur.
-Contexte : l'acquéreur a appelé pour [TYPE DE BIEN, SECTEUR, BUDGET ANNONCÉ]. Ce que je sais déjà : [PROJET : PREMIER ACHAT / AGRANDISSEMENT / INVESTISSEMENT / RÉSIDENCE SECONDAIRE].
+Contexte : l'acquéreur a appelé pour [TYPE DE BIEN, SECTEUR, BUDGET ANNONCÉ]. Ce que je sais déjà : [PROJET : PREMIER ACHAT / AGRANDISSEMENT / INVESTISSEMENT / RÉSIDENCE SECONDAIRE]. Ce qu'il m'a dit au téléphone : [CE QUE L'ACQUÉREUR A DÉJÀ DIT].
 Tâche : prépare-moi une trame de 12 questions ouvertes pour un entretien de 20 minutes : motivation et délai, vrais critères (indispensables / souhaitables / rédhibitoires), quartier et trajets, financement (apport, banque, courtier). Pas de question sur l'origine, la religion, la santé ou la situation familiale si l'acquéreur ne l'aborde pas.
 Format : 4 blocs de 3 questions, puis un modèle de fiche acquéreur à remplir.""") + '''
   <div class="bloc">
@@ -964,6 +1030,32 @@ ecrire('ia-visite-immobiliere/',
  "Préparer et suivre une visite avec l'IA.",
  "La visite se gagne avant et après le rendez-vous. Avant, en choisissant les bons biens et en préparant les réponses. Après, avec un compte rendu au vendeur et une relance de l'acquéreur le jour même. C'est là que l'IA fait gagner du temps.",
  '''  <div class="bloc">
+    <h2>La visite est finie. Qu'en dites-vous au vendeur&nbsp;?</h2>
+    <p class="plan-intro">Ce qui s'est dit pendant la visite se perd avant la suivante. Touchez ce que vous avez entendu&nbsp;: le compte rendu au vendeur s'écrit, dans sa langue.</p>
+    <div class="visite">
+      <div class="visite-choix">
+        <fieldset><legend>Ce qui a plu</legend>
+          <label><input type="checkbox" name="v-plu" data-fr="la lumière" data-en="the light"><span>La lumière</span></label><label><input type="checkbox" name="v-plu" data-fr="le séjour" data-en="the living room"><span>Le séjour</span></label><label><input type="checkbox" name="v-plu" data-fr="la vue" data-en="the view"><span>La vue</span></label><label><input type="checkbox" name="v-plu" data-fr="le calme" data-en="the quiet"><span>Le calme</span></label><label><input type="checkbox" name="v-plu" data-fr="l'extérieur" data-en="the outdoor space"><span>L'extérieur</span></label><label><input type="checkbox" name="v-plu" data-fr="l'emplacement" data-en="the location"><span>L'emplacement</span></label>
+        </fieldset>
+        <fieldset><legend>Ce qui freine</legend>
+          <label><input type="checkbox" name="v-frein" data-fr="le prix" data-en="the price"><span>Le prix</span></label><label><input type="checkbox" name="v-frein" data-fr="les travaux à prévoir" data-en="the work needed"><span>Les travaux</span></label><label><input type="checkbox" name="v-frein" data-fr="le bruit" data-en="the noise"><span>Le bruit</span></label><label><input type="checkbox" name="v-frein" data-fr="les charges" data-en="the service charges"><span>Les charges</span></label><label><input type="checkbox" name="v-frein" data-fr="le stationnement" data-en="the parking"><span>Le stationnement</span></label><label><input type="checkbox" name="v-frein" data-fr="le DPE" data-en="the energy rating"><span>Le DPE</span></label>
+        </fieldset>
+        <fieldset><legend>La suite</legend>
+          <label><input type="radio" name="v-suite" value="seconde"><span>Seconde visite</span></label><label><input type="radio" name="v-suite" value="reflexion"><span>Réflexion</span></label><label><input type="radio" name="v-suite" value="offre"><span>Offre possible</span></label><label><input type="radio" name="v-suite" value="rien"><span>Pas de suite</span></label>
+        </fieldset>
+        <fieldset><legend>Langue du vendeur</legend>
+          <label><input type="radio" name="v-langue" value="fr" checked><span>Français</span></label><label><input type="radio" name="v-langue" value="en"><span>English</span></label>
+        </fieldset>
+      </div>
+      <div class="visite-message" hidden>
+        <p class="visite-objet"></p>
+        <div class="visite-corps" aria-live="polite"></div>
+        <p class="visite-chiffre"><strong>1&nbsp;min</strong> avec la méthode, dicté en sortant de la visite</p>
+      </div>
+    </div>
+    <p class="freins-note">Exemple assemblé ici à partir de vos choix. En formation, vous dictez la visite, l'IA rédige le compte rendu du vendeur et celui de l'acquéreur, et vous relisez avant d'envoyer. Vos choix complètent le prompt plus bas.</p>
+  </div>
+  <div class="bloc">
     <h2>Le cas en agence</h2>
     <p>Un conseiller enchaîne quatre visites l'après-midi. Le soir, il doit faire le retour à quatre vendeurs et relancer quatre acquéreurs. Faute de temps, il appelle deux vendeurs et oublie le reste. Le vendeur sans nouvelles pense que rien ne se passe&nbsp;; l'acquéreur qui n'est pas relancé visite chez le confrère.</p>
   </div>
@@ -986,7 +1078,7 @@ ecrire('ia-visite-immobiliere/',
     </ul>
   </div>
 ''' + prompt_bloc("Prompt gratuit : le compte rendu de visite au vendeur", """Rôle : tu es un conseiller immobilier qui fait son retour de visite au vendeur.
-Contexte : bien = [TYPE, SECTEUR, PRIX AFFICHÉ]. Visite du [DATE] avec un acquéreur [PROFIL ANONYME : FAMILLE, INVESTISSEUR…]. Ce qui a plu : [POINTS]. Ce qui freine : [POINTS]. Suite prévue : [SECONDE VISITE / RÉFLEXION / OFFRE POSSIBLE / PAS DE SUITE].
+Contexte : bien = [TYPE, SECTEUR, PRIX AFFICHÉ]. Visite du [DATE] avec un acquéreur [PROFIL ANONYME : FAMILLE, INVESTISSEUR…]. Ce qui a plu : [POINTS QUI ONT PLU]. Ce qui freine : [POINTS QUI FREINENT]. Suite prévue : [SECONDE VISITE / RÉFLEXION / OFFRE POSSIBLE / PAS DE SUITE].
 Tâche : rédige un compte rendu de 120 mots, factuel et rassurant, sans enjoliver. Si plusieurs visites font la même remarque, propose une piste d'action (présentation, prix, petits travaux) sans l'imposer.
 Format : un e-mail avec un objet, 3 paragraphes courts, une signature avec [TON NOM] et [TON AGENCE].""") + '''
   <div class="bloc">
@@ -1012,6 +1104,30 @@ ecrire('ia-negociation-immobiliere/',
  "Négocier une offre avec l'IA.",
  "Une offre arrive en dessous du prix. Le vendeur se vexe, l'acquéreur se braque, et la vente se joue dans les heures qui suivent. L'IA vous aide à préparer les arguments, à choisir les mots et à présenter l'offre clairement aux deux parties.",
  '''  <div class="bloc">
+    <h2>Une offre arrive sous le prix. Comment la présenter&nbsp;?</h2>
+    <p class="plan-intro">Le vendeur se vexe, l'acquéreur se braque, et la vente se joue dans les heures qui suivent. Posez les deux chiffres&nbsp;: l'écart s'affiche, et l'appel au vendeur se prépare en trois temps.</p>
+    <div class="offre">
+      <div class="offre-saisie">
+        <p class="plan-champ"><label for="o-prix">Prix affiché, en euros</label><input id="o-prix" type="text" inputmode="numeric" autocomplete="off" placeholder="490 000"></p>
+        <p class="plan-champ"><label for="o-offre">Offre reçue, en euros</label><input id="o-offre" type="text" inputmode="numeric" autocomplete="off" placeholder="452 000"></p>
+        <fieldset><legend>Financement de l'acquéreur</legend>
+          <label><input type="radio" name="o-fin" value="comptant"><span>Comptant</span></label><label><input type="radio" name="o-fin" value="prêt avec accord de principe"><span>Prêt, accord de principe</span></label><label><input type="radio" name="o-fin" value="prêt sans accord"><span>Prêt, sans accord</span></label>
+        </fieldset>
+      </div>
+      <div class="offre-scene" hidden>
+        <div class="offre-barre" aria-hidden="true"><i class="offre-pleine"></i><i class="offre-vide"></i></div>
+        <p class="offre-ecart" aria-live="polite"></p>
+      </div>
+    </div>
+    <ol class="offre-temps">
+      <li><h3>L'offre, telle qu'elle est</h3><p class="offre-t1">Une offre écrite&nbsp;: prix, conditions suspensives, financement, délai. Vous la transmettez sans la commenter.</p></li>
+      <li><h3>Le marché, pas votre avis</h3><p>Les ventes comparables et le temps passé en vente. Ce n'est plus votre avis contre le sien, c'est le marché.</p></li>
+      <li><h3>La décision, au vendeur</h3><p>Vous restez neutre&nbsp;: il accepte, refuse ou contre-propose. Pendant sa réflexion, l'acquéreur est tenu informé, sans promesse de réponse.</p></li>
+    </ol>
+    <p class="offre-preuve">Mickael, conseiller formé, transforme <strong>3 offres sur 4 en compromis</strong>, contre 1 sur 2 auparavant.</p>
+    <p class="freins-note">L'écart est un simple calcul sur vos deux chiffres, rien n'est enregistré. Ils complètent le prompt plus bas.</p>
+  </div>
+  <div class="bloc">
     <h2>Le cas en agence</h2>
     <p>Un acquéreur fait une offre à 6&nbsp;% sous le prix affiché. Le conseiller appelle le vendeur et lui annonce le chiffre sans préparation. Le vendeur refuse par principe, l'acquéreur part sur un autre bien. Avec les bons arguments, présentés dans le bon ordre, la vente se serait peut-être faite.</p>
   </div>
@@ -1034,7 +1150,7 @@ ecrire('ia-negociation-immobiliere/',
     </ul>
   </div>
 ''' + prompt_bloc("Prompt gratuit : préparer la présentation de l'offre au vendeur", """Rôle : tu es un conseiller immobilier qui prépare l'appel au vendeur pour lui présenter une offre.
-Contexte : prix affiché [PRIX], en vente depuis [DURÉE], [NOMBRE] visites. Offre reçue : [MONTANT], financement [COMPTANT / PRÊT AVEC ACCORD DE PRINCIPE / PRÊT SANS ACCORD], délai [DÉLAI]. Comparables : [2 OU 3 VENTES : SURFACE, PRIX, DÉLAI]. Profil du vendeur : [PRESSÉ / ATTACHÉ AU BIEN / TRÈS ANALYTIQUE].
+Contexte : prix affiché [PRIX], en vente depuis [DURÉE], [NOMBRE] visites. Offre reçue : [MONTANT], soit [ÉCART AVEC LE PRIX AFFICHÉ], financement [COMPTANT / PRÊT AVEC ACCORD DE PRINCIPE / PRÊT SANS ACCORD], délai [DÉLAI]. Comparables : [2 OU 3 VENTES : SURFACE, PRIX, DÉLAI]. Profil du vendeur : [PRESSÉ / ATTACHÉ AU BIEN / TRÈS ANALYTIQUE].
 Tâche : prépare le déroulé de l'appel : comment introduire l'offre, les 3 arguments de marché à utiliser, les 3 objections probables du vendeur et une réponse pour chacune. Reste neutre : je transmets l'offre, c'est le vendeur qui décide.
 Format : déroulé en 5 étapes, puis un tableau objection / réponse.""") + '''
   <div class="bloc">

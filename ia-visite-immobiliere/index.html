@@ -24,8 +24,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script src="/suivi.js" defer></script>
-
-
+<script src="/copier.js" defer></script>
+<script src="/gestes.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://www.start-academia.fr/ia-visite-immobiliere/", "url": "https://www.start-academia.fr/ia-visite-immobiliere/", "name": "Préparer et suivre une visite avec l'IA", "description": "Préparer une visite avec l'IA, sélectionner les bons biens, faire le compte rendu au vendeur et relancer l'acquéreur. Méthode, prompt gratuit et formation.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://www.start-academia.fr/#site"}, "about": {"@id": "https://www.start-academia.fr/#organisation"}, "dateModified": "2026-11-12", "author": {"@type": "Person", "@id": "https://www.start-academia.fr/#laurent", "name": "Laurent Marx"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://www.start-academia.fr/img/radar-fiche.webp"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment faire un compte rendu de visite au vendeur ?", "acceptedAnswer": {"@type": "Answer", "text": "Rapidement après la visite, de façon factuelle : ce qui a plu, ce qui freine, la suite prévue. L'IA rédige le texte à partir de vos notes dictées, vous relisez et envoyez."}}, {"@type": "Question", "name": "L'IA peut-elle choisir les biens à faire visiter ?", "acceptedAnswer": {"@type": "Answer", "text": "Elle vous aide à croiser les critères de l'acquéreur avec vos biens disponibles. La décision reste la vôtre, avec votre connaissance du terrain."}}, {"@type": "Question", "name": "Quels outils utiliser pour les visites ?", "acceptedAnswer": {"@type": "Answer", "text": "ChatGPT ou Claude pour les comptes rendus et les relances, et nos outils maison Academia Radar Acheteur et Academia ACM pour la sélection et le prix."}}, {"@type": "Question", "name": "Le bon de visite est-il obligatoire ?", "acceptedAnswer": {"@type": "Answer", "text": "Il n'est pas imposé par la loi, mais il est vivement recommandé : il prouve que vous avez présenté le bien et protège votre droit à honoraires."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.start-academia.fr/"}, {"@type": "ListItem", "position": 2, "name": "Préparer et suivre une visite avec l'IA", "item": "https://www.start-academia.fr/ia-visite-immobiliere/"}]}, {"@type": "Course", "name": "Préparer et suivre une visite immobilière avec l'IA", "description": "Sélection des biens, préparation des objections, compte rendu au vendeur et relance acquéreur avec l'IA.", "provider": {"@id": "https://www.start-academia.fr/#organisation"}, "inLanguage": "fr", "hasCourseInstance": [{"@type": "CourseInstance", "courseMode": "Onsite", "location": "Alpes-Maritimes, France"}, {"@type": "CourseInstance", "courseMode": "Online"}], "offers": {"@type": "Offer", "category": "Paid", "availability": "https://schema.org/InStock"}}]}</script>
 </head>
@@ -61,16 +61,42 @@
     <nav class="fil" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">/</span> Préparer et suivre une visite avec l'IA</nav>
     <h1>Préparer et suivre une visite avec l'IA.</h1>
     <p class="promesse">La visite se gagne avant et après le rendez-vous. Avant, en choisissant les bons biens et en préparant les réponses. Après, avec un compte rendu au vendeur et une relance de l'acquéreur le jour même. C'est là que l'IA fait gagner du temps.</p>
-    <a class="action" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Réserver mon appel découverte<svg aria-hidden="true"><use href="#fleche"/></svg></a>
+    <a class="action" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Réserver mon appel découverte<svg aria-hidden="true"><use href="#fleche"/></svg></a><nav class="rail-etapes" aria-label="Les étapes de la vente"><ol><li><a href="/ia-prospection-immobiliere/"><span>1</span>Prospection</a></li><li><a href="/ia-estimation-immobiliere/"><span>2</span>Estimation</a></li><li><a href="/ia-mandat-exclusif/"><span>3</span>Mandat</a></li><li><a href="/ia-annonce-immobiliere/"><span>4</span>Annonce</a></li><li><a href="/ia-decouverte-acquereur/"><span>5</span>Acquéreur</a></li><li class="ici"><a href="/ia-visite-immobiliere/" aria-current="page"><span>6</span>Visite</a></li><li><a href="/ia-negociation-immobiliere/"><span>7</span>Négociation</a></li></ol></nav>
   </div>
 </section>
 <section class="clair texte-page">
   <p class="signature">Par <a href="/#equipe">Laurent Marx</a>, co-dirigeant et formateur <span aria-hidden="true">·</span> Mis à jour le <time datetime="2026-11-12">12 novembre 2026</time></p>
-  <div class="bloc">
+  <div class="bloc b-plan b-geste b-visite">
+    <h2>La visite est finie. Qu'en dites-vous au vendeur&nbsp;?</h2><div class="corps">
+    <p class="plan-intro">Ce qui s'est dit pendant la visite se perd avant la suivante. Touchez ce que vous avez entendu&nbsp;: le compte rendu au vendeur s'écrit, dans sa langue.</p>
+    <div class="visite">
+      <div class="visite-choix">
+        <fieldset><legend>Ce qui a plu</legend>
+          <label><input type="checkbox" name="v-plu" data-fr="la lumière" data-en="the light"><span>La lumière</span></label><label><input type="checkbox" name="v-plu" data-fr="le séjour" data-en="the living room"><span>Le séjour</span></label><label><input type="checkbox" name="v-plu" data-fr="la vue" data-en="the view"><span>La vue</span></label><label><input type="checkbox" name="v-plu" data-fr="le calme" data-en="the quiet"><span>Le calme</span></label><label><input type="checkbox" name="v-plu" data-fr="l'extérieur" data-en="the outdoor space"><span>L'extérieur</span></label><label><input type="checkbox" name="v-plu" data-fr="l'emplacement" data-en="the location"><span>L'emplacement</span></label>
+        </fieldset>
+        <fieldset><legend>Ce qui freine</legend>
+          <label><input type="checkbox" name="v-frein" data-fr="le prix" data-en="the price"><span>Le prix</span></label><label><input type="checkbox" name="v-frein" data-fr="les travaux à prévoir" data-en="the work needed"><span>Les travaux</span></label><label><input type="checkbox" name="v-frein" data-fr="le bruit" data-en="the noise"><span>Le bruit</span></label><label><input type="checkbox" name="v-frein" data-fr="les charges" data-en="the service charges"><span>Les charges</span></label><label><input type="checkbox" name="v-frein" data-fr="le stationnement" data-en="the parking"><span>Le stationnement</span></label><label><input type="checkbox" name="v-frein" data-fr="le DPE" data-en="the energy rating"><span>Le DPE</span></label>
+        </fieldset>
+        <fieldset><legend>La suite</legend>
+          <label><input type="radio" name="v-suite" value="seconde"><span>Seconde visite</span></label><label><input type="radio" name="v-suite" value="reflexion"><span>Réflexion</span></label><label><input type="radio" name="v-suite" value="offre"><span>Offre possible</span></label><label><input type="radio" name="v-suite" value="rien"><span>Pas de suite</span></label>
+        </fieldset>
+        <fieldset><legend>Langue du vendeur</legend>
+          <label><input type="radio" name="v-langue" value="fr" checked><span>Français</span></label><label><input type="radio" name="v-langue" value="en"><span>English</span></label>
+        </fieldset>
+      </div>
+      <div class="visite-message" hidden>
+        <p class="visite-objet"></p>
+        <div class="visite-corps" aria-live="polite"></div>
+        <p class="visite-chiffre"><strong>1&nbsp;min</strong> avec la méthode, dicté en sortant de la visite</p>
+      </div>
+    </div>
+    <p class="freins-note">Exemple assemblé ici à partir de vos choix. En formation, vous dictez la visite, l'IA rédige le compte rendu du vendeur et celui de l'acquéreur, et vous relisez avant d'envoyer. Vos choix complètent le prompt plus bas.</p></div>
+  </div>
+  <div class="bloc b-cas">
     <h2>Le cas en agence</h2><div class="corps">
     <p>Un conseiller enchaîne quatre visites l'après-midi. Le soir, il doit faire le retour à quatre vendeurs et relancer quatre acquéreurs. Faute de temps, il appelle deux vendeurs et oublie le reste. Le vendeur sans nouvelles pense que rien ne se passe&nbsp;; l'acquéreur qui n'est pas relancé visite chez le confrère.</p></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-methode">
     <h2>La méthode classique, boostée à l'IA</h2><div class="corps">
     <ol class="points numerotes">
       <li><strong>Sélectionner les bons biens.</strong> Avec <strong>Academia Radar Acheteur</strong>, vous croisez la fiche acquéreur avec les biens disponibles et vous ne proposez que ceux qui correspondent aux vrais critères.</li>
@@ -81,7 +107,7 @@
     </ol>
     <figure class="capture"><img src="/img/radar-fiche.webp" width="1100" height="648" loading="lazy" alt="La fiche d&#x27;un acquéreur de démonstration : sa recherche, les étapes biens idéaux, présentation, réponse, visites, et sa sélection de 3 biens dans le budget."><figcaption>Academia Radar Acheteur · la fiche d&#x27;un acquéreur de démonstration</figcaption></figure></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-gains">
     <h2>Ce que vous gagnez</h2><div class="corps">
     <ul class="points">
       <li><strong>Des visites mieux ciblées</strong>, donc moins nombreuses pour une offre.</li>
@@ -89,15 +115,15 @@
       <li><strong>Une relance acquéreur le jour même</strong>, au moment où il est le plus motivé.</li>
     </ul></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-prompt">
     <h2>Prompt gratuit : le compte rendu de visite au vendeur</h2><div class="corps">
     <p>Copiez ce prompt dans ChatGPT ou Claude, remplacez les zones entre crochets, et relisez toujours le résultat avant de l'utiliser.</p>
     <pre class="prompt-bloc">Rôle : tu es un conseiller immobilier qui fait son retour de visite au vendeur.
-Contexte : bien = [TYPE, SECTEUR, PRIX AFFICHÉ]. Visite du [DATE] avec un acquéreur [PROFIL ANONYME : FAMILLE, INVESTISSEUR…]. Ce qui a plu : [POINTS]. Ce qui freine : [POINTS]. Suite prévue : [SECONDE VISITE / RÉFLEXION / OFFRE POSSIBLE / PAS DE SUITE].
+Contexte : bien = [TYPE, SECTEUR, PRIX AFFICHÉ]. Visite du [DATE] avec un acquéreur [PROFIL ANONYME : FAMILLE, INVESTISSEUR…]. Ce qui a plu : [POINTS QUI ONT PLU]. Ce qui freine : [POINTS QUI FREINENT]. Suite prévue : [SECONDE VISITE / RÉFLEXION / OFFRE POSSIBLE / PAS DE SUITE].
 Tâche : rédige un compte rendu de 120 mots, factuel et rassurant, sans enjoliver. Si plusieurs visites font la même remarque, propose une piste d'action (présentation, prix, petits travaux) sans l'imposer.
 Format : un e-mail avec un objet, 3 paragraphes courts, une signature avec [TON NOM] et [TON AGENCE].</pre></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-erreurs">
     <h2>Erreurs fréquentes et règles à respecter</h2><div class="corps">
     <ul class="points">
       <li><strong>Faire visiter sans bon de visite.</strong> Il protège votre travail et votre droit à honoraires.</li>
