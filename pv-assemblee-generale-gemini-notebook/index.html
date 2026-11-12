@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script src="/suivi.js" defer></script>
-
+<script src="/copier.js" defer></script>
 
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://www.start-academia.fr/pv-assemblee-generale-gemini-notebook/", "url": "https://www.start-academia.fr/pv-assemblee-generale-gemini-notebook/", "name": "Lire trois ans de PV d'AG avec Gemini Notebook, l'ancien NotebookLM", "description": "Trois ans de PV d'assemblée générale, un règlement de copropriété scanné : comment en tirer une synthèse vérifiable pour l'acquéreur avec Gemini Notebook.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://www.start-academia.fr/#site"}, "about": {"@id": "https://www.start-academia.fr/#organisation"}, "dateModified": "2026-11-12", "author": {"@type": "Person", "@id": "https://www.start-academia.fr/#laurent", "name": "Laurent Marx"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "NotebookLM existe-t-il encore ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, sous un autre nom. L'outil de Google s'appelle Gemini Notebook depuis l'été 2026. Le fonctionnement est le même : il répond à partir de vos documents et cite ses sources."}}, {"@type": "Question", "name": "Est-ce gratuit ?", "acceptedAnswer": {"@type": "Answer", "text": "La version gratuite suffit pour un usage en agence : 50 sources par dossier et quelques résumés audio par jour. Un compte Google est nécessaire."}}, {"@type": "Question", "name": "Peut-on y déposer les documents d'un client ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui pour les documents du bien à vendre, dans le cadre de votre mandat. Informez votre vendeur des outils que vous utilisez et ne déposez pas de pièces d'identité ni de documents sans rapport avec la vente."}}, {"@type": "Question", "name": "Combien de temps faut-il pour un dossier ?", "acceptedAnswer": {"@type": "Answer", "text": "Le dépôt des documents prend quelques minutes. Le plus long reste votre relecture : chaque réponse utilisée doit être vérifiée dans sa source."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.start-academia.fr/"}, {"@type": "ListItem", "position": 2, "name": "Lire trois ans de PV d'AG avec Gemini Notebook, l'ancien NotebookLM", "item": "https://www.start-academia.fr/pv-assemblee-generale-gemini-notebook/"}]}]}</script>
@@ -66,7 +66,7 @@
 </section>
 <section class="clair texte-page">
   <p class="signature">Par <a href="/#equipe">Laurent Marx</a>, co-dirigeant et formateur <span aria-hidden="true">·</span> Mis à jour le <time datetime="2026-11-12">12 novembre 2026</time></p>
-  <div class="bloc">
+  <div class="bloc b-cas">
     <h2>Le cas en agence</h2><div class="corps">
     <p>En visite, l'acquéreur demande s'il y a des travaux votés dans la copropriété. Vous avez trois PV d'assemblée générale, un règlement de 1972 scanné de travers et les diagnostics. Soit vous répondez «&nbsp;je vérifie et je reviens vers vous&nbsp;», soit vous avez la réponse sur votre téléphone, avec la page du PV qui la justifie.</p></div>
   </div>
@@ -75,7 +75,7 @@
     <p>Gemini Notebook, qui s'appelait NotebookLM jusqu'à l'été 2026, ne répond qu'à partir des documents que vous lui donnez. Chaque réponse porte un numéro&nbsp;: vous cliquez, vous voyez le passage exact du document. Le contrôle prend quelques secondes, au lieu de relire tout le dossier.</p>
     <p>La version gratuite accepte 50&nbsp;sources par dossier, ce qui couvre largement un bien.</p></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-methode">
     <h2>La méthode classique, boostée à l'IA</h2><div class="corps">
     <ol class="points numerotes">
       <li><strong>Un dossier par bien.</strong> Dès la prise de mandat, vous déposez les trois derniers PV d'assemblée générale, le règlement de copropriété, les diagnostics et l'avis de taxe foncière.</li>
@@ -93,7 +93,7 @@
       <li><strong>Un argument de mandat</strong>&nbsp;: montrer au vendeur comment son bien sera présenté.</li>
     </ul></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-prompt">
     <h2>Prompt gratuit : la synthèse copropriété pour l'acquéreur</h2><div class="corps">
     <p>Copiez ce prompt dans ChatGPT ou Claude, remplacez les zones entre crochets, et relisez toujours le résultat avant de l'utiliser.</p>
     <pre class="prompt-bloc">Rôle : tu es l'assistant d'un conseiller immobilier. Tu réponds uniquement à partir des documents fournis et tu indiques la source de chaque information.
@@ -101,7 +101,7 @@ Contexte : les documents concernent le lot [NUMÉRO DE LOT] d'une copropriété.
 Tâche : rédige une synthèse de la copropriété sur les trois dernières années. Si une information ne figure pas dans les documents, écris « non précisé dans les documents » au lieu de supposer.
 Format : 1. La copropriété en 5 lignes (nombre de lots, syndic, budget annuel). 2. Travaux votés : nature, montant, date, part restant à payer. 3. Fonds travaux et évolution des charges. 4. Procédures et points de vigilance. 5. Les 3 questions à poser au syndic.</pre></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-erreurs">
     <h2>Erreurs fréquentes et règles à respecter</h2><div class="corps">
     <ul class="points">
       <li><strong>Croire que l'outil ne se trompe jamais.</strong> Il limite ses réponses à vos documents, ce qui réduit fortement les erreurs sans les supprimer. Un scan illisible ou un PV manquant donnent une réponse fausse ou incomplète. Vous vérifiez toujours la source.</li>

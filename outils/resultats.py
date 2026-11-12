@@ -40,6 +40,8 @@ HISTOIRES = [
      "Nos apprenants augmentent leur taux de transformation de plus de 25 %.", 'Analyse Start Academia des suivis de formation'),
     (['organisation', 'ia'], ['conseiller', 'equipe'], 'analyse', '8 h',
      "Nos apprenants gagnent 8 heures par semaine en moyenne.", 'Analyse Start Academia des suivis de formation'),
+    (['acquereurs'], ['conseiller'], 'apprenant', '3 sur 4',
+     "Mickael transforme 3 offres sur 4 en compromis, contre 1 sur 2 auparavant, grâce à la valeur apportée par Gemini Notebook.", 'Mickael, conseiller formé par Start Academia'),
 ]
 TYPES = {'apprenant': 'Résultat d\'apprenant', 'analyse': 'Analyse Start Academia', 'google': 'Avis Google'}
 
@@ -101,7 +103,7 @@ CHAINE = [
     ('Estimation', "Justifier un prix réaliste, comparables à l'appui.", "Une analyse comparative claire et un avis de valeur argumenté, avec Academia ACM.", [0]),
     ('Mandat', "Signer l'exclusivité, puis prouver au vendeur, semaine après semaine, que vous travaillez pour lui.", "Un argumentaire adapté au vendeur et un process de suivi qui le tient informé, préparé avec l'IA.", [1, 0]),
     ('Acquéreurs', "Comprendre l'acquéreur et son projet de vie, pas seulement ses critères.", "Une découverte qui va jusqu'à sa vie dans le quartier, avec Academia Vivre ici et Academia Profiling.", [3]),
-    ('Visites et offres', "Sélectionner les bons biens, faire visiter, puis défendre l'offre devant le vendeur.", "Une sélection ciblée et des offres argumentées par le marché, avec Academia ACM et Academia Radar Acheteur.", []),
+    ('Visites et offres', "Sélectionner les bons biens, faire visiter, puis défendre l'offre devant le vendeur.", "Une sélection ciblée et des offres argumentées par le marché, avec Academia ACM et Academia Radar Acheteur.", [8]),
     ('Organisation', "Tenir son agenda, ses relances et ses priorités sans y passer ses soirées.", "Une semaine planifiée, des mails et comptes rendus rédigés en quelques minutes, avec ChatGPT et Claude.", [7, 5]),
     ('Administratif', "Traiter les documents, la conformité et les tâches répétitives.", "Des synthèses de documents, des réponses juridiques vérifiées et des tâches automatisées, avec Gemini Notebook, Academia Juridique et nos outils IA.", []),
     ("Pilotage d'agence", "Suivre l'activité de l'équipe, accompagner chaque conseiller, fixer les bons objectifs.", "Les indicateurs de l'agence et de chaque conseiller avec Academia Pilotage, les diagnostics et objectifs avec Academia Parcours.", [4]),

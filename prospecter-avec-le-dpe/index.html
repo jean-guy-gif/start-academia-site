@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script src="/suivi.js" defer></script>
-
+<script src="/copier.js" defer></script>
 
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://www.start-academia.fr/prospecter-avec-le-dpe/", "url": "https://www.start-academia.fr/prospecter-avec-le-dpe/", "name": "Prospecter avec le DPE : la réforme de 2027 comme motif de contact", "description": "Le calcul du DPE change encore au 1er janvier 2027. Comment apporter leur nouvelle étiquette aux propriétaires de votre secteur, avec l'IA et sans démarchage.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://www.start-academia.fr/#site"}, "about": {"@id": "https://www.start-academia.fr/#organisation"}, "dateModified": "2026-11-12", "author": {"@type": "Person", "@id": "https://www.start-academia.fr/#jean-guy", "name": "Jean-Guy Ourmières"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce qui change pour le DPE au 1er janvier 2027 ?", "acceptedAnswer": {"@type": "Answer", "text": "Le coefficient de conversion de l'électricité passe de 1,9 à 1,7. Certains logements chauffés à l'électricité gagnent une classe, sans travaux ni nouvelle visite."}}, {"@type": "Question", "name": "Faut-il refaire le DPE ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Le DPE reste valable dix ans. Si l'étiquette s'améliore, une attestation gratuite se télécharge sur l'Observatoire DPE-Audit de l'ADEME avec le numéro du diagnostic."}}, {"@type": "Question", "name": "Un agent immobilier peut-il télécharger l'attestation d'un bien ?", "acceptedAnswer": {"@type": "Answer", "text": "L'attestation se génère à partir du numéro du DPE. Pour vos mandats, vous l'avez au dossier. Pour un propriétaire que vous ne connaissez pas, le plus simple est de lui indiquer la démarche, ou de lui remettre le document en lui expliquant d'où il vient."}}, {"@type": "Question", "name": "L'IA peut-elle recalculer un DPE ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Elle explique un diagnostic existant et met en forme des pistes de travaux. Seul un diagnostiqueur certifié établit un DPE."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.start-academia.fr/"}, {"@type": "ListItem", "position": 2, "name": "Prospecter avec le DPE : la réforme de 2027 comme motif de contact", "item": "https://www.start-academia.fr/prospecter-avec-le-dpe/"}]}]}</script>
@@ -66,7 +66,7 @@
 </section>
 <section class="clair texte-page">
   <p class="signature">Par <a href="/#equipe">Jean-Guy Ourmières</a>, co-dirigeant et formateur <span aria-hidden="true">·</span> Mis à jour le <time datetime="2026-11-12">12 novembre 2026</time></p>
-  <div class="bloc">
+  <div class="bloc b-cas">
     <h2>Le cas en agence</h2><div class="corps">
     <p>Un flyer «&nbsp;estimation gratuite&nbsp;» ne dit rien au propriétaire qui le reçoit. «&nbsp;Votre étiquette énergie vient de passer de E à D, voici l'attestation officielle&nbsp;» lui apprend quelque chose sur son bien, et ne lui demande rien en retour.</p>
     <p class="preuve-texte">Une prospection intéressante, pas une prospection intéressée.</p></div>
@@ -81,7 +81,7 @@
     </ul>
     <p>Sources&nbsp;: <a class="lien-texte" href="https://www.service-public.gouv.fr/particuliers/actualites/A18446" rel="noopener">Service-Public.fr, nouveau calcul du DPE</a> &nbsp; <a class="lien-texte" href="https://www.economie.gouv.fr/actualites/un-nouveau-dpe-au-1er-janvier-2026-pour-favoriser-le-chauffage-electrique" rel="noopener">ministère de l'Économie, DPE 2026</a></p></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-methode">
     <h2>La méthode classique, boostée à l'IA</h2><div class="corps">
     <ol class="points numerotes">
       <li><strong>Commencer par vos mandats.</strong> Vérifiez l'étiquette de chaque bien en vente ou en location dans votre portefeuille. Si un confrère apporte l'attestation à votre vendeur avant vous, le signal est mauvais.</li>
@@ -99,7 +99,7 @@
       <li><strong>Une image d'expert du quartier</strong>, pas de chasseur de mandats.</li>
     </ul></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-prompt">
     <h2>Prompt gratuit : le dossier « comprendre mon DPE »</h2><div class="corps">
     <p>Copiez ce prompt dans ChatGPT ou Claude, remplacez les zones entre crochets, et relisez toujours le résultat avant de l'utiliser.</p>
     <pre class="prompt-bloc">Rôle : tu es un conseiller immobilier pédagogue. Tu n'es pas diagnostiqueur et tu le dis.
@@ -107,7 +107,7 @@ Contexte : voici les données du DPE du logement situé [QUARTIER, SANS ADRESSE 
 Tâche : rédige un dossier de 2 pages pour le propriétaire. Explique ce qui pèse le plus sur la note, les travaux qui pourraient la faire évoluer et un ordre de grandeur de leur coût, à faire confirmer par des devis. Ne promets aucune étiquette.
 Format : 1. Votre DPE en clair (5 lignes). 2. Les 3 postes qui pèsent le plus. 3. Les pistes de travaux, de la plus simple à la plus lourde. 4. Une mention : « Document d'information, seul un diagnostiqueur certifié peut établir un DPE. » 5. Signature : [TON NOM], [TON AGENCE], [TA CARTE PRO].</pre></div>
   </div>
-  <div class="bloc">
+  <div class="bloc b-erreurs">
     <h2>Erreurs fréquentes et règles à respecter</h2><div class="corps">
     <ul class="points">
       <li><strong>Annoncer une étiquette que l'attestation ne confirme pas.</strong> Seule l'attestation officielle de l'ADEME fait foi. Dans une annonce, affichez l'étiquette du document que vous avez en main.</li>

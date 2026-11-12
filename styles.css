@@ -1907,3 +1907,9 @@ p { text-wrap: pretty; }
 .texte-page .bloc.b-alur .alur-suite { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
 .texte-page .bloc.b-alur .alur-suite a { color: #fff; text-decoration-color: var(--orange); }
 @media (max-width: 860px) { .geste-actif .alur { grid-template-columns: 1fr; } }
+
+/* ---------- Lot 5 : filtre de la liste des guides ---------- */
+.guides-chaine { max-width: 1296px; margin-bottom: clamp(28px, 4vw, 48px); }
+
+/* Lot 5 : la phrase forte reste lisible dans le panneau sombre du cas */
+.texte-page .bloc.b-cas p.preuve-texte { margin-top: 22px; color: #fff !important; font-size: clamp(1.1rem, 1.6vw, 1.45rem); }

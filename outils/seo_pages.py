@@ -1854,6 +1854,22 @@ RUBRIQUES = [
 ]
 
 
+SCRIPT_GUIDES = '''
+<script>
+(() => {
+  const barre = document.querySelector('.guides-chaine'); if (!barre) return;
+  const boutons = [...barre.querySelectorAll('button')], sections = [...document.querySelectorAll('.guides-rubrique')];
+  boutons.forEach((b) => b.addEventListener('click', () => {
+    const k = b.dataset.rubrique;
+    boutons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    sections.forEach((s) => { s.hidden = !!k && s.getAttribute('aria-label') !== k; });
+  }));
+  barre.hidden = false;
+})();
+</script>
+'''
+
+
 def rubrique_guides():
     classes = [c for _, liste in RUBRIQUES for c in liste]
     oublis = sorted(set(GUIDES) - set(classes))
@@ -1868,11 +1884,14 @@ def rubrique_guides():
                        f'<span class="gc-desc">{desc}</span><span class="gc-date">Mis à jour le <time datetime="{GUIDES[c][0]}">{date_fr(GUIDES[c][0])}</time> · {AUTEURS[GUIDES[c][1]][0]}</span></a>')
             elements.append({"@type": "ListItem", "position": len(elements) + 1, "name": h.unescape(titre).replace('\xa0', ' '), "url": f"{SITE}/{c}"})
         sections.append(f'  <section class="guides-rubrique" aria-label="{nom}">\n    <h2>{nom}</h2>\n    <div class="guides-grille">{cartes}\n    </div>\n  </section>')
+    boutons = ''.join(f'<li><button type="button" data-rubrique="{nom}" aria-pressed="false">{nom}<span class="ch-nb">{len(liste)}</span></button></li>' for nom, liste in RUBRIQUES)
+    filtre = (f'  <ol class="cf-chaine guides-chaine" aria-label="Filtrer les guides par étape" hidden><li><button type="button" data-rubrique="" aria-pressed="true">Tous'
+              f'<span class="ch-nb">{len(classes)}</span></button></li>{boutons}</ol>\n')
     chemin = 'guides/'
     desc = "Les guides pratiques de Start Academia pour les agents immobiliers : prospection, estimation, mandat, acquéreurs. Méthode, prompt gratuit et règles à respecter."
     page(chemin, 'Guides pratiques IA et immobilier | Start Academia', desc, 'Les guides.',
          f"{len(classes)} guides tirés de nos formations, rangés par étape du métier. Chacun part d'un cas d'agence, donne la méthode, un prompt prêt à copier et les règles à respecter.",
-         '\n'.join(sections))
+         filtre + '\n'.join(sections) + SCRIPT_GUIDES)
     graph = [
         {"@type": "CollectionPage", "@id": f"{SITE}/{chemin}", "url": f"{SITE}/{chemin}", "name": "Guides pratiques IA et immobilier",
          "description": desc, "inLanguage": "fr-FR", "isPartOf": {"@id": f"{SITE}/#site"}, "about": {"@id": f"{SITE}/#organisation"}},

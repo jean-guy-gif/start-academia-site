@@ -27,6 +27,12 @@ ETAPES = [('ia-prospection-immobiliere/', 'Prospection'), ('ia-estimation-immobi
 ETAPES_PILOTES = {c for c, _ in ETAPES}
 PILOTES |= ETAPES_PILOTES
 PILOTES.add('formation-loi-alur/')
+# Lot 5 : les guides de même structure que les pages par étape et la page coaching reçoivent les blocs enrichis.
+PILOTES |= {'vendeur-parti-trop-cher-reprendre-mandat/', 'prospecter-avec-le-dpe/', 'pv-assemblee-generale-gemini-notebook/',
+            'prospection-immobiliere-sans-pige/', 'coaching-pour-directeur-dagence-immobiliere-dans-le-06/'}
+VARIANTES.append(('Comment ça se passe', 'b-methode'))
+# Les gains des guides sont rédigés « Titre : phrase » : ils gardent leur liste simple (les tuiles attendent « Titre. Phrase. »).
+SANS_TUILES = {'vendeur-parti-trop-cher-reprendre-mandat/', 'prospecter-avec-le-dpe/', 'pv-assemblee-generale-gemini-notebook/', 'prospection-immobiliere-sans-pige/'}
 SCRIPTS_PAGE['formation-loi-alur/'] = ['gestes.js']
 SCRIPTS_PAGE['ia-mandat-exclusif/'] = ['freins.js']
 SCRIPTS_PAGE.update({'ia-decouverte-acquereur/': ['freins.js'], 'ia-visite-immobiliere/': ['gestes.js'], 'ia-negociation-immobiliere/': ['gestes.js'], 'ia-prospection-immobiliere/': ['gestes.js'], 'ia-estimation-immobiliere/': ['gestes.js'], 'ia-annonce-immobiliere/': ['gestes.js']})
@@ -48,6 +54,8 @@ def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=Tr
     corps = re.sub(r'(<h2>.*?</h2>)(.*?)(\n  </div>)', r'\1<div class="corps">\2</div>\3', corps, flags=re.S)
     if chemin in PILOTES:
         for debut, classe in VARIANTES:
+            if classe == 'b-gains' and chemin in SANS_TUILES:
+                continue
             corps = re.sub(r'<div class="bloc">(\s*<h2>' + debut + ')', rf'<div class="bloc {classe}">\1', corps)
     url = f'https://www.start-academia.fr/{chemin}'
     final = f'''

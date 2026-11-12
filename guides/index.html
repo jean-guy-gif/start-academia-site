@@ -65,6 +65,7 @@
   </div>
 </section>
 <section class="clair texte-page">
+  <ol class="cf-chaine guides-chaine" aria-label="Filtrer les guides par étape" hidden><li><button type="button" data-rubrique="" aria-pressed="true">Tous<span class="ch-nb">12</span></button></li><li><button type="button" data-rubrique="Prospection" aria-pressed="false">Prospection<span class="ch-nb">3</span></button></li><li><button type="button" data-rubrique="Estimation et prix" aria-pressed="false">Estimation et prix<span class="ch-nb">2</span></button></li><li><button type="button" data-rubrique="Mandat et annonce" aria-pressed="false">Mandat et annonce<span class="ch-nb">2</span></button></li><li><button type="button" data-rubrique="Acquéreurs" aria-pressed="false">Acquéreurs<span class="ch-nb">4</span></button></li><li><button type="button" data-rubrique="Financement" aria-pressed="false">Financement<span class="ch-nb">1</span></button></li></ol>
   <section class="guides-rubrique" aria-label="Prospection">
     <h2>Prospection</h2>
     <div class="guides-grille">
@@ -102,6 +103,19 @@
       <a class="guide-carte" href="/financement-formation-auto-entrepreneur/"><span class="gc-etape">Financement</span><strong>Auto-entrepreneur&nbsp;: avez-vous droit aux 3&nbsp;000&nbsp;€ de formation&nbsp;?</strong><span class="gc-desc">Auto-entrepreneur, agent commercial, mandataire : pas d'OPCO, mais jusqu'à 3 000 € par an avec l'AGEFICE. Conditions 2026, calcul et démarches.</span><span class="gc-date">Mis à jour le <time datetime="2026-11-12">12 novembre 2026</time> · Laurent Marx</span></a>
     </div>
   </section>
+<script>
+(() => {
+  const barre = document.querySelector('.guides-chaine'); if (!barre) return;
+  const boutons = [...barre.querySelectorAll('button')], sections = [...document.querySelectorAll('.guides-rubrique')];
+  boutons.forEach((b) => b.addEventListener('click', () => {
+    const k = b.dataset.rubrique;
+    boutons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    sections.forEach((s) => { s.hidden = !!k && s.getAttribute('aria-label') !== k; });
+  }));
+  barre.hidden = false;
+})();
+</script>
+
 </section>
 <section class="final final-simple" aria-labelledby="titre-final">
   <div class="contenu">
