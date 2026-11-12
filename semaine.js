@@ -26,17 +26,24 @@
     function fois(d) { t.fois = Math.max(1, Math.min(30, t.fois + d)); val.textContent = t.fois; calcul(); }
     moins.addEventListener('click', function () { fois(-1); }); plus.addEventListener('click', function () { fois(1); });
     f.appendChild(moins); f.appendChild(val); f.appendChild(plus);
-    var a = el('label', 'tache-auj'); a.appendChild(el('span', 'tr-label', 'Temps aujourd’hui, à chaque fois'));
-    var sortie = el('output', null, 'à vous de dire');
-    var r = el('input'); r.type = 'range'; r.min = 0; r.max = 180; r.step = 5; r.value = 0;
-    r.addEventListener('input', function () { t.auj = +r.value; sortie.textContent = t.auj ? duree(t.auj) : 'à vous de dire'; calcul(); });
-    a.appendChild(sortie); a.appendChild(r);
+    var a = el('div', 'tache-auj'); a.setAttribute('role', 'group');
+    a.appendChild(el('span', 'tr-label', 'Aujourd’hui, ça vous prend à chaque fois'));
+    var choix = el('div', 'tache-temps');
+    [5, 10, 15, 30, 45, 60, 90, 120, 180].forEach(function (m) {
+      var bt = el('button', null, duree(m)); bt.type = 'button'; bt.setAttribute('aria-pressed', 'false');
+      bt.addEventListener('click', function () {
+        t.auj = m; [].forEach.call(choix.children, function (x) { x.setAttribute('aria-pressed', String(x === bt)); });
+        t.li.classList.remove('a-regler'); calcul();
+      });
+      choix.appendChild(bt);
+    });
+    a.appendChild(choix);
     b.appendChild(f); b.appendChild(a);
     return b;
   }
   taches.forEach(function (t) {
     t.c.addEventListener('change', function () {
-      t.li.classList.toggle('cochee', t.c.checked);
+      t.li.classList.toggle('cochee', t.c.checked); t.li.classList.toggle('a-regler', t.c.checked && !t.auj);
       if (t.c.checked && !t.reglages) { t.reglages = reglages(t); t.li.appendChild(t.reglages); }
       if (t.reglages) t.reglages.hidden = !t.c.checked;
       calcul();
@@ -47,15 +54,17 @@
   function calcul() {
     var actives = taches.filter(function (t) { return t.c.checked; });
     var auj = 0, ia = 0, sansTemps = 0;
-    actives.forEach(function (t) { auj += t.fois * t.auj; ia += t.fois * t.ia; if (!t.auj) sansTemps++; });
+    actives.forEach(function (t) { if (!t.auj) { sansTemps++; return; } auj += t.fois * t.auj; ia += t.fois * t.ia; });
+    var reglees = actives.length - sansTemps;
     totaux = { auj: auj, ia: ia };
     q('#sm-auj').textContent = duree(auj); q('#sm-ia').textContent = duree(ia);
     var gain = auj - ia, phrase = q('#sm-phrase');
-    q('#sm-gain').textContent = actives.length && !sansTemps && gain > 0 ? duree(gain) : '–';
+    q('#sm-gain').textContent = reglees && gain > 0 ? duree(gain) : '–';
+    var reste = sansTemps ? ' Il reste ' + (sansTemps > 1 ? sansTemps + ' tâches à régler' : 'une tâche à régler') + ' pour compléter votre semaine.' : '';
     if (!actives.length) phrase.textContent = 'Cochez une première tâche pour commencer.';
-    else if (sansTemps) phrase.textContent = 'Indiquez le temps que vous passez aujourd’hui sur ' + (sansTemps > 1 ? 'chaque tâche cochée' : 'la tâche cochée') + ' : la première pile se construit avec vos chiffres.';
-    else if (gain > 0) phrase.textContent = 'Avec la méthode, ces tâches vous prennent ' + duree(ia) + ' par semaine au lieu de ' + duree(auj) + '. Vous récupérez ' + duree(gain) + ' pour vos vendeurs et vos acquéreurs.';
-    else phrase.textContent = 'Sur ces tâches, vous êtes déjà rapide. Le gain se trouve sans doute ailleurs dans votre semaine : parlons-en pendant l’appel.';
+    else if (!reglees) phrase.textContent = 'Touchez le temps que chaque tâche cochée vous prend aujourd’hui : vos deux piles se construisent aussitôt.';
+    else if (gain > 0) phrase.textContent = 'Avec la méthode, ces tâches vous prennent ' + duree(ia) + ' par semaine au lieu de ' + duree(auj) + '. Vous récupérez ' + duree(gain) + ' pour vos vendeurs et vos acquéreurs.' + reste;
+    else phrase.textContent = 'Sur ces tâches, vous êtes déjà rapide. Le gain se trouve sans doute ailleurs dans votre semaine : parlons-en pendant l’appel.' + reste;
     var prog = q('#sm-programme'); prog.textContent = '';
     Object.keys(ETAPES).forEach(function (k) {
       var liste = actives.filter(function (t) { return t.etape === k; });
@@ -121,7 +130,7 @@
       else if (vus[k] !== cible) { vus[k] += vus[k] < cible ? Math.max(1, Math.ceil((cible - vus[k]) / 8)) : -Math.max(1, Math.ceil((vus[k] - cible) / 8)); bouge = true; }
     });
     var etages = Math.max(4, Math.ceil(Math.max(vus.auj, vus.ia, cA) / 4));
-    var s = Math.max(6, Math.min(L / 9, (H * .78) / (etages + 2)));
+    var s = Math.max(6, Math.min(L / 13, (H * .78) / (etages + 2)));
     var base = H - s * 1.5;
     ctx.clearRect(0, 0, L, H);
     pile(L * .3, base, s, vus.auj, ['#ff8a4d', '#fe5500', '#c94400']);
