@@ -109,4 +109,5 @@ SIMULATEUR = f'''  <section class="bloc bloc-simu" id="simulateur-financement" a
       <p class="simu-sources">Sources officielles&nbsp;: <a href="https://communication-agefice.fr/plafonds-financiers-annee-2026/" rel="noopener" target="_blank">AGEFICE, plafonds 2026</a> · <a href="https://communication-agefice.fr/les-ressortissants-de-lagefice/" rel="noopener" target="_blank">AGEFICE, ressortissants</a> · <a href="https://www.economie.gouv.fr/entreprises/gerer-sa-micro-entreprise/micro-entreprises-quel-est-le-montant-de-vos-cotisations-sociales" rel="noopener" target="_blank">CFP des micro-entrepreneurs</a> · <a href="https://www.opcoep.fr/criteres-de-financement?branche=187" rel="noopener" target="_blank">OPCO EP, branche Immobilier</a></p>
     </div>
     <script src="/simulateur.js" defer></script>
+    <script src="/couverture.js" defer></script>
   </section>'''

@@ -1873,3 +1873,17 @@ p { text-wrap: pretty; }
 .trouver-mesure a { color: #fff; text-decoration-color: var(--orange); font-weight: 600; }
 @media (max-width: 860px) { .trouver-scene { grid-template-columns: 1fr; } .trouver-une { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .trouver-une { animation: none; } }
+
+/* ---------- Lot 4 : ce que le budget couvre (simulateur de financement) ---------- */
+.couverture { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgb(185 205 255 / .2); }
+.couv-label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font: .8125rem var(--mono); color: var(--bleu-p); }
+.couv-label strong { font: 500 1.5rem var(--titre); color: #fff; }
+.couverture input[type="range"] { width: 100%; margin: 10px 0 18px; accent-color: var(--orange); }
+.couverture input[type="range"]:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+.couverture .offre-barre { height: 64px; border-radius: 14px; }
+.simu .couverture .couv-chiffre { margin: 14px 0 0; font: .8125rem/1.5 var(--mono); color: var(--bleu-p); }
+.couv-chiffre strong { display: block; font: 500 clamp(2.2rem, 3.4vw, 3rem)/1.05 var(--titre); color: #fff; }
+.couv-chiffre strong span { font-size: .5em; color: var(--bleu-p); }
+.simu .couverture .couv-texte { margin: 12px 0 0; font-size: .9375rem; line-height: 1.5; color: #fff; }
+.simu .couverture .couv-note { margin: 10px 0 0; font: .75rem/1.55 var(--mono); color: rgb(255 255 255 / .6); }
+.tu-finance { display: inline-block; margin-left: 14px; font: 500 .875rem var(--texte); color: var(--bleu); }

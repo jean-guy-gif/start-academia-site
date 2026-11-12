@@ -38,7 +38,9 @@
       if (f.chiffres) { var ch = el('div', 'cf-chiffres'); ch.innerHTML = f.chiffres; c.appendChild(ch); }
       var a = el('a', 'tu-fiche', f.url.charAt(0) === '#' ? 'Voir le programme' : 'Voir la fiche complète'); a.href = f.url;
       if (f.url.charAt(0) === '#') a.addEventListener('click', function (e) { e.preventDefault(); ouvrir(f); });
-      c.appendChild(a); h.appendChild(c); sortie.appendChild(h);
+      c.appendChild(a);
+      if (f.heures) { var fi = el('a', 'tu-finance', 'Voir mon financement pour ces ' + f.duree.replace(' h', ' heures')); fi.href = '/financement-formation-immobilier/?heures=' + Math.round(f.heures) + '#simulateur'; fi.setAttribute('data-suivi', 'trouver-financement'); c.appendChild(fi); }
+      h.appendChild(c); sortie.appendChild(h);
       if (liste.length > 1) {
         var ul = el('ul', 'trouver-autres');
         liste.slice(1, 3).forEach(function (g) {
