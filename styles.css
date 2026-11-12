@@ -1258,3 +1258,13 @@ p { text-wrap: pretty; }
   background: repeating-radial-gradient(circle, transparent 0 58px, rgb(185 205 255 / .16) 58px 59px);
   -webkit-mask-image: radial-gradient(circle, #000 30%, transparent 70%); mask-image: radial-gradient(circle, #000 30%, transparent 70%); }
 .texte-page:not(.page-catalogue) .bloc { max-width: 1296px; }
+
+/* Formations sur mobile : le filtre par étape tient sur une ligne à faire glisser, au lieu d'empiler neuf boutons */
+@media (max-width: 640px) {
+  .page-catalogue .chaine-f { padding: 16px 0 16px 16px; }
+  .page-catalogue .cf-consigne { padding-right: 16px; }
+  .page-catalogue .cf-chaine { flex-wrap: nowrap; overflow-x: auto; padding-right: 16px; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 86%, transparent); mask-image: linear-gradient(90deg, #000 86%, transparent); }
+  .page-catalogue .cf-chaine::-webkit-scrollbar { display: none; }
+  .page-catalogue .cf-chaine li { flex: none; }
+  .page-catalogue .cf-chaine button { white-space: nowrap; }
+}
