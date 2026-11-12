@@ -123,7 +123,9 @@ def habiller_guide(chemin, corps):
                   f'<figcaption>{h.escape(legende)}</figcaption></figure>')
         if '</ol>' not in corps:
             raise SystemExit(f'seo_pages : pas de liste numérotée où placer la capture dans {chemin}')
-        corps = corps.replace('</ol>', '</ol>' + figure, 1)
+        # Après la liste de la méthode, pas après une liste placée plus haut (le geste d'une page étape).
+        debut = max(corps.find('class="points numerotes"'), 0)
+        corps = corps[:debut] + corps[debut:].replace('</ol>', '</ol>' + figure, 1)
     nom, role, _ = AUTEURS[GUIDES[chemin][1]]
     signature = (f'  <p class="signature">Par <a href="/#equipe">{nom}</a>, {role} '
                  f'<span aria-hidden="true">·</span> Mis à jour le <time datetime="{GUIDES[chemin][0]}">{date_fr(GUIDES[chemin][0])}</time></p>')
@@ -640,6 +642,89 @@ ecrire('ia-mandat-exclusif/',
  "Rentrer un mandat exclusif avec l'IA.",
  "Le mandat exclusif se gagne avant, pendant et juste après le rendez-vous vendeur. L'IA vous aide à arriver préparé, à comprendre la personne en face de vous et à envoyer un suivi plus rapide que tous vos confrères.",
  '''  <div class="bloc">
+    <h2>Le vendeur hésite. Qu'avez-vous à lui montrer&nbsp;?</h2>
+    <p class="plan-intro">Un mandat se perd rarement sur le prix. Il se perd aux moments où vous n'avez rien à poser sur la table. Retournez chaque frein&nbsp;: voici la preuve que la méthode met entre vos mains, du premier rendez-vous (R1) à l'après deuxième rendez-vous (R2).</p>
+    <ol class="freins-frise" aria-label="Les cinq temps du rendez-vous vendeur">
+      <li>Avant le R1</li>
+      <li>Pendant le R1</li>
+      <li>Entre R1 et R2</li>
+      <li>Pendant le R2</li>
+      <li>Après le R2</li>
+    </ol>
+    <ul class="freins">
+      <li class="frein" data-frein="une autre agence lui a annoncé un prix plus haut">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">Avant le R1</p>
+          <p class="frein-dit">«&nbsp;Une autre agence m'a annoncé plus.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">Avant le R1</p>
+          <h3>Le dossier d'adresse, sans prix</h3>
+          <p>Vous arrivez avec le marché autour de son bien, chapitre par chapitre, et une fiche qu'il coche avec vous. Aucun chiffre lâché au premier rendez-vous&nbsp;: un prix se compare, une stratégie se choisit.</p>
+          <p class="frein-chiffre"><strong>15&nbsp;min</strong> de préparation</p>
+          <p class="frein-outil">Academia Secteur</p>
+        </div>
+      </li>
+      <li class="frein" data-frein="il n'est pas pressé de vendre">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">Pendant le R1</p>
+          <p class="frein-dit">«&nbsp;Rien ne presse, on verra au printemps.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">Pendant le R1</p>
+          <h3>Ses mots, pas votre mémoire</h3>
+          <p>Avec son accord, le rendez-vous est enregistré et transcrit. Le soir même, il reçoit un compte rendu qui reprend son projet et son calendrier, avec ses propres phrases.</p>
+          <p class="frein-chiffre"><strong>1&nbsp;h → 10&nbsp;min</strong> de rédaction</p>
+          <p class="frein-outil">Plaud, ChatGPT</p>
+        </div>
+      </li>
+      <li class="frein" data-frein="il préfère confier le bien à plusieurs agences">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">Entre R1 et R2</p>
+          <p class="frein-dit">«&nbsp;Je préfère plusieurs agences.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">Entre R1 et R2</p>
+          <h3>Le dossier déjà prêt pour l'acquéreur</h3>
+          <p>Procès-verbaux d'assemblée, règlement de copropriété, diagnostics&nbsp;: résumés, sourcés, lisibles. Au deuxième rendez-vous, le vendeur voit la différence sans que vous ayez à la dire.</p>
+          <p class="frein-chiffre"><strong>2&nbsp;h → 15&nbsp;min</strong> par famille de documents</p>
+          <p class="frein-outil">Gemini Notebook</p>
+        </div>
+      </li>
+      <li class="frein" data-frein="il estime que son bien vaut plus">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">Pendant le R2</p>
+          <p class="frein-dit">«&nbsp;Mon bien vaut plus que ça.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">Pendant le R2</p>
+          <h3>Le marché, devant lui</h3>
+          <p>Son bien face à cinq concurrents. Il devine leur prix, découvre le prix affiché, voit l'écart. Le prix de commercialisation, c'est lui qui le dit.</p>
+          <p class="frein-chiffre"><strong>5&nbsp;concurrents</strong> analysés avec lui</p>
+          <p class="frein-outil">Academia ACM</p>
+        </div>
+      </li>
+      <li class="frein" data-frein="il veut réfléchir avant de signer">
+        <div class="frein-face frein-recto">
+          <p class="frein-quand">Après le R2</p>
+          <p class="frein-dit">«&nbsp;Je vais réfléchir.&nbsp;»</p>
+        </div>
+        <div class="frein-face frein-verso">
+          <p class="frein-quand">Après le R2</p>
+          <h3>L'estimation qu'il regarde et fait suivre</h3>
+          <p>La synthèse devient une vidéo, dans sa langue, pour le conjoint qui n'était pas là. Et quand un concurrent baisse son prix, vous avez une vraie raison de le rappeler.</p>
+          <p class="frein-chiffre"><strong>20&nbsp;min</strong> plus le temps de génération de la vidéo</p>
+          <p class="frein-outil">Gemini Notebook, Academia ACM</p>
+        </div>
+      </li>
+      <li class="freins-bilan">
+        <p class="freins-compte" aria-live="polite">Cinq freins, cinq preuves à poser.</p>
+        <p class="freins-fin" hidden>C'est ce parcours que nous montons avec vous, sur vos propres dossiers. <a class="lien-texte" href="#titre-final" data-suivi="freins-appel">Réserver mon appel découverte</a></p>
+      </li>
+    </ul>
+    <p class="freins-note">Les temps sont ceux de la méthode, une fois les outils en place. Vos freins retournés complètent le prompt plus bas.</p>
+  </div>
+  <div class="bloc">
     <h2>Le cas en agence</h2>
     <p>Trois agences ont vu le même vendeur dans la semaine. Elles ont toutes parlé de leur réseau et de leurs portails. Celle qui signe l'exclusivité est souvent celle qui a le mieux compris le projet du vendeur et qui lui a envoyé, le jour même, un compte rendu clair avec la suite.</p>
   </div>
@@ -662,8 +747,8 @@ ecrire('ia-mandat-exclusif/',
     </ul>
   </div>
 ''' + prompt_bloc("Prompt gratuit : le compte rendu du rendez-vous vendeur", '''Rôle : tu es mon assistant de conseiller immobilier.
-Contexte : je sors d'un premier rendez-vous avec un vendeur. Mes notes brutes : [COLLE OU DICTE TES NOTES, SANS NOM NI ADRESSE]. Ce que je propose : [MANDAT EXCLUSIF, DURÉE, PLAN D'ACTION].
-Tâche : rédige le mail de compte rendu au vendeur. Reprends son projet avec ses mots, les points clés du bien, ce que j'ai compris de ses attentes, puis les prochaines étapes datées.
+Contexte : je sors d'un premier rendez-vous avec un vendeur. Mes notes brutes : [COLLE OU DICTE TES NOTES, SANS NOM NI ADRESSE]. Ses freins : [FREINS DU VENDEUR]. Ce que je propose : [MANDAT EXCLUSIF, DURÉE, PLAN D'ACTION].
+Tâche : rédige le mail de compte rendu au vendeur. Reprends son projet avec ses mots, les points clés du bien, ce que j'ai compris de ses attentes, puis les prochaines étapes datées. Pour chaque frein, annonce ce que j'apporterai au prochain rendez-vous, sans promettre ni prix ni délai.
 Format : un objet, 150 mots maximum, ton chaleureux et professionnel, vouvoiement, signature [TON NOM], [TON AGENCE].''') + '''
   <div class="bloc">
     <h2>Erreurs fréquentes et règles à respecter</h2>

@@ -20,6 +20,26 @@ SCRIPTS_PAGE = {'formation-ia-reseau-mandataires/': ['plan-reseau.js'], 'formati
 VARIANTES = [('Construisez votre plan', 'b-plan'), ("Qu'est-ce qui vous mange", 'b-plan b-semaine'), ('Le rythme de votre agence', 'b-plan b-agence'), ('Et votre semaine de directeur', 'b-plan b-semaine'), ('Le cas en', 'b-cas'), ('La méthode classique', 'b-methode'), ('Ce que (?:vous gagnez|le réseau y gagne)', 'b-gains'),
              ('Deux façons de financer', 'b-duo'), ('Prompt gratuit', 'b-prompt'), ('Erreurs fréquentes', 'b-erreurs')]
 
+# Lot 3 : les sept pages « une étape de la vente ». Elles partagent un rail (où l'on est dans la vente)
+# et portent chacune un geste. ETAPES_PILOTES : celles dont le geste est construit et validé.
+ETAPES = [('ia-prospection-immobiliere/', 'Prospection'), ('ia-estimation-immobiliere/', 'Estimation'), ('ia-mandat-exclusif/', 'Mandat'),
+          ('ia-annonce-immobiliere/', 'Annonce'), ('ia-decouverte-acquereur/', 'Acquéreur'), ('ia-visite-immobiliere/', 'Visite'), ('ia-negociation-immobiliere/', 'Négociation')]
+ETAPES_PILOTES = {'ia-mandat-exclusif/'}
+PILOTES |= ETAPES_PILOTES
+SCRIPTS_PAGE['ia-mandat-exclusif/'] = ['freins.js']
+VARIANTES.insert(0, ('Le vendeur hésite', 'b-plan b-freins'))
+
+
+def rail(chemin):
+    if chemin not in ETAPES_PILOTES:
+        return ''
+    lis = ''.join(
+        f'<li class="ici"><a href="/{c}" aria-current="page"><span>{i}</span>{nom}</a></li>' if c == chemin
+        else f'<li><a href="/{c}"><span>{i}</span>{nom}</a></li>'
+        for i, (c, nom) in enumerate(ETAPES, 1))
+    return f'<nav class="rail-etapes" aria-label="Les étapes de la vente"><ol>{lis}</ol></nav>'
+
+
 def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=True):
     corps = re.sub(r'(<h2>.*?</h2>)(.*?)(\n  </div>)', r'\1<div class="corps">\2</div>\3', corps, flags=re.S)
     if chemin in PILOTES:
@@ -73,7 +93,7 @@ def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=Tr
     <nav class="fil" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">/</span> {h1.rstrip('.')}</nav>
     <h1>{h1}</h1>
     <p class="promesse">{intro}</p>
-    {f'<a class="action" href="{CAL}" rel="noopener">Réserver mon appel découverte{fl}</a>' if appel else ''}
+    {f'<a class="action" href="{CAL}" rel="noopener">Réserver mon appel découverte{fl}</a>' if appel else ''}{rail(chemin)}
   </div>
 </section>
 <section class="clair texte-page">

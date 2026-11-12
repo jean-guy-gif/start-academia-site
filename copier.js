@@ -7,7 +7,7 @@
     var b = document.createElement('button');
     b.type = 'button'; b.className = 'prompt-copier'; b.textContent = 'Copier le prompt';
     b.addEventListener('click', function () {
-      navigator.clipboard.writeText(texte).then(function () {
+      navigator.clipboard.writeText(pre.textContent).then(function () {
         b.textContent = 'Prompt copié'; b.classList.add('ok');
         if (window.va) window.va('event', { name: 'clic', data: { cible: 'copier-prompt', page: location.pathname } });
         setTimeout(function () { b.textContent = 'Copier le prompt'; b.classList.remove('ok'); }, 2200);
