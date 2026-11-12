@@ -1913,3 +1913,18 @@ p { text-wrap: pretty; }
 
 /* Lot 5 : la phrase forte reste lisible dans le panneau sombre du cas */
 .texte-page .bloc.b-cas p.preuve-texte { margin-top: 22px; color: #fff !important; font-size: clamp(1.1rem, 1.6vw, 1.45rem); }
+
+/* Lot 5, finitions : sur téléphone, le compteur du dossier d'estimation reste sous les yeux pendant qu'on coche ;
+   la pile, le verdict et ce qui manque suivent la liste. */
+@media (max-width: 860px) {
+  .geste-actif .avisv { display: flex; flex-direction: column; align-items: stretch; gap: 14px; }
+  .geste-actif .avisv-scene { display: contents; }
+  .texte-page .bloc.b-dossier .avisv-compte { order: -1; position: sticky; top: 64px; z-index: 3; display: flex; align-items: baseline; gap: 10px; margin: 0 calc(-1 * clamp(26px, 4.4vw, 68px)); padding: 10px clamp(26px, 4.4vw, 68px); background: var(--nuit); box-shadow: 0 10px 18px -10px rgb(0 0 0 / .7); }
+  .geste-actif .avisv-compte strong { display: inline; font-size: 2rem; }
+  .geste-actif .avisv-pieces { order: 0; }
+  .geste-actif .avisv-pile, .geste-actif .avisv-verdict, .geste-actif .avisv-manques { order: 1; }
+}
+@media (max-width: 860px) { .texte-page .bloc.b-dossier { overflow: clip; } }
+/* Sans script : pas de commande qui ne répond pas. */
+.guides-chaine[hidden] { display: none; }
+.b-visite:not(.geste-actif) .visite-choix, .b-offre:not(.geste-actif) .offre-saisie, .b-alur:not(.geste-actif) .alur-saisie, .b-mentions:not(.geste-actif) .mentions-cas { display: none; }

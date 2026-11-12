@@ -31,8 +31,12 @@ PILOTES.add('formation-loi-alur/')
 PILOTES |= {'vendeur-parti-trop-cher-reprendre-mandat/', 'prospecter-avec-le-dpe/', 'pv-assemblee-generale-gemini-notebook/',
             'prospection-immobiliere-sans-pige/', 'coaching-pour-directeur-dagence-immobiliere-dans-le-06/'}
 VARIANTES.append(('Comment ça se passe', 'b-methode'))
-# Les gains des guides sont rédigés « Titre : phrase » : ils gardent leur liste simple (les tuiles attendent « Titre. Phrase. »).
-SANS_TUILES = {'vendeur-parti-trop-cher-reprendre-mandat/', 'prospecter-avec-le-dpe/', 'pv-assemblee-generale-gemini-notebook/', 'prospection-immobiliere-sans-pige/'}
+# Guide auto-entrepreneur : même traitement, avec ses propres intitulés.
+PILOTES.add('financement-formation-auto-entrepreneur/')
+VARIANTES += [("Les démarches, dans l'ordre", 'b-methode'), ('Les erreurs qui font perdre', 'b-erreurs')]
+# Les gains des guides sont rédigés « Titre : suite » ou « Titre, suite » : en tuiles, la ponctuation de liaison
+# resterait orpheline en début de ligne. On la retire sur ces pages seulement.
+GAINS_A_NETTOYER = {'vendeur-parti-trop-cher-reprendre-mandat/', 'prospecter-avec-le-dpe/', 'pv-assemblee-generale-gemini-notebook/'}
 SCRIPTS_PAGE['formation-loi-alur/'] = ['gestes.js']
 SCRIPTS_PAGE['ia-mandat-exclusif/'] = ['freins.js']
 SCRIPTS_PAGE.update({'ia-decouverte-acquereur/': ['freins.js'], 'ia-visite-immobiliere/': ['gestes.js'], 'ia-negociation-immobiliere/': ['gestes.js'], 'ia-prospection-immobiliere/': ['gestes.js'], 'ia-estimation-immobiliere/': ['gestes.js'], 'ia-annonce-immobiliere/': ['gestes.js']})
@@ -54,9 +58,10 @@ def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=Tr
     corps = re.sub(r'(<h2>.*?</h2>)(.*?)(\n  </div>)', r'\1<div class="corps">\2</div>\3', corps, flags=re.S)
     if chemin in PILOTES:
         for debut, classe in VARIANTES:
-            if classe == 'b-gains' and chemin in SANS_TUILES:
-                continue
             corps = re.sub(r'<div class="bloc">(\s*<h2>' + debut + ')', rf'<div class="bloc {classe}">\1', corps)
+    if chemin in GAINS_A_NETTOYER:
+        corps = re.sub(r'(<div class="bloc b-gains">.*?\n  </div>)',
+                       lambda m: re.sub(r'</strong>(?:&nbsp;)?\s*[:,]\s*', '</strong> ', m.group(1)), corps, flags=re.S)
     url = f'https://www.start-academia.fr/{chemin}'
     final = f'''
 <section class="final final-simple" aria-labelledby="titre-final">
