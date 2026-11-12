@@ -153,7 +153,7 @@ ecrire('formation-ia-immobilier/',
             <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="prospection" data-unite="semaine"><span class="tache-nom">Planifier mes publications de la semaine</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
           </ul></fieldset>
           <fieldset class="semaine-etape" data-lien="/ia-estimation-immobiliere/"><legend>Vendeur</legend><ul>
-            <li class="tache"><label><input type="checkbox" data-ia="15" data-etape="vendeur" data-unite="rendez-vous"><span class="tache-nom">Préparer un premier rendez-vous vendeur</span><em class="tache-ia">15&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="10" data-etape="vendeur" data-unite="rendez-vous"><span class="tache-nom">Préparer un premier rendez-vous vendeur</span><em class="tache-ia">10&nbsp;min avec la méthode</em></label></li>
             <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="vendeur" data-unite="dossier"><span class="tache-nom">Monter le dossier après la découverte</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
             <li class="tache"><label><input type="checkbox" data-ia="15" data-etape="vendeur" data-unite="rendez-vous"><span class="tache-nom">Préparer le second rendez-vous et la stratégie</span><em class="tache-ia">15&nbsp;min avec la méthode</em></label></li>
             <li class="tache"><label><input type="checkbox" data-ia="10" data-etape="vendeur" data-unite="bien"><span class="tache-nom">Défendre un prix par le potentiel de rénovation</span><em class="tache-ia">10&nbsp;min avec la méthode</em></label></li>
@@ -638,7 +638,7 @@ Format : 1. Le bien en 3 lignes. 2. Le marché en 5 lignes. 3. La fourchette arg
 # ---------------------------------------------------------------- Cas pratique 3 : mandat exclusif
 ecrire('ia-mandat-exclusif/',
  "Rentrer un mandat exclusif avec l'IA | Start Academia",
- "Préparer le rendez-vous vendeur en 15 minutes, comprendre son profil, envoyer le compte rendu dans la demi-heure : rentrer des mandats exclusifs avec l'IA.",
+ "Préparer le rendez-vous vendeur en 10 minutes, comprendre son profil, envoyer le compte rendu dans la demi-heure : rentrer des mandats exclusifs avec l'IA.",
  "Rentrer un mandat exclusif avec l'IA.",
  "Le mandat exclusif se gagne avant, pendant et juste après le rendez-vous vendeur. L'IA vous aide à arriver préparé, à comprendre la personne en face de vous et à envoyer un suivi plus rapide que tous vos confrères.",
  '''  <div class="bloc">
@@ -661,7 +661,7 @@ ecrire('ia-mandat-exclusif/',
           <p class="frein-quand">Avant le R1</p>
           <h3>Le dossier d'adresse, sans prix</h3>
           <p>Vous arrivez avec le marché autour de son bien, chapitre par chapitre, et une fiche qu'il coche avec vous. Aucun chiffre lâché au premier rendez-vous&nbsp;: un prix se compare, une stratégie se choisit.</p>
-          <p class="frein-chiffre"><strong>15&nbsp;min</strong> de préparation</p>
+          <p class="frein-chiffre"><strong>45 → 10&nbsp;min</strong> de préparation</p>
           <p class="frein-outil">Academia Secteur</p>
         </div>
       </li>
@@ -731,7 +731,7 @@ ecrire('ia-mandat-exclusif/',
   <div class="bloc">
     <h2>La méthode classique, boostée à l'IA</h2>
     <ol class="points numerotes">
-      <li><strong>Préparer le premier rendez-vous en 15 minutes.</strong> Dossier d'adresse avec Academia Secteur, ventes du quartier, questions de découverte&nbsp;: vos outils de prospection deviennent vos outils de préparation.</li>
+      <li><strong>Préparer le premier rendez-vous en 10 minutes.</strong> Dossier d'adresse avec Academia Secteur, ventes du quartier, questions de découverte&nbsp;: vos outils de prospection deviennent vos outils de préparation.</li>
       <li><strong>Comprendre le vendeur.</strong> Avec <strong>Academia Profiling</strong>, notre outil maison, vous identifiez le profil de votre interlocuteur et la façon de lui parler. Gemini Notebook vous aide à retrouver l'essentiel dans ses documents (diagnostics, règlement de copropriété).</li>
       <li><strong>Envoyer le compte rendu dans la demi-heure.</strong> Vous dictez vos notes après le rendez-vous, l'IA les met en forme, vous relisez et vous envoyez&nbsp;: le vendeur reçoit un récapitulatif avant même d'avoir appelé une autre agence.</li>
       <li><strong>Revenir avec le bon dossier.</strong> Au deuxième rendez-vous, l'analyse de marché et le plan de commercialisation défendent l'exclusivité par les faits, pas par la promesse.</li>
@@ -741,7 +741,7 @@ ecrire('ia-mandat-exclusif/',
   <div class="bloc">
     <h2>Ce que vous gagnez</h2>
     <ul class="points">
-      <li><strong>15 minutes de préparation</strong> pour un premier rendez-vous vendeur, au lieu d'arriver les mains vides ou d'y passer une heure.</li>
+      <li><strong>10 minutes de préparation</strong> pour un premier rendez-vous vendeur, au lieu de 45, ou d'arriver les mains vides.</li>
       <li><strong>Un compte rendu envoyé dans la demi-heure</strong> au lieu du lendemain, ou jamais.</li>
       <li><strong>Un discours adapté au profil du vendeur</strong>, ce qui change le rapport de force sur l'exclusivité.</li>
     </ul>
