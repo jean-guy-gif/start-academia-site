@@ -6,7 +6,6 @@
   var racine = document.querySelector('.semaine');
   if (!racine) return;
   var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var ETAPES = { prospection: ['Prospection', '/ia-prospection-immobiliere/'], vendeur: ['Vendeur', '/ia-estimation-immobiliere/'], mandat: ['Mandat', '/ia-mandat-exclusif/'], acquereurs: ['Acquéreurs', '/ia-decouverte-acquereur/'], visites: ['Visites', '/ia-visite-immobiliere/'] };
   function q(s) { return racine.querySelector(s); }
   function el(tag, cls, txt) { var n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; }
   function duree(m) {
@@ -15,7 +14,9 @@
   }
   var taches = [].slice.call(racine.querySelectorAll('.tache')).map(function (li) {
     var c = li.querySelector('input');
-    return { li: li, c: c, ia: +c.getAttribute('data-ia'), etape: c.getAttribute('data-etape'), unite: c.getAttribute('data-unite'), nom: li.querySelector('.tache-nom').textContent, fois: 1, auj: 0 };
+    var groupe = li.closest('fieldset'), gain = c.getAttribute('data-gain');
+    return { li: li, c: c, fixe: +c.getAttribute('data-ia') || 0, gain: gain ? +gain : 0, etape: groupe ? groupe.querySelector('legend').textContent : '', lien: groupe ? groupe.getAttribute('data-lien') : null,
+      nom: li.querySelector('.tache-nom').textContent, fois: 1, auj: 0, ia: function () { return this.gain ? this.auj * (1 - this.gain / 100) : this.fixe; } };
   });
 
   function reglages(t) {
@@ -29,7 +30,7 @@
     var a = el('div', 'tache-auj'); a.setAttribute('role', 'group');
     a.appendChild(el('span', 'tr-label', 'Aujourd’hui, ça vous prend à chaque fois'));
     var choix = el('div', 'tache-temps');
-    [5, 10, 15, 30, 45, 60, 90, 120, 180].forEach(function (m) {
+    [5, 10, 15, 30, 45, 60, 90, 120, 180, 240].forEach(function (m) {
       var bt = el('button', null, duree(m)); bt.type = 'button'; bt.setAttribute('aria-pressed', 'false');
       bt.addEventListener('click', function () {
         t.auj = m; [].forEach.call(choix.children, function (x) { x.setAttribute('aria-pressed', String(x === bt)); });
@@ -54,7 +55,7 @@
   function calcul() {
     var actives = taches.filter(function (t) { return t.c.checked; });
     var auj = 0, ia = 0, sansTemps = 0;
-    actives.forEach(function (t) { if (!t.auj) { sansTemps++; return; } auj += t.fois * t.auj; ia += t.fois * t.ia; });
+    actives.forEach(function (t) { if (!t.auj) { sansTemps++; return; } auj += t.fois * t.auj; ia += t.fois * t.ia(); });
     var reglees = actives.length - sansTemps;
     totaux = { auj: auj, ia: ia };
     q('#sm-auj').textContent = duree(auj); q('#sm-ia').textContent = duree(ia);
@@ -63,14 +64,16 @@
     var reste = sansTemps ? ' Il reste ' + (sansTemps > 1 ? sansTemps + ' tâches à régler' : 'une tâche à régler') + ' pour compléter votre semaine.' : '';
     if (!actives.length) phrase.textContent = 'Cochez une première tâche pour commencer.';
     else if (!reglees) phrase.textContent = 'Touchez le temps que chaque tâche cochée vous prend aujourd’hui : vos deux piles se construisent aussitôt.';
-    else if (gain > 0) phrase.textContent = 'Avec la méthode, ces tâches vous prennent ' + duree(ia) + ' par semaine au lieu de ' + duree(auj) + '. Vous récupérez ' + duree(gain) + ' pour vos vendeurs et vos acquéreurs.' + reste;
+    else if (gain > 0) phrase.textContent = 'Avec la méthode, ces tâches vous prennent ' + duree(ia) + ' par semaine au lieu de ' + duree(auj) + '. Vous récupérez ' + duree(gain) + ' pour ' + (racine.getAttribute('data-pour') || 'vos vendeurs et vos acquéreurs') + '.' + reste;
     else phrase.textContent = 'Sur ces tâches, vous êtes déjà rapide. Le gain se trouve sans doute ailleurs dans votre semaine : parlons-en pendant l’appel.' + reste;
     var prog = q('#sm-programme'); prog.textContent = '';
-    Object.keys(ETAPES).forEach(function (k) {
+    var vues = [];
+    actives.forEach(function (t) { if (vues.indexOf(t.etape) < 0) vues.push(t.etape); });
+    vues.forEach(function (k) {
       var liste = actives.filter(function (t) { return t.etape === k; });
-      if (!liste.length) return;
-      var li = el('li'), a = el('a', null, ETAPES[k][0]); a.href = ETAPES[k][1]; a.setAttribute('data-suivi', 'semaine-' + k);
-      li.appendChild(a); li.appendChild(el('span', null, liste.map(function (t) { return t.nom.charAt(0).toLowerCase() + t.nom.slice(1); }).join(', ') + '.'));
+      var li = el('li'), a = el(liste[0].lien ? 'a' : 'strong', null, k);
+      if (liste[0].lien) { a.href = liste[0].lien; a.setAttribute('data-suivi', 'semaine-etape'); }
+      li.appendChild(a); li.appendChild(el('span', null, liste.map(function (t) { return t.nom.charAt(0).toLowerCase() + t.nom.slice(1); }).join(' ; ') + '.'));
       prog.appendChild(li);
     });
     prog.hidden = !actives.length;
@@ -80,8 +83,8 @@
   function resume() {
     var actives = taches.filter(function (t) { return t.c.checked; });
     return 'Ma semaine, tâche par tâche\n' + actives.map(function (t) {
-      return '- ' + t.nom + ' : ' + t.fois + ' fois par semaine, ' + (t.auj ? duree(t.auj) : '?') + ' aujourd’hui, ' + duree(t.ia) + ' avec la méthode';
-    }).join('\n') + '\nTotal : ' + duree(totaux.auj) + ' aujourd’hui, ' + duree(totaux.ia) + ' avec la méthode.\nStart Academia, formation IA immobilier.';
+      return '- ' + t.nom + ' : ' + t.fois + ' fois par semaine, ' + (t.auj ? duree(t.auj) : '?') + ' aujourd’hui, ' + (t.gain && !t.auj ? t.gain + ' % de moins' : duree(t.ia())) + ' avec la méthode';
+    }).join('\n') + '\nTotal : ' + duree(totaux.auj) + ' aujourd’hui, ' + duree(totaux.ia) + ' avec la méthode.\nStart Academia.';
   }
   var copier = q('.plan-copier');
   if (copier && navigator.clipboard) {
@@ -93,7 +96,7 @@
   var appel = q('.semaine-appel');
   if (appel) appel.addEventListener('click', function () {
     var n = taches.filter(function (t) { return t.c.checked; }).length, g = totaux.auj - totaux.ia;
-    if (window.va) window.va('event', { name: 'ma_semaine', data: { taches: n, gain: g >= 300 ? '5h+' : g >= 120 ? '2-5h' : g > 0 ? '<2h' : 'aucun' } });
+    if (window.va) window.va('event', { name: racine.getAttribute('data-evenement') || 'ma_semaine', data: { taches: n, gain: g >= 300 ? '5h+' : g >= 120 ? '2-5h' : g > 0 ? '<2h' : 'aucun' } });
   });
 
   /* ---------- Les deux piles (canvas, vue isométrique) : un étage = une heure, quatre cubes d'un quart d'heure ---------- */
