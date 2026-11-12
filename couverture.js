@@ -2,7 +2,7 @@
    Ne touche pas aux règles de calcul : lit le budget affiché par simulateur.js. */
 (function () {
   var racine = document.getElementById('simulateur'); if (!racine) return;
-  var TAUX = 42, MIN = 4, MAX = 40;
+  var TAUX = 42, MIN = 4, MAX = 72;
   var voulu = parseInt((location.search.match(/[?&]heures=(\d+)/) || [])[1], 10);
   if (voulu > MAX) MAX = Math.min(voulu, 200);
   var heures = voulu >= MIN ? Math.min(voulu, MAX) : 16, envoye = false, blocs = [];
