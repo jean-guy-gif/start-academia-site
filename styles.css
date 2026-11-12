@@ -1650,3 +1650,5 @@ p { text-wrap: pretty; }
 
 /* « Pour qui » réduit au rappel loi ALUR (les profils sont portés par les portes) */
 .pourqui.pourqui-alur { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
+
+.maillon .preuve-suite { margin-top: 10px; font-size: 1.05rem; }
