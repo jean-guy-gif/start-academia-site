@@ -97,13 +97,13 @@ def theme(titre, n, _, citations):
 import math
 CHAINE = [
     ('Prospection', "Repérer les propriétaires de votre secteur, puis leur parler au bon moment.", "Un dossier d'adresse complet en quelques minutes et des messages personnalisés, avec Academia Secteur et Academia Vivre ici.", [2]),
-    ('Découverte', "Comprendre le vendeur : son projet, ses motivations, ses freins, sa façon de décider.", "Son profil et la manière de lui parler avant le rendez-vous avec Academia Profiling, ses documents analysés avec NotebookLM.", [6]),
+    ('Découverte', "Comprendre le vendeur : son projet, ses motivations, ses freins, sa façon de décider.", "Son profil et la manière de lui parler avant le rendez-vous avec Academia Profiling, ses documents analysés avec Gemini Notebook.", [6]),
     ('Estimation', "Justifier un prix réaliste, comparables à l'appui.", "Une analyse comparative claire et un avis de valeur argumenté, avec Academia ACM.", [0]),
     ('Mandat', "Signer l'exclusivité, puis prouver au vendeur, semaine après semaine, que vous travaillez pour lui.", "Un argumentaire adapté au vendeur et un process de suivi qui le tient informé, préparé avec l'IA.", [1, 0]),
     ('Acquéreurs', "Comprendre l'acquéreur et son projet de vie, pas seulement ses critères.", "Une découverte qui va jusqu'à sa vie dans le quartier, avec Academia Vivre ici et Academia Profiling.", [3]),
     ('Visites et offres', "Sélectionner les bons biens, faire visiter, puis défendre l'offre devant le vendeur.", "Une sélection ciblée et des offres argumentées par le marché, avec Academia ACM et Academia Radar Acheteur.", []),
     ('Organisation', "Tenir son agenda, ses relances et ses priorités sans y passer ses soirées.", "Une semaine planifiée, des mails et comptes rendus rédigés en quelques minutes, avec ChatGPT et Claude.", [7, 5]),
-    ('Administratif', "Traiter les documents, la conformité et les tâches répétitives.", "Des synthèses de documents, des réponses juridiques vérifiées et des tâches automatisées, avec NotebookLM, Academia Juridique et nos outils IA.", []),
+    ('Administratif', "Traiter les documents, la conformité et les tâches répétitives.", "Des synthèses de documents, des réponses juridiques vérifiées et des tâches automatisées, avec Gemini Notebook, Academia Juridique et nos outils IA.", []),
     ("Pilotage d'agence", "Suivre l'activité de l'équipe, accompagner chaque conseiller, fixer les bons objectifs.", "Les indicateurs de l'agence et de chaque conseiller avec Academia Pilotage, les diagnostics et objectifs avec Academia Parcours.", [4]),
 ]
 N = len(CHAINE)

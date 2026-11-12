@@ -1300,3 +1300,23 @@ p { text-wrap: pretty; }
 .menu a, .entete .action.compacte { white-space: nowrap; }
 @media (max-width: 1280px) { .menu { gap: 22px; } }
 @media (max-width: 1120px) { .menu { gap: 16px; } .menu a { font-size: .875rem; } }
+
+/* ---------- Accueil, « Nos outils » : les écrans et les pages s'assemblent au défilement ----------
+   CSS seul (animations pilotées par le défilement). Navigateurs sans cette fonction ou en mouvement réduit :
+   affichage direct, comme avant. overflow: clip remplace hidden pour que la progression suive la page. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .outils-v2 { overflow: clip; }
+    .outil { overflow: clip; view-timeline: --outil block; animation: outil-entre linear both; animation-timeline: --outil; animation-range: entry 0% entry 55%; }
+    .outil .ecran-o, .outil .cd-courbe, .outil .cd-page { animation: linear both; animation-timeline: --outil; }
+    .outil .ecran-o { animation-name: relief-ecran; animation-range: entry 15% cover 32%; }
+    .outil .cd-courbe { animation-name: relief-courbe; animation-range: entry 45% cover 38%; }
+    .outil .p-a { animation-name: relief-page-a; animation-range: entry 60% cover 42%; }
+    .outil .p-b, .outil .p-bas { animation-name: relief-page-b; animation-range: entry 75% cover 46%; }
+  }
+}
+@keyframes outil-entre { from { opacity: 0; translate: 0 56px; } }
+@keyframes relief-ecran { from { opacity: 0; translate: 48px 36px; scale: .93; } }
+@keyframes relief-courbe { from { opacity: 0; translate: -40px 60px; } }
+@keyframes relief-page-a { from { opacity: 0; translate: -70% 50px; rotate: 14deg; } }
+@keyframes relief-page-b { from { opacity: 0; translate: -120% 70px; rotate: -18deg; } }

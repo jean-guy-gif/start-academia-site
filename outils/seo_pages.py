@@ -29,8 +29,8 @@ def jsonld(chemin, titre_page, desc, faq, cours=None):
             {"@type": "ListItem", "position": 2, "name": titre_page, "item": f"{SITE}/{chemin}"}]},
     ]
     if chemin in GUIDES:
-        graph[0]["dateModified"] = GUIDES[chemin]
-        graph[0]["author"] = {"@type": "Person", "@id": AUTEUR[2], "name": AUTEUR[0]}
+        graph[0]["dateModified"] = GUIDES[chemin][0]
+        graph[0]["author"] = {"@type": "Person", "@id": AUTEURS[GUIDES[chemin][1]][2], "name": AUTEURS[GUIDES[chemin][1]][0]}
         if chemin in CAPTURES:
             graph[0]["primaryImageOfPage"] = {"@type": "ImageObject", "url": f"{SITE}/img/{CAPTURES[chemin][0]}"}
     if cours:
@@ -75,20 +75,25 @@ PREUVES_BREF = '''  <div class="bloc">
 # ---------------------------------------------------------------- Guides : signature, date et capture d'outil
 # Date de dernière mise à jour du CONTENU de chaque guide (AAAA-MM-JJ). À changer à la main quand le texte
 # du guide change : elle est affichée sous le titre et transmise à Google (dateModified).
-AUTEUR = ('Jean-Guy Ourmières', 'co-dirigeant et formateur', f'{SITE}/#jean-guy')
+# Chaque guide est signé par l'un des deux formateurs, en alternance dans l'ordre de la rubrique Guides.
+AUTEURS = {
+    'jg': ('Jean-Guy Ourmières', 'co-dirigeant et formateur', f'{SITE}/#jean-guy'),
+    'lm': ('Laurent Marx', 'co-dirigeant et formateur', f'{SITE}/#laurent'),
+}
+# chemin -> (date de mise à jour, auteur)
 GUIDES = {
-    'ia-prospection-immobiliere/': '2026-11-12',
-    'ia-estimation-immobiliere/': '2026-11-12',
-    'ia-mandat-exclusif/': '2026-11-12',
-    'ia-annonce-immobiliere/': '2026-11-12',
-    'ia-decouverte-acquereur/': '2026-11-12',
-    'ia-visite-immobiliere/': '2026-11-12',
-    'ia-negociation-immobiliere/': '2026-11-12',
-    'prospection-immobiliere-sans-pige/': '2026-11-12',
-    'financement-formation-auto-entrepreneur/': '2026-11-12',
-    'vendeur-parti-trop-cher-reprendre-mandat/': '2026-11-12',
-    'prospecter-avec-le-dpe/': '2026-11-12',
-    'pv-assemblee-generale-gemini-notebook/': '2026-11-12',
+    'prospecter-avec-le-dpe/': ('2026-11-12', 'jg'),
+    'prospection-immobiliere-sans-pige/': ('2026-11-12', 'lm'),
+    'ia-prospection-immobiliere/': ('2026-11-12', 'jg'),
+    'vendeur-parti-trop-cher-reprendre-mandat/': ('2026-11-12', 'lm'),
+    'ia-estimation-immobiliere/': ('2026-11-12', 'jg'),
+    'ia-mandat-exclusif/': ('2026-11-12', 'lm'),
+    'ia-annonce-immobiliere/': ('2026-11-12', 'jg'),
+    'pv-assemblee-generale-gemini-notebook/': ('2026-11-12', 'lm'),
+    'ia-decouverte-acquereur/': ('2026-11-12', 'jg'),
+    'ia-visite-immobiliere/': ('2026-11-12', 'lm'),
+    'ia-negociation-immobiliere/': ('2026-11-12', 'jg'),
+    'financement-formation-auto-entrepreneur/': ('2026-11-12', 'lm'),
 }
 # Capture d'un outil maison cité dans le guide : (fichier dans /img, largeur, hauteur, description, légende).
 # Elle est insérée après la première liste numérotée du guide (la méthode).
@@ -119,9 +124,9 @@ def habiller_guide(chemin, corps):
         if '</ol>' not in corps:
             raise SystemExit(f'seo_pages : pas de liste numérotée où placer la capture dans {chemin}')
         corps = corps.replace('</ol>', '</ol>' + figure, 1)
-    nom, role, _ = AUTEUR
+    nom, role, _ = AUTEURS[GUIDES[chemin][1]]
     signature = (f'  <p class="signature">Par <a href="/#equipe">{nom}</a>, {role} '
-                 f'<span aria-hidden="true">·</span> Mis à jour le <time datetime="{GUIDES[chemin]}">{date_fr(GUIDES[chemin])}</time></p>')
+                 f'<span aria-hidden="true">·</span> Mis à jour le <time datetime="{GUIDES[chemin][0]}">{date_fr(GUIDES[chemin][0])}</time></p>')
     return signature + '\n' + corps
 
 # ---------------------------------------------------------------- 1. Formation IA immobilier
@@ -143,12 +148,12 @@ ecrire('formation-ia-immobilier/',
   </div>
   <div class="bloc">
     <h2>Les outils utilisés</h2>
-    <p>Nous choisissons l'outil le plus simple pour chaque tâche, et nous disons pourquoi&nbsp;: <strong>ChatGPT, Claude, Gemini, NotebookLM et Gamma</strong>, et nos outils maison conçus par des agents pour des agents. <a class="lien-texte" href="/#outils">Découvrir nos outils</a></p>
+    <p>Nous choisissons l'outil le plus simple pour chaque tâche, et nous disons pourquoi&nbsp;: <strong>ChatGPT, Claude, Gemini, Gemini Notebook et Gamma</strong>, et nos outils maison conçus par des agents pour des agents. <a class="lien-texte" href="/#outils">Découvrir nos outils</a></p>
   </div>
   <div class="bloc">
     <h2>Format, durée et niveau</h2>
     <ul class="points">
-      <li><strong>Modules courts</strong>, de 1 à 4&nbsp;heures par outil ou par usage (ChatGPT, Claude, NotebookLM, rédaction de prompts, génération de contenus, DPE…), combinés selon vos besoins.</li>
+      <li><strong>Modules courts</strong>, de 1 à 4&nbsp;heures par outil ou par usage (ChatGPT, Claude, Gemini Notebook, rédaction de prompts, génération de contenus, DPE…), combinés selon vos besoins.</li>
       <li><strong>Parcours complet</strong> «&nbsp;Intégrer l'intelligence artificielle pour gagner en productivité&nbsp;» pour les équipes qui veulent aller plus loin.</li>
       <li><strong>Version débutant ou avancée</strong>, avec un livret tactique pour chaque méthode.</li>
       <li><strong>En agence</strong> sur la Côte d'Azur, <strong>ou à distance</strong> partout en France, en individuel ou en groupe.</li>
@@ -193,7 +198,7 @@ ecrire('formation-chatgpt-immobilier/',
   </div>
   <div class="bloc">
     <h2>Durée et format</h2>
-    <p>Module ChatGPT de 4&nbsp;heures en version débutant, complété par un module avancé (assistants personnalisés, automatisations). En agence sur la Côte d'Azur ou à distance, en individuel ou en groupe. Le module peut aussi être combiné avec Claude, Gemini ou NotebookLM dans un parcours plus complet. <a class="lien-texte" href="/formation-ia-immobilier/">Voir la formation IA immobilier complète</a></p>
+    <p>Module ChatGPT de 4&nbsp;heures en version débutant, complété par un module avancé (assistants personnalisés, automatisations). En agence sur la Côte d'Azur ou à distance, en individuel ou en groupe. Le module peut aussi être combiné avec Claude, Gemini ou Gemini Notebook dans un parcours plus complet. <a class="lien-texte" href="/formation-ia-immobilier/">Voir la formation IA immobilier complète</a></p>
   </div>
 ''' + GARANTIES,
  [("ChatGPT gratuit suffit-il pour suivre la formation&nbsp;?", "Oui pour démarrer. Nous montrons aussi ce qu'apportent les versions payantes, pour que vous décidiez en connaissance de cause."),
@@ -242,7 +247,7 @@ ecrire('formation-ia-nice/',
   </div>
   <div class="bloc">
     <h2>Les outils que vous utiliserez</h2>
-    <p>ChatGPT, Claude, Gemini, NotebookLM et Gamma, choisis selon la tâche, et nos outils maison&nbsp;: dossier d'adresse, localisateur, analyse comparative de marché, profiling vendeur et assistant juridique. Chaque parcours existe en version débutant et en version avancée.</p>
+    <p>ChatGPT, Claude, Gemini, Gemini Notebook et Gamma, choisis selon la tâche, et nos outils maison&nbsp;: dossier d'adresse, localisateur, analyse comparative de marché, profiling vendeur et assistant juridique. Chaque parcours existe en version débutant et en version avancée.</p>
   </div>
   <div class="bloc">
     <h2>Ils se sont formés près de chez vous</h2>
@@ -589,7 +594,7 @@ ecrire('ia-mandat-exclusif/',
     <h2>La méthode classique, boostée à l'IA</h2>
     <ol class="points numerotes">
       <li><strong>Préparer le premier rendez-vous en 15 minutes.</strong> Dossier d'adresse avec Academia Secteur, ventes du quartier, questions de découverte&nbsp;: vos outils de prospection deviennent vos outils de préparation.</li>
-      <li><strong>Comprendre le vendeur.</strong> Avec <strong>Academia Profiling</strong>, notre outil maison, vous identifiez le profil de votre interlocuteur et la façon de lui parler. NotebookLM vous aide à retrouver l'essentiel dans ses documents (diagnostics, règlement de copropriété).</li>
+      <li><strong>Comprendre le vendeur.</strong> Avec <strong>Academia Profiling</strong>, notre outil maison, vous identifiez le profil de votre interlocuteur et la façon de lui parler. Gemini Notebook vous aide à retrouver l'essentiel dans ses documents (diagnostics, règlement de copropriété).</li>
       <li><strong>Envoyer le compte rendu dans la demi-heure.</strong> Vous dictez vos notes après le rendez-vous, l'IA les met en forme, vous relisez et vous envoyez&nbsp;: le vendeur reçoit un récapitulatif avant même d'avoir appelé une autre agence.</li>
       <li><strong>Revenir avec le bon dossier.</strong> Au deuxième rendez-vous, l'analyse de marché et le plan de commercialisation défendent l'exclusivité par les faits, pas par la promesse.</li>
       <li><strong>Suivre le vendeur.</strong> Un process de suivi régulier, préparé avec l'IA, montre au vendeur ce que vous faites pour lui chaque semaine.</li>
@@ -616,7 +621,7 @@ Format : un objet, 150 mots maximum, ton chaleureux et professionnel, vouvoiemen
       <li><strong>Mettre des données sensibles dans l'IA.</strong> Pas de situation de santé, de divorce ou de succession nominative dans ChatGPT&nbsp;: gardez ces informations dans votre dossier.</li>
     </ul>
   </div>
-''' + formation_bloc("Le rendez-vous vendeur est un des modules les plus demandés&nbsp;: préparation du premier rendez-vous, découverte avec Academia Profiling et NotebookLM, compte rendu immédiat, deuxième rendez-vous et suivi vendeur, avec un atelier sur vos propres dossiers.") + '\n' + AUTRES + '\n' + GARANTIES,
+''' + formation_bloc("Le rendez-vous vendeur est un des modules les plus demandés&nbsp;: préparation du premier rendez-vous, découverte avec Academia Profiling et Gemini Notebook, compte rendu immédiat, deuxième rendez-vous et suivi vendeur, avec un atelier sur vos propres dossiers.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("Comment l'IA aide-t-elle à rentrer un mandat exclusif&nbsp;?", "En vous faisant arriver mieux préparé, en vous aidant à comprendre le vendeur et en envoyant un compte rendu clair très vite après le rendez-vous. La signature reste une affaire de confiance."),
   ("Qu'est-ce que l'outil Academia Profiling&nbsp;?", "Un outil maison de Start Academia qui aide à identifier le profil d'un vendeur pour adapter sa façon de lui parler. Il est utilisé pendant la formation."),
   ("Peut-on enregistrer un rendez-vous vendeur&nbsp;?", "Seulement avec l'accord explicite du vendeur, en lui expliquant à quoi sert l'enregistrement. Sinon, prenez des notes et dictez-les après."),
@@ -854,7 +859,7 @@ Format : 5 rubriques avec des puces, puis 3 questions à poser au syndic.""") + 
       <li><strong>Pas d'actes juridiques</strong>&nbsp;: Claude aide à comprendre et à préparer, pas à rédiger un compromis.</li>
     </ul>
   </div>
-''' + formation_bloc("Claude est enseigné dans nos formations IA immobilier, en module dédié ou aux côtés de ChatGPT, NotebookLM et Gamma, avec nos outils maison.") + '\n' + AUTRES + '\n' + GARANTIES,
+''' + formation_bloc("Claude est enseigné dans nos formations IA immobilier, en module dédié ou aux côtés de ChatGPT, Gemini Notebook et Gamma, avec nos outils maison.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("Quelle différence entre Claude et ChatGPT pour un agent immobilier&nbsp;?", "Les deux sont efficaces. Claude est particulièrement à l'aise avec les documents longs et une écriture naturelle ; ChatGPT a d'autres atouts, comme la génération d'images. Nous vous montrons les deux et quand utiliser l'un ou l'autre."),
   ("Faut-il un abonnement payant à Claude&nbsp;?", "Une version gratuite existe. Pour un usage quotidien en agence et les projets, l'abonnement payant devient vite utile ; nous en parlons pendant l'appel découverte selon votre usage."),
   ("Peut-on mettre les documents d'un client dans Claude&nbsp;?", "Uniquement après avoir retiré les données personnelles (noms, coordonnées, situation). Nous montrons comment faire en formation."),
@@ -1287,7 +1292,7 @@ def rubrique_guides():
         for c in liste:
             titre, desc = PAGES[c]
             cartes += (f'\n      <a class="guide-carte" href="/{c}"><span class="gc-etape">{nom}</span><strong>{titre}</strong>'
-                       f'<span class="gc-desc">{desc}</span><span class="gc-date">Mis à jour le <time datetime="{GUIDES[c]}">{date_fr(GUIDES[c])}</time></span></a>')
+                       f'<span class="gc-desc">{desc}</span><span class="gc-date">Mis à jour le <time datetime="{GUIDES[c][0]}">{date_fr(GUIDES[c][0])}</time> · {AUTEURS[GUIDES[c][1]][0]}</span></a>')
             elements.append({"@type": "ListItem", "position": len(elements) + 1, "name": h.unescape(titre).replace('\xa0', ' '), "url": f"{SITE}/{c}"})
         sections.append(f'  <section class="guides-rubrique" aria-label="{nom}">\n    <h2>{nom}</h2>\n    <div class="guides-grille">{cartes}\n    </div>\n  </section>')
     chemin = 'guides/'
