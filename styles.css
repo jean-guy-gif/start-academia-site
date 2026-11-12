@@ -1268,3 +1268,11 @@ p { text-wrap: pretty; }
   .page-catalogue .cf-chaine li { flex: none; }
   .page-catalogue .cf-chaine button { white-space: nowrap; }
 }
+
+/* ---------- Guides : signature datée et capture d'outil ---------- */
+.texte-page .signature { max-width: none; margin: 0 0 22px; font: .8125rem/1.6 var(--mono); letter-spacing: .02em; color: var(--gris); }
+.texte-page .signature a { color: var(--bleu); text-underline-offset: 3px; }
+.texte-page .capture { margin: 26px 0 6px; max-width: 760px; }
+.texte-page .capture img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 0 0 1px rgb(16 21 58 / .08), 0 24px 44px -28px rgb(16 21 58 / .55); }
+.texte-page .capture figcaption { margin-top: 12px; font: .75rem/1.5 var(--mono); letter-spacing: .02em; color: var(--gris); }
+.texte-page .capture figcaption::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 8px; border-radius: 50%; background: var(--orange); vertical-align: 1px; }

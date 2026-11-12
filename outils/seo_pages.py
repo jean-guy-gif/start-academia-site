@@ -28,6 +28,11 @@ def jsonld(chemin, titre_page, desc, faq, cours=None):
             {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
             {"@type": "ListItem", "position": 2, "name": titre_page, "item": f"{SITE}/{chemin}"}]},
     ]
+    if chemin in GUIDES:
+        graph[0]["dateModified"] = GUIDES[chemin]
+        graph[0]["author"] = {"@type": "Person", "@id": AUTEUR[2], "name": AUTEUR[0]}
+        if chemin in CAPTURES:
+            graph[0]["primaryImageOfPage"] = {"@type": "ImageObject", "url": f"{SITE}/img/{CAPTURES[chemin][0]}"}
     if cours:
         graph.append({"@type": "Course", "name": cours[0], "description": cours[1],
                       "provider": {"@id": f"{SITE}/#organisation"}, "inLanguage": "fr",
@@ -39,6 +44,8 @@ def jsonld(chemin, titre_page, desc, faq, cours=None):
     return '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + '</script>'
 
 def ecrire(chemin, titre, desc, h1, intro, corps, faq, cours=None):
+    if chemin in GUIDES:
+        corps = habiller_guide(chemin, corps)
     page(chemin, titre, desc, h1, intro, corps + '\n' + faq_html(faq))
     p = racine / chemin / 'index.html'
     t = p.read_text()
@@ -46,21 +53,68 @@ def ecrire(chemin, titre, desc, h1, intro, corps, faq, cours=None):
     p.write_text(t)
     print(chemin, len(titre), 'car. titre /', len(desc), 'car. description')
 
-PREUVES = '''  <div class="bloc">
-    <h2>Pourquoi Start Academia</h2>
-    <ul class="points">
-      <li><strong>Des formateurs du métier.</strong> Jean-Guy Ourmières et Laurent Marx ont plus de 10 ans de transaction et accompagnent encore des agences au quotidien.</li>
-      <li><strong>Nos propres outils.</strong> Academia Secteur, Academia Profiling, Academia Localisateur, Academia ACM&nbsp;: vos équipes repartent avec des outils prêts à servir.</li>
-      <li><strong>Des preuves.</strong> <span data-qualiof="apprenantsFormes">240</span> agents et collaborateurs formés, 227 avis Google (note de 5,0 sur 5), des agences comme Laforêt, Nestenn, Century 21 ou Orpi parmi nos clients.</li>
-      <li><strong>Certifié Qualiopi</strong> au titre des actions de formation. <a class="lien-texte" href="/documents/certificat-qualiopi.pdf">Voir le certificat</a></li>
-    </ul>
+# Blocs communs, volontairement courts : répétés sur une quinzaine de pages, ils ne doivent pas peser
+# plus que quelques lignes (Google recommande de limiter le contenu dupliqué). Le détail est sur les pages liées.
+GARANTIES = '''  <div class="bloc">
+    <h2>Financement et garanties</h2>
+    <p>Formation finançable par votre <strong>OPCO</strong> ou votre fonds d'assurance formation (AGEFICE, FIF PL), non éligible au CPF à ce jour. Les heures comptent pour la <strong>loi ALUR</strong>. Organisme certifié <strong>Qualiopi</strong>&nbsp;: <span data-qualiof="apprenantsFormes">274</span> agents et collaborateurs formés, 227 avis Google.</p>
+    <p><a class="lien-texte" href="/financement-formation-immobilier/#simulateur-financement">Calculer mes droits</a> &nbsp; <a class="lien-texte" href="/formation-loi-alur/">Loi ALUR</a> &nbsp; <a class="lien-texte" href="/resultats/">Résultats et avis</a></p>
   </div>'''
 
-FINANCEMENT = '''  <div class="bloc">
-    <h2>Financement et heures loi ALUR</h2>
-    <p>Votre formation peut être prise en charge par votre <strong>OPCO</strong> (agences et salariés) ou par votre <strong>fonds d'assurance formation</strong>, comme l'AGEFICE ou le FIF PL (indépendants et mandataires). Nous montons le dossier avec vous. Nos formations ne sont pas éligibles au CPF à ce jour. <a class="lien-texte" href="/financement-formation-immobilier/#simulateur-financement">Calculer mes droits à la formation</a></p>
-    <p>Les heures suivies comptent dans vos <strong>14 heures annuelles de formation continue</strong> exigées par la loi ALUR, avec attestation. <a class="lien-texte" href="/formation-loi-alur/">En savoir plus sur la loi ALUR</a></p>
+# Variante pour les pages Financement, qui détaillent déjà la prise en charge.
+PREUVES_BREF = '''  <div class="bloc">
+    <h2>Pourquoi Start Academia</h2>
+    <p>Des formateurs du métier, nos propres outils, un organisme certifié <strong>Qualiopi</strong>&nbsp;: <span data-qualiof="apprenantsFormes">274</span> agents et collaborateurs formés, 227 avis Google.</p>
+    <p><a class="lien-texte" href="/resultats/">Résultats et avis</a> &nbsp; <a class="lien-texte" href="/documents/certificat-qualiopi.pdf">Voir le certificat</a></p>
   </div>'''
+
+# ---------------------------------------------------------------- Guides : signature, date et capture d'outil
+# Date de dernière mise à jour du CONTENU de chaque guide (AAAA-MM-JJ). À changer à la main quand le texte
+# du guide change : elle est affichée sous le titre et transmise à Google (dateModified).
+AUTEUR = ('Jean-Guy Ourmières', 'co-dirigeant et formateur', f'{SITE}/#jean-guy')
+GUIDES = {
+    'ia-prospection-immobiliere/': '2026-11-12',
+    'ia-estimation-immobiliere/': '2026-11-12',
+    'ia-mandat-exclusif/': '2026-11-12',
+    'ia-annonce-immobiliere/': '2026-11-12',
+    'ia-decouverte-acquereur/': '2026-11-12',
+    'ia-visite-immobiliere/': '2026-11-12',
+    'ia-negociation-immobiliere/': '2026-11-12',
+    'prospection-immobiliere-sans-pige/': '2026-11-12',
+    'financement-formation-auto-entrepreneur/': '2026-11-12',
+}
+# Capture d'un outil maison cité dans le guide : (fichier dans /img, largeur, hauteur, description, légende).
+# Elle est insérée après la première liste numérotée du guide (la méthode).
+CAPTURES = {
+    'ia-prospection-immobiliere/': ('dossier-carte.webp', 1100, 648, "La carte d'un dossier Academia Secteur : le cercle de 300 m autour de l'adresse, avec les ventes réelles et les copropriétés.", "Academia Secteur · la carte d'un dossier d'adresse"),
+    'ia-estimation-immobiliere/': ('acm-analyse-prix.webp', 1100, 648, "L'analyse des prix présentée au vendeur : sa valeur perçue, le prix des concurrents, l'analyse du conseiller et les prix affichés sur une ligne.", "Academia ACM · l'analyse des prix présentée au vendeur"),
+    'ia-mandat-exclusif/': ('profiling-strategie.webp', 1100, 422, "La stratégie d'approche : levier psychologique principal, pitch idéal à copier et points à éviter absolument.", "Academia Profiling · la stratégie d'approche"),
+    'ia-decouverte-acquereur/': ('vivre-ici-carte.webp', 1100, 648, "La carte Vivre ici : boulangerie, parc, supermarché et arrêt de bus autour de l'adresse, avec les cercles de 5, 10 et 15 minutes à pied.", "Academia Vivre ici · le quotidien autour de l'adresse"),
+    'ia-visite-immobiliere/': ('radar-fiche.webp', 1100, 648, "La fiche d'un acquéreur de démonstration : sa recherche, les étapes biens idéaux, présentation, réponse, visites, et sa sélection de 3 biens dans le budget.", "Academia Radar Acheteur · la fiche d'un acquéreur de démonstration"),
+    'ia-negociation-immobiliere/': ('acm-danger.webp', 1100, 301, "Le point marché : le bien est 5e sur 6 face à ses concurrents, aucun concurrent n'a baissé depuis le rendez-vous.", "Academia ACM · le point marché"),
+    'prospection-immobiliere-sans-pige/': ('dossier-dynamique.webp', 1100, 281, "Les graphiques du dossier : prix médian au m² et nombre de ventes par an depuis 2021.", "Academia Secteur · les graphiques d'un dossier d'adresse"),
+}
+MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+
+
+def date_fr(iso):
+    a, m, j = (int(x) for x in iso.split('-'))
+    return f"{'1er' if j == 1 else j} {MOIS[m - 1]} {a}"
+
+
+def habiller_guide(chemin, corps):
+    """Ajoute la signature datée en tête du guide et, s'il y en a une, la capture d'outil après la méthode."""
+    if chemin in CAPTURES:
+        img, larg, haut, alt, legende = CAPTURES[chemin]
+        figure = (f'\n    <figure class="capture"><img src="/img/{img}" width="{larg}" height="{haut}" loading="lazy" alt="{h.escape(alt)}">'
+                  f'<figcaption>{h.escape(legende)}</figcaption></figure>')
+        if '</ol>' not in corps:
+            raise SystemExit(f'seo_pages : pas de liste numérotée où placer la capture dans {chemin}')
+        corps = corps.replace('</ol>', '</ol>' + figure, 1)
+    nom, role, _ = AUTEUR
+    signature = (f'  <p class="signature">Par <a href="/#equipe">{nom}</a>, {role} '
+                 f'<span aria-hidden="true">·</span> Mis à jour le <time datetime="{GUIDES[chemin]}">{date_fr(GUIDES[chemin])}</time></p>')
+    return signature + '\n' + corps
 
 # ---------------------------------------------------------------- 1. Formation IA immobilier
 ecrire('formation-ia-immobilier/',
@@ -99,7 +153,7 @@ ecrire('formation-ia-immobilier/',
     <h2>Pour qui</h2>
     <p>Agents immobiliers, négociateurs, mandataires et agents commerciaux en réseau, collaborateurs, directeurs et managers d'agence. Pour les réseaux, nous déployons la formation auprès de tous vos mandataires.</p>
   </div>
-''' + FINANCEMENT + '\n' + PREUVES,
+''' + GARANTIES,
  [("Faut-il savoir utiliser l'IA avant la formation&nbsp;?", "Non. Chaque parcours existe en version débutant et en version avancée. On part de vos dossiers et de votre niveau, pas d'une liste de fonctionnalités."),
   ("Combien coûte une formation IA immobilier&nbsp;?", "La formation est construite sur mesure, le tarif est donc établi sur devis après l'appel découverte. Elle peut être prise en charge par votre OPCO, l'AGEFICE ou le FIF PL."),
   ("Est-ce que la formation compte pour la loi ALUR&nbsp;?", "Oui, les heures suivies comptent dans vos 14 heures annuelles de formation continue, avec une attestation remise à chaque participant."),
@@ -133,7 +187,7 @@ ecrire('formation-chatgpt-immobilier/',
     <h2>Durée et format</h2>
     <p>Module ChatGPT de 4&nbsp;heures en version débutant, complété par un module avancé (assistants personnalisés, automatisations). En agence sur la Côte d'Azur ou à distance, en individuel ou en groupe. Le module peut aussi être combiné avec Claude, Gemini ou NotebookLM dans un parcours plus complet. <a class="lien-texte" href="/formation-ia-immobilier/">Voir la formation IA immobilier complète</a></p>
   </div>
-''' + FINANCEMENT + '\n' + PREUVES,
+''' + GARANTIES,
  [("ChatGPT gratuit suffit-il pour suivre la formation&nbsp;?", "Oui pour démarrer. Nous montrons aussi ce qu'apportent les versions payantes, pour que vous décidiez en connaissance de cause."),
   ("Peut-on rédiger une annonce conforme avec ChatGPT&nbsp;?", "Oui, à condition de lui donner les bonnes informations et de vérifier les mentions obligatoires (honoraires, DPE, copropriété). C'est un point travaillé pendant la formation."),
   ("Combien de temps dure la formation ChatGPT&nbsp;?", "Le module de base dure 4 heures. Il peut être complété par un module avancé ou intégré dans un parcours IA plus complet."),
@@ -190,7 +244,7 @@ ecrire('formation-ia-nice/',
     <h2>Des heures qui comptent pour la loi ALUR</h2>
     <p>Nos formations sont centrées sur votre activité de transaction&nbsp;: elles donnent lieu à une attestation pour votre formation continue obligatoire. <a class="lien-texte" href="/formation-loi-alur/">Tout savoir sur la formation loi ALUR</a></p>
   </div>
-''' + FINANCEMENT + '\n' + PREUVES,
+''' + GARANTIES,
  [("Où ont lieu les formations IA immobilier dans les Alpes-Maritimes&nbsp;?", "Dans votre agence, à Nice, Cannes, Antibes, Grasse, Menton ou ailleurs dans le département, ou à distance. Nous adaptons le lieu et les dates à votre équipe."),
   ("La formation est-elle réservée aux agences&nbsp;?", "Non. Nous formons aussi les mandataires et agents commerciaux indépendants, seuls ou en petit groupe, ainsi que les directeurs d'agence."),
   ("La formation IA compte-t-elle dans les heures loi ALUR&nbsp;?", "Nos formations portent sur votre activité de transaction et donnent lieu à une attestation de formation continue. Lors de l'appel découverte, nous faisons le point sur vos heures restantes."),
@@ -264,7 +318,7 @@ ecrire('formation-immobilier-nice/',
     <h2>Ils se sont formés près de chez vous</h2>
     <p>Des agences de la Côte d'Azur nous font confiance, dont Century 21 Albert 1er, Century 21 Azurim, Century 21 Villas d'Azur, Orpi MCH Immobilier, Akorimmo, Riviera King, L'Agence Signature, Octantimmo, Agence Bristol et Marclé Real Estate. <a class="lien-texte" href="/resultats/">Voir les résultats et les 227 avis Google</a></p>
   </div>
-''' + FINANCEMENT + '\n' + PREUVES,
+''' + GARANTIES,
  [("Quelle formation immobilier suivre à Nice quand on est déjà agent&nbsp;?", "Une formation continue centrée sur votre métier : prospection, estimation, mandat, vente ou direction d'agence. Nous construisons le parcours avec vous lors de l'appel découverte, selon vos besoins et vos heures loi ALUR restantes."),
   ("Préparez-vous au BTS ou à un diplôme de l'immobilier&nbsp;?", "Non. Start Academia forme les professionnels en activité ou en démarrage. Pour un diplôme (BTS Professions immobilières, licence, bachelor), il faut vous tourner vers une école ou un établissement d'enseignement."),
   ("Intervenez-vous à Cannes, Antibes ou Menton&nbsp;?", "Oui, dans toutes les communes des Alpes-Maritimes : Nice, Antibes, Cannes, Cagnes-sur-Mer, Grasse, Le Cannet, Menton, Saint-Laurent-du-Var, Vallauris, Mandelieu-la-Napoule et l'arrière-pays, ou à distance."),
@@ -323,7 +377,7 @@ ecrire('formation-loi-alur/',
     <h2>À distance ou en présentiel&nbsp;?</h2>
     <p>Le texte n'impose pas de format&nbsp;: une formation suivie à distance compte autant qu'une formation en salle, si elle remplit les conditions de durée et de contenu. Nous proposons les deux, et beaucoup d'agences combinent une journée en présentiel et des séances courtes à distance.</p>
   </div>
-''' + FINANCEMENT + '\n' + PREUVES,
+''' + GARANTIES,
  [("Combien d'heures de formation loi ALUR faut-il faire&nbsp;?", "14 heures par an, ou 42 heures au cours de 3 années consécutives d'exercice. Sur ces 3 années, au moins 2 heures doivent porter sur la déontologie et au moins 2 heures sur la non-discrimination dans l'accès au logement."),
   ("Une formation à l'IA compte-t-elle pour la loi ALUR&nbsp;?", "Oui, si elle a un lien direct avec votre activité professionnelle. Nos formations sont appliquées à la transaction immobilière (prospection, estimation, mandat, vente) et donnent lieu à une attestation."),
   ("La formation loi ALUR peut-elle se faire à distance&nbsp;?", "Oui. Le texte n'impose pas de format : une formation à distance compte dès lors qu'elle respecte les conditions de durée et de contenu."),
@@ -377,7 +431,7 @@ ecrire('financement-formation-immobilier/',
     <h2>Et le CPF&nbsp;?</h2>
     <p>Nos formations ne sont pas éligibles au CPF à ce jour. Les heures suivies comptent en revanche dans vos <strong>14&nbsp;heures annuelles de formation continue</strong> exigées par la loi ALUR, avec attestation. <a class="lien-texte" href="/formation-loi-alur/">En savoir plus sur la loi ALUR</a></p>
   </div>
-''' + PREUVES,
+''' + PREUVES_BREF,
  [("Comment calculer mes droits à la formation&nbsp;?", "Avec le simulateur de cette page : indiquez votre chiffre d'affaires de l'année précédente déclaré à l'URSSAF (ou le montant de votre attestation CFP) si vous êtes indépendant, ou votre nombre de salariés si vous êtes employeur. Vous obtenez une estimation du budget AGEFICE ou OPCO EP mobilisable, à confirmer avec votre financeur. Vos droits CPF, eux, se consultent sur moncompteformation.gouv.fr."),
   ("Comment payer ma formation&nbsp;?", "Le plus souvent, vous n'avancez qu'une partie des frais, voire rien : votre OPCO (si vous êtes salarié), l'AGEFICE ou le FIF PL (si vous êtes indépendant) prend en charge la formation dans la limite de ses plafonds. Nous préparons le devis, le programme et la convention, et vous aidons à déposer la demande."),
   ("Quelles aides pour financer une formation dans l'immobilier&nbsp;?", "Les principales aides sont l'OPCO EP pour les salariés des agences, l'AGEFICE ou le FIF PL pour les indépendants et dirigeants, et le CPF pour les formations éligibles. Les formations Start Academia sont finançables par OPCO, AGEFICE ou FIF PL, mais pas par le CPF à ce jour."),
@@ -459,7 +513,7 @@ Format : un objet, le courrier, une signature avec [TON NOM], [TON AGENCE], [TA 
       <li><strong>Envoyer sans relire.</strong> L'IA peut inventer un chiffre ou un nom de rue. Vous signez, vous vérifiez.</li>
     </ul>
   </div>
-''' + formation_bloc("La prospection est au cœur de nos formations IA, avec un atelier sur votre propre secteur et l'accès à nos outils maison (Academia Secteur, Academia Localisateur). Nous proposons aussi des parcours dédiés à la prospection et au développement d'un secteur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("La prospection est au cœur de nos formations IA, avec un atelier sur votre propre secteur et l'accès à nos outils maison (Academia Secteur, Academia Localisateur). Nous proposons aussi des parcours dédiés à la prospection et au développement d'un secteur.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("L'IA peut-elle trouver des vendeurs à ma place&nbsp;?", "Non. Elle vous fait gagner du temps sur la préparation et l'écriture, et vous aide à repérer les bons signaux. La relation avec le propriétaire reste votre métier."),
   ("Quel outil utiliser pour prospecter avec l'IA&nbsp;?", "ChatGPT ou Claude pour écrire, et un outil de dossier d'adresse comme Academia Secteur pour préparer le terrain. Nous choisissons toujours l'outil le plus simple pour la tâche."),
   ("Peut-on envoyer des e-mails de prospection à des particuliers&nbsp;?", "Seulement avec leur accord préalable. Le courrier postal reste possible, avec un moyen simple de s'opposer à la sollicitation. Pour le téléphone, il faut le consentement préalable du particulier depuis le 11 août 2026."),
@@ -506,7 +560,7 @@ Format : 1. Le bien en 3 lignes. 2. Le marché en 5 lignes. 3. La fourchette arg
       <li><strong>Oublier le DPE.</strong> La performance énergétique pèse sur le prix et sur les possibilités de location&nbsp;: intégrez-la dans l'analyse.</li>
     </ul>
   </div>
-''' + formation_bloc("L'estimation est travaillée dans nos formations IA avec votre propre dossier&nbsp;: relevés de visite, ACM avec notre outil maison Academia ACM, avis de valeur et présentation au vendeur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("L'estimation est travaillée dans nos formations IA avec votre propre dossier&nbsp;: relevés de visite, ACM avec notre outil maison Academia ACM, avis de valeur et présentation au vendeur.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("L'IA peut-elle estimer un bien immobilier&nbsp;?", "Elle peut aider à analyser et à présenter, mais elle ne remplace ni la visite ni vos comparables. Les estimations automatiques en ligne servent de repère, pas d'avis de valeur."),
   ("Qu'est-ce qu'une ACM&nbsp;?", "Une analyse comparative de marché : la comparaison du bien avec des biens similaires vendus, en vente ou retirés du marché. C'est la base d'un prix argumenté."),
   ("Quel outil pour présenter une estimation&nbsp;?", "Gamma permet de mettre en forme un avis de valeur en quelques minutes. Nous montrons aussi comment garder la charte de votre agence."),
@@ -554,7 +608,7 @@ Format : un objet, 150 mots maximum, ton chaleureux et professionnel, vouvoiemen
       <li><strong>Mettre des données sensibles dans l'IA.</strong> Pas de situation de santé, de divorce ou de succession nominative dans ChatGPT&nbsp;: gardez ces informations dans votre dossier.</li>
     </ul>
   </div>
-''' + formation_bloc("Le rendez-vous vendeur est un des modules les plus demandés&nbsp;: préparation du premier rendez-vous, découverte avec Academia Profiling et NotebookLM, compte rendu immédiat, deuxième rendez-vous et suivi vendeur, avec un atelier sur vos propres dossiers.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("Le rendez-vous vendeur est un des modules les plus demandés&nbsp;: préparation du premier rendez-vous, découverte avec Academia Profiling et NotebookLM, compte rendu immédiat, deuxième rendez-vous et suivi vendeur, avec un atelier sur vos propres dossiers.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("Comment l'IA aide-t-elle à rentrer un mandat exclusif&nbsp;?", "En vous faisant arriver mieux préparé, en vous aidant à comprendre le vendeur et en envoyant un compte rendu clair très vite après le rendez-vous. La signature reste une affaire de confiance."),
   ("Qu'est-ce que l'outil Academia Profiling&nbsp;?", "Un outil maison de Start Academia qui aide à identifier le profil d'un vendeur pour adapter sa façon de lui parler. Il est utilisé pendant la formation."),
   ("Peut-on enregistrer un rendez-vous vendeur&nbsp;?", "Seulement avec l'accord explicite du vendeur, en lui expliquant à quoi sert l'enregistrement. Sinon, prenez des notes et dictez-les après."),
@@ -602,7 +656,7 @@ Format : un titre de 60 caractères, l'annonce, la version courte. Laisse à la 
       <li><strong>Copier l'annonce d'un confrère.</strong> L'IA réécrit, mais c'est votre bien et votre texte.</li>
     </ul>
   </div>
-''' + formation_bloc("La rédaction d'annonces est travaillée dans nos formations ChatGPT et IA immobilier&nbsp;: annonce principale, déclinaisons par canal, version en langue étrangère, rotation et vérification des mentions obligatoires.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("La rédaction d'annonces est travaillée dans nos formations ChatGPT et IA immobilier&nbsp;: annonce principale, déclinaisons par canal, version en langue étrangère, rotation et vérification des mentions obligatoires.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("Peut-on rédiger une annonce immobilière avec ChatGPT&nbsp;?", "Oui, à condition de lui donner des informations exactes et de relire. L'IA écrit, vous vérifiez les faits et les mentions obligatoires."),
   ("Quelles sont les mentions obligatoires d'une annonce immobilière&nbsp;?", "Le prix, les honoraires et la partie qui les paie, les classes énergie et climat du DPE, l'estimation des coûts annuels d'énergie et, en copropriété, le nombre de lots, les charges annuelles et les procédures en cours."),
   ("ChatGPT ou Claude pour écrire une annonce&nbsp;?", "Les deux conviennent. Nous montrons les deux en formation et vous gardez celui qui écrit le plus comme vous."),
@@ -651,7 +705,7 @@ Format : 4 blocs de 3 questions, puis un modèle de fiche acquéreur à remplir.
       <li><strong>Faire visiter sans financement validé.</strong> C'est la première cause d'offre qui tombe.</li>
     </ul>
   </div>
-''' + formation_bloc("La découverte acquéreur est travaillée dans nos formations avec nos outils maison Academia Profiling et Academia Vivre ici&nbsp;: trame de questions, mise en situation et fiche acquéreur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("La découverte acquéreur est travaillée dans nos formations avec nos outils maison Academia Profiling et Academia Vivre ici&nbsp;: trame de questions, mise en situation et fiche acquéreur.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("L'IA peut-elle faire la découverte acquéreur à ma place&nbsp;?", "Non. L'échange reste humain. L'IA vous aide à préparer les questions, à adapter votre discours au profil et à mettre vos notes au propre."),
   ("Qu'est-ce que le profiling acquéreur&nbsp;?", "C'est repérer la façon dont une personne prend ses décisions pour adapter votre discours : certains veulent des chiffres, d'autres être rassurés, d'autres aller vite. Notre outil Academia Profiling vous y aide."),
   ("Peut-on mettre les informations d'un acquéreur dans ChatGPT&nbsp;?", "Évitez les données personnelles. Décrivez le projet (type de bien, budget, motivation) sans nom ni coordonnées : c'est suffisant pour obtenir une bonne trame."),
@@ -699,7 +753,7 @@ Format : un e-mail avec un objet, 3 paragraphes courts, une signature avec [TON 
       <li><strong>Laisser l'IA inventer un argument.</strong> Une école «&nbsp;à 5 minutes&nbsp;» ou un DPE «&nbsp;bientôt amélioré&nbsp;» engagent votre responsabilité&nbsp;: tout doit être vérifié.</li>
     </ul>
   </div>
-''' + formation_bloc("La visite est travaillée dans nos formations avec nos outils maison Academia Radar Acheteur et Academia ACM&nbsp;: sélection des biens, préparation des objections, compte rendu vendeur et relance acquéreur.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("La visite est travaillée dans nos formations avec nos outils maison Academia Radar Acheteur et Academia ACM&nbsp;: sélection des biens, préparation des objections, compte rendu vendeur et relance acquéreur.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("Comment faire un compte rendu de visite au vendeur&nbsp;?", "Rapidement après la visite, de façon factuelle : ce qui a plu, ce qui freine, la suite prévue. L'IA rédige le texte à partir de vos notes dictées, vous relisez et envoyez."),
   ("L'IA peut-elle choisir les biens à faire visiter&nbsp;?", "Elle vous aide à croiser les critères de l'acquéreur avec vos biens disponibles. La décision reste la vôtre, avec votre connaissance du terrain."),
   ("Quels outils utiliser pour les visites&nbsp;?", "ChatGPT ou Claude pour les comptes rendus et les relances, et nos outils maison Academia Radar Acheteur et Academia ACM pour la sélection et le prix."),
@@ -747,7 +801,7 @@ Format : déroulé en 5 étapes, puis un tableau objection / réponse.""") + '''
       <li><strong>Mettre les noms et la situation des clients dans l'IA.</strong> Travaillez avec des données anonymisées.</li>
     </ul>
   </div>
-''' + formation_bloc("La négociation est travaillée dans nos formations avec nos outils maison Academia ACM, Academia Profiling et Academia Radar Acheteur&nbsp;: préparation de l'appel vendeur, mise en forme de l'offre et suivi des deux parties.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("La négociation est travaillée dans nos formations avec nos outils maison Academia ACM, Academia Profiling et Academia Radar Acheteur&nbsp;: préparation de l'appel vendeur, mise en forme de l'offre et suivi des deux parties.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("L'IA peut-elle négocier à ma place&nbsp;?", "Non. Elle vous aide à préparer les arguments, anticiper les objections et mettre l'offre en forme. La négociation reste un échange humain."),
   ("Faut-il transmettre une offre très basse au vendeur&nbsp;?", "Oui. Le conseiller transmet toutes les offres qu'il reçoit. C'est la façon de les présenter, avec le marché, qui fait la différence."),
   ("Comment convaincre un vendeur de baisser son prix&nbsp;?", "Avec des faits : ventes comparables, temps passé sur le marché, retours de visites. Une analyse comparative de marché comme Academia ACM rend la discussion objective."),
@@ -792,7 +846,7 @@ Format : 5 rubriques avec des puces, puis 3 questions à poser au syndic.""") + 
       <li><strong>Pas d'actes juridiques</strong>&nbsp;: Claude aide à comprendre et à préparer, pas à rédiger un compromis.</li>
     </ul>
   </div>
-''' + formation_bloc("Claude est enseigné dans nos formations IA immobilier, en module dédié ou aux côtés de ChatGPT, NotebookLM et Gamma, avec nos outils maison.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("Claude est enseigné dans nos formations IA immobilier, en module dédié ou aux côtés de ChatGPT, NotebookLM et Gamma, avec nos outils maison.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("Quelle différence entre Claude et ChatGPT pour un agent immobilier&nbsp;?", "Les deux sont efficaces. Claude est particulièrement à l'aise avec les documents longs et une écriture naturelle ; ChatGPT a d'autres atouts, comme la génération d'images. Nous vous montrons les deux et quand utiliser l'un ou l'autre."),
   ("Faut-il un abonnement payant à Claude&nbsp;?", "Une version gratuite existe. Pour un usage quotidien en agence et les projets, l'abonnement payant devient vite utile ; nous en parlons pendant l'appel découverte selon votre usage."),
   ("Peut-on mettre les documents d'un client dans Claude&nbsp;?", "Uniquement après avoir retiré les données personnelles (noms, coordonnées, situation). Nous montrons comment faire en formation."),
@@ -839,7 +893,7 @@ Format : déroulé en 4 temps, puis 5 questions ouvertes à poser au conseiller.
       <li><strong>Former l'équipe d'un bloc.</strong> Un débutant et un conseiller avancé n'ont pas les mêmes besoins&nbsp;: un parcours par niveau.</li>
     </ul>
   </div>
-''' + formation_bloc("Pour les directeurs et managers, la formation s'appuie sur nos outils maison Academia Pilotage et Academia Parcours, et peut se compléter d'un <a class=\"lien-texte\" href=\"/coaching-pour-directeur-dagence-immobiliere-dans-le-06/\">coaching de direction et d'un audit d'agence</a>.") + '\n' + AUTRES + '\n' + FINANCEMENT + '\n' + PREUVES,
+''' + formation_bloc("Pour les directeurs et managers, la formation s'appuie sur nos outils maison Academia Pilotage et Academia Parcours, et peut se compléter d'un <a class=\"lien-texte\" href=\"/coaching-pour-directeur-dagence-immobiliere-dans-le-06/\">coaching de direction et d'un audit d'agence</a>.") + '\n' + AUTRES + '\n' + GARANTIES,
  [("Cette formation est-elle réservée aux directeurs&nbsp;?", "Elle s'adresse aux directeurs, managers, responsables d'équipe et animateurs de réseau de mandataires, c'est-à-dire à toute personne qui accompagne des conseillers."),
   ("Faut-il déjà utiliser l'IA&nbsp;?", "Non. La formation existe en version débutant et en version avancée. Le but est de piloter l'agence et d'encadrer les usages, pas de devenir technicien."),
   ("Peut-on former toute l'équipe ensuite&nbsp;?", "Oui. Nous construisons un plan de formation par poste et formons vos conseillers dans l'agence ou à distance."),
@@ -936,7 +990,7 @@ ecrire('financement-formation-auto-entrepreneur/',
     </ul>
     <p>Critères en vigueur au 11 novembre 2026. Ils changent chaque année&nbsp;: nous les vérifions avec vous au moment de votre demande.</p>
   </div>
-''' + PREUVES,
+''' + PREUVES_BREF,
  [("Un auto-entrepreneur a-t-il un OPCO&nbsp;?", "Non. Les OPCO financent la formation des salariés. Un auto-entrepreneur dépend d'un fonds d'assurance formation : l'AGEFICE, le FIF PL ou un autre fonds selon son activité. Le nom figure sur l'attestation de contribution à la formation professionnelle, dans l'espace URSSAF."),
   ("Qui a droit aux 3 000 € de l'AGEFICE&nbsp;?", "Les dirigeants non salariés qui dépendent de l'AGEFICE, auto-entrepreneurs compris, à jour de leur contribution à la formation professionnelle et dont la CFP de l'année atteint au moins 7 €. En dessous de 7 €, le plafond est de 600 € par an."),
   ("Quel chiffre d'affaires faut-il pour atteindre 7 € de CFP&nbsp;?", "En micro-entreprise, environ 3 500 € de chiffre d'affaires annuel pour une activité libérale (taux de 0,20 %) et 7 000 € pour une activité commerciale (taux de 0,10 %). Le montant réellement versé, inscrit sur l'attestation URSSAF, fait foi."),
@@ -1026,7 +1080,7 @@ Format : un titre, 3 chiffres clés, 3 conseils, une signature avec [TON NOM], [
     <p>Ces tactiques ont été présentées en direct lors de la masterclass Immo2 «&nbsp;Les nouvelles techniques de prospection dans un monde sans pige&nbsp;», animée par Sébastien Tedesco et Jean-Guy Ourmières. Nous les déployons depuis en agence, sur les dossiers des conseillers.</p>
     <p>Sources&nbsp;: <a class="lien-texte" href="https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/les-regles-du-demarchage-telephonique-simposant-aux-entreprises" rel="noopener">DGCCRF, les règles du démarchage téléphonique</a> · <a class="lien-texte" href="https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/" rel="noopener">DVF, conditions d'utilisation</a></p>
   </div>
-""" + formation_bloc("La prospection sans pige est un module de nos formations IA&nbsp;: atelier sur votre propre secteur, baromètre et dossier DPE construits en séance, formulaire de consentement prêt à l'emploi, avec nos outils maison Academia Secteur et Academia Vivre ici.") + '\n' + AUTRES.replace('      <li><a class="lien-texte" href="/prospection-immobiliere-sans-pige/">Prospecter sans pige depuis le 11 août 2026</a></li>\n', '') + '\n' + FINANCEMENT + '\n' + PREUVES,
+""" + formation_bloc("La prospection sans pige est un module de nos formations IA&nbsp;: atelier sur votre propre secteur, baromètre et dossier DPE construits en séance, formulaire de consentement prêt à l'emploi, avec nos outils maison Academia Secteur et Academia Vivre ici.") + '\n' + AUTRES.replace('      <li><a class="lien-texte" href="/prospection-immobiliere-sans-pige/">Prospecter sans pige depuis le 11 août 2026</a></li>\n', '') + '\n' + GARANTIES,
  [("La pige immobilière est-elle interdite&nbsp;?", "La pige téléphonique l'est depuis le 11 août 2026 : appeler un particulier repéré sur une annonce sans son accord préalable est un démarchage interdit. Repérer les annonces reste possible ; c'est l'appel à froid qui ne l'est plus."),
   ("Peut-on encore envoyer un courrier à un vendeur particulier&nbsp;?", "Oui. Le courrier adressé et le boîtage restent possibles, en respectant le Stop Pub pour le boîtage et le droit de la personne à ne plus être sollicitée."),
   ("Comment obtenir le consentement d'un vendeur&nbsp;?", "Par une démarche où il vous demande de le recontacter : formulaire d'estimation, QR code sur un courrier, page de contact. Le formulaire doit indiquer votre identité, l'objet des appels, la durée de l'accord (un an maximum) et la façon de le retirer, avec une case non cochée par défaut."),

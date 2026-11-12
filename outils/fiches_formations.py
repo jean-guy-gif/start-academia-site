@@ -12,7 +12,7 @@ with contextlib.redirect_stdout(io.StringIO()):
 from fiches_map import FICHES
 
 _src = (OUTILS / 'seo_pages.py').read_text()
-exec(_src[:_src.index("\necrire('")])            # page(), racine, CAL, PREUVES, FINANCEMENT, faq_html...
+exec(_src[:_src.index("\necrire('")])            # page(), racine, CAL, GARANTIES, faq_html...
 
 SITE = 'https://www.start-academia.fr'
 
@@ -242,7 +242,7 @@ def generer():
     <h2>Pour aller plus loin</h2>
     <ul class="points">{liens}</ul>
   </div>
-''' + FINANCEMENT + '\n' + PREUVES + '\n' + faq_html(t['faq'])
+''' + GARANTIES + '\n' + faq_html(t['faq'])
         page(chemin, t['titre'], t['desc'], h.escape(f['titre']) + '.', t['intro'], corps)
         p = racine / chemin / 'index.html'
         html = p.read_text()
