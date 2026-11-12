@@ -266,6 +266,7 @@ html = f'''<!DOCTYPE html>
 </main>
 {pied}
 <script src="/logo.js" defer></script>
+<script src="/mur.js" defer></script>
 <script>
 (function () {{
   var noeuds = [].slice.call(document.querySelectorAll('.ch-noeud')), etapes = [].slice.call(document.querySelectorAll('.ch-etape')), cur = 0;

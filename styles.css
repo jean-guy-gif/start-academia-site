@@ -1224,3 +1224,37 @@ p { text-wrap: pretty; }
 .partenaires-v2, .equipe-v2 { border-top-width: 3px; }
 .pourqui { border-top-width: 3px; border-bottom-width: 3px; }
 .manifeste, .pratique-v2 { border-bottom-width: 3px; }
+
+/* ====================================================================
+   Uniformisation : les sous-pages reprennent le langage de l'accueil
+   (fond clair pointillé avec halos, cartes blanches, appel final habillé).
+   ==================================================================== */
+/* Corps des sous-pages : même fond que les sections claires de l'accueil */
+.texte-page:not(.page-catalogue), .rs-methode, .rs-logos { background:
+  radial-gradient(46% 520px at 100% 0%, rgb(254 85 0 / .08), transparent 70%),
+  radial-gradient(52% 640px at 0% 420px, rgb(105 136 238 / .18), transparent 72%),
+  radial-gradient(rgb(47 68 206 / .1) 1px, transparent 1.3px) 0 0 / 24px 24px,
+  var(--ivoire); }
+/* Chaque bloc de texte devient une carte blanche, comme les cartes de l'accueil */
+.texte-page .bloc { margin-bottom: 14px; padding: clamp(24px, 3.2vw, 40px); border: 0; border-radius: 24px; background: #fff; box-shadow: 0 1px 0 rgb(16 21 58 / .05), 0 18px 36px -28px rgb(16 21 58 / .45); }
+.texte-page .bloc-simu { margin-bottom: 40px; padding: 0; border-radius: 0; background: none; box-shadow: none; }
+.texte-page .bloc > h2 { text-wrap: balance; }
+.texte-page .bloc .faq-liste details { background: var(--ivoire); box-shadow: none; }
+.texte-page .bloc .faq-liste details[open] { background: #e9edff; box-shadow: inset 3px 0 0 var(--orange); }
+.texte-page .bloc .faq-liste summary::after { background-color: #fff; }
+/* Page Résultats : sections claires alignées sur le reste */
+.rs-methode { border-top: 3px solid; border-image: linear-gradient(90deg, var(--bleu), var(--bleu-m) 45%, var(--orange)) 1; }
+.rs-methode dl div { margin-bottom: 14px; padding: 22px 26px; border: 0; border-radius: 20px; background: #fff; box-shadow: 0 1px 0 rgb(16 21 58 / .05), 0 18px 36px -28px rgb(16 21 58 / .45); }
+.rs-logos { overflow: hidden; }
+.rs-logos .mur, .rs-logos .mur-defile { margin-top: 12px; text-align: left; }
+/* Appel final des sous-pages : même habillage que le haut de page */
+.final-simple { isolation: isolate; border-top: 3px solid; border-image: linear-gradient(90deg, var(--bleu), var(--bleu-m) 45%, var(--orange)) 1;
+  background:
+    radial-gradient(40% 60% at 88% 8%, rgb(254 85 0 / .2), transparent 70%),
+    radial-gradient(56% 80% at 50% 62%, rgb(47 68 206 / .55), transparent 72%),
+    radial-gradient(rgb(185 205 255 / .16) 1px, transparent 1.3px) 0 0 / 24px 24px,
+    var(--nuit); }
+.final-simple::before { display: block; inset: auto; left: 50%; top: 50%; z-index: 0; width: min(110vw, 860px); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; pointer-events: none;
+  background: repeating-radial-gradient(circle, transparent 0 58px, rgb(185 205 255 / .16) 58px 59px);
+  -webkit-mask-image: radial-gradient(circle, #000 30%, transparent 70%); mask-image: radial-gradient(circle, #000 30%, transparent 70%); }
+.texte-page:not(.page-catalogue) .bloc { max-width: 1296px; }

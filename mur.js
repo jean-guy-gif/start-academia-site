@@ -1,12 +1,12 @@
-/* Mur de logos de l'accueil : transforme la bande de logos (deux rangées à faire glisser au doigt)
+/* Mur de logos (accueil et page Résultats) : transforme la bande de logos (deux rangées à faire glisser au doigt)
    en deux rangées qui défilent seules, en sens opposés. Sans script ou en mouvement réduit,
    la bande reste telle quelle. Les copies servant à la boucle sont masquées aux lecteurs d'écran. */
 (function () {
-  var mur = document.querySelector('.partenaires-v2 .mur');
-  if (!mur || !('IntersectionObserver' in window)) return;
+  var murs = document.querySelectorAll('.mur');
+  if (!murs.length || !('IntersectionObserver' in window)) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  function monter() {
+  function monter(mur) {
     var logos = Array.prototype.slice.call(mur.children);
     var moitie = Math.ceil(logos.length / 2);
     var cadre = document.createElement('div');
@@ -30,7 +30,9 @@
   }
 
   var veille = new IntersectionObserver(function (entrees) {
-    if (entrees[0].isIntersecting) { veille.disconnect(); monter(); }
+    entrees.forEach(function (e) {
+      if (e.isIntersecting) { veille.unobserve(e.target); monter(e.target); }
+    });
   }, { rootMargin: '600px' });
-  veille.observe(mur);
+  Array.prototype.forEach.call(murs, function (mur) { veille.observe(mur); });
 })();
