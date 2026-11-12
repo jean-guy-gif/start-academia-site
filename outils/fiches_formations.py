@@ -226,7 +226,7 @@ def generer():
       <li><strong>Public&nbsp;:</strong> {f['public']}</li>
       <li><strong>Prérequis&nbsp;:</strong> {f['prereq']}</li>
       <li><strong>Format&nbsp;:</strong> dans votre agence (Alpes-Maritimes et alentours) ou à distance, en individuel ou en groupe.</li>
-      <li><strong>Tarif&nbsp;:</strong> à partir de {euros(f['heures'])} ({fo.TAUX_HORAIRE}&nbsp;€ de l'heure), finançable OPCO, AGEFICE ou FIF PL. Non éligible au CPF à ce jour.</li>
+      <li><strong>Tarif&nbsp;:</strong> à partir de {euros(f['heures'])}&nbsp;HT ({fo.TAUX_HORAIRE}&nbsp;€&nbsp;HT de l'heure), finançable OPCO, AGEFICE ou FIF PL. Non éligible au CPF à ce jour.</li>
       {satisfaction}
     </ul>
   </div>
