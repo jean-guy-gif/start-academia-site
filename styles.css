@@ -1100,3 +1100,70 @@ p { text-wrap: pretty; }
 
 /* Programmes QualiOF : les listes numérotées recommencent à 1 à chaque point, on affiche des puces */
 .programme ol { list-style: disc; }
+
+/* ---------- Sous-pages : tête enrichie (les 32 pages qui utilisent .page-tete) ----------
+   Tout est en CSS : aucun fichier image ni script en plus, donc aucun poids ajouté au chargement.
+   Motifs de la charte : halo bleu vers orange, cercles concentriques, réseau de points aux nœuds orange. */
+.page-tete { position: relative; overflow: hidden; isolation: isolate;
+  background:
+    linear-gradient(to bottom, transparent 72%, var(--nuit)),
+    radial-gradient(38% 58% at 92% 12%, rgb(254 85 0 / .22), transparent 70%),
+    radial-gradient(52% 80% at 74% 56%, rgb(47 68 206 / .6), transparent 72%),
+    radial-gradient(rgb(185 205 255 / .16) 1px, transparent 1.3px) 0 0 / 24px 24px,
+    var(--nuit); }
+.page-tete .contenu { position: relative; z-index: 1; }
+.page-tete::before, .page-tete::after { content: ""; position: absolute; z-index: 0; pointer-events: none; top: 50%; right: max(var(--bord), calc(50% - 720px + var(--bord))); width: min(36vw, 560px); aspect-ratio: 1; translate: 6% -44%; }
+.page-tete::before { border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 46px, rgb(185 205 255 / .2) 46px 47px);
+  -webkit-mask-image: radial-gradient(circle, #000 28%, transparent 71%); mask-image: radial-gradient(circle, #000 28%, transparent 71%);
+  animation: tete-respire 14s ease-in-out infinite alternate; }
+.page-tete::after { background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 610%22 fill=%22none%22%3E%3Cg stroke=%22%23B9CDFF%22 stroke-opacity=%22.34%22 stroke-width=%221%22%3E%3Cpath d=%22M300 70L430 120%22/%3E%3Cpath d=%22M430 120L520 230%22/%3E%3Cpath d=%22M520 230L560 360%22/%3E%3Cpath d=%22M560 360L470 470%22/%3E%3Cpath d=%22M470 470L340 540%22/%3E%3Cpath d=%22M340 540L210 500%22/%3E%3Cpath d=%22M210 500L110 400%22/%3E%3Cpath d=%22M110 400L80 270%22/%3E%3Cpath d=%22M80 270L150 150%22/%3E%3Cpath d=%22M150 150L300 70%22/%3E%3Cpath d=%22M300 70L300 200%22/%3E%3Cpath d=%22M300 200L400 300%22/%3E%3Cpath d=%22M400 300L290 380%22/%3E%3Cpath d=%22M290 380L190 290%22/%3E%3Cpath d=%22M190 290L300 200%22/%3E%3Cpath d=%22M430 120L400 300%22/%3E%3Cpath d=%22M520 230L400 300%22/%3E%3Cpath d=%22M470 470L290 380%22/%3E%3Cpath d=%22M210 500L290 380%22/%3E%3Cpath d=%22M80 270L190 290%22/%3E%3Cpath d=%22M150 150L190 290%22/%3E%3Cpath d=%22M560 360L400 300%22/%3E%3Cpath d=%22M340 540L290 380%22/%3E%3C/g%3E%3Ccircle cx=%22300%22 cy=%2270%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%22430%22 cy=%22120%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%22520%22 cy=%22230%22 r=%2213%22 fill=%22%23FE5500%22 fill-opacity=%22.18%22/%3E%3Ccircle cx=%22520%22 cy=%22230%22 r=%225.5%22 fill=%22%23FE5500%22/%3E%3Ccircle cx=%22560%22 cy=%22360%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%22470%22 cy=%22470%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%22340%22 cy=%22540%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%22210%22 cy=%22500%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%22110%22 cy=%22400%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%2280%22 cy=%22270%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%22150%22 cy=%22150%22 r=%2213%22 fill=%22%23FE5500%22 fill-opacity=%22.18%22/%3E%3Ccircle cx=%22150%22 cy=%22150%22 r=%225.5%22 fill=%22%23FE5500%22/%3E%3Ccircle cx=%22300%22 cy=%22200%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%22400%22 cy=%22300%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3Ccircle cx=%22290%22 cy=%22380%22 r=%2213%22 fill=%22%23FE5500%22 fill-opacity=%22.18%22/%3E%3Ccircle cx=%22290%22 cy=%22380%22 r=%225.5%22 fill=%22%23FE5500%22/%3E%3Ccircle cx=%22190%22 cy=%22290%22 r=%223.5%22 fill=%22%23B9CDFF%22/%3E%3C/svg%3E") center / 86% no-repeat; animation: tete-derive 18s ease-in-out infinite alternate; }
+@keyframes tete-respire { from { scale: .96; opacity: .75; } to { scale: 1.05; opacity: 1; } }
+@keyframes tete-derive { from { rotate: -3deg; } to { rotate: 4deg; } }
+.page-tete .fil { font: .8125rem/1.7 var(--mono); letter-spacing: .02em; }
+.page-tete .fil::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgb(254 85 0 / .22); margin-right: 12px; vertical-align: 1px; }
+.page-tete h1 { text-wrap: balance; }
+.page-tete .contenu > * { animation: tete-entre .9s var(--sortie) both; }
+.page-tete .contenu > h1 { animation-name: tete-monte; }
+.page-tete .contenu > :nth-child(2) { animation-delay: .06s; }
+.page-tete .contenu > :nth-child(3) { animation-delay: .14s; }
+.page-tete .contenu > :nth-child(n+4) { animation-delay: .22s; }
+@keyframes tete-entre { from { opacity: 0; transform: translateY(18px); } }
+@keyframes tete-monte { from { transform: translateY(18px); } }
+/* Passage vers une section claire : filet dégradé au lieu d'une coupure sèche */
+.page-tete + .clair:not(.page-catalogue) { border-top: 3px solid; border-image: linear-gradient(90deg, var(--bleu), var(--bleu-m) 45%, var(--orange)) 1; }
+@media (max-width: 1240px) {
+  .page-tete::after { display: none; }
+  .page-tete::before { top: 0; right: 0; width: min(78vw, 520px); translate: 34% -26%; opacity: .6; }
+}
+
+/* ---------- Catalogue des formations : continuité avec la tête, filtre en verre, cartes vivantes ---------- */
+.page-catalogue { padding-top: clamp(24px, 3vw, 40px); background:
+  linear-gradient(var(--nuit), transparent 320px),
+  radial-gradient(60% 40% at 100% 0%, rgb(254 85 0 / .18), transparent 70%),
+  radial-gradient(70% 50% at 0% 30%, rgb(105 136 238 / .35), transparent 70%),
+  radial-gradient(rgb(185 205 255 / .16) 1px, transparent 1.5px) 0 0 / 24px 24px,
+  linear-gradient(180deg, #0b1033 0%, #1a2470 55%, #22308f 100%); }
+.page-catalogue .chaine-f { padding: 20px 22px 22px; border-radius: 24px; background: linear-gradient(160deg, rgb(255 255 255 / .09), rgb(255 255 255 / .03)); box-shadow: inset 0 0 0 1px rgb(185 205 255 / .18); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.page-catalogue .cf-consigne { font: .8125rem/1.5 var(--mono); letter-spacing: .02em; }
+.page-catalogue .cf-chaine button { transition: background .2s, color .2s, border-color .2s, transform .3s var(--sortie); }
+.carte-f { position: relative; transition: transform .5s var(--sortie), box-shadow .5s var(--sortie); }
+.carte-f::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px; pointer-events: none; opacity: 0; transition: opacity .4s;
+  background: linear-gradient(135deg, var(--bleu-m), var(--orange));
+  -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+@media (hover: hover) {
+  .page-catalogue .cf-chaine button:hover { transform: translateY(-2px); }
+  .carte-f:hover { transform: translateY(-6px); box-shadow: 0 1px 0 rgb(16 21 58 / .06), 0 34px 60px -28px rgb(4 8 40 / .75); }
+  .carte-f:hover::after { opacity: 1; }
+}
+.carte-f:focus-within::after { opacity: 1; }
+/* Apparition des cartes au défilement, sans script (navigateurs récents ; les autres les affichent directement) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .grille-f .carte-f { animation: carte-entre linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; }
+  }
+}
+@keyframes carte-entre { from { opacity: 0; translate: 0 36px; } }
+/* Page Résultats : le titre et les compteurs occupent toute la largeur, on garde seulement les cercles, plus discrets */
+.rs-tete::after { display: none; }
+.rs-tete::before { opacity: .55; animation: none; }
