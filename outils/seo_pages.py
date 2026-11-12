@@ -212,7 +212,7 @@ ecrire('formation-ia-immobilier/',
       <li><strong>Parcours complet</strong> «&nbsp;Intégrer l'intelligence artificielle pour gagner en productivité&nbsp;» pour les équipes qui veulent aller plus loin.</li>
       <li><strong>Version débutant ou avancée</strong>, avec un livret tactique pour chaque méthode.</li>
       <li><strong>En agence</strong> sur la Côte d'Azur, <strong>ou à distance</strong> partout en France, en individuel ou en groupe.</li>
-      <li><strong>À partir de 42&nbsp;€ de l'heure</strong>, devis précis après l'appel découverte, et finançable par votre OPCO ou votre fonds d'assurance formation.</li>
+      <li><strong>À partir de 42&nbsp;€&nbsp;HT de l'heure</strong>, devis précis après l'appel découverte, et finançable par votre OPCO ou votre fonds d'assurance formation.</li>
     </ul>
     <p><a class="lien-texte" href="/formations/">Voir le détail des <span data-qualiof="nbFormations">27</span> formations</a></p>
     <p>Des exemples concrets, étape par étape&nbsp;: <a class="lien-texte" href="/ia-prospection-immobiliere/">prospection</a>, <a class="lien-texte" href="/ia-estimation-immobiliere/">estimation</a>, <a class="lien-texte" href="/ia-mandat-exclusif/">mandat exclusif</a>, <a class="lien-texte" href="/ia-annonce-immobiliere/">annonce</a>, <a class="lien-texte" href="/ia-decouverte-acquereur/">découverte acquéreur</a>, <a class="lien-texte" href="/ia-visite-immobiliere/">visite</a>, <a class="lien-texte" href="/ia-negociation-immobiliere/">négociation</a>.</p>
@@ -318,7 +318,7 @@ ecrire('formation-ia-nice/',
   ("La formation IA compte-t-elle dans les heures loi ALUR&nbsp;?", "Nos formations portent sur votre activité de transaction et donnent lieu à une attestation de formation continue. Lors de l'appel découverte, nous faisons le point sur vos heures restantes."),
   ("La formation est-elle finançable&nbsp;?", "Oui, par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL…). Start Academia est certifié Qualiopi. La formation n'est pas éligible au CPF à ce jour."),
   ("Faut-il un niveau particulier en informatique&nbsp;?", "Non. Chaque parcours existe en version débutant et en version avancée."),
-  ("Combien coûte une formation IA à Nice&nbsp;?", "À partir de 42 € de l'heure. Chaque formation est construite pour votre agence : le devis précis est établi après l'appel découverte, et la formation peut être prise en charge par votre OPCO ou votre fonds d'assurance formation."),
+  ("Combien coûte une formation IA à Nice&nbsp;?", "À partir de 42 € HT de l'heure. Chaque formation est construite pour votre agence : le devis précis est établi après l'appel découverte, et la formation peut être prise en charge par votre OPCO ou votre fonds d'assurance formation."),
   ("Intervenez-vous à Antibes, Cannes ou Menton&nbsp;?", "Oui, dans toutes les communes des Alpes-Maritimes : Nice, Antibes, Cannes, Cagnes-sur-Mer, Grasse, Le Cannet, Menton, Saint-Laurent-du-Var, Vallauris, Mandelieu-la-Napoule et l'arrière-pays.")],
  ("Formation IA immobilier à Nice et dans les Alpes-Maritimes", "Formation pratique à l'IA et à ChatGPT pour les professionnels de l'immobilier, dans votre agence à Nice et dans les Alpes-Maritimes ou à distance."))
 
@@ -378,7 +378,7 @@ ecrire('formation-immobilier-nice/',
     <h2>Format et tarif</h2>
     <ul class="points">
       <li><strong>En agence, en groupe ou en individuel</strong>, sur des journées ou des séances courtes.</li>
-      <li><strong>À partir de 42&nbsp;€ de l'heure</strong>, devis précis après l'appel découverte.</li>
+      <li><strong>À partir de 42&nbsp;€&nbsp;HT de l'heure</strong>, devis précis après l'appel découverte.</li>
       <li><strong>Une attestation</strong> pour vos heures de formation continue loi ALUR. <a class="lien-texte" href="/formation-loi-alur/">Tout savoir sur la loi ALUR</a></li>
     </ul>
   </div>
@@ -390,7 +390,7 @@ ecrire('formation-immobilier-nice/',
  [("Quelle formation immobilier suivre à Nice quand on est déjà agent&nbsp;?", "Une formation continue centrée sur votre métier : prospection, estimation, mandat, vente ou direction d'agence. Nous construisons le parcours avec vous lors de l'appel découverte, selon vos besoins et vos heures loi ALUR restantes."),
   ("Préparez-vous au BTS ou à un diplôme de l'immobilier&nbsp;?", "Non. Start Academia forme les professionnels en activité ou en démarrage. Pour un diplôme (BTS Professions immobilières, licence, bachelor), il faut vous tourner vers une école ou un établissement d'enseignement."),
   ("Intervenez-vous à Cannes, Antibes ou Menton&nbsp;?", "Oui, dans toutes les communes des Alpes-Maritimes : Nice, Antibes, Cannes, Cagnes-sur-Mer, Grasse, Le Cannet, Menton, Saint-Laurent-du-Var, Vallauris, Mandelieu-la-Napoule et l'arrière-pays, ou à distance."),
-  ("Combien coûte une formation immobilier&nbsp;?", "À partir de 42 € de l'heure. Le devis précis est établi après l'appel découverte. La formation peut être prise en charge par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL). Elle n'est pas éligible au CPF à ce jour."),
+  ("Combien coûte une formation immobilier&nbsp;?", "À partir de 42 € HT de l'heure. Le devis précis est établi après l'appel découverte. La formation peut être prise en charge par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL). Elle n'est pas éligible au CPF à ce jour."),
   ("Ces formations comptent-elles pour la loi ALUR&nbsp;?", "Oui. Elles portent sur votre activité de transaction et donnent lieu à une attestation pour vos heures de formation continue obligatoires.")],
  ("Formation immobilier à Nice et dans les Alpes-Maritimes", "Formation continue pour les professionnels de l'immobilier : prospection, estimation, mandat, vente, direction d'agence et obligations réglementaires, dans votre agence à Nice et dans les Alpes-Maritimes ou à distance."))
 
@@ -452,7 +452,7 @@ ecrire('formation-loi-alur/',
   ("Les agents commerciaux et mandataires sont-ils concernés&nbsp;?", "Oui. Toutes les personnes habilitées à négocier pour le compte du titulaire de la carte, salariées ou non, doivent suivre la formation continue."),
   ("Qui contrôle les heures de formation&nbsp;?", "La CCI, lors du renouvellement de la carte professionnelle tous les 3 ans. Le titulaire de la carte vérifie de son côté les heures de ses collaborateurs."),
   ("Où suivre sa formation loi ALUR à Nice&nbsp;?", "Directement dans votre agence, partout dans les Alpes-Maritimes, ou à distance. Start Academia est installé à Cagnes-sur-Mer et forme les équipes d'agence comme les mandataires indépendants, avec une attestation pour chaque participant."),
-  ("Combien coûte une formation loi ALUR&nbsp;?", "À partir de 42 € de l'heure, soit à partir de 588 € pour 14 heures. Le devis précis est établi après l'appel découverte, et la formation peut être prise en charge par votre OPCO ou votre fonds d'assurance formation."),
+  ("Combien coûte une formation loi ALUR&nbsp;?", "À partir de 42 € HT de l'heure, soit à partir de 588 € pour 14 heures. Le devis précis est établi après l'appel découverte, et la formation peut être prise en charge par votre OPCO ou votre fonds d'assurance formation."),
   ("Comment financer sa formation loi ALUR&nbsp;?", "Par l'OPCO de l'agence pour les salariés, par le FIF PL ou l'AGEFICE pour les indépendants. Start Academia est certifié Qualiopi. Nos formations ne sont pas éligibles au CPF à ce jour.")],
  ("Formation continue loi ALUR pour agents immobiliers", "Formations immobilier et IA sur mesure validant les heures de formation continue obligatoires des professionnels de l'immobilier, en agence à Nice et dans les Alpes-Maritimes ou à distance."))
 
@@ -1211,7 +1211,7 @@ Format : 5 rubriques avec des puces, puis 3 questions à poser au syndic.""") + 
  [("Quelle différence entre Claude et ChatGPT pour un agent immobilier&nbsp;?", "Les deux sont efficaces. Claude est particulièrement à l'aise avec les documents longs et une écriture naturelle ; ChatGPT a d'autres atouts, comme la génération d'images. Nous vous montrons les deux et quand utiliser l'un ou l'autre."),
   ("Faut-il un abonnement payant à Claude&nbsp;?", "Une version gratuite existe. Pour un usage quotidien en agence et les projets, l'abonnement payant devient vite utile ; nous en parlons pendant l'appel découverte selon votre usage."),
   ("Peut-on mettre les documents d'un client dans Claude&nbsp;?", "Uniquement après avoir retiré les données personnelles (noms, coordonnées, situation). Nous montrons comment faire en formation."),
-  ("Combien coûte la formation Claude&nbsp;?", "À partir de 42 € de l'heure, finançable par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL). Le devis précis est établi après l'appel découverte.")],
+  ("Combien coûte la formation Claude&nbsp;?", "À partir de 42 € HT de l'heure, finançable par votre OPCO ou votre fonds d'assurance formation (AGEFICE, FIF PL). Le devis précis est établi après l'appel découverte.")],
  ("Formation Claude pour agents immobiliers", "Formation pratique à Claude (Anthropic) pour les professionnels de l'immobilier : projets d'agence, documents longs, rédaction et bibliothèque de prompts."))
 
 # ---------------------------------------------------------------- Formation IA directeurs et managers d'agence
@@ -1352,7 +1352,7 @@ Format : déroulé en 4 temps, puis 5 questions ouvertes à poser au conseiller.
  [("Cette formation est-elle réservée aux directeurs&nbsp;?", "Elle s'adresse aux directeurs, managers, responsables d'équipe et animateurs de réseau de mandataires, c'est-à-dire à toute personne qui accompagne des conseillers."),
   ("Faut-il déjà utiliser l'IA&nbsp;?", "Non. La formation existe en version débutant et en version avancée. Le but est de piloter l'agence et d'encadrer les usages, pas de devenir technicien."),
   ("Peut-on former toute l'équipe ensuite&nbsp;?", "Oui. Nous construisons un plan de formation par poste et formons vos conseillers dans l'agence ou à distance."),
-  ("Combien coûte la formation&nbsp;?", "À partir de 42 € de l'heure, finançable par l'OPCO de l'agence ou par le fonds d'assurance formation du dirigeant (AGEFICE, FIF PL). Le devis précis est établi après l'appel découverte.")],
+  ("Combien coûte la formation&nbsp;?", "À partir de 42 € HT de l'heure, finançable par l'OPCO de l'agence ou par le fonds d'assurance formation du dirigeant (AGEFICE, FIF PL). Le devis précis est établi après l'appel découverte.")],
  ("Formation IA pour directeurs et managers d'agence immobilière", "Piloter une agence immobilière avec l'IA : indicateurs, entretiens individuels, recrutement et déploiement de l'IA dans l'équipe."))
 
 # ---------------------------------------------------------------- Formation IA réseaux de mandataires
@@ -1464,7 +1464,7 @@ Format : un tableau par parcours, puis 5 règles d'usage de l'IA à faire respec
   ("Nos mandataires n'ont pas tous le même niveau. Comment faites-vous&nbsp;?", "Chacun fait d'abord son diagnostic avec Academia Parcours. Nous constituons ensuite des groupes de niveau, avec une version débutant et une version avancée du programme."),
   ("Qui finance la formation&nbsp;?", "Soit le réseau, dans le cadre d'un partenariat, soit chaque mandataire par son fonds d'assurance formation (AGEFICE, FIF PL selon son statut). Nous montons les dossiers avec vous. La formation n'est pas éligible au CPF à ce jour."),
   ("Les outils restent-ils accessibles après la formation&nbsp;?", "Oui. Les outils maison utilisés pendant la formation restent accessibles ensuite. Les conditions sont précisées dans le devis."),
-  ("Combien coûte la formation&nbsp;?", "À partir de 42 € de l'heure. Le devis dépend du nombre de mandataires, du format et de la durée&nbsp;: il est établi après l'appel découverte.")],
+  ("Combien coûte la formation&nbsp;?", "À partir de 42 € HT de l'heure. Le devis dépend du nombre de mandataires, du format et de la durée&nbsp;: il est établi après l'appel découverte.")],
  ("Formation IA pour réseaux de mandataires immobiliers", "Déployer l'IA dans un réseau de mandataires immobiliers : diagnostic par mandataire, groupes de niveau, outils fournis et cadre d'usage commun."))
 
 
@@ -1515,7 +1515,7 @@ ecrire('financement-formation-auto-entrepreneur/',
   </div>
   <div class="bloc">
     <h2>Ce que financent les 3&nbsp;000&nbsp;€ en pratique</h2>
-    <p>L'AGEFICE paie les frais de formation dans la limite d'un <strong>coût horaire maximum</strong>&nbsp;: <strong>42&nbsp;€ de l'heure en présentiel</strong>, 35&nbsp;€ en classe virtuelle et 20&nbsp;€ en e-learning. Nos formations sont à 42&nbsp;€ de l'heure&nbsp;: en présentiel, le taux est donc couvert en entier.</p>
+    <p>L'AGEFICE paie les frais de formation dans la limite d'un <strong>coût horaire maximum</strong>&nbsp;: <strong>42&nbsp;€&nbsp;HT de l'heure en présentiel</strong>, 35&nbsp;€ en classe virtuelle et 20&nbsp;€ en e-learning. Nos formations sont à 42&nbsp;€&nbsp;HT de l'heure&nbsp;: en présentiel, le taux est donc couvert en entier.</p>
     <ul class="points">
       <li><strong>Formation IA de 21&nbsp;heures en présentiel</strong>&nbsp;: 882&nbsp;€, pris en charge en totalité.</li>
       <li><strong>Parcours IA complet de 72&nbsp;heures en présentiel</strong>&nbsp;: 3&nbsp;024&nbsp;€. L'AGEFICE couvre 3&nbsp;000&nbsp;€, il reste <strong>24&nbsp;€</strong> à votre charge.</li>
@@ -1564,7 +1564,7 @@ ecrire('financement-formation-auto-entrepreneur/',
   ("Quel chiffre d'affaires faut-il pour atteindre 7 € de CFP&nbsp;?", "En micro-entreprise, environ 3 500 € de chiffre d'affaires annuel pour une activité libérale (taux de 0,20 %) et 7 000 € pour une activité commerciale (taux de 0,10 %). Le montant réellement versé, inscrit sur l'attestation URSSAF, fait foi."),
   ("Un agent commercial immobilier dépend-il de l'AGEFICE&nbsp;?", "Pas toujours. Beaucoup d'agents commerciaux et de mandataires dépendent du FIF PL, d'autres de l'AGEFICE selon leur code d'activité. Seule l'attestation CFP permet de le savoir."),
   ("Quand déposer la demande&nbsp;?", "Au moins 15 jours avant le début de la formation, auprès de votre point d'accueil AGEFICE. Une demande déposée après le début de la formation est refusée."),
-  ("Combien reste-t-il à payer sur une formation Start Academia&nbsp;?", "Nos formations sont à 42 € de l'heure, le coût horaire maximum de l'AGEFICE en présentiel. Dans la limite de votre enveloppe annuelle, une formation en présentiel est donc prise en charge en totalité. En classe virtuelle, le plafond est de 35 € de l'heure : il reste 7 € de l'heure à votre charge."),
+  ("Combien reste-t-il à payer sur une formation Start Academia&nbsp;?", "Nos formations sont à 42 € HT de l'heure, le coût horaire maximum de l'AGEFICE en présentiel. Dans la limite de votre enveloppe annuelle, une formation en présentiel est donc prise en charge en totalité. En classe virtuelle, le plafond est de 35 € de l'heure : il reste 7 € de l'heure à votre charge."),
   ("Les formations Start Academia sont-elles éligibles au CPF&nbsp;?", "Pas à ce jour. Elles sont finançables par l'AGEFICE, le FIF PL ou l'OPCO, et comptent pour la formation continue loi ALUR.")])
 
 

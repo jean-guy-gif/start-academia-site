@@ -26,7 +26,7 @@
     var profil = val('t-profil'), etape = val('t-etape'), niveau = val('t-niveau');
     if (!profil || !etape || !niveau) return;
     var liste = cartes.filter(function (c) { return c.getAttribute('data-etapes').split(' ').indexOf(etape) >= 0; }).map(fiche);
-    liste.forEach(function (f) { f.p = f.profils.indexOf(profil) >= 0 ? 1 : 0; f.n = f.niveau === niveau ? 1 : 0; });
+    liste.forEach(function (f) { f.p = f.profils.indexOf(profil) >= 0 ? 1 : 0; f.n = f.niveau === niveau ? 2 : f.niveau === 'tous' ? 1 : 0; });
     liste.sort(function (a, b) { return (b.immo - a.immo) || (b.p - a.p) || (b.n - a.n) || (b.appr - a.appr) || (niveau === 'avance' ? b.heures - a.heures : a.heures - b.heures); });
     sortie.innerHTML = '';
     if (liste.length) {

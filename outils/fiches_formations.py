@@ -23,14 +23,14 @@ TEXTES = {
   intro="Notre parcours le plus complet. En 9 jours, vous passez des bases de ChatGPT aux automatisations et à votre propre assistant IA, toujours sur vos dossiers.",
   pourquoi='''<p>Une journée d'initiation donne des idées&nbsp;; elle change rarement les habitudes. Ce parcours est construit pour que l'IA entre <strong>dans chaque étape de votre semaine</strong>&nbsp;: prospection, préparation du rendez-vous vendeur, suivi, annonces et marketing, puis automatisation des tâches répétitives.</p>
     <p>Chaque journée se termine par un atelier sur vos propres dossiers. À la fin, chaque conseiller repart avec ses prompts, ses modèles, son assistant IA et un plan d'action individuel.</p>
-    <p><strong>Financement&nbsp;:</strong> à 42&nbsp;€ de l'heure en présentiel, l'enveloppe AGEFICE de 3&nbsp;000&nbsp;€ couvre presque tout le parcours (3&nbsp;024&nbsp;€)&nbsp;: il reste 24&nbsp;€ à votre charge. <a class="lien-texte" href="/financement-formation-auto-entrepreneur/">Vérifier vos droits</a></p>''',
+    <p><strong>Financement&nbsp;:</strong> à 42&nbsp;€&nbsp;HT de l'heure en présentiel, l'enveloppe AGEFICE de 3&nbsp;000&nbsp;€ couvre presque tout le parcours (3&nbsp;024&nbsp;€)&nbsp;: il reste 24&nbsp;€ à votre charge. <a class="lien-texte" href="/financement-formation-auto-entrepreneur/">Vérifier vos droits</a></p>''',
   liens=[('/formation-ia-immobilier/', "Toutes nos formations IA pour l'immobilier"),
          ('/formation-chatgpt-immobilier/', 'Formation ChatGPT immobilier'),
          ('/prospection-immobiliere-sans-pige/', 'Guide : prospecter sans pige'),
          ('/formations/formation-ia-conseillers-immobiliers-16h/', 'La version en 2 jours (16 h)'),
          ('/financement-formation-auto-entrepreneur/', 'Auto-entrepreneur : 3 000 € de formation')],
   faq=[("Faut-il des connaissances techniques&nbsp;?", "Non. Aucune compétence technique n'est nécessaire : le parcours commence par la création et le réglage de votre compte ChatGPT."),
-       ("Combien coûte la formation de 72 heures&nbsp;?", "À partir de 3 024 € (42 € de l'heure). Elle est finançable par l'OPCO de l'agence, par l'AGEFICE (jusqu'à 3 000 € par an) ou par le FIF PL."),
+       ("Combien coûte la formation de 72 heures&nbsp;?", "À partir de 3 024 € HT (42 € HT de l'heure). Elle est finançable par l'OPCO de l'agence, par l'AGEFICE (jusqu'à 3 000 € par an) ou par le FIF PL."),
        ("Où se déroule-t-elle&nbsp;?", "Dans votre agence, dans les Alpes-Maritimes et alentours, ou à distance, en individuel ou en groupe."),
        ("Existe-t-il une version plus courte&nbsp;?", "Oui. La même formation existe en 16 heures et en 8 heures, pour découvrir les usages essentiels avant d'aller plus loin.")]),
 
@@ -46,7 +46,7 @@ TEXTES = {
          ('/financement-formation-immobilier/', 'Financement : calculer mes droits')],
   faq=[("Qui doit être formé à TRACFIN&nbsp;?", "Les agents immobiliers et leurs collaborateurs qui participent aux transactions : négociateurs salariés, agents commerciaux, assistants."),
        ("La formation compte-t-elle pour la loi ALUR&nbsp;?", "Oui. Elle entre dans la formation continue obligatoire des professionnels de l'immobilier, avec une attestation remise en fin de formation."),
-       ("Combien coûte-t-elle&nbsp;?", "À partir de 168 € (42 € de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
+       ("Combien coûte-t-elle&nbsp;?", "À partir de 168 € HT (42 € HT de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
        ("Comment se déroule-t-elle&nbsp;?", "Deux heures d'apports sur le rôle de TRACFIN, les obligations et les signaux d'alerte, puis deux heures de mises en situation par équipes sur des dossiers clients fictifs.")]),
 }
 
@@ -62,7 +62,7 @@ TEXTES.update({
          ('/formation-chatgpt-immobilier/', 'Formation ChatGPT immobilier'),
          ('/ia-prospection-immobiliere/', 'Guide : prospecter avec l\'IA')],
   faq=[("Faut-il déjà utiliser ChatGPT&nbsp;?", "Non. Aucune connaissance préalable en intelligence artificielle n'est requise : la formation commence par la création et le réglage du compte."),
-       ("Combien coûte la formation de 16 heures&nbsp;?", "À partir de 672 € (42 € de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
+       ("Combien coûte la formation de 16 heures&nbsp;?", "À partir de 672 € HT (42 € HT de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
        ("Quelle différence avec la version de 72 heures&nbsp;?", "La version de 16 heures couvre les usages essentiels. Le parcours de 72 heures va jusqu'aux automatisations et à la création de votre propre assistant IA.")]),
 
  'formation-ia-conseillers-immobiliers-8h': dict(
@@ -75,7 +75,7 @@ TEXTES.update({
          ('/formations/formation-ia-conseillers-immobiliers-72h/', 'Le parcours complet en 72 h'),
          ('/formation-ia-immobilier/', "Toutes nos formations IA pour l'immobilier")],
   faq=[("Une journée suffit-elle pour utiliser l'IA&nbsp;?", "Pour démarrer, oui : vous repartez avec vos premiers prompts et un plan d'action. Pour ancrer les usages dans toute votre activité, la version de 16 heures ou le parcours de 72 heures vont plus loin."),
-       ("Combien coûte la formation d'une journée&nbsp;?", "À partir de 336 € (42 € de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
+       ("Combien coûte la formation d'une journée&nbsp;?", "À partir de 336 € HT (42 € HT de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
        ("Peut-on la faire dans l'agence&nbsp;?", "Oui. Nous venons dans votre agence, dans les Alpes-Maritimes et alentours, ou nous la faisons à distance.")]),
 
  'formation-non-discrimination-deontologie-tracfin': dict(
@@ -88,7 +88,7 @@ TEXTES.update({
          ('/formation-loi-alur/', 'Formation continue loi ALUR'),
          ('/financement-formation-immobilier/', 'Financement : calculer mes droits')],
   faq=[("Cette formation compte-t-elle pour la loi ALUR&nbsp;?", "Oui. Elle couvre la déontologie et la non-discrimination exigées dans la formation continue des professionnels de l'immobilier, avec attestation."),
-       ("Combien coûte-t-elle&nbsp;?", "À partir de 336 € (42 € de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
+       ("Combien coûte-t-elle&nbsp;?", "À partir de 336 € HT (42 € HT de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
        ("Peut-on former toute l'agence le même jour&nbsp;?", "Oui. La formation se fait en groupe dans votre agence ou à distance, et chacun reçoit son attestation.")]),
 
  'formation-cadastre-com': dict(
@@ -101,7 +101,7 @@ TEXTES.update({
          ('/ia-estimation-immobiliere/', 'Guide : estimer avec l\'IA'),
          ('/formations/', 'Toutes nos formations')],
   faq=[("Faut-il déjà avoir un compte Cadastre.com&nbsp;?", "Il faut des connaissances de base des outils numériques et du métier. L'accès à l'outil pendant la formation se prépare avec vous lors de l'appel découverte."),
-       ("Combien coûte la formation&nbsp;?", "À partir de 336 € (42 € de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
+       ("Combien coûte la formation&nbsp;?", "À partir de 336 € HT (42 € HT de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL."),
        ("Existe-t-il un niveau avancé&nbsp;?", "Oui, un niveau 2 pour les professionnels qui utilisent déjà Cadastre.com au quotidien.")]),
 
  'formation-prospection-negociation-immobiliere': dict(
@@ -114,7 +114,7 @@ TEXTES.update({
          ('/ia-negociation-immobiliere/', 'Guide : négocier une offre avec l\'IA'),
          ('/formations/formation-mandat-exclusif-pilotage/', 'Mandat exclusif et pilotage (11 h)')],
   faq=[("Ce parcours convient-il à un débutant&nbsp;?", "Oui. Il s'adresse aux conseillers débutants comme confirmés, et aux responsables d'agence qui veulent développer leur notoriété."),
-       ("Combien coûte le parcours de 87 heures&nbsp;?", "À partir de 3 654 € (42 € de l'heure). Il est finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL, dans la limite de leurs plafonds."),
+       ("Combien coûte le parcours de 87 heures&nbsp;?", "À partir de 3 654 € HT (42 € HT de l'heure). Il est finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL, dans la limite de leurs plafonds."),
        ("Peut-on suivre seulement une partie&nbsp;?", "Oui. Chaque bloc existe aussi en formation courte : prospection, relation vendeur, négociation. Nous construisons le parcours avec vous lors de l'appel découverte.")]),
 
  'formation-ia-suivi-vendeur-annonces': dict(
@@ -128,7 +128,7 @@ TEXTES.update({
          ('/formations/formation-ia-conseillers-immobiliers-16h/', 'Formation IA en 16 h')],
   faq=[("Faut-il savoir retoucher des photos&nbsp;?", "Non. Les outils IA utilisés sont simples et pris en main pendant la formation."),
        ("Les annonces générées respectent-elles les mentions obligatoires&nbsp;?", "C'est au conseiller de les vérifier avant publication : prix, honoraires, DPE et mentions obligatoires. L'IA rédige, vous relisez."),
-       ("Combien coûte la formation&nbsp;?", "À partir de 336 € (42 € de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL.")]),
+       ("Combien coûte la formation&nbsp;?", "À partir de 336 € HT (42 € HT de l'heure), finançable par l'OPCO de l'agence, l'AGEFICE ou le FIF PL.")]),
 
  'formation-anglais-immobilier-ia': dict(
   titre="Formation anglais immobilier boostée par l'IA (21 h)",
@@ -140,7 +140,7 @@ TEXTES.update({
          ('/formation-chatgpt-immobilier/', 'Formation ChatGPT immobilier'),
          ('/formations/', 'Toutes nos formations')],
   faq=[("Quel niveau faut-il&nbsp;?", "Débutant à intermédiaire. La formation consolide les bases avant les mises en situation."),
-       ("Combien coûte la formation de 21 heures&nbsp;?", "À partir de 882 € (42 € de l'heure), finançable par l'OPCO de l'entreprise, l'AGEFICE ou le FIF PL."),
+       ("Combien coûte la formation de 21 heures&nbsp;?", "À partir de 882 € HT (42 € HT de l'heure), finançable par l'OPCO de l'entreprise, l'AGEFICE ou le FIF PL."),
        ("Combien de participants par session&nbsp;?", "Cinq au maximum, pour que chacun pratique l'oral.")]),
 
  'formation-mandat-exclusif-pilotage': dict(
@@ -154,7 +154,7 @@ TEXTES.update({
          ('/formation-ia-directeur-agence-immobiliere/', "Formation IA pour directeurs d'agence")],
   faq=[("Faut-il avoir suivi l'étape 1&nbsp;?", "C'est un plus mais ce n'est pas obligatoire : les notions de base sont reprises la première demi-journée."),
        ("Que faut-il apporter&nbsp;?", "Vos chiffres d'activité des 12 derniers mois : estimations, mandats, exclusivités et ventes."),
-       ("Combien coûte la formation&nbsp;?", "À partir de 462 € (42 € de l'heure), finançable par l'AGEFICE, le FIF PL ou l'OPCO.")]),
+       ("Combien coûte la formation&nbsp;?", "À partir de 462 € HT (42 € HT de l'heure), finançable par l'AGEFICE, le FIF PL ou l'OPCO.")]),
 })
 
 

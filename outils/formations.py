@@ -133,11 +133,11 @@ QUALIOF = racine / 'data' / 'qualiof.json'
 NOMS_CATS = {c[0] for c in CATS}
 
 
-TAUX_HORAIRE = 42  # € de l'heure (tarif plancher communiqué par Jean-Guy, nov. 2026)
+TAUX_HORAIRE = 42  # € HT de l'heure (tarif plancher communiqué par Jean-Guy, nov. 2026)
 
 
 def prix(hh):
-    return 'dès ' + f'{round(hh * TAUX_HORAIRE):,}'.replace(',', '\u202f') + '&nbsp;€'
+    return 'dès ' + f'{round(hh * TAUX_HORAIRE):,}'.replace(',', '\u202f') + '&nbsp;€&nbsp;HT'
 
 
 def duree(hh):
@@ -366,10 +366,20 @@ def chiffres(ind):
 
 
 def niveau_de(f):
-    """« debutant » si la formation n'exige aucun prérequis (ou vise les débutants), « avance » sinon.
-    Déduit du champ prérequis de QualiOF : le catalogue ne porte pas de niveau en IA à proprement parler."""
-    t = cle(h.unescape(f['prereq']))
-    return 'debutant' if t.strip().startswith('aucun') or 'debutant' in t else 'avance'
+    """Niveau en IA d'une formation, classé par Claude à la demande de Jean-Guy (12 nov. 2026) :
+    « avance » : suite d'une première formation (niveau 2, étape 2, Booster) ou prérequis métier ;
+    « debutant » : format court d'entrée (16 h au plus) sans prérequis, niveau 1, ou public débutant ;
+    « tous » : parcours long sans prérequis, qui part des bases et va jusqu'aux usages avancés.
+    QualiOF ne porte pas ce niveau : il est déduit du titre, de la durée et du champ prérequis."""
+    titre, pre = cle(h.unescape(f['titre'])), cle(h.unescape(f['prereq'])).strip()
+    if re.search(r'niveau 2|etape 2|booster', titre):
+        return 'avance'
+    if 'niveau 1' in titre or 'debutant' in pre:
+        return 'debutant'
+    sans = pre.startswith('aucun') or 'connaissances de base' in pre
+    if not sans:
+        return 'avance'
+    return 'debutant' if f['heures'] <= 16 else 'tous'
 
 
 def profils_de(f):
@@ -406,7 +416,7 @@ def carte(f, noms):
             <div><dt>Public</dt><dd>{f['public']}</dd></div>
             <div><dt>Prérequis</dt><dd>{f['prereq']}</dd></div>
             <div><dt>Durée</dt><dd>{duree(f['heures'])}</dd></div>
-            <div><dt>Tarif</dt><dd>À partir de {prix(f['heures'])[4:]} ({TAUX_HORAIRE}&nbsp;€ de l'heure), finançable OPCO, AGEFICE ou FIF PL</dd></div>
+            <div><dt>Tarif</dt><dd>À partir de {prix(f['heures'])[4:]} ({TAUX_HORAIRE}&nbsp;€&nbsp;HT de l'heure), finançable OPCO, AGEFICE ou FIF PL</dd></div>
           </dl>
         </div>
       </details>

@@ -10,6 +10,7 @@
   function montants(txt) {
     return (txt || '').split(' à ').map(function (m) { var s = m.replace(/[^0-9,]/g, '').replace(',', '.'); return s ? parseFloat(s) : NaN; }).filter(function (n) { return !isNaN(n); });
   }
+  function ht(n) { return euros(n) + '\u00a0HT'; }
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt) e.textContent = txt; return e; }
   function maj() {
     var cout = heures * TAUX;
@@ -19,14 +20,14 @@
       var m = montants(b.source.textContent);
       if (!m.length) {
         b.scene.hidden = true;
-        b.texte.textContent = 'Complétez l’estimation pour voir ce que votre budget couvre sur ' + heures + ' heures (à partir de ' + euros(cout) + ').';
+        b.texte.textContent = 'Complétez l’estimation pour voir ce que votre budget couvre sur ' + heures + ' heures (à partir de ' + ht(cout) + ').';
         return;
       }
       var budget = m[0], bas = m.length > 1, couvert = Math.min(budget, cout), reste = cout - couvert;
       b.scene.hidden = false;
       b.barre.style.setProperty('--part', Math.max(reste > 0 ? 4 : 100, couvert / cout * 100) + '%');
       b.barre.classList.toggle('plein', reste <= 0);
-      b.chiffre.innerHTML = reste <= 0 ? '<strong>Couvert</strong> ' + heures + ' h à partir de ' + euros(cout) : '<strong>' + Math.floor(budget / TAUX) + ' h<span> / ' + heures + ' h</span></strong> couvertes par votre budget estimé';
+      b.chiffre.innerHTML = reste <= 0 ? '<strong>Couvert</strong> ' + heures + ' h à partir de ' + ht(cout) : '<strong>' + Math.floor(budget / TAUX) + ' h<span> / ' + heures + ' h</span></strong> couvertes par votre budget estimé';
       b.texte.textContent = (bas ? 'Dans l’hypothèse basse, votre ' : 'Votre ') + 'budget estimé de ' + euros(budget) + (reste <= 0
         ? ' couvre ces ' + heures + ' heures' + (budget - cout >= TAUX * MIN ? ', et il resterait environ ' + euros(budget - cout) + ' pour une autre formation.' : '.')
         : ' couvre environ ' + Math.floor(budget / TAUX) + ' heures sur ' + heures + '. Resterait environ ' + euros(reste) + ' à votre charge.');
@@ -46,7 +47,7 @@
     b.barre.appendChild(el('i', 'offre-pleine')); b.barre.appendChild(el('i', 'offre-vide'));
     b.chiffre = el('p', 'couv-chiffre'); b.scene.appendChild(b.barre); b.scene.appendChild(b.chiffre);
     b.texte = el('p', 'couv-texte'); b.texte.setAttribute('aria-live', 'polite');
-    var note = el('p', 'couv-note', 'Tarif à partir de ' + TAUX + ' € de l’heure, devis après l’appel découverte. L’accord et le montant dépendent de votre financeur.');
+    var note = el('p', 'couv-note', 'Tarif à partir de ' + TAUX + ' € HT de l’heure, devis après l’appel découverte. L’accord et le montant dépendent de votre financeur.');
     [l, b.curseur, b.scene, b.texte, note].forEach(function (x) { bloc.appendChild(x); });
     var suite = panneau.querySelector('.simu-suite');
     if (suite) panneau.insertBefore(bloc, suite); else panneau.appendChild(bloc);
