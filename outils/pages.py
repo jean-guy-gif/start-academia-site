@@ -9,13 +9,16 @@ fonts = re.search(r'<link rel="preconnect" href="https://fonts.googleapis.com">.
 CAL = 'https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte'
 fl = '<svg aria-hidden="true"><use href="#fleche"/></svg>'
 
+# Titre du bloc final (appel découverte) quand la page ne s'adresse pas à une agence.
+FINALS = {'formation-ia-reseau-mandataires/': 'Parlons de votre réseau.'}
+
 def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=True):
     corps = re.sub(r'(<h2>.*?</h2>)(.*?)(\n  </div>)', r'\1<div class="corps">\2</div>\3', corps, flags=re.S)
     url = f'https://www.start-academia.fr/{chemin}'
     final = f'''
 <section class="final final-simple" aria-labelledby="titre-final">
   <div class="contenu">
-    <h2 id="titre-final">Parlons de votre agence.</h2>
+    <h2 id="titre-final">{FINALS.get(chemin, 'Parlons de votre agence.')}</h2>
     <p>30 minutes pour faire le point sur vos besoins et votre financement. Gratuit et sans engagement.</p>
     <a class="action" href="{CAL}" rel="noopener">Réserver mon appel découverte{fl}</a>
     <p class="tel">Vous préférez appeler&nbsp;? <a href="tel:+33610230060">06 10 23 00 60</a></p>
@@ -44,6 +47,8 @@ def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=Tr
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 {fonts}
 <link rel="stylesheet" href="/styles.css">
+<script src="/suivi.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="sous-page">
 <a class="evite" href="#contenu">Aller au contenu</a>
@@ -125,7 +130,7 @@ page('mentions-legales/',
   <div class="bloc" id="donnees">
     <h2>Données personnelles</h2>
     <div>
-    <p>Ce site ne comporte pas de formulaire et ne dépose aucun cookie publicitaire ni de mesure d'audience. Les polices de caractères sont chargées depuis le service Google Fonts. La démonstration de l'accueil envoie l'adresse tapée au service de géocodage de l'IGN (Base Adresse Nationale) et ses coordonnées à l'API publique DVF du Cerema, uniquement pour afficher le résultat ; nous ne conservons rien.</p>
+    <p>Ce site ne comporte pas de formulaire et ne dépose aucun cookie. Sa fréquentation est mesurée avec Vercel Web Analytics, sans cookie et sans identifier les visiteurs&nbsp;: pages vues et clics sur les boutons, sous forme de totaux anonymes. Les polices de caractères sont chargées depuis le service Google Fonts. La démonstration de l'accueil envoie l'adresse tapée au service de géocodage de l'IGN (Base Adresse Nationale) et ses coordonnées à l'API publique DVF du Cerema, uniquement pour afficher le résultat ; nous ne conservons rien.</p>
     <p>Responsable du traitement&nbsp;: START ACADEMY (coordonnées ci-dessus). Pour toute question sur vos données&nbsp;: <a href="mailto:info@start-academia.fr">info@start-academia.fr</a>.</p>
     <h3>Pourquoi nous utilisons vos données, et sur quelle base</h3>
     <ul class="points">

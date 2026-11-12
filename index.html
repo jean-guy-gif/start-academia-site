@@ -111,6 +111,17 @@
   </div>
 </section>
 
+<!-- 1 bis. Trois portes d'entrée par profil, plus un accès direct aux outils -->
+<section class="portes" id="portes" aria-labelledby="titre-portes">
+  <div class="tete-portes"><p class="surtitre">Par où commencer</p><h2 id="titre-portes">Vous êtes&nbsp;?</h2></div>
+  <div class="portes-grille">
+    <a class="porte" href="/formation-ia-directeur-agence-immobiliere/" data-suivi="porte-agence"><span class="porte-num">01</span><strong>Je dirige une agence</strong><span class="porte-texte">Former mon équipe et piloter l'activité, dans mon agence et sur mes dossiers.</span><span class="porte-lien">Le parcours agence<svg aria-hidden="true"><use href="#fleche"/></svg></span></a>
+    <a class="porte" href="/formation-ia-reseau-mandataires/" data-suivi="porte-reseau"><span class="porte-num">02</span><strong>J'anime un réseau</strong><span class="porte-texte">Déployer une formation IA concrète auprès de mes mandataires, à distance ou sur place.</span><span class="porte-lien">Le parcours réseau<svg aria-hidden="true"><use href="#fleche"/></svg></span></a>
+    <a class="porte" href="/formation-ia-immobilier/" data-suivi="porte-conseiller"><span class="porte-num">03</span><strong>Je suis conseiller ou indépendant</strong><span class="porte-texte">Gagner du temps à chaque étape de la transaction et valider mes heures loi ALUR.</span><span class="porte-lien">Le parcours conseiller<svg aria-hidden="true"><use href="#fleche"/></svg></span></a>
+    <a class="porte porte-outils" href="#outils" data-suivi="porte-outils"><span class="porte-num">04</span><strong>Je veux d'abord voir les outils</strong><span class="porte-texte">Découvrir nos outils maison et tester un cas concret, sans rendez-vous.</span><span class="porte-lien">Voir les outils<svg aria-hidden="true"><use href="#fleche"/></svg></span></a>
+  </div>
+</section>
+
 <!-- 2. Partenaires -->
 <section class="partenaires-v2" aria-labelledby="titre-partenaires">
   <div class="pv-tete"><p class="surtitre">Ils nous font confiance</p><h2 id="titre-partenaires">Réseaux, agences et partenaires <span>formés avec nous.</span></h2></div>
@@ -459,6 +470,7 @@
         <p>Une équipe plus productive et plus de mandats exclusifs, avec un suivi sur l'année si vous le souhaitez.</p>
         <ul><li><svg class="coche" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Formation dans votre agence, sur vos dossiers</li><li><svg class="coche" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Coaching et audit de direction</li><li><svg class="coche" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Des outils partagés par toute l'équipe</li></ul>
         <p class="cc-fin">Financement par votre OPCO</p>
+        <a class="cc-lien" href="/formation-ia-directeur-agence-immobiliere/" data-suivi="carte-agence">Le parcours agence<svg aria-hidden="true"><use href="#fleche"/></svg></a>
       </div>
     </article>
     <article class="carte-cible">
@@ -468,6 +480,7 @@
         <p>Une formation IA concrète, déployée auprès de vos mandataires par un partenaire certifié Qualiopi.</p>
         <ul><li><svg class="coche" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Un programme adapté à votre réseau</li><li><svg class="coche" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>En présentiel ou à distance</li><li><svg class="coche" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Des outils accessibles à chaque mandataire</li></ul>
         <p class="cc-fin">Partenariat réseau ou financement individuel</p>
+        <a class="cc-lien" href="/formation-ia-reseau-mandataires/" data-suivi="carte-reseau">Le parcours réseau<svg aria-hidden="true"><use href="#fleche"/></svg></a>
       </div>
     </article>
     <article class="carte-cible">
@@ -477,6 +490,7 @@
         <p>Gagnez du temps chaque semaine et validez vos heures de formation obligatoires.</p>
         <ul><li><svg class="coche" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Version débutant ou avancée</li><li><svg class="coche" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Heures comptabilisées pour la loi ALUR</li><li><svg class="coche" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Dossier de financement monté avec vous</li></ul>
         <p class="cc-fin">Financement par l'AGEFICE, le FIF PL…</p>
+        <a class="cc-lien" href="/formation-ia-immobilier/" data-suivi="carte-conseiller">Le parcours conseiller<svg aria-hidden="true"><use href="#fleche"/></svg></a>
       </div>
     </article>
   </div>
@@ -611,6 +625,8 @@
   }));
 })();
 </script>
+<script src="/suivi.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 <script src="/demo.js" defer></script>
 <script src="/voyage.js" defer></script>
 <script src="/logo.js" defer></script>

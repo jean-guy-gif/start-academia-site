@@ -913,6 +913,64 @@ Format : déroulé en 4 temps, puis 5 questions ouvertes à poser au conseiller.
   ("Combien coûte la formation&nbsp;?", "À partir de 42 € de l'heure, finançable par l'OPCO de l'agence ou par le fonds d'assurance formation du dirigeant (AGEFICE, FIF PL). Le devis précis est établi après l'appel découverte.")],
  ("Formation IA pour directeurs et managers d'agence immobilière", "Piloter une agence immobilière avec l'IA : indicateurs, entretiens individuels, recrutement et déploiement de l'IA dans l'équipe."))
 
+# ---------------------------------------------------------------- Formation IA réseaux de mandataires
+ecrire('formation-ia-reseau-mandataires/',
+ "Formation IA réseau de mandataires | Start Academia",
+ "Formation IA pour réseaux de mandataires immobiliers : diagnostic par mandataire, groupes de niveau, à distance ou sur place, outils inclus. Certifié Qualiopi.",
+ "Formation IA pour réseaux de mandataires immobiliers.",
+ "Vos mandataires testent déjà l'IA, chacun dans son coin et avec des résultats inégaux. Nous déployons une formation concrète dans tout le réseau&nbsp;: mêmes méthodes, mêmes outils, un cadre conforme, et un parcours adapté au niveau de chacun.",
+ '''  <div class="bloc">
+    <h2>Le cas en réseau</h2>
+    <p>Un réseau réunit des mandataires qui démarrent et d'autres qui signent depuis dix ans. Certains rédigent déjà leurs annonces avec ChatGPT, d'autres n'ont jamais ouvert l'outil, et quelques-uns y collent les coordonnées de leurs vendeurs. L'animateur n'a ni le temps ni le support pour remettre tout le monde au même niveau. Il lui faut un programme commun, découpé par niveau, que chaque mandataire applique dès le lendemain sur ses propres dossiers.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Situer chaque mandataire.</strong> Avec <strong>Academia Parcours</strong>, notre outil maison gratuit, chacun fait son diagnostic de performance immobilière. Vous savez qui est débutant, qui est avancé, et sur quelle étape du métier chacun perd du temps.</li>
+      <li><strong>Un programme calé sur la chaîne du métier.</strong> Prospection, découverte vendeur, estimation, mandat, acquéreurs, visites et offres, organisation, administratif&nbsp;: on part des fondamentaux que vos mandataires connaissent, puis on les accélère avec l'IA. Le programme reprend vos process et vos outils réseau.</li>
+      <li><strong>Des groupes de niveau.</strong> Version débutant et version avancée, à distance ou en présentiel, sur des dossiers réels apportés par les participants.</li>
+      <li><strong>Les outils pour chaque mandataire.</strong> Nos outils maison (Academia Secteur, Localisateur, Profiling, ACM) sont utilisés pendant la formation et restent accessibles ensuite.</li>
+      <li><strong>Un cadre commun.</strong> Une charte d'usage de l'IA pour le réseau&nbsp;: données clients et RGPD, mentions obligatoires des annonces, relecture systématique de ce que l'IA produit.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que le réseau y gagne</h2>
+    <ul class="points">
+      <li><strong>Des mandataires autonomes plus vite</strong>, y compris ceux qui démarrent dans le métier.</li>
+      <li><strong>Des pratiques homogènes et conformes</strong> d'un mandataire à l'autre.</li>
+      <li><strong>Un argument de recrutement et de fidélisation</strong>&nbsp;: une formation certifiée Qualiopi, avec des outils fournis.</li>
+      <li><strong>Des heures qui comptent pour la loi ALUR</strong>, avec attestation pour chaque participant.</li>
+    </ul>
+  </div>
+  <div class="bloc">
+    <h2>Deux façons de financer</h2>
+    <ul class="points">
+      <li><strong>Partenariat réseau.</strong> Le réseau prend en charge la formation pour tout ou partie de ses mandataires. Le devis est établi après l'appel découverte.</li>
+      <li><strong>Financement individuel.</strong> Chaque mandataire indépendant mobilise son fonds d'assurance formation (AGEFICE, FIF PL selon son statut). Nous montons le dossier avec lui.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : préparer le plan de montée en compétence du réseau", """Rôle : tu es un animateur de réseau de mandataires immobiliers expérimenté, responsable de la formation.
+Contexte : mon réseau compte [NOMBRE] mandataires, dont [NOMBRE] en première année. Niveau en IA : [DÉBUTANTS / QUELQUES UTILISATEURS / USAGE RÉGULIER]. Les étapes du métier où ils perdent le plus de temps : [EX. PROSPECTION, RÉDACTION D'ANNONCES, SUIVI VENDEUR]. Format possible : [VISIO / PRÉSENTIEL / LES DEUX].
+Tâche : propose un plan de montée en compétence sur 3 mois, avec un parcours débutant et un parcours avancé. Pour chaque mois : l'étape du métier travaillée, l'objectif concret pour le mandataire, et l'indicateur que je peux suivre.
+Format : un tableau par parcours, puis 5 règles d'usage de l'IA à faire respecter dans le réseau (données clients, mentions obligatoires, relecture).""") + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Une visio unique pour tout le réseau.</strong> Les débutants décrochent, les avancés s'ennuient. Mieux vaut deux groupes de niveau.</li>
+      <li><strong>Former à un outil plutôt qu'au métier.</strong> Un mandataire retient ce qui lui fait gagner un mandat ou une heure, pas une liste de fonctionnalités.</li>
+      <li><strong>Laisser circuler les données clients.</strong> Sans règle commune, des coordonnées de vendeurs finissent dans des outils grand public.</li>
+      <li><strong>Publier sans relire.</strong> Une annonce rédigée par l'IA reste soumise aux mentions obligatoires (honoraires, DPE, statut du mandataire).</li>
+    </ul>
+  </div>
+''' + formation_bloc("Pour un réseau, le programme est construit avec vous à partir de nos formations existantes. Les animateurs et managers de réseau peuvent suivre en complément la <a class=\"lien-texte\" href=\"/formation-ia-directeur-agence-immobiliere/\">formation IA pour directeurs et managers</a>.") + '\n' + GARANTIES,
+ [("La formation peut-elle se faire entièrement à distance&nbsp;?", "Oui. Les sessions peuvent avoir lieu en visio, en présentiel, ou en combinant les deux, selon l'implantation de vos mandataires."),
+  ("Nos mandataires n'ont pas tous le même niveau. Comment faites-vous&nbsp;?", "Chacun fait d'abord son diagnostic avec Academia Parcours. Nous constituons ensuite des groupes de niveau, avec une version débutant et une version avancée du programme."),
+  ("Qui finance la formation&nbsp;?", "Soit le réseau, dans le cadre d'un partenariat, soit chaque mandataire par son fonds d'assurance formation (AGEFICE, FIF PL selon son statut). Nous montons les dossiers avec vous. La formation n'est pas éligible au CPF à ce jour."),
+  ("Les outils restent-ils accessibles après la formation&nbsp;?", "Oui. Les outils maison utilisés pendant la formation restent accessibles ensuite. Les conditions sont précisées dans le devis."),
+  ("Combien coûte la formation&nbsp;?", "À partir de 42 € de l'heure. Le devis dépend du nombre de mandataires, du format et de la durée&nbsp;: il est établi après l'appel découverte.")],
+ ("Formation IA pour réseaux de mandataires immobiliers", "Déployer l'IA dans un réseau de mandataires immobiliers : diagnostic par mandataire, groupes de niveau, outils fournis et cadre d'usage commun."))
+
+
 
 # ================================================================ Guide : auto-entrepreneur et 3 000 € (reprise de l'article le plus vu de l'ancien site)
 ecrire('financement-formation-auto-entrepreneur/',

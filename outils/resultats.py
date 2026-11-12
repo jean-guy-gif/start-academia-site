@@ -173,6 +173,8 @@ html = f'''<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 {fonts}
 <link rel="stylesheet" href="/styles.css">
+<script src="/suivi.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="sous-page">
 <a class="evite" href="#contenu">Aller au contenu</a>
