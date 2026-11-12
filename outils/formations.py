@@ -312,7 +312,8 @@ COMMUNS = '''  <aside class="communs" aria-labelledby="titre-communs">
   </aside>
 '''
 
-SCRIPT = '''<script>
+SCRIPT = '''<script src="/trouver.js" defer></script>
+<script>
 (() => {
   const boutons = [...document.querySelectorAll('.cf-chaine button')];
   const cartes = [...document.querySelectorAll('.carte-f')];
@@ -364,6 +365,23 @@ def chiffres(ind):
     return ''.join(out)
 
 
+def niveau_de(f):
+    """« debutant » si la formation n'exige aucun prérequis (ou vise les débutants), « avance » sinon.
+    Déduit du champ prérequis de QualiOF : le catalogue ne porte pas de niveau en IA à proprement parler."""
+    t = cle(h.unescape(f['prereq']))
+    return 'debutant' if t.strip().startswith('aucun') or 'debutant' in t else 'avance'
+
+
+def profils_de(f):
+    """Profils de visiteur (portes de l'accueil) auxquels le champ « public » fait écho. Texte libre : approximatif."""
+    t = cle(h.unescape(f['public']))
+    out = []
+    if re.search(r'conseiller|agent|negociat|mandataire', t): out.append('conseiller')
+    if re.search(r'responsable|manager|dirigeant|direct|gerant|chef d', t): out.append('agence')
+    if re.search(r'mandataire|independant|agents commerciaux|agent commercial', t): out.append('reseau')
+    return out
+
+
 def carte(f, noms):
     lis = ''.join(f'<li>{h.escape(o)}</li>' for o in f['obj'])
     puces = ''.join(f'<li>{noms[k]}</li>' for k in f['etapes'])
@@ -374,7 +392,7 @@ def carte(f, noms):
     fiche = (f'<a class="cf-fiche" href="/formations/{FICHES[f["id"]]}/">Voir la fiche complète</a>'
              if f['id'] in FICHES else '')
     return (f'''
-    <article class="carte-f" id="{f['id']}" data-etapes="{' '.join(f['etapes'])}"{av}>
+    <article class="carte-f" id="{f['id']}" data-etapes="{' '.join(f['etapes'])}" data-heures="{f['heures']:g}" data-niveau="{niveau_de(f)}" data-profils="{' '.join(profils_de(f))}" data-appr="{f['ind'].get('apprenantsFormes') or 0}" data-immo="{int('immobili' in cle(h.unescape(f['titre'] + ' ' + f['public'])))}"{av}>
       <div class="cf-visuel"><img src="/img/cf-{f['visuel']}.webp" width="720" height="260" loading="lazy" alt="{h.escape(f['titre'], quote=True)}"><span class="cf-duree">{duree(f['heures'])}</span><span class="cf-prix">{prix(f['heures'])}</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier">{puces}</ul>
       <h3>{h.escape(f['titre'])}</h3>
@@ -418,7 +436,19 @@ def generer():
         for i, (k, nom, _) in enumerate(ETAPES))
     cartes = ''.join(carte(f, noms) for f in fiches_toutes)
 
-    corps = (f'''  <div class="chaine-f">
+    choix_etapes = ''.join(f'<label><input type="radio" name="t-etape" value="{k}"><span>{nom}</span></label>' for k, nom, _ in ETAPES)
+    corps = (f'''  <section class="trouver" aria-labelledby="titre-trouver" hidden>
+    <h2 id="titre-trouver">Trois questions, votre formation.</h2>
+    <div class="trouver-scene">
+      <div class="trouver-questions">
+        <fieldset><legend>Vous êtes</legend><label><input type="radio" name="t-profil" value="conseiller"><span>Conseiller ou indépendant</span></label><label><input type="radio" name="t-profil" value="agence"><span>Directeur d'agence</span></label><label><input type="radio" name="t-profil" value="reseau"><span>Animateur de réseau</span></label></fieldset>
+        <fieldset><legend>L'étape qui vous coûte le plus</legend>{choix_etapes}</fieldset>
+        <fieldset><legend>Votre niveau en IA</legend><label><input type="radio" name="t-niveau" value="debutant"><span>Je débute</span></label><label><input type="radio" name="t-niveau" value="avance"><span>Je l'utilise déjà</span></label></fieldset>
+      </div>
+      <div class="trouver-resultat" aria-live="polite"><p class="trouver-attente">Répondez aux trois questions&nbsp;: une formation passe devant les autres.</p></div>
+    </div>
+  </section>
+  <div class="chaine-f">
     <p class="cf-consigne">Choisissez une étape de votre métier&nbsp;: nous affichons les formations qui la travaillent.</p>
     <ol class="cf-chaine"><li><button type="button" data-etape="" aria-pressed="true">Toutes<span class="ch-nb">{len(fiches_toutes)}</span></button></li>{chaine}</ol>
   </div>

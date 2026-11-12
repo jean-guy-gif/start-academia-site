@@ -65,12 +65,23 @@
   </div>
 </section>
 <section class="clair texte-page page-catalogue">
+  <section class="trouver" aria-labelledby="titre-trouver" hidden>
+    <h2 id="titre-trouver">Trois questions, votre formation.</h2>
+    <div class="trouver-scene">
+      <div class="trouver-questions">
+        <fieldset><legend>Vous êtes</legend><label><input type="radio" name="t-profil" value="conseiller"><span>Conseiller ou indépendant</span></label><label><input type="radio" name="t-profil" value="agence"><span>Directeur d'agence</span></label><label><input type="radio" name="t-profil" value="reseau"><span>Animateur de réseau</span></label></fieldset>
+        <fieldset><legend>L'étape qui vous coûte le plus</legend><label><input type="radio" name="t-etape" value="prospection"><span>Prospection</span></label><label><input type="radio" name="t-etape" value="decouverte"><span>Découverte</span></label><label><input type="radio" name="t-etape" value="estimation"><span>Estimation</span></label><label><input type="radio" name="t-etape" value="mandat"><span>Mandat</span></label><label><input type="radio" name="t-etape" value="acquereurs"><span>Acquéreurs</span></label><label><input type="radio" name="t-etape" value="visites"><span>Visites et offres</span></label><label><input type="radio" name="t-etape" value="organisation"><span>Organisation</span></label><label><input type="radio" name="t-etape" value="administratif"><span>Administratif</span></label></fieldset>
+        <fieldset><legend>Votre niveau en IA</legend><label><input type="radio" name="t-niveau" value="debutant"><span>Je débute</span></label><label><input type="radio" name="t-niveau" value="avance"><span>Je l'utilise déjà</span></label></fieldset>
+      </div>
+      <div class="trouver-resultat" aria-live="polite"><p class="trouver-attente">Répondez aux trois questions&nbsp;: une formation passe devant les autres.</p></div>
+    </div>
+  </section>
   <div class="chaine-f">
     <p class="cf-consigne">Choisissez une étape de votre métier&nbsp;: nous affichons les formations qui la travaillent.</p>
     <ol class="cf-chaine"><li><button type="button" data-etape="" aria-pressed="true">Toutes<span class="ch-nb">27</span></button></li><li><button type="button" data-etape="prospection" aria-pressed="false"><span class="ch-num">1</span>Prospection<span class="ch-nb">17</span></button></li><li><button type="button" data-etape="decouverte" aria-pressed="false"><span class="ch-num">2</span>Découverte<span class="ch-nb">13</span></button></li><li><button type="button" data-etape="estimation" aria-pressed="false"><span class="ch-num">3</span>Estimation<span class="ch-nb">4</span></button></li><li><button type="button" data-etape="mandat" aria-pressed="false"><span class="ch-num">4</span>Mandat<span class="ch-nb">5</span></button></li><li><button type="button" data-etape="acquereurs" aria-pressed="false"><span class="ch-num">5</span>Acquéreurs<span class="ch-nb">2</span></button></li><li><button type="button" data-etape="visites" aria-pressed="false"><span class="ch-num">6</span>Visites et offres<span class="ch-nb">5</span></button></li><li><button type="button" data-etape="organisation" aria-pressed="false"><span class="ch-num">7</span>Organisation<span class="ch-nb">17</span></button></li><li><button type="button" data-etape="administratif" aria-pressed="false"><span class="ch-num">8</span>Administratif<span class="ch-nb">8</span></button></li></ol>
   </div>
   <div class="grille-f">
-    <article class="carte-f" id="l-intelligence-artificielle-au-service-des-conseillers-immobiliers-16h" data-etapes="prospection decouverte organisation">
+    <article class="carte-f" id="l-intelligence-artificielle-au-service-des-conseillers-immobiliers-16h" data-etapes="prospection decouverte organisation" data-heures="16" data-niveau="debutant" data-profils="conseiller agence reseau" data-appr="52" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-equipe.webp" width="720" height="260" loading="lazy" alt="L&#x27;intelligence artificielle au service des conseillers immobiliers - 16h"><span class="cf-duree">16 h</span><span class="cf-prix">dès 672&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Organisation</li></ul>
       <h3>L&#x27;intelligence artificielle au service des conseillers immobiliers - 16h</h3>
@@ -89,7 +100,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="l-intelligence-artificielle-au-service-des-conseillers-immobiliers-72h" data-etapes="prospection decouverte organisation">
+    <article class="carte-f" id="l-intelligence-artificielle-au-service-des-conseillers-immobiliers-72h" data-etapes="prospection decouverte organisation" data-heures="72" data-niveau="debutant" data-profils="conseiller agence reseau" data-appr="51" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-r1-a.webp" width="720" height="260" loading="lazy" alt="L&#x27;intelligence artificielle au service des conseillers immobiliers (72h)"><span class="cf-duree">72 h</span><span class="cf-prix">dès 3 024&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Organisation</li></ul>
       <h3>L&#x27;intelligence artificielle au service des conseillers immobiliers (72h)</h3>
@@ -108,7 +119,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="formation-logiciel-cadastre-com-level-1" data-etapes="prospection estimation mandat">
+    <article class="carte-f" id="formation-logiciel-cadastre-com-level-1" data-etapes="prospection estimation mandat" data-heures="8" data-niveau="avance" data-profils="conseiller" data-appr="29" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-acm.webp" width="720" height="260" loading="lazy" alt="Cadastre Niveau 1 - Présentiel Collectif"><span class="cf-duree">8 h</span><span class="cf-prix">dès 336&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Estimation</li><li>Mandat</li></ul>
       <h3>Cadastre Niveau 1 - Présentiel Collectif</h3>
@@ -127,7 +138,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="l-ia-au-service-des-conseillers-immobiliers-8h" data-etapes="prospection decouverte organisation">
+    <article class="carte-f" id="l-ia-au-service-des-conseillers-immobiliers-8h" data-etapes="prospection decouverte organisation" data-heures="8" data-niveau="debutant" data-profils="conseiller agence reseau" data-appr="18" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-profiling.webp" width="720" height="260" loading="lazy" alt="L&#x27;IA au service des conseillers immobiliers (8h)"><span class="cf-duree">8 h</span><span class="cf-prix">dès 336&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Organisation</li></ul>
       <h3>L&#x27;IA au service des conseillers immobiliers (8h)</h3>
@@ -146,7 +157,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="integrer-l-intelligence-artificielle-pour-gagner-en-productivite-105h00" data-etapes="prospection organisation">
+    <article class="carte-f" id="integrer-l-intelligence-artificielle-pour-gagner-en-productivite-105h00" data-etapes="prospection organisation" data-heures="105" data-niveau="debutant" data-profils="" data-appr="16" data-immo="0">
       <div class="cf-visuel"><img src="/img/cf-secteur.webp" width="720" height="260" loading="lazy" alt="Intégrer l’intelligence artificielle pour gagner en productivité - 105h00"><span class="cf-duree">105 h</span><span class="cf-prix">dès 4 410&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Organisation</li></ul>
       <h3>Intégrer l’intelligence artificielle pour gagner en productivité - 105h00</h3>
@@ -165,7 +176,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="exploiter-l-intelligence-artificielle-dans-l-immobilier-pour-gagner-en-productivite-24h" data-etapes="prospection decouverte organisation">
+    <article class="carte-f" id="exploiter-l-intelligence-artificielle-dans-l-immobilier-pour-gagner-en-productivite-24h" data-etapes="prospection decouverte organisation" data-heures="24" data-niveau="debutant" data-profils="agence" data-appr="15" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-strategie.webp" width="720" height="260" loading="lazy" alt="Exploiter l’intelligence artificielle dans l’immobilier pour gagner en productivité - 24h"><span class="cf-duree">24 h</span><span class="cf-prix">dès 1 008&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Organisation</li></ul>
       <h3>Exploiter l’intelligence artificielle dans l’immobilier pour gagner en productivité - 24h</h3>
@@ -184,7 +195,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="cycle-complet-de-prospection-relation-client-et-negociation-immobiliere" data-etapes="prospection decouverte acquereurs visites">
+    <article class="carte-f" id="cycle-complet-de-prospection-relation-client-et-negociation-immobiliere" data-etapes="prospection decouverte acquereurs visites" data-heures="87" data-niveau="debutant" data-profils="conseiller agence" data-appr="13" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-radar.webp" width="720" height="260" loading="lazy" alt="Cycle complet de prospection, relation client et négociation immobilière"><span class="cf-duree">87 h</span><span class="cf-prix">dès 3 654&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Acquéreurs</li><li>Visites et offres</li></ul>
       <h3>Cycle complet de prospection, relation client et négociation immobilière</h3>
@@ -203,7 +214,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="integrer-l-intelligence-artificielle-dans-son-entreprise-pour-gagner-en-productivite" data-etapes="prospection decouverte estimation visites organisation administratif">
+    <article class="carte-f" id="integrer-l-intelligence-artificielle-dans-son-entreprise-pour-gagner-en-productivite" data-etapes="prospection decouverte estimation visites organisation administratif" data-heures="152" data-niveau="debutant" data-profils="conseiller" data-appr="11" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-antibes-b.webp" width="720" height="260" loading="lazy" alt="Intégrer l&#x27;Intelligence Artificielle dans son entreprise pour gagner en productivité"><span class="cf-duree">152 h</span><span class="cf-prix">dès 6 384&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Estimation</li><li>Visites et offres</li><li>Organisation</li><li>Administratif</li></ul>
       <h3>Intégrer l&#x27;Intelligence Artificielle dans son entreprise pour gagner en productivité</h3>
@@ -222,7 +233,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="maitriser-l-intelligence-artificielle-pour-booster-la-performance-commerciale-72h" data-etapes="prospection decouverte organisation">
+    <article class="carte-f" id="maitriser-l-intelligence-artificielle-pour-booster-la-performance-commerciale-72h" data-etapes="prospection decouverte organisation" data-heures="72" data-niveau="avance" data-profils="agence" data-appr="10" data-immo="0">
       <div class="cf-visuel"><img src="/img/cf-r1-b.webp" width="720" height="260" loading="lazy" alt="Maitriser l&#x27;intelligence artificielle pour booster la performance commerciale - 72h"><span class="cf-duree">72 h</span><span class="cf-prix">dès 3 024&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Organisation</li></ul>
       <h3>Maitriser l&#x27;intelligence artificielle pour booster la performance commerciale - 72h</h3>
@@ -241,7 +252,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="l-intelligence-artificielle-et-sa-maitrise-au-service-des-conseillers-immobiliers" data-etapes="prospection decouverte organisation administratif">
+    <article class="carte-f" id="l-intelligence-artificielle-et-sa-maitrise-au-service-des-conseillers-immobiliers" data-etapes="prospection decouverte organisation administratif" data-heures="72" data-niveau="debutant" data-profils="conseiller agence reseau" data-appr="9" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-formation-b.webp" width="720" height="260" loading="lazy" alt="L&#x27;intelligence artificielle et sa maitrise au service des conseillers immobiliers"><span class="cf-duree">72 h</span><span class="cf-prix">dès 3 024&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Organisation</li><li>Administratif</li></ul>
       <h3>L&#x27;intelligence artificielle et sa maitrise au service des conseillers immobiliers</h3>
@@ -260,7 +271,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="formation-logiciel-cadastre-com-level-2-pour-les-professionnels-confirmes" data-etapes="prospection estimation mandat">
+    <article class="carte-f" id="formation-logiciel-cadastre-com-level-2-pour-les-professionnels-confirmes" data-etapes="prospection estimation mandat" data-heures="8" data-niveau="avance" data-profils="conseiller" data-appr="6" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-dynamique.webp" width="720" height="260" loading="lazy" alt="Cadastre Niveau 2 - Présentiel collectif"><span class="cf-duree">8 h</span><span class="cf-prix">dès 336&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Estimation</li><li>Mandat</li></ul>
       <h3>Cadastre Niveau 2 - Présentiel collectif</h3>
@@ -279,7 +290,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="booster-vendeur-8h" data-etapes="prospection mandat">
+    <article class="carte-f" id="booster-vendeur-8h" data-etapes="prospection mandat" data-heures="8" data-niveau="avance" data-profils="conseiller agence reseau" data-appr="5" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-point-marche.webp" width="720" height="260" loading="lazy" alt="Booster vendeur (8h)"><span class="cf-duree">8 h</span><span class="cf-prix">dès 336&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Mandat</li></ul>
       <h3>Booster vendeur (8h)</h3>
@@ -298,7 +309,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="integrer-l-intelligence-artificielle-pour-gagner-en-productivite-77h00" data-etapes="prospection organisation">
+    <article class="carte-f" id="integrer-l-intelligence-artificielle-pour-gagner-en-productivite-77h00" data-etapes="prospection organisation" data-heures="77" data-niveau="debutant" data-profils="conseiller agence" data-appr="3" data-immo="0">
       <div class="cf-visuel"><img src="/img/cf-localisateur.webp" width="720" height="260" loading="lazy" alt="Intégrer l’intelligence artificielle pour gagner en productivité - 77h00"><span class="cf-duree">77 h</span><span class="cf-prix">dès 3 234&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Organisation</li></ul>
       <h3>Intégrer l’intelligence artificielle pour gagner en productivité - 77h00</h3>
@@ -317,7 +328,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="optimiser-son-activite-immobiliere-grace-a-l-intelligence-artificielle-40h" data-etapes="prospection decouverte organisation administratif">
+    <article class="carte-f" id="optimiser-son-activite-immobiliere-grace-a-l-intelligence-artificielle-40h" data-etapes="prospection decouverte organisation administratif" data-heures="40" data-niveau="debutant" data-profils="conseiller agence reseau" data-appr="3" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-antibes-a.webp" width="720" height="260" loading="lazy" alt="Optimiser son activité immobilière grâce à l&#x27;Intelligence Artificielle - 40h"><span class="cf-duree">40 h</span><span class="cf-prix">dès 1 680&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Organisation</li><li>Administratif</li></ul>
       <h3>Optimiser son activité immobilière grâce à l&#x27;Intelligence Artificielle - 40h</h3>
@@ -336,7 +347,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="maitriser-l-intelligence-artificielle-pour-developper-son-activite" data-etapes="prospection decouverte administratif">
+    <article class="carte-f" id="maitriser-l-intelligence-artificielle-pour-developper-son-activite" data-etapes="prospection decouverte administratif" data-heures="35" data-niveau="debutant" data-profils="agence" data-appr="2" data-immo="0">
       <div class="cf-visuel"><img src="/img/cf-final-b.webp" width="720" height="260" loading="lazy" alt="Maîtriser l’Intelligence Artificielle pour développer son activité"><span class="cf-duree">35 h</span><span class="cf-prix">dès 1 470&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Administratif</li></ul>
       <h3>Maîtriser l’Intelligence Artificielle pour développer son activité</h3>
@@ -355,7 +366,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="limmobilier-et-sa-prospection-efficace-devenir-incontournable-sur-son-secteur" data-etapes="prospection">
+    <article class="carte-f" id="limmobilier-et-sa-prospection-efficace-devenir-incontournable-sur-son-secteur" data-etapes="prospection" data-heures="60" data-niveau="debutant" data-profils="conseiller agence" data-appr="1" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-agence-a.webp" width="720" height="260" loading="lazy" alt="L’immobilier et sa prospection efficace : Devenir incontournable sur son secteur"><span class="cf-duree">60 h</span><span class="cf-prix">dès 2 520&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li></ul>
       <h3>L’immobilier et sa prospection efficace : Devenir incontournable sur son secteur</h3>
@@ -374,7 +385,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="formation-complete-en-marketing-digital-et-ia-strategie-globale-referencement-creation-de-contenus-et-gestion-de-la-relation-client" data-etapes="prospection decouverte organisation">
+    <article class="carte-f" id="formation-complete-en-marketing-digital-et-ia-strategie-globale-referencement-creation-de-contenus-et-gestion-de-la-relation-client" data-etapes="prospection decouverte organisation" data-heures="85" data-niveau="avance" data-profils="agence" data-appr="1" data-immo="0">
       <div class="cf-visuel"><img src="/img/cf-agence-b.webp" width="720" height="260" loading="lazy" alt="Formation complète en marketing digital et IA stratégie globale, référencement, création de contenus et gestion de la relation client"><span class="cf-duree">85 h</span><span class="cf-prix">dès 3 570&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Prospection</li><li>Découverte</li><li>Organisation</li></ul>
       <h3>Formation complète en marketing digital et IA stratégie globale, référencement, création de contenus et gestion de la relation client</h3>
@@ -393,7 +404,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="du-surfeur-au-pilote-etape-2-consolider-le-pilotage-maitriser-la-route-de-l-exclusivite" data-etapes="decouverte estimation mandat visites organisation">
+    <article class="carte-f" id="du-surfeur-au-pilote-etape-2-consolider-le-pilotage-maitriser-la-route-de-l-exclusivite" data-etapes="decouverte estimation mandat visites organisation" data-heures="11" data-niveau="avance" data-profils="conseiller reseau" data-appr="9" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-mandat-b.webp" width="720" height="260" loading="lazy" alt="Du surfeur au pilote — Étape 2 : consolider le pilotage, maîtriser la route de l&#x27;exclusivité"><span class="cf-duree">11 h</span><span class="cf-prix">dès 462&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Découverte</li><li>Estimation</li><li>Mandat</li><li>Visites et offres</li><li>Organisation</li></ul>
       <h3>Du surfeur au pilote — Étape 2 : consolider le pilotage, maîtriser la route de l&#x27;exclusivité</h3>
@@ -412,7 +423,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="maitrise-des-techniques-de-vente-immobiliere" data-etapes="decouverte acquereurs visites">
+    <article class="carte-f" id="maitrise-des-techniques-de-vente-immobiliere" data-etapes="decouverte acquereurs visites" data-heures="60" data-niveau="debutant" data-profils="conseiller agence" data-appr="1" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-vivre-ici.webp" width="720" height="260" loading="lazy" alt="Maîtrise des techniques de vente immobilière"><span class="cf-duree">60 h</span><span class="cf-prix">dès 2 520&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Découverte</li><li>Acquéreurs</li><li>Visites et offres</li></ul>
       <h3>Maîtrise des techniques de vente immobilière</h3>
@@ -431,7 +442,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="vendez-mieux-avec-l-ia" data-etapes="mandat visites organisation">
+    <article class="carte-f" id="vendez-mieux-avec-l-ia" data-etapes="mandat visites organisation" data-heures="8" data-niveau="debutant" data-profils="conseiller agence" data-appr="6" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-mandat-a.webp" width="720" height="260" loading="lazy" alt="Vendez mieux avec l’IA"><span class="cf-duree">8 h</span><span class="cf-prix">dès 336&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Mandat</li><li>Visites et offres</li><li>Organisation</li></ul>
       <h3>Vendez mieux avec l’IA</h3>
@@ -450,7 +461,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="integrer-l-intelligence-artificielle-dans-son-entreprise-pour-gagner-en-productivite-88h" data-etapes="organisation administratif">
+    <article class="carte-f" id="integrer-l-intelligence-artificielle-dans-son-entreprise-pour-gagner-en-productivite-88h" data-etapes="organisation administratif" data-heures="88" data-niveau="debutant" data-profils="conseiller" data-appr="12" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-visite-a.webp" width="720" height="260" loading="lazy" alt="Intégrer l&#x27;Intelligence Artificielle dans son entreprise pour gagner en productivité - 88h"><span class="cf-duree">88 h</span><span class="cf-prix">dès 3 696&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Organisation</li><li>Administratif</li></ul>
       <h3>Intégrer l&#x27;Intelligence Artificielle dans son entreprise pour gagner en productivité - 88h</h3>
@@ -469,7 +480,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="integrer-l-intelligence-artificielle-dans-son-entreprise-pour-gagner-en-productivite-40h" data-etapes="organisation">
+    <article class="carte-f" id="integrer-l-intelligence-artificielle-dans-son-entreprise-pour-gagner-en-productivite-40h" data-etapes="organisation" data-heures="40" data-niveau="debutant" data-profils="conseiller agence" data-appr="10" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-formation-a.webp" width="720" height="260" loading="lazy" alt="Intégrer l&#x27;Intelligence Artificielle dans son entreprise pour  gagner en productivité - 40h"><span class="cf-duree">40 h</span><span class="cf-prix">dès 1 680&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Organisation</li></ul>
       <h3>Intégrer l&#x27;Intelligence Artificielle dans son entreprise pour  gagner en productivité - 40h</h3>
@@ -488,7 +499,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="optimisation-des-systemes-d-information-avec-l-ia" data-etapes="organisation">
+    <article class="carte-f" id="optimisation-des-systemes-d-information-avec-l-ia" data-etapes="organisation" data-heures="14" data-niveau="debutant" data-profils="agence" data-appr="6" data-immo="0">
       <div class="cf-visuel"><img src="/img/cf-parcours.webp" width="720" height="260" loading="lazy" alt="Optimisation des systèmes d’information avec l’IA"><span class="cf-duree">14 h (2 jours)</span><span class="cf-prix">dès 588&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Organisation</li></ul>
       <h3>Optimisation des systèmes d’information avec l’IA</h3>
@@ -507,7 +518,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="ia-generative" data-etapes="organisation">
+    <article class="carte-f" id="ia-generative" data-etapes="organisation" data-heures="105" data-niveau="debutant" data-profils="agence" data-appr="2" data-immo="0">
       <div class="cf-visuel"><img src="/img/cf-pilotage.webp" width="720" height="260" loading="lazy" alt="IA générative"><span class="cf-duree">105 h</span><span class="cf-prix">dès 4 410&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Organisation</li></ul>
       <h3>IA générative</h3>
@@ -526,7 +537,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="tracfin" data-etapes="administratif">
+    <article class="carte-f" id="tracfin" data-etapes="administratif" data-heures="4" data-niveau="debutant" data-profils="conseiller reseau" data-appr="29" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-formation-c.webp" width="720" height="260" loading="lazy" alt="Tracfin"><span class="cf-duree">4 h</span><span class="cf-prix">dès 168&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Administratif</li></ul>
       <h3>Tracfin</h3>
@@ -545,7 +556,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="non-discrimination-tracfin-et-deontologie" data-etapes="administratif">
+    <article class="carte-f" id="non-discrimination-tracfin-et-deontologie" data-etapes="administratif" data-heures="8" data-niveau="debutant" data-profils="" data-appr="26" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-final-a.webp" width="720" height="260" loading="lazy" alt="Non discrimination, Tracfin et déontologie"><span class="cf-duree">8 h</span><span class="cf-prix">dès 336&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Administratif</li></ul>
       <h3>Non discrimination, Tracfin et déontologie</h3>
@@ -564,7 +575,7 @@
         </div>
       </details>
     </article>
-    <article class="carte-f" id="anglais-professionnel-booste-par-l-ia" data-etapes="administratif">
+    <article class="carte-f" id="anglais-professionnel-booste-par-l-ia" data-etapes="administratif" data-heures="21" data-niveau="debutant" data-profils="" data-appr="6" data-immo="1">
       <div class="cf-visuel"><img src="/img/cf-mandat-c.webp" width="720" height="260" loading="lazy" alt="Anglais professionnel boosté par l’IA"><span class="cf-duree">21 h</span><span class="cf-prix">dès 882&nbsp;€</span></div>
       <ul class="cf-etapes" aria-label="Étapes du métier"><li>Administratif</li></ul>
       <h3>Anglais professionnel boosté par l’IA</h3>
@@ -597,6 +608,7 @@
       <div><dt>Formateurs</dt><dd>Laurent Marx et Jean-Guy Ourmières, plus de 10 ans de transaction.</dd></div>
     </dl>
   </aside>
+<script src="/trouver.js" defer></script>
 <script>
 (() => {
   const boutons = [...document.querySelectorAll('.cf-chaine button')];
