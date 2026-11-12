@@ -247,7 +247,8 @@ def depuis_qualiof(d):
                        'public': texte(p.get('public')), 'prereq': texte(p.get('prerequis')) or 'Aucun',
                        'obj': [o for o in p['objectifs'] if str(o).strip()], 'av': False,
                        'programme': markdown(p.get('programme')), 'indicateurs': ligne_indicateurs(ind), 'ind': ind,
-                       'texte': ' '.join([p['titre'], ' '.join(map(str, p['objectifs']))])})
+                       'texte': ' '.join([p['titre'], ' '.join(map(str, p['objectifs']))]),
+                       'corps': str(p.get('programme') or '')})
     return fiches
 
 
@@ -283,6 +284,8 @@ ETAPES = [
  ('organisation', 'Organisation', ['productivite', 'automatis', 'organisation', "plan d'action", "plan d'utilisation", 'prompt', 'ia generative', 'assistant', 'tableau de bord', "systeme d'information"]),
  ('administratif', 'Administratif', ['administrat', 'tracfin', 'deontologie', 'discrimination', 'juridique', 'blanchiment', 'anglais']),
 ]
+
+SEUIL_ACQUEREURS = 3
 
 VISUELS = {
  'prospection': ['agence-a', 'secteur', 'localisateur', 'agence-b', 'antibes-a'],
@@ -332,7 +335,14 @@ SCRIPT = '''<script>
 
 def etapes_de(f):
     s = cle(f.get('texte', ''))
-    return [e[0] for e in ETAPES if any(m in s for m in e[2])] or ['organisation']
+    etapes = [e[0] for e in ETAPES if any(m in s for m in e[2])]
+    # Acquéreurs : les titres et objectifs QualiOF n'en parlent presque jamais, alors que le programme
+    # détaillé y consacre des séquences. On retient la fiche à partir de 3 mentions dans le programme.
+    corps = cle(f.get('corps', ''))
+    if 'acquereurs' not in etapes and corps.count('acquereur') + corps.count('acheteur') >= SEUIL_ACQUEREURS:
+        etapes.append('acquereurs')
+        etapes.sort(key=[e[0] for e in ETAPES].index)
+    return etapes or ['organisation']
 
 
 def chiffres(ind):
