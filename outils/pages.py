@@ -12,8 +12,17 @@ fl = '<svg aria-hidden="true"><use href="#fleche"/></svg>'
 # Titre du bloc final (appel découverte) quand la page ne s'adresse pas à une agence.
 FINALS = {'formation-ia-reseau-mandataires/': 'Parlons de votre réseau.'}
 
+# Mise en page enrichie des blocs (passe graphique du 12/11/2026), repérés par le début de leur titre.
+# PILOTES : pages qui l'utilisent. À étendre aux autres pages de même structure une fois validée.
+PILOTES = {'formation-ia-reseau-mandataires/'}
+VARIANTES = [('Le cas en', 'b-cas'), ('La méthode classique', 'b-methode'), ('Ce que (?:vous gagnez|le réseau y gagne)', 'b-gains'),
+             ('Deux façons de financer', 'b-duo'), ('Prompt gratuit', 'b-prompt'), ('Erreurs fréquentes', 'b-erreurs')]
+
 def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=True):
     corps = re.sub(r'(<h2>.*?</h2>)(.*?)(\n  </div>)', r'\1<div class="corps">\2</div>\3', corps, flags=re.S)
+    if chemin in PILOTES:
+        for debut, classe in VARIANTES:
+            corps = re.sub(r'<div class="bloc">(\s*<h2>' + debut + ')', rf'<div class="bloc {classe}">\1', corps)
     url = f'https://www.start-academia.fr/{chemin}'
     final = f'''
 <section class="final final-simple" aria-labelledby="titre-final">
@@ -48,6 +57,7 @@ def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=Tr
 {fonts}
 <link rel="stylesheet" href="/styles.css">
 <script src="/suivi.js" defer></script>
+{'<script src="/copier.js" defer></script>' if chemin in PILOTES else ''}
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="sous-page">

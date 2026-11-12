@@ -1363,8 +1363,72 @@ p { text-wrap: pretty; }
   .rang-fleche { grid-column: 2; grid-row: 1 / span 2; }
 }
 @media (prefers-reduced-motion: reduce) { .rang, .rang-titre, .rang-fleche { transition: none; } }
-/* Lien de parcours sur les cartes « Pour qui » */
-.cc-lien { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; font-weight: 600; font-size: .9375rem; color: var(--encre); text-decoration: none; }
-.cc-lien svg { width: 30px; height: 30px; padding: 8px; border-radius: 50%; background: rgb(47 68 206 / .1); color: var(--bleu); transition: transform .2s var(--sortie), background .2s; }
-.cc-lien:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
-@media (hover: hover) { .cc-lien:hover svg { transform: translate(2px, -2px); background: var(--orange); color: #fff; } }
+/* Cartes « Pour qui » : carte entière cliquable, pied avec le financement et la flèche */
+.carte-cible { position: relative; }
+.cc-lien { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 20px -26px -24px; padding: 18px 26px; border-top: 1px solid rgb(16 21 58 / .1); font: 500 1.2rem var(--titre); letter-spacing: -.01em; color: var(--bleu); text-decoration: none; transition: background .3s var(--sortie), color .3s var(--sortie); }
+.cc-lien::after { content: ""; position: absolute; inset: 0; border-radius: 24px; }
+.cc-lien svg { flex: none; width: 44px; height: 44px; padding: 13px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgb(47 68 206 / .35); color: var(--bleu); transition: transform .45s var(--sortie), background .3s, color .3s, box-shadow .3s; }
+.cc-lien:focus-visible { outline: none; }
+.cc-lien:focus-visible::after { outline: 3px solid var(--orange); outline-offset: 3px; }
+@media (hover: hover) {
+  .carte-cible:hover .cc-lien { background: linear-gradient(90deg, #eef1ff, #fff3ec); }
+  .carte-cible:hover .cc-lien svg { background: var(--orange); color: #fff; box-shadow: 0 10px 24px -8px rgb(254 85 0 / .7); transform: rotate(45deg); }
+}
+
+/* ---------- Sous-pages : blocs enrichis (pages pilotes, voir PILOTES dans outils/pages.py) ---------- */
+.texte-page .bloc[class*=" b-"] { display: block; }
+.texte-page .bloc[class*=" b-"] > h2 { font-size: clamp(1.9rem, 3.3vw, 3.1rem); line-height: 1; letter-spacing: -.03em; color: var(--encre); margin-bottom: clamp(22px, 2.6vw, 36px); max-width: 18ch; }
+.texte-page .bloc[class*=" b-"] .points li { border: 0; padding: 0; }
+
+/* Le cas : panneau sombre, texte en grand */
+.texte-page .bloc.b-cas { position: relative; overflow: hidden; padding: clamp(32px, 5vw, 76px); border-radius: clamp(26px, 3vw, 40px); color: #fff; background: radial-gradient(60% 90% at 105% 110%, rgb(254 85 0 / .42), transparent 62%), radial-gradient(70% 80% at -5% -10%, rgb(47 68 206 / .7), transparent 65%), var(--nuit); box-shadow: 0 50px 100px -60px rgb(47 68 206 / .8); }
+.texte-page .bloc.b-cas::before { content: ""; position: absolute; right: -180px; top: -180px; width: 560px; aspect-ratio: 1; border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 58px, rgb(185 205 255 / .16) 58px 59px); pointer-events: none; }
+.texte-page .bloc.b-cas { margin-bottom: clamp(20px, 2.4vw, 32px); }
+.texte-page .bloc.b-cas > h2 { position: relative; font: .8125rem var(--mono); letter-spacing: .04em; color: var(--bleu-p); margin-bottom: 22px; max-width: none; display: flex; align-items: center; gap: 10px; }
+.texte-page .bloc.b-cas > h2::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgb(254 85 0 / .22); }
+.texte-page .bloc.b-cas p { position: relative; max-width: 30em; margin: 0; font: 400 clamp(1.3rem, 2.15vw, 2rem)/1.28 var(--titre); letter-spacing: -.02em; color: #fff; text-wrap: pretty; }
+
+/* La méthode : frise verticale, filet bleu vers orange */
+.texte-page .bloc.b-methode { padding: clamp(28px, 4.4vw, 64px); }
+.texte-page .bloc.b-methode .numerotes { position: relative; display: grid; gap: clamp(22px, 2.6vw, 34px); max-width: 980px; margin: 0; }
+.texte-page .bloc.b-methode .numerotes::before { content: ""; position: absolute; left: 27px; top: 28px; bottom: 44px; width: 2px; background: linear-gradient(var(--bleu), var(--bleu-m) 55%, var(--orange)); }
+.texte-page .bloc.b-methode .numerotes li { position: relative; padding: 4px 0 0 92px; min-height: 56px; color: var(--gris); max-width: none; }
+.texte-page .bloc.b-methode .numerotes li::before { left: 0; top: 0; display: grid; place-items: center; width: 56px; height: 56px; padding: 0; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 2px var(--bleu); font: 500 1.5rem var(--titre); color: var(--bleu); }
+.texte-page .bloc.b-methode .numerotes li:last-child::before { box-shadow: inset 0 0 0 2px var(--orange); color: #c94400; }
+.texte-page .bloc.b-methode .numerotes li > strong:first-child { display: block; margin-bottom: 6px; font: 500 clamp(1.25rem, 1.7vw, 1.6rem)/1.15 var(--titre); letter-spacing: -.02em; color: var(--encre); }
+
+/* Les gains et les erreurs : tuiles */
+.texte-page .bloc.b-gains, .texte-page .bloc.b-erreurs, .texte-page .bloc.b-duo { padding: clamp(28px, 4.4vw, 64px) 0 0; background: none; box-shadow: none; }
+.texte-page .bloc.b-gains .points, .texte-page .bloc.b-erreurs .points, .texte-page .bloc.b-duo .points { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: none; margin: 0; }
+.texte-page .bloc.b-gains .points li, .texte-page .bloc.b-erreurs .points li, .texte-page .bloc.b-duo .points li { position: relative; overflow: hidden; padding: clamp(22px, 2.4vw, 32px); border-radius: 24px; background: #fff; box-shadow: 0 1px 0 rgb(16 21 58 / .05), 0 24px 44px -32px rgb(16 21 58 / .45); color: var(--gris); }
+.texte-page .bloc.b-gains .points strong, .texte-page .bloc.b-erreurs .points strong, .texte-page .bloc.b-duo .points strong { display: block; margin-bottom: 8px; font: 500 clamp(1.25rem, 1.8vw, 1.7rem)/1.12 var(--titre); letter-spacing: -.02em; color: var(--bleu); text-wrap: balance; }
+.texte-page .bloc.b-gains .points li:first-child { color: rgb(255 255 255 / .86); background: radial-gradient(80% 90% at 110% 115%, rgb(254 85 0 / .55), transparent 60%), linear-gradient(150deg, #3d55e8, #1b2585); box-shadow: 0 30px 60px -34px rgb(47 68 206 / .9); }
+.texte-page .bloc.b-gains .points li:first-child strong { color: #fff; }
+.texte-page .bloc.b-gains .points li:nth-child(n+2) { background: linear-gradient(160deg, #fff, #eef1ff); box-shadow: inset 0 0 0 1px rgb(47 68 206 / .12), 0 24px 44px -32px rgb(16 21 58 / .45); }
+.texte-page .bloc.b-erreurs .points li { padding-left: clamp(70px, 6vw, 88px); }
+.texte-page .bloc.b-erreurs .points li::before { content: ""; position: absolute; left: clamp(22px, 2.4vw, 32px); top: clamp(22px, 2.4vw, 32px); width: 34px; height: 34px; border-radius: 50%; background: #fff1e9 linear-gradient(45deg, transparent 46%, #c94400 46% 54%, transparent 54%), linear-gradient(-45deg, transparent 46%, #c94400 46% 54%, transparent 54%); background: linear-gradient(45deg, transparent 46%, #c94400 46% 54%, transparent 54%) center / 14px 14px no-repeat, linear-gradient(-45deg, transparent 46%, #c94400 46% 54%, transparent 54%) center / 14px 14px no-repeat, #fff1e9; }
+.texte-page .bloc.b-erreurs .points strong { color: var(--encre); font-size: clamp(1.15rem, 1.5vw, 1.4rem); }
+.texte-page .bloc.b-duo .points li { box-shadow: inset 0 0 0 1.5px rgb(47 68 206 / .28); background: rgb(255 255 255 / .7); }
+.texte-page .bloc.b-duo .points li:first-child::after, .texte-page .bloc.b-duo .points li:last-child::after { position: absolute; right: 22px; top: 22px; padding: 5px 10px; border-radius: 999px; background: #e9edff; color: var(--bleu); font: .75rem var(--mono); }
+.texte-page .bloc.b-duo .points li:first-child::after { content: "Réseau"; }
+.texte-page .bloc.b-duo .points li:last-child::after { content: "Mandataire"; }
+.texte-page .bloc.b-duo .points strong { padding-right: 96px; }
+
+/* Le prompt : fenêtre sombre, zones à personnaliser en orange, bouton Copier */
+.texte-page .bloc.b-prompt { position: relative; margin-top: clamp(28px, 4vw, 56px); padding: clamp(28px, 4.4vw, 64px); border-radius: clamp(26px, 3vw, 40px); color: #fff; background: radial-gradient(70% 80% at 0% 0%, rgb(47 68 206 / .55), transparent 65%), var(--nuit); background-size: auto; box-shadow: 0 50px 100px -60px rgb(47 68 206 / .8); }
+.texte-page .bloc.b-prompt > h2 { color: #fff; max-width: 22ch; }
+.texte-page .bloc.b-prompt p { color: rgb(255 255 255 / .78); }
+.texte-page .bloc.b-prompt .prompt-bloc { margin-top: 18px; padding: clamp(20px, 2.4vw, 32px); border: 0; border-radius: 20px; background: rgb(255 255 255 / .06); box-shadow: inset 0 0 0 1px rgb(185 205 255 / .2); color: #e4eaff; font-size: .9375rem; line-height: 1.7; }
+.texte-page .bloc.b-prompt .prompt-bloc mark { background: rgb(254 85 0 / .2); color: #ffb08a; box-shadow: inset 0 0 0 1px rgb(254 85 0 / .45); padding: 1px 5px; border-radius: 6px; }
+.prompt-copier { margin-top: 8px; min-height: 46px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--orange); color: #1a0d05; font: 600 .9375rem var(--texte); cursor: pointer; transition: transform .2s var(--sortie), background .2s; }
+.prompt-copier.ok { background: #fff; }
+.prompt-copier:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+@media (hover: hover) { .prompt-copier:hover { transform: translateY(-2px); } }
+
+@media (max-width: 760px) {
+  .texte-page .bloc.b-gains .points, .texte-page .bloc.b-erreurs .points, .texte-page .bloc.b-duo .points { grid-template-columns: 1fr; }
+  .texte-page .bloc.b-methode .numerotes::before { left: 21px; }
+  .texte-page .bloc.b-methode .numerotes li { padding-left: 62px; }
+  .texte-page .bloc.b-methode .numerotes li::before { width: 44px; height: 44px; font-size: 1.2rem; }
+}
+@media (prefers-reduced-motion: reduce) { .cc-lien, .cc-lien svg, .prompt-copier { transition: none; } }

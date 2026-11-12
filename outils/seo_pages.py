@@ -936,10 +936,10 @@ ecrire('formation-ia-reseau-mandataires/',
   <div class="bloc">
     <h2>Ce que le réseau y gagne</h2>
     <ul class="points">
-      <li><strong>Des mandataires autonomes plus vite</strong>, y compris ceux qui démarrent dans le métier.</li>
-      <li><strong>Des pratiques homogènes et conformes</strong> d'un mandataire à l'autre.</li>
-      <li><strong>Un argument de recrutement et de fidélisation</strong>&nbsp;: une formation certifiée Qualiopi, avec des outils fournis.</li>
-      <li><strong>Des heures qui comptent pour la loi ALUR</strong>, avec attestation pour chaque participant.</li>
+      <li><strong>Des mandataires autonomes plus vite.</strong> Y compris ceux qui démarrent dans le métier.</li>
+      <li><strong>Des pratiques homogènes et conformes.</strong> Les mêmes méthodes et le même cadre d'un mandataire à l'autre.</li>
+      <li><strong>Un argument de recrutement et de fidélisation.</strong> Une formation certifiée Qualiopi, avec des outils fournis.</li>
+      <li><strong>Des heures qui comptent pour la loi ALUR.</strong> Avec une attestation pour chaque participant.</li>
     </ul>
   </div>
   <div class="bloc">
