@@ -24,8 +24,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script src="/suivi.js" defer></script>
-
-
+<script src="/copier.js" defer></script>
+<script src="/semaine.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://www.start-academia.fr/formation-ia-immobilier/", "url": "https://www.start-academia.fr/formation-ia-immobilier/", "name": "Formation IA pour les professionnels de l'immobilier", "description": "Formation à l'IA et à ChatGPT pour agents immobiliers, mandataires et agences : prospection, estimation, mandat, suivi vendeur. Côte d'Azur ou à distance.", "inLanguage": "fr-FR", "isPartOf": {"@id": "https://www.start-academia.fr/#site"}, "about": {"@id": "https://www.start-academia.fr/#organisation"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Faut-il savoir utiliser l'IA avant la formation ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Chaque parcours existe en version débutant et en version avancée. On part de vos dossiers et de votre niveau, pas d'une liste de fonctionnalités."}}, {"@type": "Question", "name": "Combien coûte une formation IA immobilier ?", "acceptedAnswer": {"@type": "Answer", "text": "La formation est construite sur mesure, le tarif est donc établi sur devis après l'appel découverte. Elle peut être prise en charge par votre OPCO, l'AGEFICE ou le FIF PL."}}, {"@type": "Question", "name": "Est-ce que la formation compte pour la loi ALUR ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, les heures suivies comptent dans vos 14 heures annuelles de formation continue, avec une attestation remise à chaque participant."}}, {"@type": "Question", "name": "Où se déroule la formation ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans votre agence sur la Côte d'Azur (Nice, Antibes, Cannes, Cagnes-sur-Mer…) ou à distance, partout en France."}}, {"@type": "Question", "name": "Les données de mes clients sont-elles protégées ?", "acceptedAnswer": {"@type": "Answer", "text": "Nous enseignons les bonnes pratiques RGPD : ce qu'on peut confier à une IA, ce qu'on anonymise, et quels réglages activer."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.start-academia.fr/"}, {"@type": "ListItem", "position": 2, "name": "Formation IA pour les professionnels de l'immobilier", "item": "https://www.start-academia.fr/formation-ia-immobilier/"}]}, {"@type": "Course", "name": "Formation IA pour les professionnels de l'immobilier", "description": "Utiliser l'IA et ChatGPT à chaque étape de la transaction immobilière : prospection, estimation, mandat, suivi vendeur et acquéreur.", "provider": {"@id": "https://www.start-academia.fr/#organisation"}, "inLanguage": "fr", "hasCourseInstance": [{"@type": "CourseInstance", "courseMode": "Onsite", "location": "Alpes-Maritimes, France"}, {"@type": "CourseInstance", "courseMode": "Online"}], "offers": {"@type": "Offer", "category": "Paid", "availability": "https://schema.org/InStock"}}]}</script>
 </head>
@@ -65,7 +65,53 @@
   </div>
 </section>
 <section class="clair texte-page">
-  <div class="bloc">
+  <div class="bloc b-plan b-semaine">
+    <h2>Qu'est-ce qui vous mange votre semaine&nbsp;?</h2><div class="corps">
+    <div class="semaine">
+      <p class="plan-intro">Cochez vos tâches et indiquez le temps que vous y passez aujourd'hui. La seconde pile, c'est la même semaine avec la méthode.</p>
+      <div class="plan-scene">
+        <div class="semaine-choix">
+          <fieldset class="semaine-etape"><legend>Prospection</legend><ul>
+            <li class="tache"><label><input type="checkbox" data-ia="20" data-etape="prospection" data-unite="étude"><span class="tache-nom">Faire l'étude de marché de mon secteur</span><em class="tache-ia">20&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="prospection" data-unite="recherche"><span class="tache-nom">Repérer les propriétaires à contacter en priorité</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="prospection" data-unite="support"><span class="tache-nom">Préparer un flyer ou un boîtage de quartier</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="3" data-etape="prospection" data-unite="message"><span class="tache-nom">Rédiger mes messages de prospection</span><em class="tache-ia">3&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="prospection" data-unite="courrier"><span class="tache-nom">Écrire aux vendeurs entre particuliers</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="2" data-etape="prospection" data-unite="avis"><span class="tache-nom">Répondre à mes avis clients</span><em class="tache-ia">2&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="prospection" data-unite="semaine"><span class="tache-nom">Planifier mes publications de la semaine</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+          </ul></fieldset>
+          <fieldset class="semaine-etape"><legend>Vendeur</legend><ul>
+            <li class="tache"><label><input type="checkbox" data-ia="15" data-etape="vendeur" data-unite="rendez-vous"><span class="tache-nom">Préparer un premier rendez-vous vendeur</span><em class="tache-ia">15&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="vendeur" data-unite="dossier"><span class="tache-nom">Monter le dossier après la découverte</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="15" data-etape="vendeur" data-unite="rendez-vous"><span class="tache-nom">Préparer le second rendez-vous et la stratégie</span><em class="tache-ia">15&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="10" data-etape="vendeur" data-unite="bien"><span class="tache-nom">Défendre un prix par le potentiel de rénovation</span><em class="tache-ia">10&nbsp;min avec la méthode</em></label></li>
+          </ul></fieldset>
+          <fieldset class="semaine-etape"><legend>Acquéreurs</legend><ul>
+            <li class="tache"><label><input type="checkbox" data-ia="3" data-etape="acquereurs" data-unite="recherche"><span class="tache-nom">Sélectionner des annonces pour un acquéreur</span><em class="tache-ia">3&nbsp;min avec la méthode</em></label></li>
+          </ul></fieldset>
+        </div>
+        <div class="plan-vue semaine-vue">
+          <canvas class="plan-toile semaine-toile" aria-hidden="true"></canvas>
+          <p class="plan-legende"><span class="pl-session">Aujourd'hui</span><span class="pl-deb">Avec la méthode</span><span class="plan-echelle">1 étage = 1 heure</span></p>
+        </div>
+      </div>
+      <div class="plan-resultat" aria-live="polite">
+        <div class="plan-chiffres">
+          <p><strong id="sm-auj">0&nbsp;min</strong><span>aujourd'hui, par semaine</span></p>
+          <p><strong id="sm-ia">0&nbsp;min</strong><span>avec la méthode</span></p>
+          <p><strong id="sm-gain">–</strong><span>rendues à vos clients</span></p>
+        </div>
+        <p class="semaine-phrase" id="sm-phrase">Cochez une première tâche pour commencer.</p>
+        <ul class="semaine-programme" id="sm-programme" hidden></ul>
+        <div class="plan-actions">
+          <a class="action semaine-appel" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Réserver mon appel découverte<svg aria-hidden="true"><use href="#fleche"/></svg></a>
+          <button type="button" class="plan-copier" hidden>Copier ma semaine</button>
+          <span class="plan-note">Temps en routine tirés de nos livrets tactiques, une fois l'outil en place.</span>
+        </div>
+      </div>
+    </div></div>
+  </div>
+ <div class="bloc">
     <h2>Ce que vos équipes savent faire en sortant</h2><div class="corps">
     <ul class="points">
       <li><strong>Préparer un premier rendez-vous vendeur</strong> avec le dossier de marché de l'adresse&nbsp;: ventes réelles autour du bien, dynamique des prix, vie du quartier. Environ 2&nbsp;h de préparation ramenées à quelques minutes.</li>

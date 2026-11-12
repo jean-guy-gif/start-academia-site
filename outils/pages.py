@@ -14,10 +14,10 @@ FINALS = {'formation-ia-reseau-mandataires/': 'Parlons de votre réseau.'}
 
 # Mise en page enrichie des blocs (passe graphique du 12/11/2026), repérés par le début de leur titre.
 # PILOTES : pages qui l'utilisent. À étendre aux autres pages de même structure une fois validée.
-PILOTES = {'formation-ia-reseau-mandataires/'}
+PILOTES = {'formation-ia-reseau-mandataires/', 'formation-ia-immobilier/'}
 # Scripts propres à une page
-SCRIPTS_PAGE = {'formation-ia-reseau-mandataires/': ['plan-reseau.js']}
-VARIANTES = [('Construisez votre plan', 'b-plan'), ('Le cas en', 'b-cas'), ('La méthode classique', 'b-methode'), ('Ce que (?:vous gagnez|le réseau y gagne)', 'b-gains'),
+SCRIPTS_PAGE = {'formation-ia-reseau-mandataires/': ['plan-reseau.js'], 'formation-ia-immobilier/': ['semaine.js']}
+VARIANTES = [('Construisez votre plan', 'b-plan'), ("Qu'est-ce qui vous mange", 'b-plan b-semaine'), ('Le cas en', 'b-cas'), ('La méthode classique', 'b-methode'), ('Ce que (?:vous gagnez|le réseau y gagne)', 'b-gains'),
              ('Deux façons de financer', 'b-duo'), ('Prompt gratuit', 'b-prompt'), ('Erreurs fréquentes', 'b-erreurs')]
 
 def page(chemin, titre, desc, h1, intro, corps, robots='index, follow', appel=True):

@@ -136,6 +136,52 @@ ecrire('formation-ia-immobilier/',
  "Formation IA pour les professionnels de l'immobilier.",
  "Prospection, estimation, mandat, découverte, visite, négociation, suivi&nbsp;: on part des gestes de votre métier et on les rend plus rapides avec l'IA. Une formation pratique, sur vos propres dossiers, certifiée Qualiopi.",
  '''  <div class="bloc">
+    <h2>Qu'est-ce qui vous mange votre semaine&nbsp;?</h2>
+    <div class="semaine">
+      <p class="plan-intro">Cochez vos tâches et indiquez le temps que vous y passez aujourd'hui. La seconde pile, c'est la même semaine avec la méthode.</p>
+      <div class="plan-scene">
+        <div class="semaine-choix">
+          <fieldset class="semaine-etape"><legend>Prospection</legend><ul>
+            <li class="tache"><label><input type="checkbox" data-ia="20" data-etape="prospection" data-unite="étude"><span class="tache-nom">Faire l'étude de marché de mon secteur</span><em class="tache-ia">20&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="prospection" data-unite="recherche"><span class="tache-nom">Repérer les propriétaires à contacter en priorité</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="prospection" data-unite="support"><span class="tache-nom">Préparer un flyer ou un boîtage de quartier</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="3" data-etape="prospection" data-unite="message"><span class="tache-nom">Rédiger mes messages de prospection</span><em class="tache-ia">3&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="prospection" data-unite="courrier"><span class="tache-nom">Écrire aux vendeurs entre particuliers</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="2" data-etape="prospection" data-unite="avis"><span class="tache-nom">Répondre à mes avis clients</span><em class="tache-ia">2&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="prospection" data-unite="semaine"><span class="tache-nom">Planifier mes publications de la semaine</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+          </ul></fieldset>
+          <fieldset class="semaine-etape"><legend>Vendeur</legend><ul>
+            <li class="tache"><label><input type="checkbox" data-ia="15" data-etape="vendeur" data-unite="rendez-vous"><span class="tache-nom">Préparer un premier rendez-vous vendeur</span><em class="tache-ia">15&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="5" data-etape="vendeur" data-unite="dossier"><span class="tache-nom">Monter le dossier après la découverte</span><em class="tache-ia">5&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="15" data-etape="vendeur" data-unite="rendez-vous"><span class="tache-nom">Préparer le second rendez-vous et la stratégie</span><em class="tache-ia">15&nbsp;min avec la méthode</em></label></li>
+            <li class="tache"><label><input type="checkbox" data-ia="10" data-etape="vendeur" data-unite="bien"><span class="tache-nom">Défendre un prix par le potentiel de rénovation</span><em class="tache-ia">10&nbsp;min avec la méthode</em></label></li>
+          </ul></fieldset>
+          <fieldset class="semaine-etape"><legend>Acquéreurs</legend><ul>
+            <li class="tache"><label><input type="checkbox" data-ia="3" data-etape="acquereurs" data-unite="recherche"><span class="tache-nom">Sélectionner des annonces pour un acquéreur</span><em class="tache-ia">3&nbsp;min avec la méthode</em></label></li>
+          </ul></fieldset>
+        </div>
+        <div class="plan-vue semaine-vue">
+          <canvas class="plan-toile semaine-toile" aria-hidden="true"></canvas>
+          <p class="plan-legende"><span class="pl-session">Aujourd'hui</span><span class="pl-deb">Avec la méthode</span><span class="plan-echelle">1 étage = 1 heure</span></p>
+        </div>
+      </div>
+      <div class="plan-resultat" aria-live="polite">
+        <div class="plan-chiffres">
+          <p><strong id="sm-auj">0&nbsp;min</strong><span>aujourd'hui, par semaine</span></p>
+          <p><strong id="sm-ia">0&nbsp;min</strong><span>avec la méthode</span></p>
+          <p><strong id="sm-gain">–</strong><span>rendues à vos clients</span></p>
+        </div>
+        <p class="semaine-phrase" id="sm-phrase">Cochez une première tâche pour commencer.</p>
+        <ul class="semaine-programme" id="sm-programme" hidden></ul>
+        <div class="plan-actions">
+          <a class="action semaine-appel" href="https://meet.brevo.com/jean-guy-ourmieres/appel-decouverte" rel="noopener">Réserver mon appel découverte<svg aria-hidden="true"><use href="#fleche"/></svg></a>
+          <button type="button" class="plan-copier" hidden>Copier ma semaine</button>
+          <span class="plan-note">Temps en routine tirés de nos livrets tactiques, une fois l'outil en place.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div class="bloc">
     <h2>Ce que vos équipes savent faire en sortant</h2>
     <ul class="points">
       <li><strong>Préparer un premier rendez-vous vendeur</strong> avec le dossier de marché de l'adresse&nbsp;: ventes réelles autour du bien, dynamique des prix, vie du quartier. Environ 2&nbsp;h de préparation ramenées à quelques minutes.</li>
