@@ -1276,3 +1276,27 @@ p { text-wrap: pretty; }
 .texte-page .capture img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 0 0 1px rgb(16 21 58 / .08), 0 24px 44px -28px rgb(16 21 58 / .55); }
 .texte-page .capture figcaption { margin-top: 12px; font: .75rem/1.5 var(--mono); letter-spacing: .02em; color: var(--gris); }
 .texte-page .capture figcaption::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 8px; border-radius: 50%; background: var(--orange); vertical-align: 1px; }
+
+/* ---------- Rubrique Guides (/guides/) ---------- */
+.guides-rubrique { max-width: 1296px; margin-bottom: clamp(40px, 5vw, 64px); }
+.guides-rubrique h2 { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; font-size: clamp(1.5rem, 2.4vw, 2rem); }
+.guides-rubrique h2::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgb(254 85 0 / .18); }
+.guides-grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 14px; }
+.guide-carte { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px 24px 20px; border-radius: 22px; background: #fff; color: var(--encre); text-decoration: none; box-shadow: 0 1px 0 rgb(16 21 58 / .05), 0 18px 36px -28px rgb(16 21 58 / .45); transition: transform .5s var(--sortie), box-shadow .5s var(--sortie); }
+.guide-carte .gc-etape { align-self: flex-start; padding: 3px 9px; border-radius: 999px; background: rgb(47 68 206 / .08); color: var(--bleu); font: .6875rem var(--mono); }
+.guide-carte strong { font: 500 1.25rem/1.25 var(--titre); color: var(--encre); text-wrap: balance; }
+.guide-carte .gc-desc { color: var(--gris); font-size: .9375rem; line-height: 1.5; }
+.guide-carte .gc-date { margin-top: auto; padding-top: 8px; font: .75rem var(--mono); color: var(--gris); }
+.guide-carte::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; pointer-events: none; opacity: 0; transition: opacity .4s;
+  background: linear-gradient(135deg, var(--bleu-m), var(--orange));
+  -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+@media (hover: hover) {
+  .guide-carte:hover { transform: translateY(-4px); box-shadow: 0 1px 0 rgb(16 21 58 / .05), 0 28px 44px -28px rgb(47 68 206 / .55); }
+  .guide-carte:hover::after { opacity: 1; }
+}
+.guide-carte:focus-visible::after { opacity: 1; }
+
+/* En-tête : six entrées de menu. Jamais de retour à la ligne, écarts resserrés sur les écrans moyens. */
+.menu a, .entete .action.compacte { white-space: nowrap; }
+@media (max-width: 1280px) { .menu { gap: 22px; } }
+@media (max-width: 1120px) { .menu { gap: 16px; } .menu a { font-size: .875rem; } }

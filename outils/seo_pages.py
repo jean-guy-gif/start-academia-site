@@ -43,7 +43,11 @@ def jsonld(chemin, titre_page, desc, faq, cours=None):
             if ci["location"] is None: del ci["location"]
     return '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + '</script>'
 
+PAGES = {}  # chemin -> (titre affiché, description), rempli par ecrire() ; sert à la rubrique Guides
+
+
 def ecrire(chemin, titre, desc, h1, intro, corps, faq, cours=None):
+    PAGES[chemin] = (h1.rstrip('.'), desc)
     if chemin in GUIDES:
         corps = habiller_guide(chemin, corps)
     page(chemin, titre, desc, h1, intro, corps + '\n' + faq_html(faq))
@@ -82,6 +86,9 @@ GUIDES = {
     'ia-negociation-immobiliere/': '2026-11-12',
     'prospection-immobiliere-sans-pige/': '2026-11-12',
     'financement-formation-auto-entrepreneur/': '2026-11-12',
+    'vendeur-parti-trop-cher-reprendre-mandat/': '2026-11-12',
+    'prospecter-avec-le-dpe/': '2026-11-12',
+    'pv-assemblee-generale-gemini-notebook/': '2026-11-12',
 }
 # Capture d'un outil maison cité dans le guide : (fichier dans /img, largeur, hauteur, description, légende).
 # Elle est insérée après la première liste numérotée du guide (la méthode).
@@ -92,6 +99,7 @@ CAPTURES = {
     'ia-decouverte-acquereur/': ('vivre-ici-carte.webp', 1100, 648, "La carte Vivre ici : boulangerie, parc, supermarché et arrêt de bus autour de l'adresse, avec les cercles de 5, 10 et 15 minutes à pied.", "Academia Vivre ici · le quotidien autour de l'adresse"),
     'ia-visite-immobiliere/': ('radar-fiche.webp', 1100, 648, "La fiche d'un acquéreur de démonstration : sa recherche, les étapes biens idéaux, présentation, réponse, visites, et sa sélection de 3 biens dans le budget.", "Academia Radar Acheteur · la fiche d'un acquéreur de démonstration"),
     'ia-negociation-immobiliere/': ('acm-danger.webp', 1100, 301, "Le point marché : le bien est 5e sur 6 face à ses concurrents, aucun concurrent n'a baissé depuis le rendez-vous.", "Academia ACM · le point marché"),
+    'vendeur-parti-trop-cher-reprendre-mandat/': ('acm-suivi-prix.webp', 900, 248, "Le suivi d'un mandat exclusif : prix voulu par le vendeur, prix après le marché, prix signé aligné sur le marché (nom du vendeur masqué).", "Academia ACM · du prix voulu au prix signé"),
     'prospection-immobiliere-sans-pige/': ('dossier-dynamique.webp', 1100, 281, "Les graphiques du dossier : prix médian au m² et nombre de ventes par an depuis 2021.", "Academia Secteur · les graphiques d'un dossier d'adresse"),
 }
 MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
@@ -1087,3 +1095,217 @@ Format : un titre, 3 chiffres clés, 3 conseils, une signature avec [TON NOM], [
   ("Combien de temps dure un consentement&nbsp;?", "Un an au maximum, sans reconduction tacite, selon le décret du 23 juillet 2026. Au-delà, il faut le redemander."),
   ("Peut-on appeler un ancien client&nbsp;?", "Pour lui proposer vos services, seulement s'il a donné son accord. Le courrier reste possible, et l'e-mail aussi pour des services analogues à ceux qu'il a déjà utilisés, avec un lien pour se désinscrire."),
   ("Qu'est-ce que la formation apporte de plus&nbsp;?", "Un atelier sur votre secteur réel : baromètre, dossier DPE et formulaire de consentement construits en séance avec l'IA et nos outils, pour repartir avec une routine de prospection conforme.")])
+
+
+# ================================================================ Guides tirés des formations (novembre 2026)
+# Rédigés à partir de ce qui est dit en formation. Règles de rédaction : aucun nom de client, d'agence,
+# de notaire ou de concurrent ; aucun chiffre d'agence cliente ; toute règle de droit citée avec sa source.
+
+# ---------------------------------------------------------------- Guide : le vendeur parti plus cher ailleurs
+ecrire('vendeur-parti-trop-cher-reprendre-mandat/',
+ "Vendeur parti ailleurs : reprendre le mandat | Start Academia",
+ "Votre vendeur a signé chez un concurrent qui annonçait plus haut ? La méthode pour garder le lien, le rappeler chaque mois et reprendre le mandat au bon prix.",
+ "Vendeur parti plus cher ailleurs&nbsp;: comment reprendre le mandat.",
+ "Vous estimez un bien, un concurrent annonce 100&nbsp;000&nbsp;€ de plus, le vendeur signe chez lui. La plupart des conseillers tournent la page. C'est une erreur&nbsp;: trois à quatre mois plus tard, ce vendeur a besoin de quelqu'un qui a tenu le même discours depuis le début.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Vous estimez une maison entre 450&nbsp;000 et 480&nbsp;000&nbsp;€. Un confrère passe derrière vous et annonce entre 550&nbsp;000 et 580&nbsp;000&nbsp;€. Le vendeur signe avec lui.</p>
+    <p>Le réflexe est de ne plus rappeler&nbsp;: la frustration, l'ego. Vu du vendeur, le message est clair&nbsp;: ce conseiller souriant au deuxième rendez-vous ne s'intéressait qu'à son mandat. Vous venez de lui donner raison d'avoir choisi quelqu'un d'autre.</p>
+    <p class="preuve-texte">Ce n'est pas à vous que le vendeur a dit non, c'est à votre prix.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Annoncer la suite dès le deuxième rendez-vous.</strong> Dites-le avant de donner votre prix&nbsp;: «&nbsp;Vous allez recevoir des estimations plus hautes que la mienne. Si vous choisissez un autre professionnel, je ne le prendrai pas mal, et avec votre accord je continuerai à prendre de vos nouvelles.&nbsp;» Le vendeur sait qu'il garde le choix, la tension du rendez-vous retombe.</li>
+      <li><strong>Maîtriser le projet et le délai.</strong> Départ, décès, divorce, dettes&nbsp;: derrière un projet sérieux, il y a une échéance. Un vendeur qui n'a pas de délai en tête choisira toujours le prix le plus haut. C'est la question à creuser avant de parler de prix.</li>
+      <li><strong>Rappeler chaque mois, en position neutre.</strong> Vous n'êtes plus en concurrence, vous êtes un regard extérieur. Les questions suffisent&nbsp;: combien de visites, qu'en disent les visiteurs, y a-t-il eu des offres, qu'en pense votre conseiller, et vous, comment le vivez-vous&nbsp;? Au bout de deux ou trois mois, c'est souvent le vendeur qui prononce le mot «&nbsp;prix&nbsp;».</li>
+      <li><strong>Préparer chaque appel en quelques minutes.</strong> Un projet par vendeur dans ChatGPT ou Claude&nbsp;: vous y dictez le compte rendu du rendez-vous, puis chaque échange. Avant de rappeler, l'IA vous ressort ce qui a été dit, les questions à poser et ce qui a changé sur le marché.</li>
+      <li><strong>Tenir son prix au retour.</strong> Quand le vendeur revient, il propose une petite baisse. Vous réactualisez votre estimation avec <strong>Academia ACM</strong>, notre outil maison, et vous gardez le même discours qu'au premier jour&nbsp;: pas de magie, un prix stratégique, argumenté par les biens concurrents.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Des mandats récupérés</strong> sur des estimations que vous aviez déjà faites, sans nouvelle prospection.</li>
+      <li><strong>Un rapport de force inversé</strong>&nbsp;: le vendeur revient vers celui qui avait raison, au prix que vous défendiez.</li>
+      <li><strong>Un suivi qui tient dans la durée</strong>&nbsp;: l'historique de chaque vendeur est prêt avant l'appel, vous ne repartez jamais de zéro.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : préparer l'appel mensuel", '''Rôle : tu es mon assistant de conseiller immobilier.
+Contexte : j'ai estimé le bien de [PRÉNOM DU VENDEUR] le [DATE] entre [FOURCHETTE]. Il a signé avec un autre professionnel à [PRIX AFFICHÉ]. Il m'a autorisé à le rappeler. Son projet : [PROJET ET DÉLAI]. Mes notes des échanges précédents : [NOTES].
+Tâche : prépare mon appel de ce mois. Je ne critique jamais le confrère et je ne propose pas mes services : je prends des nouvelles et je pose des questions.
+Format : 1. Rappel en 3 lignes de ce que le vendeur m'a dit la dernière fois. 2. Cinq questions ouvertes, de la plus simple à la plus engageante. 3. Ce que je note après l'appel.''') + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Rappeler sans accord.</strong> Depuis le 11&nbsp;août 2026, appeler un particulier pour lui proposer ses services suppose son consentement, valable un an au plus. Demandez-le au deuxième rendez-vous et gardez-en la trace. <a class="lien-texte" href="/prospection-immobiliere-sans-pige/">Notre guide sur la prospection sans pige</a></li>
+      <li><strong>Critiquer le confrère.</strong> Le dénigrement se retourne contre vous. Posez des questions, laissez le vendeur conclure.</li>
+      <li><strong>Pousser à rompre une exclusivité.</strong> Un mandat exclusif ne se dénonce qu'après trois mois, avec un préavis de quinze jours par lettre recommandée. Vous ne signez rien tant que l'ancien mandat n'est pas régulièrement résilié.</li>
+      <li><strong>Baisser son estimation pour signer.</strong> Si vous cédez au retour du vendeur, vous perdez ce qui vous a fait revenir&nbsp;: la cohérence.</li>
+      <li><strong>Laisser l'IA décider du prix.</strong> Elle prépare l'appel et met en forme l'analyse. L'estimation reste la vôtre.</li>
+    </ul>
+  </div>
+''' + formation_bloc("Le deuxième rendez-vous, l'annonce du prix et le suivi des vendeurs non signés sont travaillés dans nos formations, en jeux de rôle et sur vos propres dossiers, avec Academia ACM pour suivre la position d'un bien face à ses concurrents.") + '\n' + GARANTIES,
+ [("Faut-il rappeler un vendeur qui a signé ailleurs&nbsp;?", "Oui, s'il vous y a autorisé. Il vous a fait venir pour une estimation : il vous connaît et il a vu votre travail. Un appel par mois, sans rien demander, entretient ce lien."),
+  ("Au bout de combien de temps un vendeur revient-il&nbsp;?", "Souvent après trois à quatre mois sans offre. C'est le moment où les visites se raréfient et où le professionnel choisi commence à parler de baisse de prix."),
+  ("Que dire à un vendeur qui dit ne pas être pressé&nbsp;?", "Lui faire préciser son projet et son échéance. Sans délai clair, il n'a aucune raison de se placer au prix du marché, et c'est normal."),
+  ("Comment éviter de perdre le mandat au deuxième rendez-vous&nbsp;?", "En expliquant d'entrée le déroulé du rendez-vous et votre méthode d'estimation, en le prévenant des estimations plus hautes qu'il recevra, et en lui disant qu'il garde le choix.")])
+
+# ---------------------------------------------------------------- Guide : prospecter avec le DPE
+ecrire('prospecter-avec-le-dpe/',
+ "Prospecter avec le DPE : la réforme 2027 | Start Academia",
+ "Le calcul du DPE change encore au 1er janvier 2027. Comment apporter leur nouvelle étiquette aux propriétaires de votre secteur, avec l'IA et sans démarchage.",
+ "Prospecter avec le DPE&nbsp;: la réforme de 2027 comme motif de contact.",
+ "Le 1<sup>er</sup>&nbsp;janvier 2027, des logements chauffés à l'électricité gagneront une classe sans travaux. La plupart de leurs propriétaires ne le sauront pas. Leur apporter l'information est un motif de contact utile, légitime et daté.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>Un flyer «&nbsp;estimation gratuite&nbsp;» ne dit rien au propriétaire qui le reçoit. «&nbsp;Votre étiquette énergie vient de passer de E à D, voici l'attestation officielle&nbsp;» lui apprend quelque chose sur son bien, et ne lui demande rien en retour.</p>
+    <p class="preuve-texte">Une prospection intéressante, pas une prospection intéressée.</p>
+  </div>
+  <div class="bloc">
+    <h2>Ce qui change, et quand</h2>
+    <ul class="points">
+      <li><strong>Depuis le 1<sup>er</sup>&nbsp;janvier 2026</strong>, le coefficient de conversion de l'électricité utilisé dans le calcul du DPE est passé de 2,3 à 1,9.</li>
+      <li><strong>Au 1<sup>er</sup>&nbsp;janvier 2027</strong>, il passera de 1,9 à 1,7 (arrêté du 19&nbsp;août 2026).</li>
+      <li><strong>Pas de nouvelle visite.</strong> Le DPE existant reste valable dix ans. Si l'étiquette s'améliore, une attestation gratuite se télécharge sur l'Observatoire DPE-Audit de l'ADEME, à partir du numéro du diagnostic.</li>
+      <li><strong>Rien d'automatique.</strong> L'amélioration dépend du logement, et aucune étiquette ne peut être dégradée par ce changement.</li>
+    </ul>
+    <p>Sources&nbsp;: <a class="lien-texte" href="https://www.service-public.gouv.fr/particuliers/actualites/A18446" rel="noopener">Service-Public.fr, nouveau calcul du DPE</a> &nbsp; <a class="lien-texte" href="https://www.economie.gouv.fr/actualites/un-nouveau-dpe-au-1er-janvier-2026-pour-favoriser-le-chauffage-electrique" rel="noopener">ministère de l'Économie, DPE 2026</a></p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Commencer par vos mandats.</strong> Vérifiez l'étiquette de chaque bien en vente ou en location dans votre portefeuille. Si un confrère apporte l'attestation à votre vendeur avant vous, le signal est mauvais.</li>
+      <li><strong>Repérer les logements du secteur.</strong> Avec <strong>Academia Secteur</strong>, notre outil maison, vous voyez autour d'une adresse les DPE récents et les logements susceptibles de gagner une classe. À la main, compter une demi-journée pour une vingtaine de biens.</li>
+      <li><strong>Apporter l'attestation.</strong> En main propre ou par courrier&nbsp;: «&nbsp;Votre étiquette a changé, je vous l'ai imprimée. Si un jour vous avez un projet, vous savez où me trouver.&nbsp;»</li>
+      <li><strong>Aller plus loin avec un dossier.</strong> À partir des données du diagnostic, l'IA rédige un dossier clair&nbsp;: ce qui pèse sur la note, les travaux qui la feraient évoluer, un ordre de grandeur des coûts. Mis en page dans Gamma, il se laisse au propriétaire, qui peut le transmettre à un acquéreur.</li>
+      <li><strong>Préparer janvier dès maintenant.</strong> Le 1<sup>er</sup>&nbsp;janvier 2027 ouvre une fenêtre de quelques semaines. Listez les adresses concernées en décembre, rédigez le courrier, et soyez le premier dans les boîtes aux lettres.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Un motif de contact daté</strong>, que tout propriétaire concerné a intérêt à recevoir.</li>
+      <li><strong>Quelques minutes par adresse</strong> avec l'outil, au lieu d'une recherche diagnostic par diagnostic.</li>
+      <li><strong>Une image d'expert du quartier</strong>, pas de chasseur de mandats.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : le dossier « comprendre mon DPE »", '''Rôle : tu es un conseiller immobilier pédagogue. Tu n'es pas diagnostiqueur et tu le dis.
+Contexte : voici les données du DPE du logement situé [QUARTIER, SANS ADRESSE NI NOM] : [COLLER LES DONNÉES DU DIAGNOSTIC]. Étiquette actuelle : [LETTRE].
+Tâche : rédige un dossier de 2 pages pour le propriétaire. Explique ce qui pèse le plus sur la note, les travaux qui pourraient la faire évoluer et un ordre de grandeur de leur coût, à faire confirmer par des devis. Ne promets aucune étiquette.
+Format : 1. Votre DPE en clair (5 lignes). 2. Les 3 postes qui pèsent le plus. 3. Les pistes de travaux, de la plus simple à la plus lourde. 4. Une mention : « Document d'information, seul un diagnostiqueur certifié peut établir un DPE. » 5. Signature : [TON NOM], [TON AGENCE], [TA CARTE PRO].''') + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Annoncer une étiquette que l'attestation ne confirme pas.</strong> Seule l'attestation officielle de l'ADEME fait foi. Dans une annonce, affichez l'étiquette du document que vous avez en main.</li>
+      <li><strong>Se substituer au diagnostiqueur.</strong> Le dossier de l'IA est une explication, pas un diagnostic. Écrivez-le noir sur blanc.</li>
+      <li><strong>Téléphoner au propriétaire.</strong> Sans son accord, l'appel de prospection est interdit depuis le 11&nbsp;août 2026. Le courrier et la remise en main propre restent possibles. <a class="lien-texte" href="/prospection-immobiliere-sans-pige/">Notre guide sur la prospection sans pige</a></li>
+      <li><strong>Mettre des noms dans l'IA.</strong> Les données du diagnostic suffisent. Pas de nom ni d'adresse complète dans le prompt.</li>
+      <li><strong>Confondre les deux réformes de 2027.</strong> L'une modifie le calcul, donc l'étiquette. L'autre ajoute des informations au document, sans changer la lettre.</li>
+    </ul>
+  </div>
+''' + formation_bloc("La prospection par le DPE est travaillée dans nos formations sur votre propre secteur&nbsp;: repérage des adresses avec Academia Secteur, courrier, dossier et calendrier de janvier.") + '\n' + GARANTIES,
+ [("Qu'est-ce qui change pour le DPE au 1er janvier 2027&nbsp;?", "Le coefficient de conversion de l'électricité passe de 1,9 à 1,7. Certains logements chauffés à l'électricité gagnent une classe, sans travaux ni nouvelle visite."),
+  ("Faut-il refaire le DPE&nbsp;?", "Non. Le DPE reste valable dix ans. Si l'étiquette s'améliore, une attestation gratuite se télécharge sur l'Observatoire DPE-Audit de l'ADEME avec le numéro du diagnostic."),
+  ("Un agent immobilier peut-il télécharger l'attestation d'un bien&nbsp;?", "L'attestation se génère à partir du numéro du DPE. Pour vos mandats, vous l'avez au dossier. Pour un propriétaire que vous ne connaissez pas, le plus simple est de lui indiquer la démarche, ou de lui remettre le document en lui expliquant d'où il vient."),
+  ("L'IA peut-elle recalculer un DPE&nbsp;?", "Non. Elle explique un diagnostic existant et met en forme des pistes de travaux. Seul un diagnostiqueur certifié établit un DPE.")])
+
+# ---------------------------------------------------------------- Guide : PV d'AG avec Gemini Notebook (ex-NotebookLM)
+ecrire('pv-assemblee-generale-gemini-notebook/',
+ "PV d'AG : les lire avec Gemini Notebook | Start Academia",
+ "Trois ans de PV d'assemblée générale, un règlement de copropriété scanné : comment en tirer une synthèse vérifiable pour l'acquéreur avec Gemini Notebook.",
+ "Lire trois ans de PV d'AG avec Gemini Notebook, l'ancien NotebookLM.",
+ "Travaux votés, fonds travaux, charges, procédures en cours&nbsp;: les réponses sont dans les procès-verbaux d'assemblée générale, que personne ne lit en entier. L'outil gratuit de Google les lit pour vous, et vous montre où il a trouvé chaque réponse.",
+ '''  <div class="bloc">
+    <h2>Le cas en agence</h2>
+    <p>En visite, l'acquéreur demande s'il y a des travaux votés dans la copropriété. Vous avez trois PV d'assemblée générale, un règlement de 1972 scanné de travers et les diagnostics. Soit vous répondez «&nbsp;je vérifie et je reviens vers vous&nbsp;», soit vous avez la réponse sur votre téléphone, avec la page du PV qui la justifie.</p>
+  </div>
+  <div class="bloc">
+    <h2>Pourquoi cet outil plutôt que ChatGPT</h2>
+    <p>Gemini Notebook, qui s'appelait NotebookLM jusqu'à l'été 2026, ne répond qu'à partir des documents que vous lui donnez. Chaque réponse porte un numéro&nbsp;: vous cliquez, vous voyez le passage exact du document. Le contrôle prend quelques secondes, au lieu de relire tout le dossier.</p>
+    <p>La version gratuite accepte 50&nbsp;sources par dossier, ce qui couvre largement un bien.</p>
+  </div>
+  <div class="bloc">
+    <h2>La méthode classique, boostée à l'IA</h2>
+    <ol class="points numerotes">
+      <li><strong>Un dossier par bien.</strong> Dès la prise de mandat, vous déposez les trois derniers PV d'assemblée générale, le règlement de copropriété, les diagnostics et l'avis de taxe foncière.</li>
+      <li><strong>Poser les questions de l'acquéreur avant lui.</strong> Travaux votés et restant à payer, fonds travaux, évolution des charges, procédures en cours, ce qui est partie commune ou privative.</li>
+      <li><strong>Vérifier chaque réponse.</strong> Un clic sur le numéro affiche la source. Si la réponse ne renvoie à aucun passage, vous ne l'utilisez pas.</li>
+      <li><strong>Restituer en clair.</strong> Une synthèse d'une page, une infographie, ou un court résumé audio que l'acquéreur écoute chez lui.</li>
+      <li><strong>Parler la langue du client.</strong> Pour un acquéreur étranger, le même résumé se génère en anglais, à partir des documents en français.</li>
+    </ol>
+  </div>
+  <div class="bloc">
+    <h2>Ce que vous gagnez</h2>
+    <ul class="points">
+      <li><strong>Une réponse immédiate et sourcée</strong> aux questions sur la copropriété, en visite comme au téléphone.</li>
+      <li><strong>Un dossier lisible</strong> à remettre à l'acquéreur, au lieu d'une pile de PDF que personne n'ouvre.</li>
+      <li><strong>Un argument de mandat</strong>&nbsp;: montrer au vendeur comment son bien sera présenté.</li>
+    </ul>
+  </div>
+''' + prompt_bloc("Prompt gratuit : la synthèse copropriété pour l'acquéreur", '''Rôle : tu es l'assistant d'un conseiller immobilier. Tu réponds uniquement à partir des documents fournis et tu indiques la source de chaque information.
+Contexte : les documents concernent le lot [NUMÉRO DE LOT] d'une copropriété. Lecteur : un acquéreur qui n'a jamais lu un PV d'assemblée générale.
+Tâche : rédige une synthèse de la copropriété sur les trois dernières années. Si une information ne figure pas dans les documents, écris « non précisé dans les documents » au lieu de supposer.
+Format : 1. La copropriété en 5 lignes (nombre de lots, syndic, budget annuel). 2. Travaux votés : nature, montant, date, part restant à payer. 3. Fonds travaux et évolution des charges. 4. Procédures et points de vigilance. 5. Les 3 questions à poser au syndic.''') + '''
+  <div class="bloc">
+    <h2>Erreurs fréquentes et règles à respecter</h2>
+    <ul class="points">
+      <li><strong>Croire que l'outil ne se trompe jamais.</strong> Il limite ses réponses à vos documents, ce qui réduit fortement les erreurs sans les supprimer. Un scan illisible ou un PV manquant donnent une réponse fausse ou incomplète. Vous vérifiez toujours la source.</li>
+      <li><strong>Remplacer les documents par la synthèse.</strong> La synthèse aide à comprendre. Elle ne dispense jamais de remettre à l'acquéreur les documents que la loi impose d'annexer à la promesse de vente.</li>
+      <li><strong>Laisser des données personnelles.</strong> Un PV cite des copropriétaires, parfois leurs impayés. La synthèse remise à l'acquéreur ne nomme personne.</li>
+      <li><strong>Diffuser un PV à des tiers.</strong> Les documents confiés par votre vendeur servent à vendre son bien, pas à démarcher l'immeuble.</li>
+      <li><strong>Garder les défauts pour soi.</strong> Si la synthèse révèle une procédure ou de gros travaux, l'acquéreur doit le savoir. Votre devoir de conseil passe avant la vente.</li>
+    </ul>
+  </div>
+''' + formation_bloc("L'analyse des documents de copropriété est travaillée dans nos formations IA sur un dossier réel de votre agence&nbsp;: questions à poser, vérification des sources, synthèse et résumé audio pour l'acquéreur.") + '\n' + GARANTIES,
+ [("NotebookLM existe-t-il encore&nbsp;?", "Oui, sous un autre nom. L'outil de Google s'appelle Gemini Notebook depuis l'été 2026. Le fonctionnement est le même : il répond à partir de vos documents et cite ses sources."),
+  ("Est-ce gratuit&nbsp;?", "La version gratuite suffit pour un usage en agence : 50 sources par dossier et quelques résumés audio par jour. Un compte Google est nécessaire."),
+  ("Peut-on y déposer les documents d'un client&nbsp;?", "Oui pour les documents du bien à vendre, dans le cadre de votre mandat. Informez votre vendeur des outils que vous utilisez et ne déposez pas de pièces d'identité ni de documents sans rapport avec la vente."),
+  ("Combien de temps faut-il pour un dossier&nbsp;?", "Le dépôt des documents prend quelques minutes. Le plus long reste votre relecture : chaque réponse utilisée doit être vérifiée dans sa source.")])
+
+
+# ================================================================ Rubrique Guides (/guides/)
+# Liste tous les guides, rangés par étape du métier. Pour ajouter un guide : l'écrire avec ecrire() plus haut,
+# l'inscrire dans GUIDES (date) et dans une rubrique ci-dessous.
+RUBRIQUES = [
+    ('Prospection', ['prospecter-avec-le-dpe/', 'prospection-immobiliere-sans-pige/', 'ia-prospection-immobiliere/']),
+    ('Estimation et prix', ['vendeur-parti-trop-cher-reprendre-mandat/', 'ia-estimation-immobiliere/']),
+    ('Mandat et annonce', ['ia-mandat-exclusif/', 'ia-annonce-immobiliere/']),
+    ('Acquéreurs', ['pv-assemblee-generale-gemini-notebook/', 'ia-decouverte-acquereur/', 'ia-visite-immobiliere/', 'ia-negociation-immobiliere/']),
+    ('Financement', ['financement-formation-auto-entrepreneur/']),
+]
+
+
+def rubrique_guides():
+    classes = [c for _, liste in RUBRIQUES for c in liste]
+    oublis = sorted(set(GUIDES) - set(classes))
+    if oublis or len(classes) != len(set(classes)):
+        raise SystemExit(f'seo_pages : guides absents ou en double dans RUBRIQUES : {oublis}')
+    sections, elements = [], []
+    for nom, liste in RUBRIQUES:
+        cartes = ''
+        for c in liste:
+            titre, desc = PAGES[c]
+            cartes += (f'\n      <a class="guide-carte" href="/{c}"><span class="gc-etape">{nom}</span><strong>{titre}</strong>'
+                       f'<span class="gc-desc">{desc}</span><span class="gc-date">Mis à jour le <time datetime="{GUIDES[c]}">{date_fr(GUIDES[c])}</time></span></a>')
+            elements.append({"@type": "ListItem", "position": len(elements) + 1, "name": h.unescape(titre).replace('\xa0', ' '), "url": f"{SITE}/{c}"})
+        sections.append(f'  <section class="guides-rubrique" aria-label="{nom}">\n    <h2>{nom}</h2>\n    <div class="guides-grille">{cartes}\n    </div>\n  </section>')
+    chemin = 'guides/'
+    desc = "Les guides pratiques de Start Academia pour les agents immobiliers : prospection, estimation, mandat, acquéreurs. Méthode, prompt gratuit et règles à respecter."
+    page(chemin, 'Guides pratiques IA et immobilier | Start Academia', desc, 'Les guides.',
+         f"{len(classes)} guides tirés de nos formations, rangés par étape du métier. Chacun part d'un cas d'agence, donne la méthode, un prompt prêt à copier et les règles à respecter.",
+         '\n'.join(sections))
+    graph = [
+        {"@type": "CollectionPage", "@id": f"{SITE}/{chemin}", "url": f"{SITE}/{chemin}", "name": "Guides pratiques IA et immobilier",
+         "description": desc, "inLanguage": "fr-FR", "isPartOf": {"@id": f"{SITE}/#site"}, "about": {"@id": f"{SITE}/#organisation"}},
+        {"@type": "ItemList", "itemListElement": elements},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
+            {"@type": "ListItem", "position": 2, "name": "Guides", "item": f"{SITE}/{chemin}"}]},
+    ]
+    p = racine / chemin / 'index.html'
+    p.write_text(p.read_text().replace('</head>', '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + '</script>\n</head>', 1))
+    print(chemin, len(classes), 'guides')
+
+
+rubrique_guides()
