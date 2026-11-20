@@ -4,10 +4,10 @@
       {
         "annee": 2026,
         "apprenantsEnCours": 0,
-        "apprenantsFormes": 179,
+        "apprenantsFormes": 178,
         "heuresFormation": 1843,
-        "heuresStagiaires": 7495,
-        "inscriptions": 205,
+        "heuresStagiaires": 7484,
+        "inscriptions": 204,
         "satisfaction": {
           "nbReponses": 206,
           "note5": 5,
@@ -46,10 +46,10 @@
     ],
     "total": {
       "apprenantsEnCours": 0,
-      "apprenantsFormes": 274,
+      "apprenantsFormes": 273,
       "heuresFormation": 3578,
-      "heuresStagiaires": 14280,
-      "inscriptions": 360,
+      "heuresStagiaires": 14269,
+      "inscriptions": 359,
       "satisfaction": {
         "nbReponses": 361,
         "note5": 5,
@@ -1374,10 +1374,10 @@
       "dureeHeures": 11,
       "indicateurs": {
         "apprenantsEnCours": 0,
-        "apprenantsFormes": 9,
+        "apprenantsFormes": 8,
         "heuresFormation": 11,
-        "heuresStagiaires": 99,
-        "inscriptions": 9,
+        "heuresStagiaires": 88,
+        "inscriptions": 8,
         "satisfaction": {
           "nbReponses": 9,
           "note5": 5,
